@@ -3,12 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import {RouterModule} from "@angular/router";
-import { NavbarModule } from "@ionhour/ui";
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, RouterModule, NavbarModule],
+  imports: [
+    BrowserModule, 
+    BrowserAnimationsModule, 
+    AppRoutingModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
