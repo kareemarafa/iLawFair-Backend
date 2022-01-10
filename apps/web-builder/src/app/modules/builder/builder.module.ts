@@ -11,10 +11,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NavbarModule } from '@ionhour/ui';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { ElementListComponent } from './components/element-list/element-list.component';
-
+import { ElementListComponent, SubElementListComponent } from './components';
 @NgModule({
-  declarations: [LayoutComponent, ElementListComponent],
+  declarations: [
+    LayoutComponent,
+    ElementListComponent,
+    SubElementListComponent,
+  ],
   imports: [
     CommonModule,
     BuilderRoutingModule,

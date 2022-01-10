@@ -1,0 +1,12 @@
+<div class="sub-element-list">
+  <h3>{{ elementService.currentElement$ | async }}</h3>
+  <ng-container *ngFor="let subComponent of subComponents">
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="pushComponent(subComponent.componentObject)"
+    >
+      {{ subComponent.componentName }}
+    </button>
+  </ng-container>
+</div>

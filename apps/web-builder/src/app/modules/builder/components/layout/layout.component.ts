@@ -7,8 +7,8 @@ import {
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { NavbarAComponent, NavbarBComponent } from '@ionhour/ui';
 import { ComponentItem } from '../../../../model';
+import { ElementsService } from '../../services';
 
 @Component({
   selector: 'ionhour-layout',
@@ -23,8 +23,12 @@ export class LayoutComponent {
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
-    private breakpointObserver: BreakpointObserver
-  ) {}
+    private breakpointObserver: BreakpointObserver,
+    private elementsService: ElementsService
+  ) {
+    const preview = elementsService.previewElements$;
+    preview.subscribe((component) => this.add(component));
+  }
 
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
@@ -32,14 +36,6 @@ export class LayoutComponent {
       map((result) => result.matches),
       shareReplay()
     );
-
-  get navComponent() {
-    return NavbarAComponent;
-  }
-
-  get navBComponent() {
-    return NavbarBComponent;
-  }
 
   add(component: any) {
     this.container.clear();

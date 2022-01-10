@@ -1,15 +1,16 @@
 import { NavbarBComponent } from './lib/navbar/components';
+import { ModuleInterface } from '@ionhour/interfaces';
 
 export * from './lib/navbar/navbar.module';
 export * from './lib/navbar/components';
 
-export const builderElements = [
+export const builderElements: ModuleInterface[] = [
   {
     moduleName: 'menu',
     components: [
       {
         componentName: `NavbarBComponent`,
-        component: NavbarBComponent,
+        componentObject: NavbarBComponent,
       },
     ],
   },

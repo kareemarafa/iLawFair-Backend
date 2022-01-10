@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ionhour/interfaces": ["libs/interfaces/src/index.ts"],
       "@ionhour/ui": ["libs/ui/src/index.ts"]
     }
   },

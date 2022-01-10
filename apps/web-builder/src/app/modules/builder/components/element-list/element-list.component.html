@@ -1,9 +1,13 @@
 <div class="element-list">
   <mat-nav-list>
     <ng-container *ngFor="let element of builderElements">
-      <mat-slide-toggle labelPosition="before">{{
-        element.moduleName
-      }}</mat-slide-toggle>
+      <mat-slide-toggle
+        labelPosition="before"
+        [name]="element.moduleName"
+        (change)="setCurrentElement($event)"
+      >
+        {{ element.moduleName }}
+      </mat-slide-toggle>
     </ng-container>
   </mat-nav-list>
 </div>
