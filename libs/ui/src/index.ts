@@ -1,5 +1,7 @@
 import { NavbarAComponent, NavbarBComponent } from './lib/navbar/components';
 import { ModuleInterface } from '@ionhour/interfaces';
+import { HeaderAComponent, HeaderBComponent, HeaderCComponent } from './lib/header/components';
+import { AboutAComponent } from './lib/about/components';
 
 export * from './lib/navbar/navbar.module';
 export * from './lib/navbar/components';
@@ -20,11 +22,29 @@ export const builderElements: ModuleInterface[] = [
   },
   {
     moduleName: 'header',
-    components: [],
+    components: [
+      {
+        componentName: `HeaderAComponent`,
+        componentObject: HeaderAComponent,
+      },
+      {
+        componentName: `HeaderBComponent`,
+        componentObject: HeaderBComponent,
+      },
+      {
+        componentName: `HeaderCComponent`,
+        componentObject: HeaderCComponent,
+      }
+    ],
   },
   {
     moduleName: 'about',
-    components: [],
+    components: [
+      {
+        componentName: `AboutAComponent`,
+        componentObject: AboutAComponent
+      }
+    ],
   },
   {
     moduleName: 'services',
