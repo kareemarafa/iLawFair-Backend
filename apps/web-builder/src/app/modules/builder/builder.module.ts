@@ -9,11 +9,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { NavbarModule } from "@ionhour/ui";
-
+import { NavbarModule } from '@ionhour/ui';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ElementListComponent } from './components/element-list/element-list.component';
 
 @NgModule({
-  declarations: [LayoutComponent],
+  declarations: [LayoutComponent, ElementListComponent],
   imports: [
     CommonModule,
     BuilderRoutingModule,
@@ -23,7 +24,9 @@ import { NavbarModule } from "@ionhour/ui";
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    NavbarModule
-  ]
+
+    NavbarModule,
+    MatSlideToggleModule,
+  ],
 })
-export class BuilderModule { }
+export class BuilderModule {}

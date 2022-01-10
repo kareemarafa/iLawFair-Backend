@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar-b.component.scss'],
 })
 export class NavbarBComponent {
-  name = 'navber component';
+  name = 'navbar component';
 
   test() {
     this.name = 'sami';
@@ -14,14 +14,13 @@ export class NavbarBComponent {
   }
 
   nativeHtml(data: any) {
-    const html = `
+    return `
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">${data}</a>
         </div>
       </nav>
     `;
-    return html;
   }
 
   post() {

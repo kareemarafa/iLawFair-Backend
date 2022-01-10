@@ -3,15 +3,12 @@
 }
 
 .sidenav {
-  width: 200px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-right: 2px solid var(--main-color6);
 }
 
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+.bg-custom {
+  box-shadow: 0 0 20px 3px #29a5ff;
+  background: linear-gradient(90deg, #1645bf 0%, #20bdff 100%);
 }

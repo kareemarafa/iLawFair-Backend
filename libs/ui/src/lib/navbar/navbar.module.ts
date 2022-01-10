@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarAComponent } from './components';
-import { NavbarBComponent } from './components/navbar-b/navbar-b.component';
+import { NavbarAComponent, NavbarBComponent } from './components';
 
 @NgModule({
   declarations: [NavbarAComponent, NavbarBComponent],
