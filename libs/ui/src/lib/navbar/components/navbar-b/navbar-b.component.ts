@@ -10,7 +10,6 @@ export class NavbarBComponent {
 
   test() {
     this.name = 'sami';
-    console.log(this.nativeHtml(this.name));
   }
 
   nativeHtml(data: any) {
