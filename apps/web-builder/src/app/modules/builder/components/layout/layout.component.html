@@ -27,6 +27,10 @@
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
-    <ng-container #container></ng-container>
+    <div
+      cdkDropList
+      (cdkDropListDropped)="drop($event)">
+        <ng-container #container></ng-container>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

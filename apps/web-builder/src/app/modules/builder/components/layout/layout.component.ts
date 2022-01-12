@@ -1,6 +1,7 @@
 import {
   Component,
   ComponentFactoryResolver,
+  ComponentRef,
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
@@ -9,6 +10,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { ComponentItem } from '../../../../model';
 import { ElementsService } from '../../services';
+import {CdkDragDrop, moveItemInArray, CdkDrag} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'ionhour-layout',
@@ -17,6 +19,7 @@ import { ElementsService } from '../../services';
 })
 export class LayoutComponent {
   components: ComponentItem[] = [];
+  componentsRef: ComponentRef<any>[] = [];
 
   @ViewChild('container', { read: ViewContainerRef })
   container!: ViewContainerRef;
@@ -39,6 +42,8 @@ export class LayoutComponent {
 
   add(component: any) {
     this.container.clear();
+    this.componentsRef = []
+
     this.components.push({ component });
     for (const component of this.components) {
       this.createComponent(component.component);
@@ -51,5 +56,12 @@ export class LayoutComponent {
     const componentRef = this.container.createComponent(
       dynamicComponentFactory
     );
+    this.componentsRef.push(componentRef)
   }
+
+  drop(event: CdkDragDrop<any>) {
+    this.container.move(this.componentsRef[event.previousIndex].hostView, event.currentIndex);
+    moveItemInArray(this.componentsRef, event.previousIndex, event.currentIndex);
+  }
+
 }

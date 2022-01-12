@@ -9,9 +9,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { NavbarModule } from '@ionhour/ui';
+import { AboutModule, HeaderModule, NavbarModule } from '@ionhour/ui';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ElementListComponent, SubElementListComponent } from './components';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+
 @NgModule({
   declarations: [
     LayoutComponent,
@@ -27,9 +29,11 @@ import { ElementListComponent, SubElementListComponent } from './components';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-
     NavbarModule,
+    HeaderModule,
+    AboutModule,
     MatSlideToggleModule,
+    DragDropModule
   ],
 })
 export class BuilderModule {}

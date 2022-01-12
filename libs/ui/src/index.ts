@@ -4,6 +4,8 @@ import { HeaderAComponent, HeaderBComponent, HeaderCComponent } from './lib/head
 import { AboutAComponent } from './lib/about/components';
 
 export * from './lib/navbar/navbar.module';
+export * from './lib/header/header.module';
+export * from './lib/about/about.module';
 export * from './lib/navbar/components';
 
 export const builderElements: ModuleInterface[] = [
