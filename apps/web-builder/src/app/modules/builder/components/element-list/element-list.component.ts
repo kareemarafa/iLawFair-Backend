@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { builderElements } from '@ionhour/ui'
-import { ElementsService } from '../../services'
+import { ElementsService } from '@ionhour/core'
 import { MatSlideToggleChange } from '@angular/material/slide-toggle/slide-toggle'
 import { ModuleInterface } from '@ionhour/interfaces'
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'

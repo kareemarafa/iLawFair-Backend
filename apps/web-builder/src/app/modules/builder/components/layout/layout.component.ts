@@ -1,9 +1,8 @@
-import { Component, ComponentFactoryResolver, ComponentRef, ViewChild, ViewContainerRef } from '@angular/core'
+import { Component, ComponentFactoryResolver, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
 import { Observable } from 'rxjs'
 import { map, shareReplay } from 'rxjs/operators'
-import { ComponentItem } from '../../../../model'
-import { ElementsService } from '../../services'
+import { ComponentItem, ElementsService } from '@ionhour/core'
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
 
@@ -13,32 +12,50 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnInit {
   components: ComponentItem[] = []
   componentsRef: ComponentRef<any>[] = []
 
   @ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef
-
-  constructor(private componentFactoryResolver: ComponentFactoryResolver, private breakpointObserver: BreakpointObserver, private elementsService: ElementsService) {
-    const preview = elementsService.previewElements$
-    preview.pipe(untilDestroyed(this)).subscribe((component) => this.add(component))
-  }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map((result) => result.matches),
     shareReplay()
   )
 
-  add(component: any) {
+  constructor(private breakpointObserver: BreakpointObserver, private elementsService: ElementsService) {
+    const preview = elementsService.previewElements$
+    preview.pipe(untilDestroyed(this)).subscribe((component) => this.add(component))
+  }
+
+  ngOnInit(): void {
+    this.getComponents()
+  }
+
+  getComponents() {
+    this.elementsService.components$.pipe(untilDestroyed(this)).subscribe((components: any) => {
+      console.log(components)
+      this.components = components
+      this.viewComponent()
+    })
+  }
+
+  add(component?: any) {
+    this.elementsService.add(component)
+    this.viewComponent()
+  }
+
+  viewComponent() {
+    // Reset contanierRef & componentsRef
     this.container.clear()
     this.componentsRef = []
-    this.components.push({ componentClass: component })
+
     for (const component of this.components) {
-      this.localCreateComponent(component.componentClass)
+      this.createComponent(component.componentClass)
     }
   }
 
-  localCreateComponent(component: any): void {
+  createComponent(component: any): void {
     const componentRef = this.container.createComponent(component)
     this.componentsRef.push(componentRef)
   }
