@@ -1,11 +1,13 @@
-import { Component, ComponentFactoryResolver, ComponentRef, ViewChild, ViewContainerRef } from '@angular/core'
+import { Component, ComponentFactoryResolver, ComponentRef, OnDestroy, ViewChild, ViewContainerRef } from '@angular/core'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
 import { Observable } from 'rxjs'
 import { map, shareReplay } from 'rxjs/operators'
 import { ComponentItem } from '../../../../model'
 import { ElementsService } from '../../services'
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
 
+@UntilDestroy()
 @Component({
   selector: 'ionhour-layout',
   templateUrl: './layout.component.html',
@@ -20,7 +22,7 @@ export class LayoutComponent {
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver, private breakpointObserver: BreakpointObserver, private elementsService: ElementsService) {
     const preview = elementsService.previewElements$
-    preview.subscribe((component) => this.add(component))
+    preview.pipe(untilDestroyed(this)).subscribe((component) => this.add(component))
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
