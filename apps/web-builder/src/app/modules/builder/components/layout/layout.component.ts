@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, ComponentRef, OnDestroy, ViewChild, ViewContainerRef } from '@angular/core'
+import { Component, ComponentFactoryResolver, ComponentRef, ViewChild, ViewContainerRef } from '@angular/core'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
 import { Observable } from 'rxjs'
 import { map, shareReplay } from 'rxjs/operators'
@@ -17,8 +17,7 @@ export class LayoutComponent {
   components: ComponentItem[] = []
   componentsRef: ComponentRef<any>[] = []
 
-  @ViewChild('container', { read: ViewContainerRef })
-  container!: ViewContainerRef
+  @ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver, private breakpointObserver: BreakpointObserver, private elementsService: ElementsService) {
     const preview = elementsService.previewElements$
@@ -35,11 +34,11 @@ export class LayoutComponent {
     this.componentsRef = []
     this.components.push({ componentClass: component })
     for (const component of this.components) {
-      this.createComponent(component.componentClass)
+      this.localCreateComponent(component.componentClass)
     }
   }
 
-  createComponent(component: any): void {
+  localCreateComponent(component: any): void {
     const componentRef = this.container.createComponent(component)
     this.componentsRef.push(componentRef)
   }
