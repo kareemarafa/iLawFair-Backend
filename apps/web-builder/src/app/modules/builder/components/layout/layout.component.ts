@@ -4,7 +4,7 @@ import { Observable } from 'rxjs'
 import { map, shareReplay } from 'rxjs/operators'
 import { ComponentItem } from '../../../../model'
 import { ElementsService } from '../../services'
-import { CdkDragDrop, moveItemInArray, CdkDrag } from '@angular/cdk/drag-drop'
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
 
 @Component({
   selector: 'ionhour-layout',
@@ -31,16 +31,14 @@ export class LayoutComponent {
   add(component: any) {
     this.container.clear()
     this.componentsRef = []
-
-    this.components.push({ component })
+    this.components.push({ componentClass: component })
     for (const component of this.components) {
-      this.createComponent(component.component)
+      this.createComponent(component.componentClass)
     }
   }
 
   createComponent(component: any): void {
-    const dynamicComponentFactory = this.componentFactoryResolver.resolveComponentFactory(component)
-    const componentRef = this.container.createComponent(dynamicComponentFactory)
+    const componentRef = this.container.createComponent(component)
     this.componentsRef.push(componentRef)
   }
 

@@ -21,8 +21,12 @@
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div cdkDropList (cdkDropListDropped)="drop($event)">
-      <ng-container #container></ng-container>
+    <div class="card m-3">
+      <div class="card-body p-2">
+        <div cdkDropList (cdkDropListDropped)="drop($event)">
+          <ng-container #container></ng-container>
+        </div>
+      </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
