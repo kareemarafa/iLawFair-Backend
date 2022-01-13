@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { AboutAComponent } from './components/about-a/about-a.component'
-import { DragDropModule } from '@angular/cdk/drag-drop'
+import { CoreModule } from '@ionhour/core'
+import { AboutAComponent } from './components'
 
 @NgModule({
   declarations: [AboutAComponent],
-  imports: [CommonModule, DragDropModule]
+  imports: [CommonModule, CoreModule]
 })
 export class AboutModule {}

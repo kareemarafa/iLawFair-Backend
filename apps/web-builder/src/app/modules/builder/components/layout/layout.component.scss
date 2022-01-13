@@ -12,3 +12,9 @@
   box-shadow: 0 0 20px 3px #29a5ff;
   background: linear-gradient(90deg, #1645bf 0%, #20bdff 100%);
 }
+
+.preview-components {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}

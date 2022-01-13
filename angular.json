@@ -1,6 +1,29 @@
 {
   "version": 1,
   "projects": {
+    "core": {
+      "projectType": "library",
+      "root": "libs/core",
+      "sourceRoot": "libs/core/src",
+      "prefix": "ionhour",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/core"],
+          "options": {
+            "jestConfig": "libs/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/core/src/**/*.ts", "libs/core/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
     "interfaces": {
       "projectType": "library",
       "root": "libs/interfaces",
@@ -18,10 +41,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/interfaces/src/**/*.ts",
-              "libs/interfaces/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/interfaces/src/**/*.ts", "libs/interfaces/src/**/*.html"]
           }
         }
       },
@@ -66,10 +86,7 @@
             "polyfills": "apps/web-builder/src/polyfills.ts",
             "tsConfig": "apps/web-builder/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/web-builder/src/favicon.ico",
-              "apps/web-builder/src/assets"
-            ],
+            "assets": ["apps/web-builder/src/favicon.ico", "apps/web-builder/src/assets"],
             "styles": ["apps/web-builder/src/styles.scss"],
             "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.js"]
           },
@@ -127,10 +144,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/web-builder/src/**/*.ts",
-              "apps/web-builder/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/web-builder/src/**/*.ts", "apps/web-builder/src/**/*.html"]
           }
         },
         "test": {
