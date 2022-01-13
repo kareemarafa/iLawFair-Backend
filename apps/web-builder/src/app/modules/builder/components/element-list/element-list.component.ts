@@ -3,8 +3,9 @@ import { builderElements } from '@ionhour/ui'
 import { ElementsService } from '../../services'
 import { MatSlideToggleChange } from '@angular/material/slide-toggle/slide-toggle'
 import { ModuleInterface } from '@ionhour/interfaces'
-import { lastValueFrom } from 'rxjs'
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
 
+@UntilDestroy()
 @Component({
   selector: 'ionhour-element-list',
   templateUrl: './element-list.component.html',
@@ -25,7 +26,7 @@ export class ElementListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.elementService.currentElement$.subscribe((module) => (this.activeModule = module))
+    this.elementService.currentElement$.pipe(untilDestroyed(this)).subscribe((module) => (this.activeModule = module))
   }
 
   getCheckStatus(element: ModuleInterface): boolean {
