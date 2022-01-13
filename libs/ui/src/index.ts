@@ -1,10 +1,12 @@
-import { NavbarAComponent, NavbarBComponent } from './lib/navbar/components';
-import { ModuleInterface } from '@ionhour/interfaces';
-import { HeaderAComponent, HeaderBComponent, HeaderCComponent } from './lib/header/components';
-import { AboutAComponent } from './lib/about/components';
+import { NavbarAComponent, NavbarBComponent } from './lib/navbar/components'
+import { ModuleInterface } from '@ionhour/interfaces'
+import { HeaderAComponent, HeaderBComponent, HeaderCComponent } from './lib/header/components'
+import { AboutAComponent } from './lib/about/components'
 
-export * from './lib/navbar/navbar.module';
-export * from './lib/navbar/components';
+export * from './lib/navbar/navbar.module'
+export * from './lib/header/header.module'
+export * from './lib/about/about.module'
+export * from './lib/navbar/components'
 
 export const builderElements: ModuleInterface[] = [
   {
@@ -12,30 +14,30 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: `NavbarAComponent`,
-        componentObject: NavbarAComponent,
+        componentObject: NavbarAComponent
       },
       {
         componentName: `NavbarBComponent`,
-        componentObject: NavbarBComponent,
-      },
-    ],
+        componentObject: NavbarBComponent
+      }
+    ]
   },
   {
     moduleName: 'header',
     components: [
       {
         componentName: `HeaderAComponent`,
-        componentObject: HeaderAComponent,
+        componentObject: HeaderAComponent
       },
       {
         componentName: `HeaderBComponent`,
-        componentObject: HeaderBComponent,
+        componentObject: HeaderBComponent
       },
       {
         componentName: `HeaderCComponent`,
-        componentObject: HeaderCComponent,
+        componentObject: HeaderCComponent
       }
-    ],
+    ]
   },
   {
     moduleName: 'about',
@@ -44,54 +46,54 @@ export const builderElements: ModuleInterface[] = [
         componentName: `AboutAComponent`,
         componentObject: AboutAComponent
       }
-    ],
+    ]
   },
   {
     moduleName: 'services',
-    components: [],
+    components: []
   },
   {
     moduleName: 'action',
-    components: [],
+    components: []
   },
   {
     moduleName: 'calendar',
-    components: [],
+    components: []
   },
   {
     moduleName: 'countdown',
-    components: [],
+    components: []
   },
   {
     moduleName: 'team',
-    components: [],
+    components: []
   },
   {
     moduleName: 'price',
-    components: [],
+    components: []
   },
   {
     moduleName: 'testimonial',
-    components: [],
+    components: []
   },
   {
     moduleName: 'gallery',
-    components: [],
+    components: []
   },
   {
     moduleName: 'form',
-    components: [],
+    components: []
   },
   {
     moduleName: 'map',
-    components: [],
+    components: []
   },
   {
     moduleName: 'divider',
-    components: [],
+    components: []
   },
   {
     moduleName: 'footer',
-    components: [],
-  },
-];
+    components: []
+  }
+]
