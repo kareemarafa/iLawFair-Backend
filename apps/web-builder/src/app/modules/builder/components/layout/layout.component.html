@@ -1,11 +1,5 @@
 <mat-toolbar color="primary" class="bg-custom mb-3">
-  <button
-    type="button"
-    aria-label="Toggle sidenav"
-    mat-icon-button
-    (click)="drawer.toggle()"
-    *ngIf="isHandset$ | async"
-  >
+  <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
   <span>Web-Me</span>
@@ -27,6 +21,8 @@
     </div>
   </mat-sidenav>
   <mat-sidenav-content>
-    <ng-container #container></ng-container>
+    <div cdkDropList (cdkDropListDropped)="drop($event)">
+      <ng-container #container></ng-container>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
