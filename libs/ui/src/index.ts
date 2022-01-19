@@ -1,4 +1,4 @@
-import { NavbarAComponent, NavbarBComponent } from './lib/navbar/components'
+import { NavbarAComponent, NavbarBComponent, NavbarCComponent } from './lib/navbar/components'
 import { ModuleInterface } from '@ionhour/interfaces'
 import { HeaderAComponent, HeaderBComponent, HeaderCComponent } from './lib/header/components'
 import { AboutAComponent } from './lib/about/components'
@@ -19,6 +19,10 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: `NavbarBComponent`,
         componentObject: NavbarBComponent
+      },
+      {
+        componentName: `NavbarCComponent`,
+        componentObject: NavbarCComponent
       }
     ]
   },

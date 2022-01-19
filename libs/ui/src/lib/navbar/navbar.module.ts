@@ -5,9 +5,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
 import { CoreModule } from '@ionhour/core'
+import { NavbarCComponent } from './components/navbar-c/navbar-c.component'
 
 @NgModule({
-  declarations: [NavbarAComponent, NavbarBComponent],
+  declarations: [NavbarAComponent, NavbarBComponent, NavbarCComponent],
   imports: [CommonModule, DragDropModule, MatButtonModule, MatIconModule, CoreModule],
   exports: [NavbarAComponent]
 })

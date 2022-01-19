@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { ElementsService } from '@ionhour/core'
 import { builderElements } from '@ionhour/ui'
 import { ComponentInterface, ModuleInterface } from '@ionhour/interfaces'
@@ -10,10 +10,11 @@ import { ComponentInterface, ModuleInterface } from '@ionhour/interfaces'
 })
 export class SubElementListComponent {
   subComponents!: ComponentInterface[]
+  @Input() show!: boolean
 
   constructor(public elementService: ElementsService) {
     const items = elementService.currentElement$
-    items.subscribe((key) => (this.subComponents = this.getSubComponents(key)))
+    items.subscribe((key) => (this.subComponents = key ? this.getSubComponents(key) : []))
   }
 
   getSubComponents(key: string): ComponentInterface[] {

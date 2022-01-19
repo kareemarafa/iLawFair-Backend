@@ -13,7 +13,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
 })
 export class ElementListComponent implements OnInit {
   builderElements = builderElements
-  activeModule!: string
+  activeModule!: string | null
 
   constructor(private elementService: ElementsService) {}
 
@@ -22,6 +22,8 @@ export class ElementListComponent implements OnInit {
     const status = element?.checked
     if (status) {
       this.elementService.setCurrentElement(name)
+    } else {
+      this.elementService.setCurrentElement(null)
     }
   }
 

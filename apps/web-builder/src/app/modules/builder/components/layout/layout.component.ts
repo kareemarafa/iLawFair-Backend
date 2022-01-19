@@ -15,6 +15,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
 export class LayoutComponent implements OnInit {
   components: ComponentItem[] = []
   componentsRef: ComponentRef<any>[] = []
+  subElementStatus!: boolean
 
   @ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef
 
@@ -26,6 +27,8 @@ export class LayoutComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver, private elementsService: ElementsService) {
     const preview = elementsService.previewElements$
     preview.pipe(untilDestroyed(this)).subscribe((component) => this.add(component))
+    const current = elementsService.currentElement$
+    current.pipe(untilDestroyed(this)).subscribe((element) => (this.subElementStatus = !!element))
   }
 
   ngOnInit(): void {
@@ -34,7 +37,6 @@ export class LayoutComponent implements OnInit {
 
   getComponents() {
     this.elementsService.components$.pipe(untilDestroyed(this)).subscribe((components: any) => {
-      console.log(components)
       this.components = components
       this.viewComponent()
     })
@@ -46,7 +48,7 @@ export class LayoutComponent implements OnInit {
   }
 
   viewComponent() {
-    // Reset contanierRef & componentsRef
+    // Reset containerRef & componentsRef
     this.container.clear()
     this.componentsRef = []
 
