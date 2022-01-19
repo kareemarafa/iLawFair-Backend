@@ -1,7 +1,20 @@
-.bg-img {
-    background-image: url(https://previews.123rf.com/images/rokvel/rokvel1610/rokvel161001167/65260300-abstract-white-background-gray-color-vintage-grunge-textures-and-backgrounds-perfect-with-space.jpg);
-    background-size: cover;
-    background-origin: border-box;
-    background-position: center;
-    background-repeat: no-repeat;
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: 960px;
+}
+
+.pricing-header {
+  max-width: 700px;
+}
+
+.card-deck .card {
+  min-width: 220px;
 }

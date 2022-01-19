@@ -27,7 +27,6 @@ export class ElementsService {
   }
 
   delete(componentName?: any) {
-    console.log(componentName)
     this.components = this.components.filter((component) => component.componentName != componentName)
     this.components$.next(this.components)
   }
