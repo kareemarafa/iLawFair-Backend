@@ -2,9 +2,11 @@ import { Component, ComponentFactoryResolver, ComponentRef, OnInit, ViewChild, V
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
 import { Observable } from 'rxjs'
 import { map, shareReplay } from 'rxjs/operators'
-import { ComponentItem, ElementsService } from '@ionhour/core'
+import { ElementsService } from '@ionhour/core'
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
+import { IComponent } from '@ionhour/interfaces'
+import { ComponentControlComponent } from 'libs/core/src/lib/components'
 
 @UntilDestroy()
 @Component({
@@ -13,7 +15,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-  components: ComponentItem[] = []
+  components: IComponent[] = []
   componentsRef: ComponentRef<any>[] = []
   subElementStatus!: boolean
 
@@ -26,8 +28,8 @@ export class LayoutComponent implements OnInit {
 
   constructor(private breakpointObserver: BreakpointObserver, private elementsService: ElementsService) {
     const preview = elementsService.previewElements$
-    preview.pipe(untilDestroyed(this)).subscribe((component) => this.add(component))
     const current = elementsService.currentElement$
+    preview.pipe(untilDestroyed(this)).subscribe((component) => this.add(component))
     current.pipe(untilDestroyed(this)).subscribe((element) => (this.subElementStatus = !!element))
   }
 
@@ -36,14 +38,15 @@ export class LayoutComponent implements OnInit {
   }
 
   getComponents() {
-    this.elementsService.components$.pipe(untilDestroyed(this)).subscribe((components: any) => {
+    this.elementsService.components$.pipe(untilDestroyed(this)).subscribe((components: IComponent[]) => {
       this.components = components
       this.viewComponent()
     })
   }
 
   add(component?: any) {
-    this.elementsService.add(component)
+    this.components.push({ componentClass: component, componentName: component.name })
+    this.elementsService.add(this.components)
     this.viewComponent()
   }
 
@@ -52,18 +55,22 @@ export class LayoutComponent implements OnInit {
     this.container.clear()
     this.componentsRef = []
 
-    for (const component of this.components) {
-      this.createComponent(component.componentClass)
+    for (const [index, component] of this.components.entries()) {
+      this.createComponent(component.componentClass, index)
     }
   }
 
-  createComponent(component: any): void {
-    const componentRef = this.container.createComponent(component)
+  createComponent(component: any, index: number): void {
+    const componentRef: any = this.container.createComponent(ComponentControlComponent)
+    componentRef.instance.componentIndex = index
+    componentRef.instance.component = component
     this.componentsRef.push(componentRef)
   }
 
   drop(event: CdkDragDrop<any>) {
     this.container.move(this.componentsRef[event.previousIndex].hostView, event.currentIndex)
     moveItemInArray(this.componentsRef, event.previousIndex, event.currentIndex)
+    moveItemInArray(this.components, event.previousIndex, event.currentIndex)
+    this.elementsService.add(this.components)
   }
 }

@@ -1,8 +1,10 @@
+import { Type } from '@angular/core'
+
 export interface GenericComponent {
   name: string
 }
 
-export interface ComponentInterface {
+export interface IComponent {
   componentName: string
-  componentObject: any
+  componentClass: Type<any>
 }

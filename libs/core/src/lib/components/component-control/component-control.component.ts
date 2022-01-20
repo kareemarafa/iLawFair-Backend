@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { AfterViewInit, Component, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
 import { ElementsService } from '@ionhour/core'
 
 @Component({
@@ -6,21 +6,28 @@ import { ElementsService } from '@ionhour/core'
   templateUrl: './component-control.component.html',
   styleUrls: ['./component-control.component.scss']
 })
-export class ComponentControlComponent {
+export class ComponentControlComponent implements AfterViewInit {
   @Input()
-  componentName?: any
+  componentIndex?: number
+
+  @Input()
+  component?: any
 
   showOptions!: boolean
 
+  @ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef
+
   constructor(private elementsService: ElementsService) {}
+
+  ngAfterViewInit(): void {
+    const componentRef: any = this.container.createComponent(this.component)
+  }
 
   mouseEnterHandler(event: boolean) {
     this.showOptions = event
   }
 
   delete() {
-    console.log(this.componentName)
-    console.log('remove')
-    this.elementsService.delete(this.componentName)
+    this.elementsService.delete(this.componentIndex)
   }
 }
