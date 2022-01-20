@@ -26,8 +26,8 @@ export class ElementsService {
     this.components$.next(this.components)
   }
 
-  delete(index?: number) {
-    this.components.splice(1, index)
+  delete(index: number) {
+    this.components.splice(index, 1)
     this.components$.next(this.components)
   }
 }

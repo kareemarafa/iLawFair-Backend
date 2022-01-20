@@ -8,7 +8,7 @@ import { ElementsService } from '@ionhour/core'
 })
 export class ComponentControlComponent implements AfterViewInit {
   @Input()
-  componentIndex?: number
+  componentIndex!: number
 
   @Input()
   component?: any
