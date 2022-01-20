@@ -1,12 +1,12 @@
 import { ComponentRef, Injectable } from '@angular/core'
+import { IComponent } from '@ionhour/interfaces'
 import { Subject } from 'rxjs'
-import { ComponentItem } from '../model'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ElementsService {
-  components: ComponentItem[] = []
+  components: IComponent[] = []
 
   previewElements$: Subject<any[]> = new Subject<any[]>()
   currentElement$: Subject<string | null> = new Subject<string | null>()
@@ -21,13 +21,13 @@ export class ElementsService {
     this.currentElement$.next(null)
   }
 
-  add(component?: any) {
-    this.components.push({ componentClass: component, componentName: component.name })
+  add(components: IComponent[]) {
+    this.components = [...components]
     this.components$.next(this.components)
   }
 
-  delete(componentName?: any) {
-    this.components = this.components.filter((component) => component.componentName != componentName)
+  delete(index: number) {
+    this.components.splice(index, 1)
     this.components$.next(this.components)
   }
 }

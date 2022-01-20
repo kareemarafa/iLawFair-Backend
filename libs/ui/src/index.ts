@@ -13,16 +13,16 @@ export const builderElements: ModuleInterface[] = [
     moduleName: 'menu',
     components: [
       {
-        componentName: `NavbarAComponent`,
-        componentObject: NavbarAComponent
+        componentName: NavbarAComponent.name,
+        componentClass: NavbarAComponent
       },
       {
-        componentName: `NavbarBComponent`,
-        componentObject: NavbarBComponent
+        componentName: NavbarBComponent.name,
+        componentClass: NavbarBComponent
       },
       {
-        componentName: `NavbarCComponent`,
-        componentObject: NavbarCComponent
+        componentName: NavbarCComponent.name,
+        componentClass: NavbarCComponent
       }
     ]
   },
@@ -30,16 +30,16 @@ export const builderElements: ModuleInterface[] = [
     moduleName: 'header',
     components: [
       {
-        componentName: `HeaderAComponent`,
-        componentObject: HeaderAComponent
+        componentName: HeaderAComponent.name,
+        componentClass: HeaderAComponent
       },
       {
-        componentName: `HeaderBComponent`,
-        componentObject: HeaderBComponent
+        componentName: HeaderBComponent.name,
+        componentClass: HeaderBComponent
       },
       {
-        componentName: `HeaderCComponent`,
-        componentObject: HeaderCComponent
+        componentName: HeaderCComponent.name,
+        componentClass: HeaderCComponent
       }
     ]
   },
@@ -47,8 +47,8 @@ export const builderElements: ModuleInterface[] = [
     moduleName: 'about',
     components: [
       {
-        componentName: `AboutAComponent`,
-        componentObject: AboutAComponent
+        componentName: AboutAComponent.name,
+        componentClass: AboutAComponent
       }
     ]
   },

@@ -1,6 +1,6 @@
-import { ComponentInterface } from './component.interface';
+import { IComponent } from './component.interface'
 
 export interface ModuleInterface {
-  moduleName: string;
-  components: ComponentInterface[];
+  moduleName: string
+  components: IComponent[]
 }
