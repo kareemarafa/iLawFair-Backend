@@ -1,11 +1,14 @@
 .example-ripple-container {
+  min-height: 150px;
+  max-height: 200px;
+  cursor: pointer;
+  overflow: visible;
   ::ng-deep {
     .section {
       transform-origin: left top;
       transform: scale(0.25);
       width: 400%;
       min-height: 150px;
-      cursor: pointer;
       animation: 300ms ease 0s 1 normal none running fadein;
     }
   }
