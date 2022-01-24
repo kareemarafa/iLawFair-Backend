@@ -13,9 +13,11 @@ import { AboutModule, HeaderModule, NavbarModule } from '@ionhour/ui'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { ElementListComponent, SubElementListComponent } from './components'
 import { DragDropModule } from '@angular/cdk/drag-drop'
+import { MatRippleModule } from '@angular/material/core'
+import { WrapperComponent } from './components/sub-element-list/wrapper/wrapper.component'
 
 @NgModule({
-  declarations: [LayoutComponent, ElementListComponent, SubElementListComponent],
+  declarations: [LayoutComponent, ElementListComponent, SubElementListComponent, WrapperComponent],
   imports: [
     CommonModule,
     BuilderRoutingModule,
@@ -29,7 +31,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
     HeaderModule,
     AboutModule,
     MatSlideToggleModule,
-    DragDropModule
+    DragDropModule,
+    MatRippleModule
   ]
 })
 export class BuilderModule {}

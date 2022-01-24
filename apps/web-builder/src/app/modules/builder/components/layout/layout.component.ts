@@ -17,7 +17,7 @@ import { ComponentControlComponent } from 'libs/core/src/lib/components'
 export class LayoutComponent implements OnInit {
   components: IComponent[] = []
   componentsRef: ComponentRef<any>[] = []
-  subElementStatus!: boolean
+  moduleName!: string | null
 
   @ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef
 
@@ -30,7 +30,7 @@ export class LayoutComponent implements OnInit {
     const preview = elementsService.previewElements$
     const current = elementsService.currentElement$
     preview.pipe(untilDestroyed(this)).subscribe((component) => this.add(component))
-    current.pipe(untilDestroyed(this)).subscribe((element) => (this.subElementStatus = !!element))
+    current.pipe(untilDestroyed(this)).subscribe((moduleName) => (this.moduleName = moduleName))
   }
 
   ngOnInit(): void {

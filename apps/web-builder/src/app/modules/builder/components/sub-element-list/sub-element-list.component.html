@@ -1,12 +1,15 @@
-<ng-container *ngIf="show">
+<ng-container>
   <div class="sub-element-list">
-    <h3>{{ elementService.currentElement$ | async }}</h3>
-    <ng-container *ngFor="let subComponent of subComponents">
+    <h3>{{ moduleName }}</h3>
+    <div class="components">
+      <ng-container #container></ng-container>
+    </div>
+    <!-- <ng-container *ngFor="let subComponent of subComponents">
       <div class="d-flex flex-1 mb-3">
         <button mat-flat-button color="primary" (click)="pushComponent(subComponent.componentClass)">
           {{ subComponent.componentName }}
         </button>
       </div>
-    </ng-container>
+    </ng-container> -->
   </div>
 </ng-container>
