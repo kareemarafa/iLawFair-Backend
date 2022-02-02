@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
-import { ElementsService } from '@ionhour/core'
+import { AfterViewInit, Component, Input, ViewChild, ViewContainerRef } from '@angular/core'
+import { ElementsService } from '../../services'
 
 @Component({
   selector: 'ionhour-component-control',
