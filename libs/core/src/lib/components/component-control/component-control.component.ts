@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
-import { ElementsService } from '@ionhour/core'
+import { AfterViewInit, Component, Input, ViewChild, ViewContainerRef } from '@angular/core'
+import { ElementsService } from '../../services'
 
 @Component({
   selector: 'ionhour-component-control',
@@ -20,7 +20,9 @@ export class ComponentControlComponent implements AfterViewInit {
   constructor(private elementsService: ElementsService) {}
 
   ngAfterViewInit(): void {
-    const componentRef: any = this.container.createComponent(this.component)
+    Promise.resolve().then(() => {
+      this.container.createComponent(this.component)
+    })
   }
 
   mouseEnterHandler(event: boolean) {

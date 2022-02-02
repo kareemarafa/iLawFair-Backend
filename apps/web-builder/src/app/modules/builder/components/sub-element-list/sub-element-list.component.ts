@@ -1,8 +1,6 @@
-import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core'
-import { ElementsService } from '@ionhour/core'
+import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core'
 import { builderElements } from '@ionhour/ui'
 import { IComponent, ModuleInterface } from '@ionhour/interfaces'
-import { map } from 'rxjs'
 import { WrapperComponent } from './wrapper/wrapper.component'
 
 @Component({
@@ -16,17 +14,17 @@ export class SubElementListComponent implements AfterViewInit, OnChanges {
 
   @ViewChild('container', { read: ViewContainerRef }) container?: ViewContainerRef
 
-  constructor(public elementService: ElementsService) {}
-
-  ngOnChanges(changes: SimpleChanges): void {
-    Promise.resolve().then((e) => {
+  ngOnChanges(): void {
+    Promise.resolve().then(() => {
       if (this.moduleName) this.getSubComponents(this.moduleName)
     })
   }
 
   ngAfterViewInit() {
-    Promise.resolve().then((e) => {
-      if (this.moduleName) this.getSubComponents(this.moduleName)
+    Promise.resolve().then(() => {
+      if (this.moduleName) {
+        this.getSubComponents(this.moduleName)
+      }
     })
   }
 
@@ -36,21 +34,14 @@ export class SubElementListComponent implements AfterViewInit, OnChanges {
   }
 
   viewComponent(components: IComponent[]) {
-    // Reset containerRef & componentsRef
     this.container?.clear()
-
     for (const component of components) {
       this.createComponent(component.componentClass)
     }
   }
 
-  // createComponent(component: any): void {
-  //   this.container?.createComponent(component)
-  // }
-
   createComponent(component: any): void {
     const componentRef: any = this.container?.createComponent(WrapperComponent)
-    console.log(componentRef)
     if (componentRef) {
       componentRef.instance.component = component
     }
