@@ -1,34 +1,24 @@
-<section class="section d-flex flex-row about-section">
-  <div class="card mb-3 m-3">
-    <div class="row mt-3">
-      <h1 class="text-center"><strong>Watch Videos</strong></h1>
-    </div>
-    <div class="row g-0">
-      <div class="col-md-6">
-        <img [src]="componentData.image" class="img-fluid rounded-start" alt="..." />
-      </div>
-      <div class="col-md-6">
-        <div class="card-body">
-          <h2 class="card-title">{{ componentData.title }}</h2>
-          <p class="card-text">{{ componentData.body }}</p>
+<section class="section">
+  <div class="flex-row row justify-content-between m-3">
+    <ng-container *ngFor="let item of componentData; let i = index">
+      <div class="col-12 col-xl-6 py-2">
+        <div class="card border-0 px-5 py-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-center">
+              <h1 class="font-bold">About Us.</h1>
+            </div>
+            <div class="row align-items-center" [ngClass]="{ 'flex-row-reverse': i % 2 === 0, 'flex-row': i % 2 === 1 }">
+              <div class="col-6">
+                <h2 class="m-0">{{ item.title }}</h2>
+                <p class="m-0">{{ item.body }}</p>
+              </div>
+              <div class="col-6">
+                <img class="img-fluid" [src]="item.image" [alt]="item.title" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="card mb-3 m-3">
-    <div class="row mt-3">
-      <h1 class="text-center"><strong>Watch Videos</strong></h1>
-    </div>
-    <div class="row g-0">
-      <div class="col-md-6">
-        <div class="card-body">
-          <h2 class="card-title">{{ componentData.title }}</h2>
-          <p class="card-text">{{ componentData.body }}</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <img [src]="componentData.image" class="img-fluid rounded-start" alt="..." />
-      </div>
-    </div>
+    </ng-container>
   </div>
 </section>
