@@ -20,7 +20,9 @@ export class ComponentControlComponent implements AfterViewInit {
   constructor(private elementsService: ElementsService) {}
 
   ngAfterViewInit(): void {
-    const componentRef: any = this.container.createComponent(this.component)
+    Promise.resolve().then(() => {
+      this.container.createComponent(this.component)
+    })
   }
 
   mouseEnterHandler(event: boolean) {
