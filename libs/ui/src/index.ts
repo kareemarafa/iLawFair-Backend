@@ -6,11 +6,14 @@ import { ServiceAComponent } from './lib/service/components/service-a/service-a.
 import { ServiceBComponent } from './lib/service/components/service-b/service-b.component'
 import { ServiceCComponent } from './lib/service/components/service-c/service-c.component'
 import { ServiceDComponent } from './lib/service/components/service-d/service-d.component'
+import { CountAComponent } from './lib/count/components/count-a/count-a.component'
+import { CountBComponent } from './lib/count/components/count-b/count-b.component'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
 export * from './lib/about/about.module'
 export * from './lib/service/service.module'
+export * from './lib/count/count.module'
 export * from './lib/navbar/components'
 
 export const builderElements: ModuleInterface[] = [
@@ -88,7 +91,16 @@ export const builderElements: ModuleInterface[] = [
   },
   {
     moduleName: 'countdown',
-    components: []
+    components: [
+      {
+        componentName: CountAComponent.name,
+        componentClass: CountAComponent
+      },
+      {
+        componentName: CountBComponent.name,
+        componentClass: CountBComponent
+      }
+    ]
   },
   {
     moduleName: 'team',

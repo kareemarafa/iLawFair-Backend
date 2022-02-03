@@ -30,6 +30,46 @@ $light-gray1: #f3f3f3;
   }
 }
 
+.countdown-a,
+.countdown-b {
+  .countdown {
+    display: flex;
+    justify-content: center;
+  }
+
+  .countdown .day,
+  .countdown .hour,
+  .countdown .min,
+  .countdown .sec {
+    padding: 1vw 3vw;
+    text-align: center;
+  }
+
+  .countdown .day .num,
+  .countdown .hour .num,
+  .countdown .min .num,
+  .countdown .sec .num {
+    display: block;
+    font-size: 4vw;
+    line-height: 1em;
+  }
+
+  .countdown .day .word,
+  .countdown .hour .word,
+  .countdown .min .word,
+  .countdown .sec .word {
+    display: block;
+    font-size: 2vw;
+    color: #8a99ab;
+  }
+
+  .countdown__b {
+    & > div {
+      background-color: rgb(137 137 137 / 22%);
+    }
+  }
+}
+
 @media (min-width: 768px) {
 }
 
