@@ -70,6 +70,22 @@ $light-gray1: #f3f3f3;
   }
 }
 
+.team-a {
+  &__img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+}
+
+.team-b {
+  background-color: $light-gray1;
+  .link {
+    width: 50px;
+    height: 50px;
+  }
+}
+
 @media (min-width: 768px) {
 }
 
