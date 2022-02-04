@@ -10,6 +10,8 @@ import { CountAComponent } from './lib/count/components/count-a/count-a.componen
 import { CountBComponent } from './lib/count/components/count-b/count-b.component'
 import { TeamAComponent } from './lib/team/components/team-a/team-a.component'
 import { TeamBComponent } from './lib/team/components/team-b/team-b.component'
+import { ActionAComponent } from './lib/action/components/action-a/action-a.component'
+import { ActionBComponent } from './lib/action/components/action-b/action-b.component'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -17,6 +19,8 @@ export * from './lib/about/about.module'
 export * from './lib/service/service.module'
 export * from './lib/count/count.module'
 export * from './lib/team/team.module'
+export * from './lib/action/action.module'
+
 export * from './lib/navbar/components'
 
 export const builderElements: ModuleInterface[] = [
@@ -86,7 +90,16 @@ export const builderElements: ModuleInterface[] = [
   },
   {
     moduleName: 'action',
-    components: []
+    components: [
+      {
+        componentName: ActionAComponent.name,
+        componentClass: ActionAComponent
+      },
+      {
+        componentName: ActionBComponent.name,
+        componentClass: ActionBComponent
+      }
+    ]
   },
   {
     moduleName: 'calendar',
