@@ -3,6 +3,21 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '~bootstrap/scss/bootstrap';
 
+.about-section {
+  gap: 15px;
+  .card {
+    border: none;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.background-grey {
+  background: #e0e0e0;
+}
+
 $light-gray1: #f3f3f3;
 
 .service-a {
