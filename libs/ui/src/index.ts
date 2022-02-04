@@ -8,12 +8,15 @@ import { ServiceCComponent } from './lib/service/components/service-c/service-c.
 import { ServiceDComponent } from './lib/service/components/service-d/service-d.component'
 import { CountAComponent } from './lib/count/components/count-a/count-a.component'
 import { CountBComponent } from './lib/count/components/count-b/count-b.component'
+import { TeamAComponent } from './lib/team/components/team-a/team-a.component'
+import { TeamBComponent } from './lib/team/components/team-b/team-b.component'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
 export * from './lib/about/about.module'
 export * from './lib/service/service.module'
 export * from './lib/count/count.module'
+export * from './lib/team/team.module'
 export * from './lib/navbar/components'
 
 export const builderElements: ModuleInterface[] = [
@@ -104,7 +107,16 @@ export const builderElements: ModuleInterface[] = [
   },
   {
     moduleName: 'team',
-    components: []
+    components: [
+      {
+        componentName: TeamAComponent.name,
+        componentClass: TeamAComponent
+      },
+      {
+        componentName: TeamBComponent.name,
+        componentClass: TeamBComponent
+      }
+    ]
   },
   {
     moduleName: 'price',
