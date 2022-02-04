@@ -1,0 +1,12 @@
+<section class="section">
+  <div class="countdown-b bg-img px-3 py-5">
+    <h1 class="h1 text-center text-white countdown__title">{{ componentData.title }}</h1>
+    <p class="text-center text-white">{{ componentData.text }}</p>
+    <div class="countdown countdown__b pt-5" [attr.data-date]="componentData.date" [attr.data-time]="componentData.time">
+      <div class="day text-white"><span class="num"></span><span class="word"></span></div>
+      <div class="hour text-white"><span class="num"></span><span class="word"></span></div>
+      <div class="min text-white"><span class="num"></span><span class="word"></span></div>
+      <div class="sec text-white"><span class="num"></span><span class="word"></span></div>
+    </div>
+  </div>
+</section>
