@@ -13,8 +13,36 @@
 a {
   text-decoration: none;
 }
+
 .background-grey {
   background: #e0e0e0;
+}
+
+$light-gray1: #f3f3f3;
+
+.service-a {
+  &-list {
+    .icon {
+      span {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.service-c {
+  background-color: $light-gray1;
+  .item {
+    height: 185px;
+  }
+}
+
+.service-d {
+  .item {
+    background-color: $light-gray1;
+  }
 }
 
 @media (min-width: 768px) {
