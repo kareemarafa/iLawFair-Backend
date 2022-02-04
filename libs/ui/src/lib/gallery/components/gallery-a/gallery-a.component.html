@@ -1,0 +1,22 @@
+<section class="section">
+  <div class="gallery-a bg-white px-3 py-5">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="h1">{{ componentData.title }}</h1>
+        <p class="text-secondary">{{ componentData.text }}</p>
+      </div>
+      <div class="col-md-4" *ngFor="let item of componentData.items">
+        <div class="gallery-a-list">
+          <div class="item">
+            <div class="image">
+              <img class="w-100" [src]="item.image" alt="" srcset="" />
+            </div>
+            <div>
+              <h2 class="h2 mt-3">{{ item.title }}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
