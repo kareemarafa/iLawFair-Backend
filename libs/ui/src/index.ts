@@ -13,6 +13,7 @@ import { TeamBComponent } from './lib/team/components/team-b/team-b.component'
 import { ActionAComponent } from './lib/action/components/action-a/action-a.component'
 import { ActionBComponent } from './lib/action/components/action-b/action-b.component'
 import { GalleryAComponent } from './lib/gallery/components/gallery-a/gallery-a.component'
+import { MapAComponent } from './lib/map/components'
 import { TestimonialsAComponent } from './lib/testimonials/components'
 import { PricesAComponent } from './lib/prices/components'
 import { StatisticsAComponent } from './lib/statistics/components'
@@ -175,7 +176,12 @@ export const builderElements: ModuleInterface[] = [
   },
   {
     moduleName: 'map',
-    components: []
+    components: [
+      {
+        componentName: MapAComponent.name,
+        componentClass: MapAComponent
+      }
+    ]
   },
   {
     moduleName: 'divider',
