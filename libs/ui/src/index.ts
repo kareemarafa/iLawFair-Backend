@@ -14,6 +14,9 @@ import { ActionAComponent } from './lib/action/components/action-a/action-a.comp
 import { ActionBComponent } from './lib/action/components/action-b/action-b.component'
 import { GalleryAComponent } from './lib/gallery/components/gallery-a/gallery-a.component'
 import { MapAComponent } from './lib/map/components'
+import { TestimonialsAComponent } from './lib/testimonials/components'
+import { PricesAComponent } from './lib/prices/components'
+import { StatisticsAComponent } from './lib/statistics/components'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -23,6 +26,7 @@ export * from './lib/count/count.module'
 export * from './lib/team/team.module'
 export * from './lib/action/action.module'
 export * from './lib/gallery/gallery.module'
+export * from './lib/statistics/statistics.module'
 
 export * from './lib/navbar/components'
 
@@ -105,8 +109,13 @@ export const builderElements: ModuleInterface[] = [
     ]
   },
   {
-    moduleName: 'calendar',
-    components: []
+    moduleName: 'statistics',
+    components: [
+      {
+        componentName: StatisticsAComponent.name,
+        componentClass: StatisticsAComponent
+      }
+    ]
   },
   {
     moduleName: 'countdown',
@@ -136,11 +145,21 @@ export const builderElements: ModuleInterface[] = [
   },
   {
     moduleName: 'price',
-    components: []
+    components: [
+      {
+        componentName: PricesAComponent.name,
+        componentClass: PricesAComponent
+      }
+    ]
   },
   {
     moduleName: 'testimonial',
-    components: []
+    components: [
+      {
+        componentName: TestimonialsAComponent.name,
+        componentClass: TestimonialsAComponent
+      }
+    ]
   },
   {
     moduleName: 'gallery',
