@@ -13,6 +13,7 @@ import { TeamBComponent } from './lib/team/components/team-b/team-b.component'
 import { ActionAComponent } from './lib/action/components/action-a/action-a.component'
 import { ActionBComponent } from './lib/action/components/action-b/action-b.component'
 import { GalleryAComponent } from './lib/gallery/components/gallery-a/gallery-a.component'
+import { PricesAComponent } from './lib/prices/components'
 import { StatisticsAComponent } from './lib/statistics/components'
 
 export * from './lib/navbar/navbar.module'
@@ -142,7 +143,12 @@ export const builderElements: ModuleInterface[] = [
   },
   {
     moduleName: 'price',
-    components: []
+    components: [
+      {
+        componentName: PricesAComponent.name,
+        componentClass: PricesAComponent
+      }
+    ]
   },
   {
     moduleName: 'testimonial',

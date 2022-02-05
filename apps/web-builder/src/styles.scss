@@ -10,6 +10,10 @@
   }
 }
 
+* {
+  line-height: 30px;
+}
+
 a {
   text-decoration: none;
 }
@@ -110,6 +114,12 @@ $light-gray1: #f3f3f3;
 .action-b {
   &.bg-img {
     background-image: url(https://www.capturelandscapes.com/wp-content/uploads/2019/04/Desert-Nights.jpg);
+  }
+}
+
+.prices-a {
+  .pricing-header {
+    max-width: 700px;
   }
 }
 
