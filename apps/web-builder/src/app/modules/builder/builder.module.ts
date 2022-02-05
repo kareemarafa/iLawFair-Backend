@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatIconModule } from '@angular/material/icon'
 import { MatListModule } from '@angular/material/list'
-import { AboutModule, ActionModule, CountModule, GalleryModule, HeaderModule, NavbarModule, ServiceModule } from '@ionhour/ui'
+import { AboutModule, ActionModule, ContactModule, CountModule, GalleryModule, HeaderModule, NavbarModule, ServiceModule } from '@ionhour/ui'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { ElementListComponent, SubElementListComponent } from './components'
 import { DragDropModule } from '@angular/cdk/drag-drop'
@@ -36,7 +36,8 @@ import { WrapperComponent } from './components/sub-element-list/wrapper/wrapper.
     ServiceModule,
     CountModule,
     ActionModule,
-    GalleryModule
+    GalleryModule,
+    ContactModule
   ]
 })
 export class BuilderModule {}

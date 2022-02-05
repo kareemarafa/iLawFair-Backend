@@ -13,6 +13,7 @@ import { TeamBComponent } from './lib/team/components/team-b/team-b.component'
 import { ActionAComponent } from './lib/action/components/action-a/action-a.component'
 import { ActionBComponent } from './lib/action/components/action-b/action-b.component'
 import { GalleryAComponent } from './lib/gallery/components/gallery-a/gallery-a.component'
+import { ContactAComponent } from './lib/contact/components/contact-a/contact-a.component'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -22,6 +23,7 @@ export * from './lib/count/count.module'
 export * from './lib/team/team.module'
 export * from './lib/action/action.module'
 export * from './lib/gallery/gallery.module'
+export * from './lib/contact/contact.module'
 
 export * from './lib/navbar/components'
 
@@ -152,7 +154,12 @@ export const builderElements: ModuleInterface[] = [
   },
   {
     moduleName: 'form',
-    components: []
+    components: [
+      {
+        componentName: ContactAComponent.name,
+        componentClass: ContactAComponent
+      }
+    ]
   },
   {
     moduleName: 'map',
