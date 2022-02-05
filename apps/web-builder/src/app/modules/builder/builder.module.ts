@@ -15,6 +15,7 @@ import { ElementListComponent, SubElementListComponent } from './components'
 import { DragDropModule } from '@angular/cdk/drag-drop'
 import { MatRippleModule } from '@angular/material/core'
 import { WrapperComponent } from './components/sub-element-list/wrapper/wrapper.component'
+import { MatTooltipModule } from '@angular/material/tooltip'
 
 @NgModule({
   declarations: [LayoutComponent, ElementListComponent, SubElementListComponent, WrapperComponent],
@@ -36,7 +37,8 @@ import { WrapperComponent } from './components/sub-element-list/wrapper/wrapper.
     ServiceModule,
     CountModule,
     ActionModule,
-    GalleryModule
+    GalleryModule,
+    MatTooltipModule
   ]
 })
 export class BuilderModule {}

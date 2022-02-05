@@ -3,6 +3,17 @@
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
   <span>Web-Me</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" [matTooltip]="'undo'" aria-label="Example icon-button with heart icon">
+    <mat-icon>undo</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" [matTooltip]="'redo'" aria-label="Example icon-button with share icon">
+    <mat-icon>redo</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon favorite-icon" [matTooltip]="'mobile view'" aria-label="Example icon-button with heart icon">
+    <mat-icon>phone_android</mat-icon>
+  </button>
+  <button mat-raised-button color="warn">Save</button>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container">
