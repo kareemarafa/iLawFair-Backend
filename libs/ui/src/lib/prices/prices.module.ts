@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
+import { PricesAComponent } from './components'
 
 @NgModule({
-  declarations: []
+  declarations: [PricesAComponent]
 })
 export class PricesModule {}
