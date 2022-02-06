@@ -27,6 +27,7 @@ export * from './lib/team/team.module'
 export * from './lib/action/action.module'
 export * from './lib/gallery/gallery.module'
 export * from './lib/statistics/statistics.module'
+export * from './lib/prices/prices.module'
 
 export * from './lib/navbar/components'
 
