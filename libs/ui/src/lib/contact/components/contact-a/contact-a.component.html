@@ -1,0 +1,39 @@
+<section class="section">
+  <div class="contact-a bg-white px-3 py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-5">
+          <div class="address mb-3">
+            <h1 class="h1 fw-bold">Address</h1>
+            <p class="text-secondary">{{ componentData.address }}</p>
+          </div>
+          <div class="phone mb-3">
+            <h1 class="h1 fw-bold">Phone</h1>
+            <p class="text-secondary">{{ componentData.phone }}</p>
+          </div>
+          <div class="email mb-3">
+            <h1 class="h1 fw-bold">Email</h1>
+            <p class="text-secondary">{{ componentData.email }}</p>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <form>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" />
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone</label>
+              <input type="text" class="form-control" id="phone" />
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
