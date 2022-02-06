@@ -30,6 +30,7 @@ export * from './lib/gallery/gallery.module'
 export * from './lib/contact/contact.module'
 export * from './lib/statistics/statistics.module'
 export * from './lib/prices/prices.module'
+export * from './lib/testimonials/testimonials.module'
 
 export * from './lib/navbar/components'
 
