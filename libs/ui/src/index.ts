@@ -18,6 +18,7 @@ import { MapAComponent } from './lib/map/components'
 import { TestimonialsAComponent } from './lib/testimonials/components'
 import { PricesAComponent } from './lib/prices/components'
 import { StatisticsAComponent } from './lib/statistics/components'
+import { DividerAComponent } from './lib/divider/components'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -31,6 +32,7 @@ export * from './lib/contact/contact.module'
 export * from './lib/statistics/statistics.module'
 export * from './lib/prices/prices.module'
 export * from './lib/testimonials/testimonials.module'
+export * from './lib/divider/divider.module'
 
 export * from './lib/navbar/components'
 
@@ -194,7 +196,12 @@ export const builderElements: ModuleInterface[] = [
   },
   {
     moduleName: 'divider',
-    components: []
+    components: [
+      {
+        componentName: DividerAComponent.name,
+        componentClass: DividerAComponent
+      }
+    ]
   },
   {
     moduleName: 'footer',
