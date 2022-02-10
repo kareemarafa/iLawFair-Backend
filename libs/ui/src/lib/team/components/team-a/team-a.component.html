@@ -8,7 +8,7 @@
       <div class="col-lg-4" *ngFor="let item of componentData.teams">
         <div class="item text-center">
           <div class="image py-3">
-            <img class="team-a__img rounded-circle" [src]="item.image" alt="" srcset="" />
+            <img class="team-a__img rounded-circle" src="{{ item.image }}" alt="" srcset="" />
           </div>
           <div>
             <h3 class="h3 fw-bold my-2">{{ item.name }}</h3>

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'ionhour-team-a',
   templateUrl: './team-a.component.html',
   styleUrls: ['./team-a.component.scss']
 })
-export class TeamAComponent implements OnInit {
+export class TeamAComponent {
   componentData: any = {
     title: `Section Title`,
     text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
@@ -27,8 +27,4 @@ export class TeamAComponent implements OnInit {
       }
     ]
   }
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }
