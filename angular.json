@@ -1,6 +1,58 @@
 {
   "version": 1,
   "projects": {
+    "api-builder": {
+      "root": "apps/api-builder",
+      "sourceRoot": "apps/api-builder/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/api-builder",
+            "main": "apps/api-builder/src/main.ts",
+            "tsConfig": "apps/api-builder/tsconfig.app.json",
+            "assets": ["apps/api-builder/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api-builder/src/environments/environment.ts",
+                  "with": "apps/api-builder/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api-builder:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/api-builder/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/api-builder"],
+          "options": {
+            "jestConfig": "apps/api-builder/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
     "core": {
       "projectType": "library",
       "root": "libs/core",
@@ -133,7 +185,10 @@
               "browserTarget": "web-builder:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "apps/web-builder/proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
