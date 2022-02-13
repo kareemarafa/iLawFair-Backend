@@ -99,6 +99,29 @@
       },
       "tags": []
     },
+    "database-connect": {
+      "root": "libs/database-connect",
+      "sourceRoot": "libs/database-connect/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/database-connect/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/database-connect"],
+          "options": {
+            "jestConfig": "libs/database-connect/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
     "interfaces": {
       "projectType": "library",
       "root": "libs/interfaces",
