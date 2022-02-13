@@ -3,7 +3,7 @@ export const environment = {
 }
 
 export const databaseConfig = () => ({
-  port: 6100,
+  port: 7100,
   database: {
     host: 'localhost',
     port: 8886,
