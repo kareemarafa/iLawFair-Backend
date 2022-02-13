@@ -18,7 +18,9 @@
       "@ionhour/backend-core": ["libs/backend-core/src/index.ts"],
       "@ionhour/core": ["libs/core/src/index.ts"],
       "@ionhour/database-connect": ["libs/database-connect/src/index.ts"],
+      "@ionhour/encryption": ["libs/encryption/src/index.ts"],
       "@ionhour/interfaces": ["libs/interfaces/src/index.ts"],
+      "@ionhour/storage": ["libs/storage/src/index.ts"],
       "@ionhour/ui": ["libs/ui/src/index.ts"]
     }
   },

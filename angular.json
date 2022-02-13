@@ -122,6 +122,29 @@
       },
       "tags": []
     },
+    "encryption": {
+      "root": "libs/encryption",
+      "sourceRoot": "libs/encryption/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/encryption/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/encryption"],
+          "options": {
+            "jestConfig": "libs/encryption/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
     "interfaces": {
       "projectType": "library",
       "root": "libs/interfaces",
@@ -140,6 +163,29 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/interfaces/src/**/*.ts", "libs/interfaces/src/**/*.html"]
+          }
+        }
+      },
+      "tags": []
+    },
+    "storage": {
+      "root": "libs/storage",
+      "sourceRoot": "libs/storage/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/storage/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/storage"],
+          "options": {
+            "jestConfig": "libs/storage/jest.config.js",
+            "passWithNoTests": true
           }
         }
       },
