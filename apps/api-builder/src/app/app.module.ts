@@ -5,6 +5,7 @@ import { AppService } from './app.service'
 import { DatabaseConnectModule } from '@ionhour/database-connect'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { authConfig, databaseConfig } from '../environments/environment'
+import { features } from './modules'
 
 @Module({
   imports: [
@@ -12,7 +13,8 @@ import { authConfig, databaseConfig } from '../environments/environment'
     ConfigModule.forRoot({
       load: [databaseConfig, authConfig],
       isGlobal: true
-    })
+    }),
+    ...features
   ],
   controllers: [AppController],
   providers: [AppService]
