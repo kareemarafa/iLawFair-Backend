@@ -11,7 +11,7 @@ import { AuthController } from './auth.controller'
 @Module({
   imports: [
     forwardRef(() => UsersModule),
-    PassportModule,
+    PassportModule.register({ defaultStrategy: 'local' }),
     JwtModule.register({
       secret: jwtConstants.secret,
       signOptions: { expiresIn: '60s' }
