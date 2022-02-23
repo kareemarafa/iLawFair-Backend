@@ -10,6 +10,7 @@ import { FlexModule } from '@angular/flex-layout'
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
+import { MatTooltipModule } from '@angular/material/tooltip'
 
 const routes: Route[] = [
   {
@@ -34,7 +35,8 @@ const routes: Route[] = [
     FlexModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTooltipModule
   ]
 })
 export class ProjectsModule {}

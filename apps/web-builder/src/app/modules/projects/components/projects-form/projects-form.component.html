@@ -1,5 +1,10 @@
 <div class="d-flex flex-column">
-  <h3>Add Project</h3>
+  <div class="pb-2 d-flex flex-row align-items-baseline">
+    <a mat-icon-button routerLink="/projects" matTooltip="Back" aria-label="Example icon button with a vertical three dot icon">
+      <mat-icon>chevron_left</mat-icon>
+    </a>
+    <h3 class="m-0 p-0">Add Project</h3>
+  </div>
   <mat-card fxFlex.xs="1 1 100%" fxFlex.sm="1 1 100%" fxFlex.md="1 1 50%" fxFlex.lg="33.33%" fxLayout="column">
     <form [formGroup]="form" (ngSubmit)="create()" fxFlex="1 1 100%" fxLayout="column">
       <mat-form-field appearance="fill">

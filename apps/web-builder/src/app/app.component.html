@@ -1,9 +1,14 @@
 <mat-drawer-container class="example-container">
   <mat-drawer #drawer mode="side" class="example-sidenav" opened>
-    <h3>WebMe Dashboard</h3>
-    <mat-list>
-      <a mat-list-item routerLink="projects" routerLinkActive="text-primary">Projects</a>
-      <a mat-list-item routerLink="pages" routerLinkActive="text-primary">Pages</a>
+    <mat-list class="h-100">
+      <div class="d-flex flex-column justify-content-between h-100">
+        <div>
+          <h3>WebMe Dashboard</h3>
+          <a mat-list-item routerLink="projects" routerLinkActive="text-primary">Projects</a>
+          <a mat-list-item routerLink="pages" routerLinkActive="text-primary">Pages</a>
+        </div>
+        <a mat-list-item routerLink="auth/login" routerLinkActive="text-primary">Logout</a>
+      </div>
     </mat-list>
   </mat-drawer>
   <mat-drawer-content>
