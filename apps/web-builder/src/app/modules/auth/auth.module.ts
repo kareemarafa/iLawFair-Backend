@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { LoginComponent, RegisterComponent } from './components'
+import { LoginComponent, RegisterComponent, SurveyComponent } from './components'
 import { Route, RouterModule } from '@angular/router'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
@@ -22,11 +22,15 @@ const routes: Route[] = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'survey',
+    component: SurveyComponent
   }
 ]
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, SurveyComponent],
   imports: [CommonModule, RouterModule.forChild(routes), MatFormFieldModule, MatInputModule, ReactiveFormsModule, FlexModule, MatCardModule, MatButtonModule]
 })
 export class AuthModule {}

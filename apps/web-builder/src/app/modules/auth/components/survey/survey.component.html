@@ -1,7 +1,7 @@
 <div class="auth-container">
   <mat-card fxFlex.xs="1 1 100%" fxFlex.sm="1 1 75%" fxFlex.md="1 1 50%" fxFlex.lg="33.33%" fxLayout="column">
     <section class="auth-head">
-      <h2>WebMe | Login</h2>
+      <h2>WebMe | Survey</h2>
     </section>
     <form [formGroup]="form" (ngSubmit)="login()" fxFlex="1 1 100%" fxLayout="column">
       <mat-form-field appearance="fill">
@@ -12,15 +12,9 @@
         <mat-label>Password</mat-label>
         <input matInput type="password" formControlName="password" value="123456789" />
       </mat-form-field>
-      <div class="help-link">
-        <p>
-          Doesn't have account
-          <a routerLink="/auth/register">Register</a>
-        </p>
-      </div>
       <div class="auth-button-group">
-        <button mat-flat-button type="submit" color="primary">Login</button>
-        <button mat-flat-button type="reset">Reset</button>
+        <button mat-flat-button type="submit" color="primary">Submit</button>
+        <button mat-flat-button (click)="router.navigate(['auth/register'])">Back</button>
       </div>
     </form>
   </mat-card>

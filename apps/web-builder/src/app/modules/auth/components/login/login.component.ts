@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     // private resumeAuthService: ResumeAuthService,
-    private router: Router,
+    public router: Router,
     private route: ActivatedRoute
   ) {
     this.form = this.formBuilder.group({

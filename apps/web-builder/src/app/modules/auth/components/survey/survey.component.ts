@@ -3,17 +3,17 @@ import { FormBuilder, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
-  selector: 'ionhour-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'ionhour-survey',
+  templateUrl: './survey.component.html',
+  styleUrls: ['./survey.component.scss']
 })
-export class RegisterComponent implements OnInit, OnDestroy {
+export class SurveyComponent implements OnInit, OnDestroy {
   form: FormGroup
 
   constructor(
     private formBuilder: FormBuilder,
     // private resumeAuthService: ResumeAuthService,
-    private router: Router,
+    public router: Router,
     private route: ActivatedRoute
   ) {
     this.form = this.formBuilder.group({
@@ -39,11 +39,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
     //     untilDestroyed(this)
     //   )
     //   .subscribe(() =>
-    return this.router.navigate(['auth/survey'])
+    return this.router.navigate(['builder'])
     // );
   }
 
   ngOnDestroy() {
-    console.log('RegisterComponent Destroyed')
+    console.log('SurveyComponent Destroyed')
   }
 }
