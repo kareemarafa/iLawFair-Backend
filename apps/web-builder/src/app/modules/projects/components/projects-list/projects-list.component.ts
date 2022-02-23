@@ -26,6 +26,5 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./projects-list.component.scss']
 })
 export class ProjectsListComponent {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol']
   dataSource = ELEMENT_DATA
 }
