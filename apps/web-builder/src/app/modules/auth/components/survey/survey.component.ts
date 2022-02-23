@@ -39,7 +39,7 @@ export class SurveyComponent implements OnInit, OnDestroy {
     //     untilDestroyed(this)
     //   )
     //   .subscribe(() =>
-    return this.router.navigate(['builder'])
+    return this.router.navigate(['projects'])
     // );
   }
 

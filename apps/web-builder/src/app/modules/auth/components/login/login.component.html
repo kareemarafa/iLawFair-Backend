@@ -6,11 +6,11 @@
     <form [formGroup]="form" (ngSubmit)="login()" fxFlex="1 1 100%" fxLayout="column">
       <mat-form-field appearance="fill">
         <mat-label>Username</mat-label>
-        <input matInput type="text" formControlName="username" value="owner" />
+        <input matInput type="text" formControlName="username" />
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password" value="123456789" />
+        <input matInput type="password" formControlName="password" />
       </mat-form-field>
       <div class="help-link">
         <p>
