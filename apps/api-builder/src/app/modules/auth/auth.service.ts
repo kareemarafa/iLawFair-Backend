@@ -10,8 +10,8 @@ export class AuthService {
   constructor(
     @Inject(forwardRef(() => UsersService))
     private usersService: UsersService,
-    private jwtService: JwtService
-  ) {}
+    private jwtService: JwtService,
+    ) {}
 
   async validateUser(email: string, password: string): Promise<User> {
     const user: User = await this.usersService.findOneByEmail(email)
@@ -25,7 +25,7 @@ export class AuthService {
     return null
   }
 
-  async login(user: any): Promise<any> {
+  async login(user: User): Promise<any> {
     let payload: TokenPayloadInterface
     try {
       payload = { email: user.email, sub: user.id }
@@ -36,6 +36,7 @@ export class AuthService {
       accessToken: this.jwtService.sign(payload)
     }
   }
+
 
   async register(user: User): Promise<User> {
     const _user: User = await this.usersService.findOneByEmail(user?.email)
