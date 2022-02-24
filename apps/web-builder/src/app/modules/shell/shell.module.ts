@@ -8,16 +8,25 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
 import { Shell } from './shell.service'
+import { ProfileComponent } from './profile/profile.component'
 
 const routes: Route[] = [
   Shell.childRoutes([
     {
       path: '',
-      redirectTo: 'projects'
+      redirectTo: 'profile'
+    },
+    {
+      path: 'profile',
+      component: ProfileComponent
     },
     {
       path: 'projects',
       loadChildren: () => import('../projects/projects.module').then((m) => m.ProjectsModule)
+    },
+    {
+      path: 'subscriptions',
+      loadChildren: () => import('../subscriptions/subscriptions.module').then((m) => m.SubscriptionsModule)
     },
     { path: '**', redirectTo: '', pathMatch: 'full' }
   ])
