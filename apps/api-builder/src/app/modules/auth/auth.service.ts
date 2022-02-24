@@ -4,6 +4,7 @@ import { TokenPayloadInterface } from './interfaces'
 import { JwtService } from '@nestjs/jwt'
 import * as bcrypt from 'bcrypt'
 import { User } from '../users/users.entity'
+import { EncryptionService } from '../../../../../../libs/encryption/src/lib/encryption.service'
 
 @Injectable()
 export class AuthService {
@@ -11,16 +12,15 @@ export class AuthService {
     @Inject(forwardRef(() => UsersService))
     private usersService: UsersService,
     private jwtService: JwtService,
-    ) {}
+    private encryptionService: EncryptionService
+  ) {}
 
-  async validateUser(email: string, password: string): Promise<User> {
+  async validateUser(email: string, password: string): Promise<any> {
     const user: User = await this.usersService.findOneByEmail(email)
-    if (user) {
-      const isPasswordCorrect = await bcrypt.compare(password, user?.password)
-      if (isPasswordCorrect) {
-        delete user.password
-        return user
-      }
+    const isPasswordCorrect = user && (await this.encryptionService.compare(password, user.password))
+    if (user && isPasswordCorrect) {
+      const { password, ...result } = user
+      return result
     }
     return null
   }
@@ -36,7 +36,6 @@ export class AuthService {
       accessToken: this.jwtService.sign(payload)
     }
   }
-
 
   async register(user: User): Promise<User> {
     const _user: User = await this.usersService.findOneByEmail(user?.email)
