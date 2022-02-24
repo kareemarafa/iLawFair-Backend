@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatTooltipModule } from '@angular/material/tooltip'
+import { MatChipsModule } from '@angular/material/chips'
 
 const routes: Route[] = [
   {
@@ -36,7 +37,8 @@ const routes: Route[] = [
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatChipsModule
   ]
 })
 export class ProjectsModule {}
