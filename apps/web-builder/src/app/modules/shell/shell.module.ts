@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
 import { Shell } from './shell.service'
 import { ProfileComponent } from './profile/profile.component'
+import { MediaComponent } from './media/media.component'
 
 const routes: Route[] = [
   Shell.childRoutes([
@@ -19,6 +20,10 @@ const routes: Route[] = [
     {
       path: 'profile',
       component: ProfileComponent
+    },
+    {
+      path: 'media',
+      component: MediaComponent
     },
     {
       path: 'projects',
@@ -33,7 +38,7 @@ const routes: Route[] = [
 ]
 
 @NgModule({
-  declarations: [ShellComponent],
+  declarations: [ShellComponent, MediaComponent],
   imports: [CommonModule, RouterModule.forChild(routes), MatSidenavModule, MatListModule, MatToolbarModule, MatButtonModule, MatIconModule]
 })
 export class ShellModule {}
