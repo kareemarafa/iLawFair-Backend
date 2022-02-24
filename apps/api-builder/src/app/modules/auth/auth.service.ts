@@ -2,9 +2,8 @@ import { BadRequestException, forwardRef, HttpStatus, Inject, Injectable, Unauth
 import { UsersService } from '../users/users.service'
 import { TokenPayloadInterface } from './interfaces'
 import { JwtService } from '@nestjs/jwt'
-import * as bcrypt from 'bcrypt'
 import { User } from '../users/users.entity'
-import { EncryptionService } from '../../../../../../libs/encryption/src/lib/encryption.service'
+import { EncryptionService } from '@ionhour/encryption'
 
 @Injectable()
 export class AuthService {
@@ -43,7 +42,7 @@ export class AuthService {
     if (_user || _username) {
       this.handleBadRequest('Email or username already exists')
     }
-    user.password = await bcrypt.hash(user.password, 10)
+    user.password = await this.encryptionService.hash(user.password)
     return this.usersService.createUser(user)
   }
 
