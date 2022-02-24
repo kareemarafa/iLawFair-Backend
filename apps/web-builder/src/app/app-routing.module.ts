@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router'
 
 const routes: Routes = [
   {
@@ -16,17 +16,13 @@ const routes: Routes = [
     loadChildren: () => import('./modules/builder/builder.module').then((m) => m.BuilderModule)
   },
   {
-    path: 'projects',
-    loadChildren: () => import('./modules/projects/projects.module').then((m) => m.ProjectsModule)
-  },
-  {
-    path: 'pages',
-    loadChildren: () => import('./modules/pages/pages.module').then((m) => m.PagesModule)
+    path: 'dashboard',
+    loadChildren: () => import('./modules/shell/shell.module').then((m) => m.ShellModule)
   }
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
