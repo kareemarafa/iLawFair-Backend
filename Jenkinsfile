@@ -14,7 +14,7 @@ pipeline {
                 sh 'rm -rf ./node_modules ./package-lock.json ./dist' // Remove if exists
                 sh 'scp -o stricthostkeychecking=no -r ./* deployer@ionhour.com:/var/www/webme-builder.ionhour.com/' // upload new content
                 sh 'ssh -o stricthostkeychecking=no deployer@ionhour.com "cd /var/www/webme-builder.ionhour.com/ && npm install"' // install dependencies
-                sh 'ssh -o stricthostkeychecking=no deployer@ionhour.com "cd /var/www/webme-builder.ionhour.com/ && nx build web-builder && nx build api-builder"' // build
+                sh 'ssh -o stricthostkeychecking=no deployer@ionhour.com "cd /var/www/webme-builder.ionhour.com/ && nx build web-builder && nx build api-builder && pm2 restart webme_api_builder"' // build
             }
         }
     }

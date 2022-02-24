@@ -1,0 +1,43 @@
+.auth-container {
+  background: #e3e3e3;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+
+  .auth-head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem 0;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  mat-card {
+    margin: 0.5rem;
+    padding: 2rem;
+
+    .auth-button-group {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+
+    .help-link {
+      margin-left: 10px;
+
+      a {
+        font-size: 0.9rem;
+        text-decoration: none;
+        color: #112f46;
+      }
+    }
+  }
+}

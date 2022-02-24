@@ -1,0 +1,27 @@
+<div class="auth-container">
+  <mat-card fxFlex.xs="1 1 100%" fxFlex.sm="1 1 75%" fxFlex.md="1 1 50%" fxFlex.lg="33.33%" fxLayout="column">
+    <section class="auth-head">
+      <h2>WebMe | Register</h2>
+    </section>
+    <form [formGroup]="form" (ngSubmit)="login()" fxFlex="1 1 100%" fxLayout="column">
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" formControlName="username" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" />
+      </mat-form-field>
+      <div class="help-link">
+        <p>
+          Already have an account
+          <a routerLink="/auth/login">Login</a>
+        </p>
+      </div>
+      <div class="auth-button-group">
+        <button mat-flat-button type="submit" color="primary">Register</button>
+        <button mat-flat-button type="reset">Reset</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
