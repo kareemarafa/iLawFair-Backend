@@ -1,3 +1,6 @@
+import { adminUser } from '../app/modules/admin_users/admin-users.entity'
+import { Survey } from '../app/modules/admin_survey/admin-survey.entity'
+
 export const environment = {
   production: false
 }
@@ -10,9 +13,9 @@ export const databaseConfig = () => ({
     username: 'root',
     password: 'password',
     name: 'webme_admin',
-    autoLoadEntities: true,
+    autoLoadEntities: false,
     synchronize: true,
-    entities: [],
+    entities: [adminUser, Survey],
     seeds: []
   }
 })

@@ -1,5 +1,5 @@
 import { CoreEntity } from '@ionhour/backend-core'
-import { IsEmail, IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-validator'
+import { IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
 import { Column, Entity } from 'typeorm'
 import { CrudValidationGroups } from '@nestjsx/crud'
