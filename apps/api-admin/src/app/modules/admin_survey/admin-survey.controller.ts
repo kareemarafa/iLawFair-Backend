@@ -9,8 +9,8 @@ import { AdminSurveyService } from './admin-survey.service'
     type: Survey
   }
 })
-@Controller('adminSurvey')
-@ApiTags('admin Survey')
+@Controller('Admin-survey')
+@ApiTags('Admin Survey')
 export class AdminSurveyController implements CrudController<Survey> {
   constructor(public service: AdminSurveyService) {}
 }
