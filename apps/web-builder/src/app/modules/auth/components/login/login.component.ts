@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     //     untilDestroyed(this)
     //   )
     //   .subscribe(() =>
-    return this.router.navigate(['projects'])
+    return this.router.navigate(['dashboard/projects'])
     // );
   }
 
