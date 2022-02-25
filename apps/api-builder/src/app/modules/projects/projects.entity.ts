@@ -19,7 +19,8 @@ export class Project extends CoreEntity {
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsString({ always: true })
-  @Column({ type: 'varchar', nullable: false })
+  @MaxLength(100, { always: true })
+  @Column({ type: 'varchar', length: 100, nullable: false })
   @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
   background: string
 
@@ -34,21 +35,24 @@ export class Project extends CoreEntity {
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsString({ always: true })
-  @Column({ type: 'varchar', nullable: false })
+  @MaxLength(100, { always: true })
+  @Column({ type: 'varchar', length: 100, nullable: false })
   @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
   logo: string
 
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsString({ always: true })
-  @Column({ type: 'varchar', nullable: false })
+  @MaxLength(100, { always: true })
+  @Column({ type: 'varchar', length: 100, nullable: false })
   @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
   favicon: string
 
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsString({ always: true })
-  @Column({ type: 'varchar', nullable: false })
+  @MaxLength(100, { always: true })
+  @Column({ type: 'varchar', length: 100, nullable: false })
   @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
   description: string
 
