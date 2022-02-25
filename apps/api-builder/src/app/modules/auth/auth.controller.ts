@@ -4,8 +4,8 @@ import { User } from '../users/users.entity'
 import { ApiTags } from '@nestjs/swagger'
 import { AuthGuard } from '@nestjs/passport'
 
-@Controller('auth')
 @ApiTags('Auth')
+@Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
 
@@ -15,7 +15,6 @@ export class AuthController {
    * @param body
    */
   @Post('login')
-  @ApiTags('login')
   @UseGuards(AuthGuard('local'))
   @HttpCode(HttpStatus.OK)
   public async login(@Request() req, @Body() body): Promise<User> {
@@ -27,7 +26,6 @@ export class AuthController {
    * @param userData
    */
   @Post('register')
-  @ApiTags('Register')
   @HttpCode(HttpStatus.CREATED)
   public async register(@Body() userData: User): Promise<User> {
     return this.authService.register(userData)
