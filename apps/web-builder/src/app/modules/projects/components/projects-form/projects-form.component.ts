@@ -15,7 +15,7 @@ export class ProjectsFormComponent implements OnInit, OnDestroy {
 
   constructor(private formBuilder: FormBuilder, private service: ProjectsService, public router: Router) {
     this.form = this.formBuilder.group({
-      name: [''],
+      projectName: [''],
       themeFont: [''],
       background: [''],
       themeColor: [''],
@@ -26,7 +26,7 @@ export class ProjectsFormComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.form.controls['name'].setValue('Basic Project')
+    this.form.controls['projectName'].setValue('Basic Project')
     this.form.controls['themeFont'].setValue('Arial')
     this.form.controls['background'].setValue('none')
     this.form.controls['themeColor'].setValue('red')
