@@ -1,18 +1,18 @@
-import {Component, OnDestroy, OnInit} from '@angular/core'
-import {ProjectsService} from "../../projects.service";
-import {takeWhile} from "rxjs";
-import {PaginationObjectInterface} from "@ionhour/interfaces";
+import { Component, OnDestroy, OnInit } from '@angular/core'
+import { ProjectsService } from '../../projects.service'
+import { takeWhile } from 'rxjs'
+import { PaginationObjectInterface } from '@ionhour/interfaces'
 
 export interface Project {
-  name: string
-  color?: string
-  font?: string
+  projectName: string
+  themeColor?: string
+  themeFont?: string
   logo?: string
-  favIcon?: string
+  favicon?: string
   background?: string
   pages: string[]
-  scripts?: []
-  styles?: []
+  scripts?: string
+  styles?: string
 }
 
 @Component({
@@ -21,20 +21,20 @@ export interface Project {
   styleUrls: ['./projects-list.component.scss']
 })
 export class ProjectsListComponent implements OnInit, OnDestroy {
-  alive = true;
-  list!: PaginationObjectInterface<Project>;
+  alive = true
+  list!: PaginationObjectInterface<Project>
 
-  constructor(private service: ProjectsService) {
-  }
+  constructor(private service: ProjectsService) {}
 
   loadList() {
-    this.service.loadList()
+    this.service
+      .loadList()
       .pipe(takeWhile(() => this.alive))
-      .subscribe((data) => this.list = data)
+      .subscribe((data) => (this.list = data))
   }
 
   ngOnInit() {
-    this.loadList();
+    this.loadList()
   }
 
   ngOnDestroy() {
