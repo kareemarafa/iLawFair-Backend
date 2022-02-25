@@ -24,7 +24,7 @@ const routes: Route[] = [
     component: RegisterComponent
   },
   {
-    path: 'admin_survey',
+    path: 'survey',
     component: SurveyComponent
   }
 ]

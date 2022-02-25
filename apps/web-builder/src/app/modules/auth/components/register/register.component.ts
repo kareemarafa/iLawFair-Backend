@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     //     untilDestroyed(this)
     //   )
     //   .subscribe(() =>
-    return this.router.navigate(['auth/admin_survey'])
+    return this.router.navigate(['auth/survey'])
     // );
   }
 
