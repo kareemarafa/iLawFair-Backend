@@ -5,6 +5,7 @@ import { ApiTags } from '@nestjs/swagger'
 import { AuthGuard } from '@nestjs/passport'
 
 @Controller('auth')
+@ApiTags('Auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
 
