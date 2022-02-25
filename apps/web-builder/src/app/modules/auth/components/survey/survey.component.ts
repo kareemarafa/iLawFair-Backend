@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
-  selector: 'ionhour-survey',
+  selector: 'ionhour-admin_survey',
   templateUrl: './survey.component.html',
   styleUrls: ['./survey.component.scss']
 })
