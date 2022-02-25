@@ -1,6 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core'
-import { FormBuilder, FormGroup } from '@angular/forms'
-import { ActivatedRoute, Router } from '@angular/router'
+import {Component, OnDestroy, OnInit} from '@angular/core'
+import {FormBuilder, FormGroup} from '@angular/forms'
+import {Router} from '@angular/router'
+import {takeWhile} from "rxjs";
+import {ProjectsService} from "../../projects.service";
 
 @Component({
   selector: 'ionhour-projects-form',
@@ -9,41 +11,41 @@ import { ActivatedRoute, Router } from '@angular/router'
 })
 export class ProjectsFormComponent implements OnInit, OnDestroy {
   form: FormGroup
+  alive = true
 
   constructor(
     private formBuilder: FormBuilder,
-    // private resumeAuthService: ResumeAuthService,
+    private service: ProjectsService,
     public router: Router,
-    private route: ActivatedRoute
   ) {
     this.form = this.formBuilder.group({
-      username: [''],
-      password: ['']
+      name: [''],
+      themeFont: [''],
+      background: [''],
+      themeColor: [''],
+      logo: [''],
+      Favicon: [''],
+      description: [''],
     })
   }
 
   ngOnInit() {
-    // this.form.controls["username"].setValue("owner");
-    // this.form.controls["password"].setValue("123456789");
+    this.form.controls["name"].setValue("Basic Project");
+    this.form.controls["themeFont"].setValue("Arial");
+    this.form.controls["background"].setValue("none");
+    this.form.controls["themeColor"].setValue("red");
+    this.form.controls["logo"].setValue("none");
+    this.form.controls["Favicon"].setValue("none");
+    this.form.controls["description"].setValue("basic project description");
   }
 
   create() {
-    // const payload: LoginPayloadInterface = {
-    //   username: this.form.value.username,
-    //   password: this.form.value.password,
-    //   remember: false
-    // };
-    // this.store.dispatch({ type: ResumeAuthActionTypes.ResumeAPI_USER_LOGIN, payload })
-    // this.loginState.login(payload)
-    //   .pipe(
-    //     untilDestroyed(this)
-    //   )
-    //   .subscribe(() =>
-    return this.router.navigate(['projects'])
-    // );
+    this.service.create(this.form.value)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe(() => this.router.navigate(['dashboard/projects']));
   }
 
   ngOnDestroy() {
-    console.log('ProjectsFormComponent Destroyed')
+    this.alive = false
   }
 }
