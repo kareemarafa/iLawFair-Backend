@@ -15,7 +15,7 @@ export class PricesAComponent {
         title: 'Free',
         price: '$0',
         per: 'mo',
-        features: ['10 users included', '2 GB of storage', 'Email support', 'Help center access'],
+        features: ['10 admin_users included', '2 GB of storage', 'Email support', 'Help center access'],
         button: {
           text: 'Sign up for free',
           action: '#',
@@ -26,7 +26,7 @@ export class PricesAComponent {
         title: 'Pro',
         price: '$15',
         per: 'mo',
-        features: ['10 users included', '2 GB of storage', 'Email support', 'Help center access'],
+        features: ['10 admin_users included', '2 GB of storage', 'Email support', 'Help center access'],
         button: {
           text: 'Get started',
           action: '#',
@@ -37,7 +37,7 @@ export class PricesAComponent {
         title: 'Enterprise',
         price: '$29',
         per: 'mo',
-        features: ['10 users included', '2 GB of storage', 'Email support', 'Help center access'],
+        features: ['10 admin_users included', '2 GB of storage', 'Email support', 'Help center access'],
         button: {
           text: 'Contact us',
           action: '#',

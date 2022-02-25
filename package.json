@@ -9,7 +9,7 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "serve:all": "nx run-many --parallel --target=serve --projects=web-builder,api-builder"
+    "serve:all": "nx run-many --parallel --target=serve --projects=web-builder,api-builder,api-admin"
   },
   "dependencies": {
     "@angular/animations": "~13.2.0",
