@@ -6,7 +6,7 @@ import { CoreEntity } from '@ionhour/backend-core'
 
 const { CREATE, UPDATE } = CrudValidationGroups
 
-@Entity('Pages')
+@Entity('pages')
 export class Page extends CoreEntity {
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })

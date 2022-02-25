@@ -6,7 +6,7 @@ import { ApiProperty } from '@nestjs/swagger'
 
 const { CREATE, UPDATE } = CrudValidationGroups
 
-@Entity('Projects')
+@Entity('projects')
 export class Project extends CoreEntity {
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
@@ -46,7 +46,7 @@ export class Project extends CoreEntity {
   @MaxLength(100, { always: true })
   @Column({ type: 'varchar', length: 100, nullable: false })
   @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
-  Favicon: string
+  favicon: string
 
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
