@@ -1,6 +1,6 @@
 <div class="d-flex flex-column">
   <div class="pb-2 d-flex flex-row align-items-baseline">
-    <a mat-icon-button routerLink="/projects" matTooltip="Back" aria-label="Example icon button with a vertical three dot icon">
+    <a mat-icon-button routerLink="/dashboard/projects" matTooltip="Back" aria-label="Example icon button with a vertical three dot icon">
       <mat-icon>chevron_left</mat-icon>
     </a>
     <h3 class="m-0 p-0">Add Project</h3>
@@ -8,14 +8,33 @@
   <mat-card fxFlex.xs="1 1 100%" fxFlex.sm="1 1 100%" fxFlex.md="1 1 50%" fxFlex.lg="33.33%" fxLayout="column">
     <form [formGroup]="form" (ngSubmit)="create()" fxFlex="1 1 100%" fxLayout="column">
       <mat-form-field appearance="fill">
-        <mat-label>Username</mat-label>
-        <input matInput type="text" formControlName="username" />
+        <mat-label>Project name</mat-label>
+        <input matInput type="text" formControlName="projectName" />
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password" />
+        <mat-label>Description</mat-label>
+        <input matInput type="text" formControlName="description" />
       </mat-form-field>
-
+      <mat-form-field appearance="fill">
+        <mat-label>Favicon</mat-label>
+        <input matInput type="text" formControlName="favicon" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Logo</mat-label>
+        <input matInput type="text" formControlName="logo" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Theme color</mat-label>
+        <input matInput type="text" formControlName="themeColor" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Background</mat-label>
+        <input matInput type="text" formControlName="background" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Theme font</mat-label>
+        <input matInput type="text" formControlName="themeFont" />
+      </mat-form-field>
       <div class="d-flex justify-content-end">
         <button mat-flat-button type="submit" color="primary">Submit</button>
         <button mat-flat-button type="reset">Reset</button>

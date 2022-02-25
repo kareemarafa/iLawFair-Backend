@@ -1,45 +1,43 @@
-import { Component } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
+import { ProjectsService } from '../../projects.service'
+import { takeWhile } from 'rxjs'
+import { PaginationObjectInterface } from '@ionhour/interfaces'
 
 export interface Project {
-  name: string
-  theme: {
-    color?: string
-    font?: string
-    logo?: string
-    favIcon?: string
-    background?: string
-  }
+  projectName: string
+  themeColor?: string
+  themeFont?: string
+  logo?: string
+  favicon?: string
+  background?: string
   pages: string[]
-  scripts?: []
-  styles?: []
+  scripts?: string
+  styles?: string
 }
-
-const ELEMENT_DATA: Project[] = [
-  {
-    name: 'Restaurant',
-    theme: {
-      color: '#ff7675',
-      font: 'Arial',
-      logo: './assets/logo.jpeg'
-    },
-    pages: ['home', 'about']
-  },
-  {
-    name: 'Hospital',
-    theme: {
-      color: '#1abc9c',
-      font: 'Arial',
-      logo: './assets/logo2.png'
-    },
-    pages: ['home', 'about', 'career']
-  }
-]
 
 @Component({
   selector: 'ionhour-projects-list',
   templateUrl: './projects-list.component.html',
   styleUrls: ['./projects-list.component.scss']
 })
-export class ProjectsListComponent {
-  dataSource = ELEMENT_DATA
+export class ProjectsListComponent implements OnInit, OnDestroy {
+  alive = true
+  list!: PaginationObjectInterface<Project>
+
+  constructor(private service: ProjectsService) {}
+
+  loadList() {
+    this.service
+      .loadList()
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((data) => (this.list = data))
+  }
+
+  ngOnInit() {
+    this.loadList()
+  }
+
+  ngOnDestroy() {
+    this.alive = false
+  }
 }
