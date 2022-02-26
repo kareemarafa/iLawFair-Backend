@@ -2,8 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core'
 import { ProjectsService } from '../../projects.service'
 import { takeWhile } from 'rxjs'
 import { PaginationObjectInterface } from '@ionhour/interfaces'
+import { Router } from '@angular/router'
 
 export interface Project {
+  id?: number
   projectName: string
   themeColor?: string
   themeFont?: string
@@ -24,7 +26,7 @@ export class ProjectsListComponent implements OnInit, OnDestroy {
   alive = true
   list!: PaginationObjectInterface<Project>
 
-  constructor(private service: ProjectsService) {}
+  constructor(private service: ProjectsService, public router: Router) {}
 
   loadList() {
     this.service

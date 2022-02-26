@@ -59,7 +59,7 @@
         <mat-card-actions>
           <div class="d-flex justify-content-end">
             <a mat-stroked-button class="mx-1" color="primary" routerLink="/builder"> Start Building </a>
-            <a mat-icon-button class="mx-1" color="primary" matTooltip="Project settings" routerLink="create">
+            <a mat-icon-button class="mx-1" color="primary" matTooltip="Project settings" (click)="router.navigate(['dashboard/projects/edit'], { queryParams: { id: item.id } })">
               <mat-icon>settings</mat-icon>
             </a>
           </div>

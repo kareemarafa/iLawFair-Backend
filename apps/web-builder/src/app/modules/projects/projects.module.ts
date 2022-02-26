@@ -21,6 +21,10 @@ const routes: Route[] = [
   {
     path: 'create',
     component: ProjectsFormComponent
+  },
+  {
+    path: 'edit/:id',
+    component: ProjectsFormComponent
   }
 ]
 
