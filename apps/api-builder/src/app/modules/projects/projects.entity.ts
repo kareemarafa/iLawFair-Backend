@@ -19,9 +19,8 @@ export class Project extends CoreEntity {
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsString({ always: true })
-  @MaxLength(100, { always: true })
-  @Column({ type: 'varchar', length: 100, nullable: false })
-  @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
+  @Column({ type: 'varchar', nullable: false })
+  @ApiProperty({ required: true, type: 'string', nullable: false })
   background: string
 
   @IsNotEmpty({ groups: [CREATE] })
@@ -35,32 +34,28 @@ export class Project extends CoreEntity {
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsString({ always: true })
-  @MaxLength(100, { always: true })
-  @Column({ type: 'varchar', length: 100, nullable: false })
-  @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
+  @Column({ type: 'varchar', nullable: false })
+  @ApiProperty({ required: true, type: 'string', nullable: false })
   logo: string
 
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsString({ always: true })
-  @MaxLength(100, { always: true })
-  @Column({ type: 'varchar', length: 100, nullable: false })
-  @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
+  @Column({ type: 'varchar', nullable: false })
+  @ApiProperty({ required: true, type: 'string', nullable: false })
   favicon: string
 
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsString({ always: true })
-  @MaxLength(100, { always: true })
-  @Column({ type: 'varchar', length: 100, nullable: false })
-  @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
+  @Column({ type: 'varchar', nullable: false })
+  @ApiProperty({ required: true, type: 'string', nullable: false })
   description: string
 
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsString({ always: true })
-  @MaxLength(100, { always: true })
-  @Column({ type: 'varchar', length: 100, nullable: false })
-  @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
+  @Column({ type: 'varchar', nullable: false })
+  @ApiProperty({ required: true, type: 'string', nullable: false })
   projectName: string
 }
