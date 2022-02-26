@@ -12,6 +12,11 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { MatChipsModule } from '@angular/material/chips'
+import { FormlyModule } from '@ngx-formly/core'
+import { CoreModule } from '@ionhour/core'
+import { FormlyMatSliderModule } from '@ngx-formly/material/slider'
+import { FormlyMatToggleModule } from '@ngx-formly/material/toggle'
+import { FormlyMaterialModule } from '@ngx-formly/material'
 
 const routes: Route[] = [
   {
@@ -23,7 +28,7 @@ const routes: Route[] = [
     component: ProjectsFormComponent
   },
   {
-    path: 'edit/:id',
+    path: 'edit',
     component: ProjectsFormComponent
   }
 ]
@@ -42,7 +47,12 @@ const routes: Route[] = [
     MatFormFieldModule,
     MatInputModule,
     MatTooltipModule,
-    MatChipsModule
+    MatChipsModule,
+    CoreModule,
+    FormlyModule.forRoot(),
+    FormlyMatSliderModule,
+    FormlyMatToggleModule,
+    FormlyMaterialModule
   ]
 })
 export class ProjectsModule {}
