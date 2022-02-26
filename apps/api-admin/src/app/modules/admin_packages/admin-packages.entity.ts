@@ -18,25 +18,21 @@ export class Packages extends CoreEntity {
 
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
-  @IsString({ always: true })
-  @MaxLength(100, { always: true })
-  @Column({ type: 'varchar', length: 100, nullable: false })
-  @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
-  price: string
+  @Column({ type: 'varchar', nullable: false })
+  @ApiProperty({ required: true, type: 'string', nullable: false })
+  price: number
 
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsString({ always: true })
-  @MaxLength(100, { always: true })
-  @Column({ type: 'varchar', length: 100, nullable: false })
-  @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
+  @Column({ type: 'varchar', nullable: false })
+  @ApiProperty({ required: true, type: 'string', nullable: false })
   features: string
 
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsString({ always: true })
-  @MaxLength(100, { always: true })
-  @Column({ type: 'varchar', length: 100, nullable: false })
-  @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
+  @Column({ type: 'varchar', nullable: false })
+  @ApiProperty({ required: true, type: 'string', nullable: false })
   description: string
 }
