@@ -7,6 +7,11 @@ import { UsersService } from './users.service'
 @Crud({
   model: {
     type: User
+  },
+  query: {
+    join: {
+      projects: {}
+    }
   }
 })
 @Controller('Users')

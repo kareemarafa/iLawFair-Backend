@@ -10,7 +10,8 @@ import { ProjectsService } from './projects.service'
   },
   query: {
     join: {
-      pages: {}
+      pages: {},
+      project: {}
     }
   }
 })
