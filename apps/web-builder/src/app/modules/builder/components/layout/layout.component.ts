@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router'
 import { MatDialog } from '@angular/material/dialog'
 import { PageFormDialogComponent } from '../page-form-dialog/page-form-dialog.component'
 import { ProjectsService } from '../../../projects/projects.service'
+import { PagesService } from '../../../pages/pages.service'
 
 @UntilDestroy()
 @Component({
@@ -38,7 +39,8 @@ export class LayoutComponent implements OnInit {
     private elementsService: ElementsService,
     private activatedRoute: ActivatedRoute,
     public dialog: MatDialog,
-    private projectService: ProjectsService
+    private projectService: ProjectsService,
+    private pageService: PagesService
   ) {
     const preview = elementsService.previewElements$
     const current = elementsService.currentElement$
@@ -61,6 +63,11 @@ export class LayoutComponent implements OnInit {
     dialogRef.afterClosed().subscribe(() => {
       this.item$ = this.projectService.getOne(this.itemId)
     })
+  }
+
+  updatePageContent() {
+    console.log(this.components)
+    // this.pageService.update(this.itemId, this.components)
   }
 
   ngOnInit(): void {

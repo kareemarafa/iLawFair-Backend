@@ -38,7 +38,7 @@
   <button mat-icon-button class="example-icon favorite-icon" [matTooltip]="'mobile view'" aria-label="Example icon-button with heart icon">
     <mat-icon>phone_android</mat-icon>
   </button>
-  <button mat-raised-button color="warn">Save</button>
+  <button mat-raised-button color="warn" (click)="updatePageContent()">Save</button>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container">
