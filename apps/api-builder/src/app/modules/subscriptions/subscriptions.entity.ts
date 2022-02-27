@@ -12,14 +12,14 @@ export class Subscription extends CoreEntity {
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsNumber(null, { always: true })
-  @Column({ type: 'number', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   @ApiProperty({ required: true, type: 'number', nullable: false })
   transactionId: number
 
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsNumber(null, { always: true })
-  @Column({ type: 'number', nullable: false })
+  @Column({ type: 'decimal', nullable: false })
   @ApiProperty({ required: true, type: 'number', nullable: false })
   amount: number
 
