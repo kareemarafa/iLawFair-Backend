@@ -21,6 +21,14 @@ export class Page extends CoreEntity {
   @ApiProperty({ required: false, type: 'json', nullable: true })
   components: string
 
+  @Column({ type: 'varchar', nullable: true })
+  @ApiProperty({ required: false, type: 'varchar', nullable: true })
+  keywords: string
+
+  @Column({ type: 'varchar', nullable: true })
+  @ApiProperty({ required: false, type: 'varchar', nullable: true })
+  metaTags: string
+
   @ManyToOne(() => Project, (project) => project.pages)
   project: Project
 }

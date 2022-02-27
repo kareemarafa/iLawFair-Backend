@@ -27,6 +27,26 @@ export class PageFormDialogComponent implements OnInit, OnDestroy {
         placeholder: 'Enter page name',
         required: true
       }
+    },
+    {
+      key: 'keywords',
+      type: 'input',
+      templateOptions: {
+        type: 'text',
+        label: 'Keywords',
+        placeholder: 'Enter keywords',
+        required: false
+      }
+    },
+    {
+      key: 'metaTags',
+      type: 'input',
+      templateOptions: {
+        type: 'text',
+        label: 'Meta tags',
+        placeholder: 'Enter meta tags',
+        required: false
+      }
     }
   ]
   model: any = {}
@@ -51,9 +71,11 @@ export class PageFormDialogComponent implements OnInit, OnDestroy {
     })
   }
 
-  submit(model: { pageName: string }): void {
+  submit(model: { pageName: string; keywords: string; metaTags: string }): void {
     const data = {
       pageName: model.pageName,
+      keywords: model.keywords,
+      metaTags: model.metaTags,
       project: { id: this.data.projectId }
     }
     if (!this.data.item) {

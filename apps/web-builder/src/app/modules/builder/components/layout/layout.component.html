@@ -7,14 +7,24 @@
     <mat-icon>article</mat-icon>
   </button>
 
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="addPage()">
+  <mat-menu backdropClass="pages-menu" #menu="matMenu">
+    <button mat-menu-item (click)="navigateToPageForm()">
       <span>Add new page</span>
     </button>
     <ng-container *ngFor="let item of (item$ | async)?.pages">
-      <button mat-menu-item (click)="editPage(item)">
-        <span>{{ item.pageName }}</span>
-      </button>
+      <div class="px-3 d-flex flex-row justify-content-between">
+        <span>
+          {{ item.pageName }}
+        </span>
+        <div>
+          <button mat-icon-button [matTooltip]="'Edit content'" (click)="navigateToPageForm(item)">
+            <mat-icon>handyman</mat-icon>
+          </button>
+          <button mat-icon-button [matTooltip]="'Page settings'" (click)="navigateToPageForm(item)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+      </div>
     </ng-container>
   </mat-menu>
 

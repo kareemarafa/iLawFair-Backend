@@ -1,17 +1,16 @@
-import { Component, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
+import { Component, ComponentRef, OnInit, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
 import { Observable } from 'rxjs'
 import { map, shareReplay } from 'rxjs/operators'
 import { ElementsService } from '@ionhour/core'
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
-import { IComponent, Project } from '@ionhour/interfaces'
+import { IComponent, PageInterface, Project } from '@ionhour/interfaces'
 import { ComponentControlComponent } from 'libs/core/src/lib/components'
 import { ActivatedRoute } from '@angular/router'
 import { MatDialog } from '@angular/material/dialog'
 import { PageFormDialogComponent } from '../page-form-dialog/page-form-dialog.component'
 import { ProjectsService } from '../../../projects/projects.service'
-import { PageInterface } from '../../../../../../../../libs/interfaces/src/lib/page.interface'
 
 @UntilDestroy()
 @Component({
@@ -53,18 +52,7 @@ export class LayoutComponent implements OnInit {
     })
   }
 
-  addPage() {
-    const dialogRef = this.dialog.open(PageFormDialogComponent, {
-      width: '500px',
-      height: '500px',
-      data: { projectId: this.itemId }
-    })
-    dialogRef.afterClosed().subscribe(() => {
-      this.item$ = this.projectService.getOne(this.itemId)
-    })
-  }
-
-  editPage(item: PageInterface) {
+  navigateToPageForm(item?: PageInterface) {
     const dialogRef = this.dialog.open(PageFormDialogComponent, {
       width: '500px',
       height: '500px',
