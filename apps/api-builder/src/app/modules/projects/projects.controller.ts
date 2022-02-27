@@ -11,7 +11,7 @@ import { ProjectsService } from './projects.service'
   query: {
     join: {
       pages: {},
-      project: {}
+      user: {}
     }
   }
 })
