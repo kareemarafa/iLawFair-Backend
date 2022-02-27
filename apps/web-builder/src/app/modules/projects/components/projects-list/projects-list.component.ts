@@ -1,21 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { ProjectsService } from '../../projects.service'
 import { takeWhile } from 'rxjs'
-import { PaginationObjectInterface } from '@ionhour/interfaces'
+import { PaginationObjectInterface, Project } from '@ionhour/interfaces'
 import { Router } from '@angular/router'
-
-export interface Project {
-  id?: number
-  projectName: string
-  themeColor?: string
-  themeFont?: string
-  logo?: string
-  favicon?: string
-  background?: string
-  pages: string[]
-  scripts?: string
-  styles?: string
-}
 
 @Component({
   selector: 'ionhour-projects-list',

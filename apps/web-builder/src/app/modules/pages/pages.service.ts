@@ -5,10 +5,10 @@ import { map } from 'rxjs/operators'
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectsService {
+export class PagesService {
   cid!: string
   constructor(private http: HttpClient) {
-    this.cid = 'projects'
+    this.cid = 'pages'
   }
 
   get routerPrefix(): string {
@@ -16,7 +16,7 @@ export class ProjectsService {
   }
 
   create(data: any) {
-    return this.http.post('/api/projects', data).pipe(
+    return this.http.post('/api/pages', data).pipe(
       map((response: any) => {
         console.log({ response })
         return response
@@ -25,7 +25,7 @@ export class ProjectsService {
   }
 
   update(id: number, data: any) {
-    return this.http.patch(`/api/projects/${id}`, data).pipe(
+    return this.http.patch(`/api/pages/${id}`, data).pipe(
       map((response: any) => {
         console.log({ response })
         return response
@@ -34,7 +34,7 @@ export class ProjectsService {
   }
 
   getOne(id: any) {
-    return this.http.get(`/api/projects/${id}?join=pages`).pipe(
+    return this.http.get(`/api/pages/${id}?join=pages`).pipe(
       map((response: any) => {
         console.log({ response })
         return response
@@ -43,7 +43,7 @@ export class ProjectsService {
   }
 
   delete(id: any) {
-    return this.http.delete(`/api/projects/${id}`).pipe(
+    return this.http.delete(`/api/pages/${id}`).pipe(
       map((response: any) => {
         console.log({ response })
         return response
@@ -52,7 +52,7 @@ export class ProjectsService {
   }
 
   loadList() {
-    return this.http.get('/api/projects?join=pages').pipe(
+    return this.http.get('/api/pages').pipe(
       map((response: any) => {
         console.log({ response })
         return response

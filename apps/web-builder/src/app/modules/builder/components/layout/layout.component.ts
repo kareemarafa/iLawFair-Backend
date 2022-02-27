@@ -1,12 +1,17 @@
-import { Component, ComponentFactoryResolver, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
+import { Component, ComponentRef, OnInit, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
 import { Observable } from 'rxjs'
 import { map, shareReplay } from 'rxjs/operators'
 import { ElementsService } from '@ionhour/core'
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
-import { IComponent } from '@ionhour/interfaces'
+import { IComponent, PageInterface, Project } from '@ionhour/interfaces'
 import { ComponentControlComponent } from 'libs/core/src/lib/components'
+import { ActivatedRoute } from '@angular/router'
+import { MatDialog } from '@angular/material/dialog'
+import { PageFormDialogComponent } from '../page-form-dialog/page-form-dialog.component'
+import { ProjectsService } from '../../../projects/projects.service'
+import { PagesService } from '../../../pages/pages.service'
 
 @UntilDestroy()
 @Component({
@@ -21,16 +26,48 @@ export class LayoutComponent implements OnInit {
 
   @ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef
 
+  itemId!: number
+  item$!: Observable<Project>
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map((result) => result.matches),
     shareReplay()
   )
 
-  constructor(private breakpointObserver: BreakpointObserver, private elementsService: ElementsService) {
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private elementsService: ElementsService,
+    private activatedRoute: ActivatedRoute,
+    public dialog: MatDialog,
+    private projectService: ProjectsService,
+    private pageService: PagesService
+  ) {
     const preview = elementsService.previewElements$
     const current = elementsService.currentElement$
     preview.pipe(untilDestroyed(this)).subscribe((component) => this.add(component))
     current.pipe(untilDestroyed(this)).subscribe((moduleName) => (this.moduleName = moduleName))
+    this.activatedRoute.queryParams.pipe(untilDestroyed(this)).subscribe((queryParams) => {
+      if (queryParams['projectId']) {
+        this.itemId = queryParams['projectId']
+        this.item$ = projectService.getOne(this.itemId)
+      }
+    })
+  }
+
+  navigateToPageForm(item?: PageInterface) {
+    const dialogRef = this.dialog.open(PageFormDialogComponent, {
+      width: '500px',
+      height: '500px',
+      data: { projectId: this.itemId, item }
+    })
+    dialogRef.afterClosed().subscribe(() => {
+      this.item$ = this.projectService.getOne(this.itemId)
+    })
+  }
+
+  updatePageContent() {
+    console.log(this.components)
+    // this.pageService.update(this.itemId, this.components)
   }
 
   ngOnInit(): void {
