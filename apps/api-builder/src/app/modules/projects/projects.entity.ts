@@ -1,8 +1,10 @@
 import { CrudValidationGroups } from '@nestjsx/crud'
-import { Column, Entity } from 'typeorm'
+import { Column, Entity, ManyToOne, OneToMany } from 'typeorm'
 import { CoreEntity } from '@ionhour/backend-core'
 import { IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
+import { Page } from '../pages/pages.entity'
+import { User } from '../users/users.entity'
 
 const { CREATE, UPDATE } = CrudValidationGroups
 
@@ -58,4 +60,10 @@ export class Project extends CoreEntity {
   @Column({ type: 'varchar', nullable: false })
   @ApiProperty({ required: true, type: 'string', nullable: false })
   projectName: string
+
+  @OneToMany(() => Page, (page) => page.project)
+  pages: Page[]
+
+  @ManyToOne(() => User, (user) => user.projects)
+  user: User
 }
