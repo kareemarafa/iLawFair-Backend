@@ -6,7 +6,14 @@ import { map } from 'rxjs/operators'
   providedIn: 'root'
 })
 export class ProjectsService {
-  constructor(private http: HttpClient) {}
+  cid!: string
+  constructor(private http: HttpClient) {
+    this.cid = 'projects'
+  }
+
+  get routerPrefix(): string {
+    return this.cid
+  }
 
   create(data: any) {
     return this.http.post('/api/projects', data).pipe(
