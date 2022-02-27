@@ -5,11 +5,13 @@ import { map, shareReplay } from 'rxjs/operators'
 import { ElementsService } from '@ionhour/core'
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
-import { IComponent } from '@ionhour/interfaces'
+import { IComponent, Project } from '@ionhour/interfaces'
 import { ComponentControlComponent } from 'libs/core/src/lib/components'
 import { ActivatedRoute } from '@angular/router'
 import { MatDialog } from '@angular/material/dialog'
 import { PageFormDialogComponent } from '../page-form-dialog/page-form-dialog.component'
+import { ProjectsService } from '../../../projects/projects.service'
+import { PageInterface } from '../../../../../../../../libs/interfaces/src/lib/page.interface'
 
 @UntilDestroy()
 @Component({
@@ -25,13 +27,20 @@ export class LayoutComponent implements OnInit {
   @ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef
 
   itemId!: number
+  item$!: Observable<Project>
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map((result) => result.matches),
     shareReplay()
   )
 
-  constructor(private breakpointObserver: BreakpointObserver, private elementsService: ElementsService, private activatedRoute: ActivatedRoute, public dialog: MatDialog) {
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private elementsService: ElementsService,
+    private activatedRoute: ActivatedRoute,
+    public dialog: MatDialog,
+    private projectService: ProjectsService
+  ) {
     const preview = elementsService.previewElements$
     const current = elementsService.currentElement$
     preview.pipe(untilDestroyed(this)).subscribe((component) => this.add(component))
@@ -39,6 +48,7 @@ export class LayoutComponent implements OnInit {
     this.activatedRoute.queryParams.pipe(untilDestroyed(this)).subscribe((queryParams) => {
       if (queryParams['projectId']) {
         this.itemId = queryParams['projectId']
+        this.item$ = projectService.getOne(this.itemId)
       }
     })
   }
@@ -49,8 +59,19 @@ export class LayoutComponent implements OnInit {
       height: '500px',
       data: { projectId: this.itemId }
     })
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`)
+    dialogRef.afterClosed().subscribe(() => {
+      this.item$ = this.projectService.getOne(this.itemId)
+    })
+  }
+
+  editPage(item: PageInterface) {
+    const dialogRef = this.dialog.open(PageFormDialogComponent, {
+      width: '500px',
+      height: '500px',
+      data: { projectId: this.itemId, item }
+    })
+    dialogRef.afterClosed().subscribe(() => {
+      this.item$ = this.projectService.getOne(this.itemId)
     })
   }
 

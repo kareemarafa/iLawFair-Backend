@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Add page</h2>
+<h2 mat-dialog-title>{{ data?.item ? 'Edit page' : 'Add page' }}</h2>
 <mat-dialog-content>
   <form [formGroup]="form" (ngSubmit)="submit(model)" fxFlex="1 1 100%" fxLayout="column">
     <formly-form [form]="form" [fields]="fields" [model]="model"> </formly-form>

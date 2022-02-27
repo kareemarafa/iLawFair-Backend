@@ -11,6 +11,11 @@
     <button mat-menu-item (click)="addPage()">
       <span>Add new page</span>
     </button>
+    <ng-container *ngFor="let item of (item$ | async)?.pages">
+      <button mat-menu-item (click)="editPage(item)">
+        <span>{{ item.pageName }}</span>
+      </button>
+    </ng-container>
   </mat-menu>
 
   <span class="example-spacer"></span>
