@@ -3,6 +3,16 @@
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
   <span>Web-Me</span>
+  <button mat-icon-button class="example-icon favorite-icon" [matMenuTriggerFor]="menu" [matTooltip]="'Project pages'" aria-label="Example icon-button with heart icon">
+    <mat-icon>article</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="addPage()">
+      <span>Add new page</span>
+    </button>
+  </mat-menu>
+
   <span class="example-spacer"></span>
   <button mat-icon-button class="example-icon favorite-icon" [matTooltip]="'undo'" aria-label="Example icon-button with heart icon">
     <mat-icon>undo</mat-icon>
