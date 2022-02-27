@@ -3,6 +3,7 @@ import { User } from '../app/modules/users/users.entity'
 import { Project } from '../app/modules/projects/projects.entity'
 import { Page } from '../app/modules/pages/pages.entity'
 import { Subscription } from '../app/modules/subscriptions/subscriptions.entity'
+import { Media } from '../app/modules/media/media.entity'
 
 export const environment = {
   production: false
@@ -18,7 +19,7 @@ export const databaseConfig = () => ({
     name: 'webme_builder',
     autoLoadEntities: false,
     synchronize: true,
-    entities: [Component, User, Project, Page, Subscription],
+    entities: [Component, User, Project, Page, Subscription, Media],
     seeds: []
   }
 })
