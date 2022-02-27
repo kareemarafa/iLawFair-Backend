@@ -1,8 +1,9 @@
-import { Column, Entity } from 'typeorm'
+import { Column, Entity, OneToMany } from 'typeorm'
 import { CoreEntity } from '@ionhour/backend-core'
 import { IsEmail, IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
 import { CrudValidationGroups } from '@nestjsx/crud'
+import { Project } from '../projects/projects.entity'
 
 const { CREATE, UPDATE } = CrudValidationGroups
 
@@ -55,4 +56,7 @@ export class User extends CoreEntity {
   @Column({ type: 'varchar', length: 100, nullable: false })
   @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
   phone: string
+
+  @OneToMany(() => Project, (project) => project.user)
+  projects: Project[]
 }
