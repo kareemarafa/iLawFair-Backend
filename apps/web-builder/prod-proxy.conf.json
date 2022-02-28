@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "https://webme-builder.api.ionhour.com",
+    "secure": true
+  }
+}
