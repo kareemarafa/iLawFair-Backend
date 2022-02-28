@@ -284,6 +284,7 @@
             "inlineStyleLanguage": "scss",
             "assets": ["apps/web-builder/src/favicon.ico", "apps/web-builder/src/assets"],
             "styles": ["apps/web-builder/src/styles.scss"],
+            "proxyConfig": "apps/web-builder/prod-proxy.conf.json",
             "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.js", "apps/web-builder/src/assets/js/countdown.js", "apps/web-builder/src/assets/js/script.js"]
           },
           "configurations": {
