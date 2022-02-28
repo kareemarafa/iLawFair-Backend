@@ -284,7 +284,6 @@
             "inlineStyleLanguage": "scss",
             "assets": ["apps/web-builder/src/favicon.ico", "apps/web-builder/src/assets"],
             "styles": ["apps/web-builder/src/styles.scss"],
-            "proxyConfig": "apps/web-builder/prod-proxy.conf.json",
             "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.js", "apps/web-builder/src/assets/js/countdown.js", "apps/web-builder/src/assets/js/script.js"]
           },
           "configurations": {
@@ -330,10 +329,7 @@
               "browserTarget": "web-builder:build:development"
             }
           },
-          "defaultConfiguration": "development",
-          "options": {
-            "proxyConfig": "apps/web-builder/proxy.conf.json"
-          }
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
