@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from '@angular/core'
+import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from '@angular/core'
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog'
 import { PagesService } from '../../../pages/pages.service'
 import { FormlyFieldConfig } from '@ngx-formly/core'

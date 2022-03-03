@@ -62,7 +62,7 @@ export class LayoutComponent implements OnInit {
       height: '500px',
       data: { projectId: this.itemId, item }
     })
-    dialogRef.afterClosed().subscribe(() => {
+    dialogRef?.afterClosed().subscribe(() => {
       this.item$ = this.projectService.getOne(this.itemId)
     })
   }
