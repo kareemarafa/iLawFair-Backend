@@ -9,7 +9,7 @@ import { NavbarCComponent } from './components/navbar-c/navbar-c.component'
 
 @NgModule({
   declarations: [NavbarAComponent, NavbarBComponent, NavbarCComponent],
-  imports: [CommonModule, DragDropModule, MatButtonModule, MatIconModule, CoreModule],
+  imports: [CommonModule, DragDropModule, MatButtonModule, MatIconModule],
   exports: [NavbarAComponent]
 })
 export class NavbarModule {}

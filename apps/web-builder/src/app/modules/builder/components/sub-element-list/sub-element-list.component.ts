@@ -36,7 +36,7 @@ export class SubElementListComponent implements AfterViewInit, OnChanges {
   viewComponent(components: IComponent[]) {
     this.container?.clear()
     for (const component of components) {
-      this.createComponent(component.componentClass)
+      this.createComponent(component)
     }
   }
 

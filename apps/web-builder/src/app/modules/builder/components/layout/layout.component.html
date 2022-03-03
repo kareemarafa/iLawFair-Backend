@@ -41,7 +41,7 @@
   <button mat-raised-button color="warn" (click)="updatePageContent()">Save</button>
 </mat-toolbar>
 
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" [hasBackdrop]="false">
   <mat-sidenav
     [fixedTopGap]="80"
     #drawer
@@ -56,11 +56,15 @@
       <ionhour-sub-element-list [moduleName]="moduleName" *ngIf="moduleName"></ionhour-sub-element-list>
     </div>
   </mat-sidenav>
+  <mat-sidenav #sidenavComponentOption position="end" [mode]="'side'">
+    <ionhour-component-option></ionhour-component-option>
+  </mat-sidenav>
   <mat-sidenav-content>
     <div class="card m-5 background-grey">
       <div class="card-body p-2">
         <div class="preview-components" cdkDropList (cdkDropListDropped)="drop($event)">
           <ng-container #container></ng-container>
+          <!-- <button mat-button (click)="componentOption(sidenavComponentOption)">left</button> -->
         </div>
       </div>
     </div>

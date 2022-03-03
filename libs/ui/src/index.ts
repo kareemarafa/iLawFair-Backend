@@ -76,7 +76,19 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: AboutAComponent.name,
-        componentClass: AboutAComponent
+        componentClass: AboutAComponent,
+        componentData: [
+          {
+            image: './assets/500x300.png',
+            title: 'Lorem Ipsum',
+            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
+          },
+          {
+            image: './assets/500x300.png',
+            title: 'Lorem Ipsum',
+            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
+          }
+        ]
       }
     ]
   },
@@ -85,7 +97,8 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: ServiceAComponent.name,
-        componentClass: ServiceAComponent
+        componentClass: ServiceAComponent,
+        componentData: []
       },
       {
         componentName: ServiceBComponent.name,
