@@ -5,6 +5,6 @@ import { CoreModule } from '@ionhour/core'
 
 @NgModule({
   declarations: [HeaderAComponent, HeaderBComponent, HeaderCComponent],
-  imports: [CommonModule, CoreModule]
+  imports: [CommonModule]
 })
 export class HeaderModule {}

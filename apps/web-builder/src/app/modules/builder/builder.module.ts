@@ -28,6 +28,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
 import { MatRippleModule } from '@angular/material/core'
 import { WrapperComponent } from './components/sub-element-list/wrapper/wrapper.component'
 import { MatTooltipModule } from '@angular/material/tooltip'
+import { CoreModule } from '@ionhour/core'
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [LayoutComponent, ElementListComponent, SubElementListComponent, WrapperComponent],
@@ -54,7 +56,9 @@ import { MatTooltipModule } from '@angular/material/tooltip'
     PricesModule,
     MatTooltipModule,
     TestimonialsModule,
-    DividerModule
+    DividerModule,
+    CoreModule,
+    FormsModule
   ]
 })
 export class BuilderModule {}

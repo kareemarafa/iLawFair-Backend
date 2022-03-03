@@ -13,6 +13,9 @@ export class ComponentControlComponent implements AfterViewInit {
   @Input()
   component?: any
 
+  @Input()
+  componentData?: any
+
   showOptions!: boolean
 
   @ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef
@@ -21,7 +24,9 @@ export class ComponentControlComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     Promise.resolve().then(() => {
-      this.container.createComponent(this.component)
+      console.log(this.componentData)
+      let componentRef: any = this.container.createComponent(this.component)
+      componentRef.instance.componentData = this.componentData
     })
   }
 
@@ -31,5 +36,9 @@ export class ComponentControlComponent implements AfterViewInit {
 
   delete() {
     this.elementsService.delete(this.componentIndex)
+  }
+
+  componentOption() {
+    this.elementsService.componentOption(this.componentIndex)
   }
 }

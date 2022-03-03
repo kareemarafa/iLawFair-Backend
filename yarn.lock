@@ -2181,9 +2181,9 @@
   dependencies:
     "source-map-support" "^0.5.21"
 
-"@swc/core-darwin-x64@1.2.135":
-  "integrity" "sha512-nS32iLbaW7g6ILlvWCZp1pwfLSndDGragsFcuw9xo6KR58KeDNdG54GQ6CwugqWiCEgzD+ZCvYmfcTjlgGJt/Q=="
-  "resolved" "https://registry.npmjs.org/@swc/core-darwin-x64/-/core-darwin-x64-1.2.135.tgz"
+"@swc/core-win32-x64-msvc@1.2.135":
+  "integrity" "sha512-hGSoHDbq7mGGb5gg1hTtzxXiqrhmEO02/oAVqSVTX7zsOnVSu9hBxim72R4a8/hqGaCGDIfeXmibwvhcYzrwfg=="
+  "resolved" "https://registry.npmjs.org/@swc/core-win32-x64-msvc/-/core-win32-x64-msvc-1.2.135.tgz"
   "version" "1.2.135"
 
 "@swc/core@^1.2.119":
@@ -4659,19 +4659,19 @@
   "resolved" "https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-0.9.3.tgz"
   "version" "0.9.3"
 
-"esbuild-darwin-64@0.13.13":
-  "integrity" "sha512-wkaiGAsN/09X9kDlkxFfbbIgR78SNjMOfUhoel3CqKBDsi9uZhw7HBNHNxTzYUK8X8LAKFpbODgcRB3b/I8gHA=="
-  "resolved" "https://registry.npmjs.org/esbuild-darwin-64/-/esbuild-darwin-64-0.13.13.tgz"
-  "version" "0.13.13"
-
-"esbuild-darwin-64@0.14.14":
-  "integrity" "sha512-BEexYmjWafcISK8cT6O98E3TfcLuZL8DKuubry6G54n2+bD4GkoRD6HYUOnCkfl2p7jodA+s4369IjSFSWjtHg=="
-  "resolved" "https://registry.npmjs.org/esbuild-darwin-64/-/esbuild-darwin-64-0.14.14.tgz"
-  "version" "0.14.14"
-
 "esbuild-wasm@0.14.14":
   "integrity" "sha512-qTjK4MWnYtQHCMGg2qDUqeFYXfVvYq5qJkQTIsOV4VZCknoYePVaDTG9ygEB9Ct0kc0DWs7IrS6Ja+GjY62Kzw=="
   "resolved" "https://registry.npmjs.org/esbuild-wasm/-/esbuild-wasm-0.14.14.tgz"
+  "version" "0.14.14"
+
+"esbuild-windows-64@0.13.13":
+  "integrity" "sha512-oMrgjP4CjONvDHe7IZXHrMk3wX5Lof/IwFEIbwbhgbXGBaN2dke9PkViTiXC3zGJSGpMvATXVplEhlInJ0drHA=="
+  "resolved" "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.13.13.tgz"
+  "version" "0.13.13"
+
+"esbuild-windows-64@0.14.14":
+  "integrity" "sha512-kl3BdPXh0/RD/dad41dtzj2itMUR4C6nQbXQCyYHHo4zoUoeIXhpCrSl7BAW1nv5EFL8stT1V+TQVXGZca5A2A=="
+  "resolved" "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.14.14.tgz"
   "version" "0.14.14"
 
 "esbuild@0.13.13":
@@ -5297,11 +5297,6 @@
   "integrity" "sha1-FQStJSMVjKpA20onh8sBQRmU6k8="
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
-
-"fsevents@^2.3.2", "fsevents@~2.3.2":
-  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
-  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
-  "version" "2.3.2"
 
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
@@ -7456,20 +7451,12 @@
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
 
-"nice-napi@^1.0.2":
-  "integrity" "sha512-px/KnJAJZf5RuBGcfD+Sp2pAKq0ytz8j+1NehvgIGFkvtvFrDM3T8E4x/JJODXK9WZow8RRGrbA9QQ3hs+pDhA=="
-  "resolved" "https://registry.npmjs.org/nice-napi/-/nice-napi-1.0.2.tgz"
-  "version" "1.0.2"
-  dependencies:
-    "node-addon-api" "^3.0.0"
-    "node-gyp-build" "^4.2.2"
-
 "nice-try@^1.0.4":
   "integrity" "sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ=="
   "resolved" "https://registry.npmjs.org/nice-try/-/nice-try-1.0.5.tgz"
   "version" "1.0.5"
 
-"node-addon-api@^3.0.0", "node-addon-api@^3.1.0", "node-addon-api@^3.2.1":
+"node-addon-api@^3.1.0", "node-addon-api@^3.2.1":
   "integrity" "sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A=="
   "resolved" "https://registry.npmjs.org/node-addon-api/-/node-addon-api-3.2.1.tgz"
   "version" "3.2.1"
@@ -7486,7 +7473,7 @@
   "resolved" "https://registry.npmjs.org/node-forge/-/node-forge-1.2.1.tgz"
   "version" "1.2.1"
 
-"node-gyp-build@^4.2.2", "node-gyp-build@^4.3.0":
+"node-gyp-build@^4.3.0":
   "integrity" "sha512-iWjXZvmboq0ja1pUGULQBexmxq8CV4xBhX7VDOTbL7ZR4FOowwY/VOtRxBN/yKxmdGoIp4j5ysNT4u3S2pDQ3Q=="
   "resolved" "https://registry.npmjs.org/node-gyp-build/-/node-gyp-build-4.3.0.tgz"
   "version" "4.3.0"
