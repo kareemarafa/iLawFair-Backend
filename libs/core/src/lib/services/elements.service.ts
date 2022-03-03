@@ -51,4 +51,8 @@ export class ElementsService {
     const component = this.components[index]
     this.component$.next(component)
   }
+
+  reset() {
+    this.components$.next([])
+  }
 }

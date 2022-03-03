@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core'
+import { AfterViewInit, Component, Input, OnChanges, ViewChild, ViewContainerRef } from '@angular/core'
 import { builderElements } from '@ionhour/ui'
 import { IComponent, ModuleInterface } from '@ionhour/interfaces'
 import { WrapperComponent } from './wrapper/wrapper.component'

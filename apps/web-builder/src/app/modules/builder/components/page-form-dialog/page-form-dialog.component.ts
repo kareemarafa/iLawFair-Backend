@@ -92,7 +92,7 @@ export class PageFormDialogComponent implements OnInit, OnDestroy {
   }
 
   handleSuccess(message: string) {
-    this.dialogRef.close()
+    this.dialogRef.close({ id: this.data?.item?.id, ...this.model })
     this.toasterService.open(message)
   }
 

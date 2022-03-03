@@ -1,18 +1,19 @@
-import { Component, ComponentRef, OnInit, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core'
+import { Component, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
-import { Observable } from 'rxjs'
+import { lastValueFrom, Observable } from 'rxjs'
 import { map, shareReplay } from 'rxjs/operators'
 import { ElementsService } from '@ionhour/core'
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
-import { IComponent, PageInterface, Project } from '@ionhour/interfaces'
-import { ComponentControlComponent } from 'libs/core/src/lib/components'
+import { ComponentDate, IComponent, PageInterface, Project } from '@ionhour/interfaces'
+import { ComponentControlComponent } from '@ionhour/core'
 import { MatSidenav } from '@angular/material/sidenav'
 import { ActivatedRoute } from '@angular/router'
 import { MatDialog } from '@angular/material/dialog'
 import { PageFormDialogComponent } from '../page-form-dialog/page-form-dialog.component'
 import { ProjectsService } from '../../../projects/projects.service'
 import { PagesService } from '../../../pages/pages.service'
+import { builderElements } from '@ionhour/ui'
 
 @UntilDestroy()
 @Component({
@@ -30,6 +31,7 @@ export class LayoutComponent implements OnInit {
 
   itemId!: number
   item$!: Observable<Project>
+  currentPage!: PageInterface
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map((result) => result.matches),
@@ -51,8 +53,29 @@ export class LayoutComponent implements OnInit {
     this.activatedRoute.queryParams.pipe(untilDestroyed(this)).subscribe((queryParams) => {
       if (queryParams['projectId']) {
         this.itemId = queryParams['projectId']
-        this.item$ = projectService.getOne(this.itemId)
+        this.getProjectDetails(this.itemId)
       }
+    })
+  }
+
+  selectPageToEditContent(page: PageInterface) {
+    this.elementsService.reset()
+    let allComponents: any[] = []
+    builderElements.forEach((moduleWithComponents) => (allComponents = allComponents.concat(moduleWithComponents.components)))
+    this.currentPage = page
+    const elements: IComponent[] = []
+    this.currentPage.components?.forEach((component) => {
+      const element = allComponents.find((comp: IComponent) => comp.componentName === component?.componentName)
+      elements.push({ ...element, ...component })
+    })
+    this.elementsService.add(elements)
+  }
+
+  getProjectDetails(id: number) {
+    this.item$ = this.projectService.getOne(id)
+    this.item$.subscribe((project) => {
+      this.currentPage = project.pages[0]
+      this.selectPageToEditContent(this.currentPage)
     })
   }
 
@@ -62,14 +85,19 @@ export class LayoutComponent implements OnInit {
       height: '500px',
       data: { projectId: this.itemId, item }
     })
-    dialogRef?.afterClosed().subscribe(() => {
+    dialogRef?.afterClosed().subscribe((pageContent: PageInterface) => {
       this.item$ = this.projectService.getOne(this.itemId)
+      this.currentPage = pageContent
     })
   }
 
   updatePageContent() {
-    console.log(this.components)
-    // this.pageService.update(this.itemId, this.components)
+    const components: { componentName: string; componentData?: ComponentDate[] | undefined }[] = []
+    this.components.map((component) => {
+      const { componentClass, ...newObj } = component
+      components.push(newObj)
+    })
+    return lastValueFrom(this.pageService.update(this.currentPage.id, { components }))
   }
 
   ngOnInit(): void {
@@ -105,7 +133,6 @@ export class LayoutComponent implements OnInit {
     componentRef.instance.componentIndex = index
     componentRef.instance.component = component.componentClass
     componentRef.instance.componentData = component.componentData
-
     this.componentsRef.push(componentRef)
   }
 
