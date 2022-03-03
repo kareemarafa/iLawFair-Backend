@@ -3,6 +3,10 @@
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
   <span>Web-Me</span>
+  <button mat-icon-button [matTooltip]="drawer.opened ? 'Hide sections' : 'View sections'" (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
   <button mat-raised-button class="example-icon favorite-icon mx-3" [matMenuTriggerFor]="menu" [matTooltip]="'Project pages'" aria-label="Example icon-button with heart icon">
     <mat-icon>article</mat-icon>
     {{ currentPage?.pageName }}
