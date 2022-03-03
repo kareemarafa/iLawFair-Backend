@@ -1,6 +1,7 @@
 import { ComponentRef, Injectable } from '@angular/core'
 import { IComponent } from '@ionhour/interfaces'
 import { Subject } from 'rxjs'
+import { HttpClient } from '@angular/common/http'
 import { MatSidenav } from '@angular/material/sidenav'
 
 @Injectable({
@@ -16,8 +17,14 @@ export class ElementsService {
 
   private sidenav!: MatSidenav
 
+  constructor(private http: HttpClient) {}
+
   public setSidenav(sidenav: MatSidenav) {
     this.sidenav = sidenav
+  }
+
+  addPage(projectId: number, pageContent: any) {
+    return this.http.post(`/api/projects/${projectId}`, pageContent)
   }
 
   setCurrentElement(element: string | null) {

@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
+import { PagesService } from '../../pages.service'
 
 @Component({
   selector: 'ionhour-pages-form',
@@ -10,21 +11,16 @@ import { ActivatedRoute, Router } from '@angular/router'
 export class PagesFormComponent implements OnInit, OnDestroy {
   form: FormGroup
 
-  constructor(
-    private formBuilder: FormBuilder,
-    // private resumeAuthService: ResumeAuthService,
-    public router: Router,
-    private route: ActivatedRoute
-  ) {
+  constructor(private formBuilder: FormBuilder, private service: PagesService, public router: Router, private route: ActivatedRoute) {
     this.form = this.formBuilder.group({
-      username: [''],
-      password: ['']
+      pageName: [''],
+      project: ['']
     })
   }
 
   ngOnInit() {
-    // this.form.controls["username"].setValue("owner");
-    // this.form.controls["password"].setValue("123456789");
+    this.form.controls['pageName'].setValue('test page1')
+    this.form.controls['project'].setValue(1)
   }
 
   create() {
