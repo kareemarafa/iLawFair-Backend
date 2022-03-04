@@ -54,5 +54,6 @@ export class ElementsService {
 
   reset() {
     this.components$.next([])
+    this.previewElements$.next([])
   }
 }

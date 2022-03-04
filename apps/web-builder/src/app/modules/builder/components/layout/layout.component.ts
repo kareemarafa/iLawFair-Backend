@@ -33,6 +33,7 @@ export class LayoutComponent implements OnInit {
   itemId!: number
   item$!: Observable<Project>
   currentPage!: PageInterface
+  initPageContent!: string
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map((result) => result.matches),
@@ -56,11 +57,27 @@ export class LayoutComponent implements OnInit {
     this.activatedRoute.queryParams.pipe(untilDestroyed(this)).subscribe((queryParams) => {
       if (queryParams['projectId']) {
         this.itemId = queryParams['projectId']
-        this.getProjectDetails(this.itemId)
       }
     })
   }
 
+  navigateToPage(page: PageInterface) {
+    this.initPageContent = JSON.stringify(this.currentPage.components ?? [])
+    const isChanged = this.checkIfContentChanged()
+    if (isChanged) {
+      if (confirm('You have unsaved content, are you sure?')) {
+        this.selectPageToEditContent(page)
+      } else {
+        return
+      }
+    }
+    this.selectPageToEditContent(page)
+  }
+
+  /**
+   * Select page side effect
+   * @param page
+   */
   selectPageToEditContent(page: PageInterface) {
     if (!page) {
       return
@@ -77,6 +94,10 @@ export class LayoutComponent implements OnInit {
     this.elementsService.add(elements)
   }
 
+  /**
+   * init project details
+   * @param id
+   */
   getProjectDetails(id: number) {
     this.item$ = this.projectService.getOne(id)
     this.item$.subscribe((project) => {
@@ -84,8 +105,11 @@ export class LayoutComponent implements OnInit {
         this.showError()
         this.navigateToPageForm()
       }
-      this.currentPage = project.pages[0]
-      this.selectPageToEditContent(this.currentPage)
+      this.currentPage = this.currentPage ?? project.pages[0]
+      if (this.currentPage) {
+        this.initPageContent = JSON.stringify(this.currentPage.components ?? [])
+        this.selectPageToEditContent(this.currentPage)
+      }
     })
   }
 
@@ -115,16 +139,45 @@ export class LayoutComponent implements OnInit {
       const { componentClass, ...newObj } = component
       components.push(newObj)
     })
-    return lastValueFrom(this.pageService.update(this.currentPage.id, { components }))
+    return lastValueFrom(this.pageService.update(this.currentPage.id, { components })).then(() => this.getProjectDetails(this.itemId))
   }
 
   backToDashboard() {
+    const isChanged = this.checkIfContentChanged()
+    if (isChanged) {
+      if (confirm('You have unsaved content, are you sure?')) {
+        this.router.navigate(['dashboard/projects'])
+      } else {
+        return
+      }
+    }
     return this.router.navigate(['dashboard/projects'])
+  }
+
+  checkIfContentChanged() {
+    if (!this.components) {
+      return
+    }
+    const newState = this.components.map((component) => {
+      const { componentClass, ...newObj }: any = component
+      const ordered = Object.keys(newObj)
+        .sort()
+        .reduce((obj: any, key) => {
+          obj[key] = newObj[key]
+          return obj
+        }, {})
+      return ordered
+    })
+    const newStateString = JSON.stringify(newState)
+    return this.initPageContent !== newStateString
   }
 
   ngOnInit(): void {
     this.getComponents()
-    Promise.resolve().then((e) => this.elementsService.setSidenav(this.sidenavComponentOption))
+    Promise.resolve().then((e) => {
+      this.getProjectDetails(this.itemId)
+      this.elementsService.setSidenav(this.sidenavComponentOption)
+    })
   }
 
   getComponents() {
