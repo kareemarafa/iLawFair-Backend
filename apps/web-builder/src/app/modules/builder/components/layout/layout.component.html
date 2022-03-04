@@ -14,7 +14,7 @@
 
   <button mat-raised-button class="example-icon favorite-icon" [matMenuTriggerFor]="menu" [matTooltip]="'Project pages'" aria-label="Example icon-button with heart icon">
     <mat-icon>article</mat-icon>
-    {{ currentPage?.pageName }}
+    {{ currentPage?.pageName ?? 'Manage pages' }}
   </button>
 
   <mat-menu backdropClass="pages-menu" #menu="matMenu">
