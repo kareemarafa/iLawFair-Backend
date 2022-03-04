@@ -8,12 +8,13 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
 import { ComponentDate, IComponent, PageInterface, Project } from '@ionhour/interfaces'
 import { ComponentControlComponent } from '@ionhour/core'
 import { MatSidenav } from '@angular/material/sidenav'
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { MatDialog } from '@angular/material/dialog'
 import { PageFormDialogComponent } from '../page-form-dialog/page-form-dialog.component'
 import { ProjectsService } from '../../../projects/projects.service'
 import { PagesService } from '../../../pages/pages.service'
 import { builderElements } from '@ionhour/ui'
+import { MatSnackBar } from '@angular/material/snack-bar'
 
 @UntilDestroy()
 @Component({
@@ -44,7 +45,9 @@ export class LayoutComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     public dialog: MatDialog,
     private projectService: ProjectsService,
-    private pageService: PagesService
+    private pageService: PagesService,
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {
     const preview = elementsService.previewElements$
     const current = elementsService.currentElement$
@@ -59,6 +62,9 @@ export class LayoutComponent implements OnInit {
   }
 
   selectPageToEditContent(page: PageInterface) {
+    if (!page) {
+      return
+    }
     this.elementsService.reset()
     let allComponents: any[] = []
     builderElements.forEach((moduleWithComponents) => (allComponents = allComponents.concat(moduleWithComponents.components)))
@@ -74,8 +80,20 @@ export class LayoutComponent implements OnInit {
   getProjectDetails(id: number) {
     this.item$ = this.projectService.getOne(id)
     this.item$.subscribe((project) => {
+      if (!project?.pages?.length) {
+        this.showError()
+        this.navigateToPageForm()
+      }
       this.currentPage = project.pages[0]
       this.selectPageToEditContent(this.currentPage)
+    })
+  }
+
+  showError() {
+    this._snackBar.open("You don't have any pages, create one before start", '', {
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+      duration: 2000
     })
   }
 
@@ -100,6 +118,10 @@ export class LayoutComponent implements OnInit {
     return lastValueFrom(this.pageService.update(this.currentPage.id, { components }))
   }
 
+  backToDashboard() {
+    return this.router.navigate(['dashboard/projects'])
+  }
+
   ngOnInit(): void {
     this.getComponents()
     Promise.resolve().then((e) => this.elementsService.setSidenav(this.sidenavComponentOption))
@@ -113,6 +135,11 @@ export class LayoutComponent implements OnInit {
   }
 
   add(component: IComponent) {
+    if (!this.currentPage) {
+      this.showError()
+      this.navigateToPageForm()
+      return
+    }
     this.components.push(component)
     this.elementsService.add(this.components)
     this.viewComponent()

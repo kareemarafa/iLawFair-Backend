@@ -36,6 +36,7 @@ import { FlexModule } from '@angular/flex-layout'
 import { FormlyMatSliderModule } from '@ngx-formly/material/slider'
 import { FormlyMatToggleModule } from '@ngx-formly/material/toggle'
 import { FormlyMaterialModule } from '@ngx-formly/material'
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 @NgModule({
   declarations: [LayoutComponent, ElementListComponent, SubElementListComponent, WrapperComponent, PageFormDialogComponent],
@@ -72,7 +73,8 @@ import { FormlyMaterialModule } from '@ngx-formly/material'
     FormlyMatToggleModule,
     FormlyMaterialModule,
     CoreModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule
   ]
 })
 export class BuilderModule {}
