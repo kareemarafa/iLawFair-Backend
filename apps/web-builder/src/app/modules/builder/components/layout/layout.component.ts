@@ -1,6 +1,6 @@
 import { Component, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
-import { lastValueFrom, Observable } from 'rxjs'
+import { finalize, lastValueFrom, Observable } from 'rxjs'
 import { map, shareReplay } from 'rxjs/operators'
 import { ElementsService } from '@ionhour/core'
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
@@ -70,8 +70,9 @@ export class LayoutComponent implements OnInit {
       } else {
         return
       }
+    } else {
+      this.selectPageToEditContent(page)
     }
-    this.selectPageToEditContent(page)
   }
 
   /**
@@ -98,18 +99,17 @@ export class LayoutComponent implements OnInit {
    * init project details
    * @param id
    */
-  getProjectDetails(id: number) {
+  getProjectDetails(id: number, pageId?: number) {
     this.item$ = this.projectService.getOne(id)
-    this.item$.subscribe((project) => {
+    this.item$.pipe().subscribe((project) => {
       if (!project?.pages?.length) {
         this.showError()
         this.navigateToPageForm()
       }
-      this.currentPage = this.currentPage ?? project.pages[0]
-      if (this.currentPage) {
-        this.initPageContent = JSON.stringify(this.currentPage.components ?? [])
-        this.selectPageToEditContent(this.currentPage)
-      }
+      const page = project?.pages?.find((p) => p.id === pageId)
+      this.currentPage = page ?? project.pages[0]
+      this.selectPageToEditContent(this.currentPage)
+      this.initPageContent = JSON.stringify(this.currentPage.components ?? [])
     })
   }
 
@@ -129,7 +129,9 @@ export class LayoutComponent implements OnInit {
     })
     dialogRef?.afterClosed().subscribe((pageContent: PageInterface) => {
       this.item$ = this.projectService.getOne(this.itemId)
-      this.currentPage = pageContent
+      if (pageContent) {
+        this.currentPage = pageContent
+      }
     })
   }
 
@@ -139,7 +141,8 @@ export class LayoutComponent implements OnInit {
       const { componentClass, ...newObj } = component
       components.push(newObj)
     })
-    return lastValueFrom(this.pageService.update(this.currentPage.id, { components })).then(() => this.getProjectDetails(this.itemId))
+    const pageId = +JSON.stringify(this.currentPage.id)
+    return lastValueFrom(this.pageService.update(pageId, { components })).then(() => this.getProjectDetails(this.itemId, pageId))
   }
 
   backToDashboard() {
