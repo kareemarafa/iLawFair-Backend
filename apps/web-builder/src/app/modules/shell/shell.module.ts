@@ -10,6 +10,12 @@ import { MatIconModule } from '@angular/material/icon'
 import { Shell } from './shell.service'
 import { ProfileComponent } from './profile/profile.component'
 import { MediaComponent } from './media/media.component'
+import { FormlyModule } from '@ngx-formly/core'
+import { ReactiveFormsModule } from '@angular/forms'
+import { FlexModule } from '@angular/flex-layout'
+import { FormlyMatSliderModule } from '@ngx-formly/material/slider'
+import { FormlyMatToggleModule } from '@ngx-formly/material/toggle'
+import { FormlyMaterialModule } from '@ngx-formly/material'
 
 const routes: Route[] = [
   Shell.childRoutes([
@@ -38,7 +44,21 @@ const routes: Route[] = [
 ]
 
 @NgModule({
-  declarations: [ShellComponent, MediaComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), MatSidenavModule, MatListModule, MatToolbarModule, MatButtonModule, MatIconModule]
+  declarations: [ShellComponent, ProfileComponent, MediaComponent],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    FormlyModule,
+    ReactiveFormsModule,
+    FlexModule,
+    FormlyMatSliderModule,
+    FormlyMatToggleModule,
+    FormlyMaterialModule
+  ]
 })
 export class ShellModule {}

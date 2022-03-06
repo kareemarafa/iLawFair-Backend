@@ -1,1 +1,14 @@
-<p>profile works!</p>
+<div>
+  <mat-card fxFlex.xs="1 1 100%" fxFlex.sm="1 1 75%" fxFlex.md="1 1 50%" fxFlex="1 1 33.33%" fxLayout="column">
+    <section class="auth-head">
+      <h2>Logged in as Kareem Arafa</h2>
+    </section>
+    <form [formGroup]="form" (ngSubmit)="update()" fxFlex="1 1 100%" fxLayout="column">
+      <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+      <div class="auth-button-group">
+        <button mat-flat-button type="submit" color="primary">Update</button>
+        <button mat-flat-button type="reset">Reset</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
