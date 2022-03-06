@@ -3,6 +3,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { Router } from '@angular/router'
 import { AuthService } from '../../auth/auth.service'
+import { lastValueFrom } from 'rxjs'
 
 @Component({
   selector: 'ionhour-profile',
@@ -59,7 +60,7 @@ export class ProfileComponent {
         type: 'password',
         label: 'password',
         placeholder: 'Enter password',
-        required: true
+        required: false
       }
     },
     {
@@ -84,9 +85,14 @@ export class ProfileComponent {
       password: [''],
       phone: ['']
     })
+    const profile$ = authService.getProfile()
+    lastValueFrom(profile$).then((data) => this.form.patchValue(data))
   }
 
   update() {
-    console.log(this.model)
+    return this.authService
+      .updateProfile(this.model)
+      .pipe()
+      .subscribe((response) => console.log(response))
   }
 }

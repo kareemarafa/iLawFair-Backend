@@ -16,6 +16,7 @@ import { FlexModule } from '@angular/flex-layout'
 import { FormlyMatSliderModule } from '@ngx-formly/material/slider'
 import { FormlyMatToggleModule } from '@ngx-formly/material/toggle'
 import { FormlyMaterialModule } from '@ngx-formly/material'
+import { MatCardModule } from '@angular/material/card'
 
 const routes: Route[] = [
   Shell.childRoutes([
@@ -58,7 +59,8 @@ const routes: Route[] = [
     FlexModule,
     FormlyMatSliderModule,
     FormlyMatToggleModule,
-    FormlyMaterialModule
+    FormlyMaterialModule,
+    MatCardModule
   ]
 })
 export class ShellModule {}

@@ -23,6 +23,14 @@ export class AuthService {
     return this.http.post('/api/auth/register', userDataDto)
   }
 
+  getProfile() {
+    return this.http.get('/api/profile')
+  }
+
+  updateProfile(userDataDto: any) {
+    return this.http.post('/api/profile', userDataDto)
+  }
+
   setCredentials(credentials: any) {
     this._credentials = credentials || null
     if (credentials) {

@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatListModule } from '@angular/material/list'
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { ApiPrefixInterceptor } from './common/api-prefix.interceptor'
+import { TokenInterceptor } from './common/token.interceptor'
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,11 @@ import { ApiPrefixInterceptor } from './common/api-prefix.interceptor'
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiPrefixInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
       multi: true
     }
   ],
