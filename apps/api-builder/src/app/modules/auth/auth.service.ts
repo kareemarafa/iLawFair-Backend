@@ -1,4 +1,4 @@
-import { BadRequestException, forwardRef, HttpStatus, Inject, Injectable, UnauthorizedException } from '@nestjs/common'
+import { BadRequestException, forwardRef, HttpStatus, Inject, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common'
 import { UsersService } from '../users/users.service'
 import { TokenPayloadInterface } from './interfaces'
 import { JwtService } from '@nestjs/jwt'
@@ -14,14 +14,25 @@ export class AuthService {
     private encryptionService: EncryptionService
   ) {}
 
-  async validateUser(email: string, password: string): Promise<any> {
-    const user: User = await this.usersService.findOneByEmail(email)
-    const isPasswordCorrect = user && (await this.encryptionService.compare(password, user.password))
+  async validateUser(email: string, _password: string): Promise<any> {
+    let user: User
+    let isPasswordCorrect: boolean
+    try {
+      user = await this.usersService.findOneOrFailByEmail(email)
+    } catch (e) {
+      throw new NotFoundException('User not Found')
+    }
+    try {
+      isPasswordCorrect = await this.encryptionService.compare(_password, user?.password)
+    } catch (e) {
+      throw new BadRequestException('Incorrect Password')
+    }
     if (user && isPasswordCorrect) {
       const { password, ...result } = user
       return result
+    } else {
+      throw new UnauthorizedException()
     }
-    return null
   }
 
   async login(user: User): Promise<any> {
@@ -58,6 +69,7 @@ export class AuthService {
     try {
       verifyObject = await this.jwtService.verify(token)
     } catch (e) {
+      console.log(e)
       throw new UnauthorizedException()
     }
     return verifyObject
