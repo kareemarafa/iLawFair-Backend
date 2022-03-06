@@ -4,10 +4,15 @@ export interface GenericComponent {
   name: string
 }
 
+export interface KeyData {
+  value: string
+  style?: string
+}
+
 export interface ComponentDate {
   image?: string
-  title?: string
-  text?: string
+  title?: KeyData
+  text?: KeyData
 }
 
 export interface IComponent {

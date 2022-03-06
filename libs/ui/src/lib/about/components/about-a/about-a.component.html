@@ -9,8 +9,8 @@
             </div>
             <div class="row align-items-center" [ngClass]="{ 'flex-row-reverse': i % 2 === 0, 'flex-row': i % 2 === 1 }">
               <div class="col-6">
-                <h2 class="m-0">{{ item.title }}</h2>
-                <p class="m-0">{{ item.text }}</p>
+                <h2 class="m-0" [ngStyle]="{ color: item.title.style }">{{ item.title.value }}</h2>
+                <p class="m-0" [ngStyle]="{ color: item.text.style }">{{ item.text.value }}</p>
               </div>
               <div class="col-6">
                 <img class="img-fluid" [src]="item.image" [alt]="item.title" />

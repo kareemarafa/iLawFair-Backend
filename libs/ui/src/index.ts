@@ -80,13 +80,27 @@ export const builderElements: ModuleInterface[] = [
         componentData: [
           {
             image: './assets/500x300.png',
-            title: 'Lorem Ipsum',
-            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
+            title: {
+              value: 'Lorem Ipsum',
+              style: '#000'
+            },
+            text: {
+              value:
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged.",
+              style: '#000'
+            }
           },
           {
             image: './assets/500x300.png',
-            title: 'Lorem Ipsum',
-            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
+            title: {
+              value: 'Lorem Ipsum',
+              style: '#000'
+            },
+            text: {
+              value:
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged.",
+              style: '#000'
+            }
           }
         ]
       }
