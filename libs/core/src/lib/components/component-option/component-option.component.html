@@ -2,20 +2,41 @@
   <form class="form" (ngSubmit)="update(f)" #f="ngForm">
     <ng-container *ngFor="let item of component?.componentData; let i = index">
       <div class="mb-3 d-flex" *ngIf="item.title?.value">
-        <input type="text" class="form-control" [name]="'title' + i" [(ngModel)]="item.title!.value" required />
+        <input type="text" class="form-control" [ngModelOptions]="{ standalone: true }" [(ngModel)]="item.title!.value" required />
         <div class="edit-style" *ngIf="item.title?.style">
-          <input type="color" id="favcolor" name="favcolor" [value]="item.title?.style" [(ngModel)]="item.title!.style" />
+          <input type="color" id="favcolor" [ngModelOptions]="{ standalone: true }" [value]="item.title?.style" [(ngModel)]="item.title!.style" />
         </div>
         <div class="edit-img">
           <!-- <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)" /> -->
         </div>
       </div>
       <div class="mb-3" *ngIf="item.text">
-        <textarea cols="10" rows="5" class="form-control" [name]="'text' + i" [(ngModel)]="item.text.value" required></textarea>
+        <textarea cols="10" rows="5" class="form-control" [ngModelOptions]="{ standalone: true }" [(ngModel)]="item.text.value" required></textarea>
         <div class="edit-style" *ngIf="item.text?.style">
-          <input type="color" id="favcolor" name="favcolor" [value]="item.text?.style" [(ngModel)]="item.text!.style" />
+          <input type="color" id="favcolor" [ngModelOptions]="{ standalone: true }" [value]="item.text?.style" [(ngModel)]="item.text!.style" />
         </div>
       </div>
+
+      <div class="mb-3" *ngIf="item.items && item.items.length">
+        <ng-container *ngFor="let componentItem of item?.items; let i = index">
+          <div class="mb-3 d-flex">
+            <input type="text" class="form-control" [ngModelOptions]="{ standalone: true }" [(ngModel)]="componentItem.title!.value" required />
+            <div class="edit-style" *ngIf="componentItem.title!.style">
+              <input type="color" id="favcolor" [ngModelOptions]="{ standalone: true }" [value]="componentItem.title?.style" [(ngModel)]="componentItem.title!.style" />
+            </div>
+            <div class="edit-img">
+              <!-- <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)" /> -->
+            </div>
+          </div>
+          <div class="mb-3" *ngIf="componentItem.text">
+            <textarea cols="10" rows="5" class="form-control" [ngModelOptions]="{ standalone: true }" [(ngModel)]="componentItem.text!.value" required></textarea>
+            <div class="edit-style" *ngIf="componentItem.text?.style">
+              <input type="color" id="favcolor" [ngModelOptions]="{ standalone: true }" [value]="componentItem.text?.style" [(ngModel)]="componentItem.text!.style" />
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
       <hr class="hr" />
     </ng-container>
     <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Save</button>

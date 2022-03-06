@@ -13,6 +13,9 @@ export interface ComponentDate {
   image?: string
   title?: KeyData
   text?: KeyData
+  btn?: string
+  items?: ComponentDate[]
+  icon?: string
 }
 
 export interface IComponent {

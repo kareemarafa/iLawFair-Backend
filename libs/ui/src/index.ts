@@ -113,7 +113,54 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: ServiceAComponent.name,
         componentClass: ServiceAComponent,
-        componentData: []
+        componentData: [
+          {
+            title: {
+              value: `Service A Title`,
+              style: '#000'
+            },
+            text: {
+              value: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
+              style: '#000'
+            },
+            btn: `Click Here`,
+            items: [
+              {
+                icon: `fa-handshake-o`,
+                title: {
+                  value: `Item Title`,
+                  style: '#000'
+                },
+                text: {
+                  value: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
+                  style: '#ff0'
+                }
+              },
+              {
+                icon: `fa-handshake-o`,
+                title: {
+                  value: `Item Title`,
+                  style: '#000'
+                },
+                text: {
+                  value: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
+                  style: '#ff0'
+                }
+              },
+              {
+                icon: `fa-handshake-o`,
+                title: {
+                  value: `Item Title`,
+                  style: '#ff0'
+                },
+                text: {
+                  value: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
+                  style: '#ff0'
+                }
+              }
+            ]
+          }
+        ]
       },
       {
         componentName: ServiceBComponent.name,

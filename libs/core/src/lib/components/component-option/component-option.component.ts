@@ -20,6 +20,7 @@ export class ComponentOptionComponent implements OnInit {
   getComponent() {
     this.elementsService.component$.subscribe((component: IComponent) => {
       this.component = component
+      console.log(component.componentData)
     })
   }
 

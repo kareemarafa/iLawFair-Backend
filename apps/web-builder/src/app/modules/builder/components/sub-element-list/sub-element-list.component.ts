@@ -41,9 +41,11 @@ export class SubElementListComponent implements AfterViewInit, OnChanges {
   }
 
   createComponent(component: any): void {
-    const componentRef: any = this.container?.createComponent(WrapperComponent)
-    if (componentRef) {
-      componentRef.instance.component = component
+    if (component != undefined) {
+      const componentRef: any = this.container?.createComponent(WrapperComponent)
+      if (componentRef) {
+        componentRef.instance.component = component
+      }
     }
   }
 }

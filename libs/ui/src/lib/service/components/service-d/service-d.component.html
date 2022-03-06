@@ -2,9 +2,9 @@
   <div class="service-d bg-white px-3 py-5">
     <div class="row">
       <div class="col-12">
-        <h1 class="h1 fw-bold text-center">{{ componentData.title }}</h1>
+        <h1 class="h1 fw-bold text-center">{{ componentData?.title }}</h1>
       </div>
-      <div class="col-lg-4" *ngFor="let item of componentData.items">
+      <div class="col-lg-4" *ngFor="let item of componentData?.items">
         <div class="item">
           <div class="img">
             <img class="w-100" [src]="item.image" alt="" srcset="" />
