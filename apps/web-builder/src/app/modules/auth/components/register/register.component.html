@@ -1,17 +1,10 @@
 <div class="auth-container">
-  <mat-card fxFlex.xs="1 1 100%" fxFlex.sm="1 1 75%" fxFlex.md="1 1 50%" fxFlex.lg="33.33%" fxLayout="column">
+  <mat-card fxFlex.xs="1 1 100%" fxFlex.sm="1 1 75%" fxFlex.md="1 1 50%" fxFlex="1 1 33.33%" fxLayout="column">
     <section class="auth-head">
       <h2>WebMe | Register</h2>
     </section>
     <form [formGroup]="form" (ngSubmit)="register()" fxFlex="1 1 100%" fxLayout="column">
-      <mat-form-field appearance="fill">
-        <mat-label>Email</mat-label>
-        <input matInput type="text" formControlName="email" />
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password" />
-      </mat-form-field>
+      <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
       <div class="help-link">
         <p>
           Already have an account

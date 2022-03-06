@@ -4,14 +4,7 @@
       <h2>WebMe | Survey</h2>
     </section>
     <form [formGroup]="form" (ngSubmit)="login()" fxFlex="1 1 100%" fxLayout="column">
-      <mat-form-field appearance="fill">
-        <mat-label>Username</mat-label>
-        <input matInput type="text" formControlName="username" />
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password" />
-      </mat-form-field>
+      <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
       <div class="auth-button-group">
         <button mat-flat-button type="submit" color="primary">Submit</button>
         <button mat-flat-button (click)="router.navigate(['/auth/register'])">Back</button>
