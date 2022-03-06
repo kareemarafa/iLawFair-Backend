@@ -9,7 +9,7 @@ import { ElementsService } from '../../services'
   styleUrls: ['./component-option.component.scss']
 })
 export class ComponentOptionComponent implements OnInit {
-  component?: IComponent
+  component!: IComponent
 
   constructor(private elementsService: ElementsService) {}
 
@@ -20,6 +20,7 @@ export class ComponentOptionComponent implements OnInit {
   getComponent() {
     this.elementsService.component$.subscribe((component: IComponent) => {
       this.component = component
+      console.log(component.componentData)
     })
   }
 

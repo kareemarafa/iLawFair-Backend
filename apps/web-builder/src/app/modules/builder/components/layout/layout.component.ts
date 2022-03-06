@@ -212,11 +212,13 @@ export class LayoutComponent implements OnInit {
   }
 
   createComponent(component: any, index: number): void {
-    const componentRef: any = this.container.createComponent(ComponentControlComponent)
-    componentRef.instance.componentIndex = index
-    componentRef.instance.component = component.componentClass
-    componentRef.instance.componentData = component.componentData
-    this.componentsRef.push(componentRef)
+    if (component != undefined) {
+      const componentRef: any = this.container.createComponent(ComponentControlComponent)
+      componentRef.instance.componentIndex = index
+      componentRef.instance.component = component.componentClass
+      componentRef.instance.componentData = component.componentData
+      this.componentsRef.push(componentRef)
+    }
   }
 
   drop(event: CdkDragDrop<any>) {

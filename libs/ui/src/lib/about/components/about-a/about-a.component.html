@@ -8,11 +8,11 @@
           </div>
           <div class="row align-items-center">
             <div class="col-6">
-              <h2 class="m-0">{{ componentData[0].title }}</h2>
-              <p class="m-0">{{ componentData[0].text }}</p>
+              <h2 class="m-0" [ngStyle]="{ color: componentData[0].title.style }">{{ componentData[0].title.value }}</h2>
+              <p class="m-0" [ngStyle]="{ color: componentData[0].text.style }">{{ componentData[0].text.value }}</p>
             </div>
             <div class="col-6">
-              <img class="img-fluid" [src]="componentData[0].image" [alt]="componentData[0].title" />
+              <img class="img-fluid" [src]="componentData[0].image" [alt]="componentData[0].title.value" />
             </div>
           </div>
         </div>

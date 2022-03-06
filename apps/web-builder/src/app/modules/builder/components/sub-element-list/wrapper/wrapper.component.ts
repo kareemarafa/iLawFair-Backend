@@ -17,8 +17,10 @@ export class WrapperComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     Promise.resolve().then((e) => {
-      const componentRef: any = this.container.createComponent(this.component?.componentClass)
-      componentRef.instance.componentData = this.component.componentData
+      if (this.component != undefined) {
+        const componentRef: any = this.container.createComponent(this.component?.componentClass)
+        componentRef.instance.componentData = this.component.componentData
+      }
     })
   }
 

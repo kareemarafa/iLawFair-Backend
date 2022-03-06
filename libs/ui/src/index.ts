@@ -81,13 +81,27 @@ export const builderElements: ModuleInterface[] = [
         componentData: [
           {
             image: './assets/500x300.png',
-            title: 'Lorem Ipsum',
-            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
+            title: {
+              value: 'Lorem Ipsum',
+              style: '#000'
+            },
+            text: {
+              value:
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged.",
+              style: '#000'
+            }
           },
           {
             image: './assets/500x300.png',
-            title: 'Lorem Ipsum',
-            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
+            title: {
+              value: 'Lorem Ipsum',
+              style: '#000'
+            },
+            text: {
+              value:
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged.",
+              style: '#000'
+            }
           }
         ]
       }
@@ -99,7 +113,54 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: ServiceAComponent.name,
         componentClass: ServiceAComponent,
-        componentData: []
+        componentData: [
+          {
+            title: {
+              value: `Service A Title`,
+              style: '#000'
+            },
+            text: {
+              value: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
+              style: '#000'
+            },
+            btn: `Click Here`,
+            items: [
+              {
+                icon: `fa-handshake-o`,
+                title: {
+                  value: `Item Title`,
+                  style: '#000'
+                },
+                text: {
+                  value: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
+                  style: '#ff0'
+                }
+              },
+              {
+                icon: `fa-handshake-o`,
+                title: {
+                  value: `Item Title`,
+                  style: '#000'
+                },
+                text: {
+                  value: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
+                  style: '#ff0'
+                }
+              },
+              {
+                icon: `fa-handshake-o`,
+                title: {
+                  value: `Item Title`,
+                  style: '#ff0'
+                },
+                text: {
+                  value: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
+                  style: '#ff0'
+                }
+              }
+            ]
+          }
+        ]
       },
       {
         componentName: ServiceBComponent.name,

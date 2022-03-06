@@ -24,8 +24,10 @@ export class ComponentControlComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     Promise.resolve().then(() => {
-      const componentRef: any = this.container.createComponent(this.component)
-      componentRef.instance.componentData = this.componentData
+      if (this.component != undefined) {
+        const componentRef: any = this.container?.createComponent(this.component)
+        componentRef.instance.componentData = this.componentData
+      }
     })
   }
 
