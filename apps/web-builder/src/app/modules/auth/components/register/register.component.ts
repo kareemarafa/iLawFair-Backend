@@ -88,12 +88,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.form.controls['firstName'].setValue('Kareem')
-    this.form.controls['lastName'].setValue('Arafa')
-    this.form.controls['username'].setValue('kareem')
-    this.form.controls['email'].setValue('kareem@app.com')
-    this.form.controls['password'].setValue('123456')
-    this.form.controls['phone'].setValue('+201025055507')
+    console.log('init')
   }
 
   register() {
@@ -101,7 +96,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.authService
       .register(this.model)
       .pipe(takeWhile(() => this.alive))
-      .subscribe(() => this.router.navigate(['dashboard/projects']))
+      .subscribe(() => this.router.navigate(['auth/survey']))
   }
 
   ngOnDestroy() {
