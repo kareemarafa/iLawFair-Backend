@@ -129,15 +129,17 @@ export class ProjectsFormComponent implements OnInit, OnDestroy {
     this.isEdit && this.item$.pipe(untilDestroyed(this)).subscribe((item) => this.form.patchValue(item))
   }
 
-  submit(model: unknown): void {
+  submit(model: any): void {
+    const user = JSON.parse(localStorage.getItem('user') ?? '')
+    const _model = { ...model, user: { id: user?.id } }
     if (!this.isEdit) {
       this.service
-        .create(model)
+        .create(_model)
         .pipe(untilDestroyed(this))
         .subscribe((res) => this.handleSuccess(res.message))
     } else {
       this.service
-        .update(this.itemId, model)
+        .update(this.itemId, _model)
         .pipe(untilDestroyed(this))
         .subscribe((res) => this.handleSuccess(res.message))
     }
