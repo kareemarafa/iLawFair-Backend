@@ -10,7 +10,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core'
 })
 export class SurveyComponent implements OnInit, OnDestroy {
   form: FormGroup
-  model: any = {}
+  model = {}
 
   fields: FormlyFieldConfig[] = [
     {
