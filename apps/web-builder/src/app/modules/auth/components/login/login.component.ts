@@ -1,49 +1,57 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
-import { ActivatedRoute, Router } from '@angular/router'
+import { Router } from '@angular/router'
+import { AuthService } from '../../auth.service'
+import { takeWhile } from 'rxjs'
+import { FormlyFieldConfig } from '@ngx-formly/core'
 
 @Component({
   selector: 'ionhour-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnDestroy {
   form: FormGroup
+  alive = true
+  model: any = {}
+  fields: FormlyFieldConfig[] = [
+    {
+      key: 'email',
+      type: 'input',
+      templateOptions: {
+        type: 'text',
+        label: 'Email',
+        placeholder: 'Enter your email',
+        required: true
+      }
+    },
+    {
+      key: 'password',
+      type: 'input',
+      templateOptions: {
+        type: 'password',
+        label: 'Password',
+        placeholder: 'Enter your password',
+        required: true
+      }
+    }
+  ]
 
-  constructor(
-    private formBuilder: FormBuilder,
-    // private resumeAuthService: ResumeAuthService,
-    public router: Router,
-    private route: ActivatedRoute
-  ) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, public router: Router) {
     this.form = this.formBuilder.group({
-      username: [''],
+      email: [''],
       password: ['']
     })
   }
 
-  ngOnInit() {
-    // this.form.controls["username"].setValue("owner");
-    // this.form.controls["password"].setValue("123456789");
-  }
-
   login() {
-    // const payload: LoginPayloadInterface = {
-    //   username: this.form.value.username,
-    //   password: this.form.value.password,
-    //   remember: false
-    // };
-    // this.store.dispatch({ type: ResumeAuthActionTypes.ResumeAPI_USER_LOGIN, payload })
-    // this.loginState.login(payload)
-    //   .pipe(
-    //     untilDestroyed(this)
-    //   )
-    //   .subscribe(() =>
-    return this.router.navigate(['projects'])
-    // );
+    this.authService
+      .login(this.model)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe(() => this.router.navigate(['dashboard/projects']))
   }
 
   ngOnDestroy() {
-    console.log('LoginComponent Destroyed')
+    this.alive = false
   }
 }

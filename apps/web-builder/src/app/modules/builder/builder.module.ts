@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-
 import { BuilderRoutingModule } from './builder-routing.module'
 import { LayoutComponent } from './components/layout/layout.component'
 import { LayoutModule } from '@angular/cdk/layout'
@@ -23,16 +22,24 @@ import {
   DividerModule
 } from '@ionhour/ui'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
-import { ElementListComponent, SubElementListComponent } from './components'
+import { ElementListComponent, SubElementListComponent, PageFormDialogComponent } from './components'
 import { DragDropModule } from '@angular/cdk/drag-drop'
 import { MatRippleModule } from '@angular/material/core'
 import { WrapperComponent } from './components/sub-element-list/wrapper/wrapper.component'
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { CoreModule } from '@ionhour/core'
-import { FormsModule } from '@angular/forms'
+import { MatMenuModule } from '@angular/material/menu'
+import { MatDialogModule } from '@angular/material/dialog'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormlyModule } from '@ngx-formly/core'
+import { FlexModule } from '@angular/flex-layout'
+import { FormlyMatSliderModule } from '@ngx-formly/material/slider'
+import { FormlyMatToggleModule } from '@ngx-formly/material/toggle'
+import { FormlyMaterialModule } from '@ngx-formly/material'
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 @NgModule({
-  declarations: [LayoutComponent, ElementListComponent, SubElementListComponent, WrapperComponent],
+  declarations: [LayoutComponent, ElementListComponent, SubElementListComponent, WrapperComponent, PageFormDialogComponent],
   imports: [
     CommonModule,
     BuilderRoutingModule,
@@ -57,8 +64,17 @@ import { FormsModule } from '@angular/forms'
     MatTooltipModule,
     TestimonialsModule,
     DividerModule,
+    MatMenuModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    FormlyModule.forChild(),
+    FlexModule,
+    FormlyMatSliderModule,
+    FormlyMatToggleModule,
+    FormlyMaterialModule,
     CoreModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule
   ]
 })
 export class BuilderModule {}

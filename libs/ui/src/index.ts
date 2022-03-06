@@ -19,6 +19,7 @@ import { TestimonialsAComponent } from './lib/testimonials/components'
 import { PricesAComponent } from './lib/prices/components'
 import { StatisticsAComponent } from './lib/statistics/components'
 import { DividerAComponent } from './lib/divider/components'
+import { FooterAComponent } from './lib/footer/components'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -232,6 +233,11 @@ export const builderElements: ModuleInterface[] = [
   },
   {
     moduleName: 'footer',
-    components: []
+    components: [
+      {
+        componentName: FooterAComponent.name,
+        componentClass: FooterAComponent
+      }
+    ]
   }
 ]

@@ -7,9 +7,14 @@ import { PagesService } from './pages.service'
 @Crud({
   model: {
     type: Page
+  },
+  query: {
+    join: {
+      project: {}
+    }
   }
 })
-@Controller('Pages')
+@Controller('pages')
 @ApiTags('Pages')
 export class PagesController implements CrudController<Page> {
   constructor(public service: PagesService) {}

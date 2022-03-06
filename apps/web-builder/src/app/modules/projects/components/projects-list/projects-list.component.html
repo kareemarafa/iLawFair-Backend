@@ -7,14 +7,14 @@
     </a>
   </div>
   <div fxLayout="row wrap" fxLayoutGap="15">
-    <ng-container *ngFor="let item of dataSource">
+    <ng-container *ngFor="let item of list?.data">
       <mat-card class="my-3" fxFlex="50" fxFlex.sm="100" fxFlex.md="45" fxFlex.lg="32" fxFlex.xl="32">
         <mat-card-title>
           <div class="d-flex flex-row align-items-center">
             <div style="padding-right: 10px">
               <div
                 [ngStyle]="{
-                  'background-image': 'url(' + item.theme.logo + ')',
+                  'background-image': 'url(' + item.logo + ')',
                   'width': '40px',
                   'height': '40px',
                   'background-position': 'center',
@@ -23,7 +23,7 @@
               ></div>
             </div>
             <div>
-              {{ item.name }}
+              {{ item.projectName }}
             </div>
           </div>
         </mat-card-title>
@@ -33,7 +33,7 @@
               <p style="margin-right: 10px">Pages</p>
               <mat-chip-list>
                 <mat-chip class="example-box">
-                  {{ item.pages.length }}
+                  {{ item?.pages?.length }}
                 </mat-chip>
               </mat-chip-list>
             </div>
@@ -41,15 +41,15 @@
               <p style="margin-right: 10px">Theme font</p>
               <mat-chip-list>
                 <mat-chip class="example-box">
-                  {{ item.theme.font }}
+                  {{ item.themeFont }}
                 </mat-chip>
               </mat-chip-list>
             </div>
             <div class="d-flex flex-row">
               <p style="margin-right: 10px">Theme color</p>
               <mat-chip-list>
-                <mat-chip class="example-box" [style]="{ background: item.theme.color }">
-                  {{ item.theme.color }}
+                <mat-chip class="example-box" [style]="{ background: item.themeColor }">
+                  {{ item.themeColor }}
                 </mat-chip>
               </mat-chip-list>
             </div>
@@ -58,8 +58,8 @@
 
         <mat-card-actions>
           <div class="d-flex justify-content-end">
-            <a mat-stroked-button class="mx-1" color="primary" routerLink="/builder"> Start Building </a>
-            <a mat-icon-button class="mx-1" color="primary" matTooltip="Project settings" routerLink="create">
+            <a mat-stroked-button class="mx-1" color="primary" (click)="router.navigate(['builder'], { queryParams: { projectId: item.id } })"> Start Building </a>
+            <a mat-icon-button class="mx-1" color="primary" matTooltip="Project settings" (click)="router.navigate(['dashboard/projects/edit'], { queryParams: { id: item.id } })">
               <mat-icon>settings</mat-icon>
             </a>
           </div>

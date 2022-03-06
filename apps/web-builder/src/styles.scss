@@ -123,9 +123,9 @@ $light-gray1: #f3f3f3;
 }
 
 .prices-a {
-  .pricing-header {
-    max-width: 700px;
-  }
+  //.pricing-header {
+  //  max-width: 700px;
+  //}
 }
 
 .statistics-a {
@@ -148,6 +148,10 @@ $light-gray1: #f3f3f3;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
     padding-top: 15px;
   }
+}
+
+.footer-a h5 {
+  font-size: 1.25rem;
 }
 
 @media (min-width: 768px) {
