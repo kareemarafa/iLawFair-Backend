@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators'
 })
 export class ProjectsService {
   cid!: string
+
   constructor(private http: HttpClient) {
     this.cid = 'projects'
   }
@@ -52,7 +53,9 @@ export class ProjectsService {
   }
 
   loadList() {
-    return this.http.get('/api/projects?join=pages').pipe(
+    const user = localStorage.getItem('user')
+    const { id } = user && JSON.parse(user)
+    return this.http.get(`/api/projects?filter=user.id||$eq||${id}`).pipe(
       map((response: any) => {
         console.log({ response })
         return response

@@ -1,5 +1,5 @@
 import { CrudValidationGroups } from '@nestjsx/crud'
-import { Column, Entity, ManyToOne, OneToMany } from 'typeorm'
+import { Column, Entity, ManyToOne, OneToMany, JoinColumn } from 'typeorm'
 import { CoreEntity } from '@ionhour/backend-core'
 import { IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
@@ -64,6 +64,7 @@ export class Project extends CoreEntity {
   @OneToMany(() => Page, (page) => page.project)
   pages: Page[]
 
-  @ManyToOne(() => User, (user) => user.projects)
+  @ManyToOne(() => User, (user) => user.projects, { eager: true, onDelete: 'CASCADE' })
+  @JoinColumn()
   user: User
 }

@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { Router } from '@angular/router'
 import { AuthService } from '../../auth.service'
-import { takeWhile } from 'rxjs'
+import { finalize, lastValueFrom, takeWhile } from 'rxjs'
 import { FormlyFieldConfig } from '@ngx-formly/core'
 
 @Component({
@@ -48,7 +48,13 @@ export class LoginComponent implements OnDestroy {
     this.authService
       .login(this.model)
       .pipe(takeWhile(() => this.alive))
-      .subscribe(() => this.router.navigate(['dashboard/projects']))
+      .subscribe(async () => {
+        const profile = await lastValueFrom(this.authService.getProfile())
+        localStorage.setItem('user', JSON.stringify(profile))
+        if (profile) {
+          this.router.navigate(['dashboard/projects'])
+        }
+      })
   }
 
   ngOnDestroy() {
