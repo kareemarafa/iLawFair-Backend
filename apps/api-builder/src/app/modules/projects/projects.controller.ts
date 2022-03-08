@@ -9,12 +9,6 @@ import { AuthGuard } from '@nestjs/passport'
   model: {
     type: Project
   },
-  params: {
-    // user: {
-    //   field: 'userId',
-    //   type: 'number'
-    // },
-  },
   query: {
     join: {
       pages: {
