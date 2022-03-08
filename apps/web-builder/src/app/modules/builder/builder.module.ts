@@ -29,7 +29,7 @@ import { WrapperComponent } from './components/sub-element-list/wrapper/wrapper.
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { CoreModule } from '@ionhour/core'
 import { MatMenuModule } from '@angular/material/menu'
-import { MatDialogModule } from '@angular/material/dialog'
+import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/dialog'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { FormlyModule } from '@ngx-formly/core'
 import { FlexModule } from '@angular/flex-layout'
@@ -75,6 +75,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
     CoreModule,
     FormsModule,
     MatSnackBarModule
-  ]
+  ],
+  providers: [{ provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }]
 })
 export class BuilderModule {}

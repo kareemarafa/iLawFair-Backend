@@ -98,6 +98,7 @@ export class LayoutComponent implements OnInit {
   /**
    * init project details
    * @param id
+   * @param pageId
    */
   getProjectDetails(id: number, pageId?: number) {
     this.item$ = this.projectService.getOne(id)
@@ -106,10 +107,12 @@ export class LayoutComponent implements OnInit {
         this.showError()
         this.navigateToPageForm()
       }
-      const page = project?.pages?.find((p) => p.id === pageId)
+      const page = project?.pages?.find((p) => p?.id === pageId)
       this.currentPage = page ?? project.pages[0]
       this.selectPageToEditContent(this.currentPage)
-      this.initPageContent = JSON.stringify(this.currentPage.components ?? [])
+      if (this.currentPage) {
+        this.initPageContent = JSON.stringify(this?.currentPage?.components ?? [])
+      }
     })
   }
 
