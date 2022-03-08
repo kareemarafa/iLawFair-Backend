@@ -26,3 +26,7 @@
 ::ng-deep .mat-menu-content {
   width: 260px !important;
 }
+
+.preview-sections {
+  min-height: calc(100vh - 200px);
+}
