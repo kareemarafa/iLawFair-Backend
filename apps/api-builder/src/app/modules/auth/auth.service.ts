@@ -54,7 +54,8 @@ export class AuthService {
       this.handleBadRequest('Email or username already exists')
     }
     user.password = await this.encryptionService.hash(user.password)
-    return this.usersService.createUser(user)
+    const createdUser = await this.usersService.createUser(user)
+    return createdUser && this.login(user)
   }
 
   handleBadRequest(message: string): void {

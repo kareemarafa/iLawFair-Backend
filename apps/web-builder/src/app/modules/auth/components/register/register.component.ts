@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
-import { takeWhile } from 'rxjs'
+import { lastValueFrom, takeWhile } from 'rxjs'
 import { AuthService } from '../../auth.service'
 import { FormlyFieldConfig } from '@ngx-formly/core'
 
@@ -76,6 +76,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     }
   ]
   model: any = {}
+
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) {
     this.form = this.formBuilder.group({
       firstName: [''],
@@ -92,11 +93,16 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   register() {
-    console.log(this.model)
     this.authService
       .register(this.model)
       .pipe(takeWhile(() => this.alive))
-      .subscribe(() => this.router.navigate(['auth/survey']))
+      .subscribe(async () => {
+        const profile = await lastValueFrom(this.authService.getProfile())
+        localStorage.setItem('user', JSON.stringify(profile))
+        if (profile) {
+          this.router.navigate(['auth/survey'])
+        }
+      })
   }
 
   ngOnDestroy() {

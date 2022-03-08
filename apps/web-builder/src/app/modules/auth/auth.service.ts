@@ -20,7 +20,12 @@ export class AuthService {
   }
 
   register(userDataDto: any) {
-    return this.http.post('/api/auth/register', userDataDto)
+    return this.http.post('/api/auth/register', userDataDto).pipe(
+      map((ctx: any) => {
+        this.setCredentials(ctx)
+        return ctx
+      })
+    )
   }
 
   getProfile() {
