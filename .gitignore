@@ -7,7 +7,6 @@
 
 # dependencies
 /node_modules
-/public/*
 
 # IDEs and editors
 /.idea
@@ -40,3 +39,4 @@ testem.log
 Thumbs.db
 
 .angular
+/public/
