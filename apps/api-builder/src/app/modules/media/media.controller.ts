@@ -31,7 +31,7 @@ export class MediaController implements CrudController<Media> {
   @Post('upload')
   @UseInterceptors(
     FileInterceptor('image', {
-      storage: diskStorage({ destination: './upload', filename: editFileName }),
+      storage: diskStorage({ destination: './public/uploads', filename: editFileName }),
       fileFilter: imageFileFilter
     })
   )
@@ -41,7 +41,7 @@ export class MediaController implements CrudController<Media> {
     const user = await this.authService.checkAuth(token)
     const profile = await this.userService.findOneByEmail(user.email)
     const media: any = new Media()
-    media.fileName = `images/${image.filename}`
+    media.fileName = `uploads/${image.filename}`
     media.user = { id: profile.id }
     return this.service.repo.save(media)
   }

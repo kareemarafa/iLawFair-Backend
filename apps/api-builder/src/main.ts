@@ -16,9 +16,11 @@ CrudConfigService.load({
 
 import { AppModule } from './app/app.module'
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger'
+import { join } from 'path'
+import { NestExpressApplication } from '@nestjs/platform-express'
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule)
+  const app: NestExpressApplication = await NestFactory.create(AppModule)
   app.enableCors()
   const globalPrefix = 'api'
   app.setGlobalPrefix(globalPrefix)
@@ -28,7 +30,11 @@ async function bootstrap() {
   SwaggerModule.setup('swagger', app, document)
 
   const port = AppModule.port || 3333
+  const assetsPath = join(__dirname, '../../..', 'public')
+
+  app.useStaticAssets(assetsPath)
   await app.listen(port)
+  Logger.error(assetsPath)
   Logger.log(`🚀 Application is running on: http://localhost:${port}/${globalPrefix}`)
 }
 
