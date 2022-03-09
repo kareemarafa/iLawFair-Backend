@@ -43,15 +43,41 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'NavbarAComponent',
-        componentClass: NavbarAComponent
+        componentClass: NavbarAComponent,
+        componentData: [
+          {
+            // image?:
+            title: { value: 'Test' }
+            // text?:
+            // btn?:
+            // items?:
+            // icon?:
+          }
+        ],
+        model: {},
+        fields: [
+          {
+            key: 'title',
+            type: 'input',
+            templateOptions: {
+              label: 'Title',
+              description: 'Your company name',
+              required: true
+            }
+          }
+        ]
       },
       {
         componentName: 'NavbarBComponent',
-        componentClass: NavbarBComponent
+        componentClass: NavbarBComponent,
+        fields: [],
+        model: {}
       },
       {
         componentName: 'NavbarCComponent',
-        componentClass: NavbarCComponent
+        componentClass: NavbarCComponent,
+        fields: [],
+        model: {}
       }
     ]
   },
@@ -60,15 +86,21 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'HeaderAComponent',
-        componentClass: HeaderAComponent
+        componentClass: HeaderAComponent,
+        fields: [],
+        model: {}
       },
       {
         componentName: 'HeaderBComponent',
-        componentClass: HeaderBComponent
+        componentClass: HeaderBComponent,
+        fields: [],
+        model: {}
       },
       {
         componentName: 'HeaderCComponent',
-        componentClass: HeaderCComponent
+        componentClass: HeaderCComponent,
+        fields: [],
+        model: {}
       }
     ]
   },
@@ -78,6 +110,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'AboutAComponent',
         componentClass: AboutAComponent,
+        fields: [],
+        model: {},
         componentData: [
           {
             image: './assets/500x300.png',
@@ -113,6 +147,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'ServiceAComponent',
         componentClass: ServiceAComponent,
+        fields: [],
+        model: {},
         componentData: [
           {
             title: {
@@ -164,15 +200,21 @@ export const builderElements: ModuleInterface[] = [
       },
       {
         componentName: 'ServiceBComponent',
-        componentClass: ServiceBComponent
+        componentClass: ServiceBComponent,
+        fields: [],
+        model: {}
       },
       {
         componentName: 'ServiceCComponent',
-        componentClass: ServiceCComponent
+        componentClass: ServiceCComponent,
+        fields: [],
+        model: {}
       },
       {
         componentName: 'ServiceDComponent',
-        componentClass: ServiceDComponent
+        componentClass: ServiceDComponent,
+        fields: [],
+        model: {}
       }
     ]
   },
@@ -181,11 +223,15 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'ActionAComponent',
-        componentClass: ActionAComponent
+        componentClass: ActionAComponent,
+        fields: [],
+        model: {}
       },
       {
         componentName: 'ActionBComponent',
-        componentClass: ActionBComponent
+        componentClass: ActionBComponent,
+        fields: [],
+        model: {}
       }
     ]
   },
@@ -194,7 +240,9 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'StatisticsAComponent',
-        componentClass: StatisticsAComponent
+        componentClass: StatisticsAComponent,
+        fields: [],
+        model: {}
       }
     ]
   },
@@ -203,11 +251,15 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'CountAComponent',
-        componentClass: CountAComponent
+        componentClass: CountAComponent,
+        fields: [],
+        model: {}
       },
       {
         componentName: 'CountBComponent',
-        componentClass: CountBComponent
+        componentClass: CountBComponent,
+        fields: [],
+        model: {}
       }
     ]
   },
@@ -216,11 +268,15 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'TeamAComponent',
-        componentClass: TeamAComponent
+        componentClass: TeamAComponent,
+        fields: [],
+        model: {}
       },
       {
         componentName: 'TeamBComponent',
-        componentClass: TeamBComponent
+        componentClass: TeamBComponent,
+        fields: [],
+        model: {}
       }
     ]
   },
@@ -229,7 +285,9 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'PricesAComponent',
-        componentClass: PricesAComponent
+        componentClass: PricesAComponent,
+        fields: [],
+        model: {}
       }
     ]
   },
@@ -238,7 +296,9 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'TestimonialsAComponent',
-        componentClass: TestimonialsAComponent
+        componentClass: TestimonialsAComponent,
+        fields: [],
+        model: {}
       }
     ]
   },
@@ -247,7 +307,9 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'GalleryAComponent',
-        componentClass: GalleryAComponent
+        componentClass: GalleryAComponent,
+        fields: [],
+        model: {}
       }
     ]
   },
@@ -256,7 +318,9 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'ContactAComponent',
-        componentClass: ContactAComponent
+        componentClass: ContactAComponent,
+        fields: [],
+        model: {}
       }
     ]
   },
@@ -265,7 +329,9 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'MapAComponent',
-        componentClass: MapAComponent
+        componentClass: MapAComponent,
+        fields: [],
+        model: {}
       }
     ]
   },
@@ -274,7 +340,9 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'DividerAComponent',
-        componentClass: DividerAComponent
+        componentClass: DividerAComponent,
+        fields: [],
+        model: {}
       }
     ]
   },
@@ -283,7 +351,9 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'FooterAComponent',
-        componentClass: FooterAComponent
+        componentClass: FooterAComponent,
+        fields: [],
+        model: {}
       }
     ]
   }

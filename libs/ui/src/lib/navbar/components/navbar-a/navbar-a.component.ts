@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core'
-
+import { Component, Input } from '@angular/core'
 @Component({
   selector: 'ionhour-navbar-a',
   templateUrl: './navbar-a.component.html',
   styleUrls: ['./navbar-a.component.scss']
 })
-export class NavbarAComponent {}
+export class NavbarAComponent {
+  @Input() componentData!: any
+}
