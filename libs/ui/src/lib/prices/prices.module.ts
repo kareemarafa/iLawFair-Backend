@@ -18,7 +18,7 @@ export const priceComponentData = {
       price: '$0',
       per: 'month',
       features: [{ title: '10 admin_users included' }, { title: '2 GB of storage' }, { title: 'Email support' }, { title: 'Help center access' }],
-      allToAction: {
+      callToAction: {
         value: 'Sign up for free',
         url: '#',
         color: 'btn-outline-primary'
