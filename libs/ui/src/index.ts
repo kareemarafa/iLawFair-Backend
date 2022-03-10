@@ -7,7 +7,6 @@ import { ServiceBComponent } from './lib/service/components/service-b/service-b.
 import { ServiceCComponent } from './lib/service/components/service-c/service-c.component'
 import { ServiceDComponent } from './lib/service/components/service-d/service-d.component'
 import { CountAComponent } from './lib/count/components/count-a/count-a.component'
-import { CountBComponent } from './lib/count/components/count-b/count-b.component'
 import { TeamAComponent } from './lib/team/components/team-a/team-a.component'
 import { TeamBComponent } from './lib/team/components/team-b/team-b.component'
 import { ActionAComponent } from './lib/action/components/action-a/action-a.component'
@@ -779,11 +778,6 @@ export const builderElements: ModuleInterface[] = [
         componentData: countComponentData,
         fields: countFields
       }
-      // {
-      //   componentName: 'CountBComponent',
-      //   componentClass: CountBComponent,
-      //   fields: []
-      // }
     ]
   },
   {

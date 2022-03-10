@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { CountAComponent } from './components/count-a/count-a.component'
-import { CountBComponent } from './components/count-b/count-b.component'
 import { CountdownModule } from 'ngx-countdown'
 
 @NgModule({
-  declarations: [CountAComponent, CountBComponent],
+  declarations: [CountAComponent],
   imports: [CommonModule, CountdownModule]
 })
 export class CountModule {}
