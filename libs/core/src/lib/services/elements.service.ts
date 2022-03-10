@@ -1,4 +1,4 @@
-import { ComponentRef, Injectable } from '@angular/core'
+import { Injectable } from '@angular/core'
 import { IComponent } from '@ionhour/interfaces'
 import { Subject } from 'rxjs'
 import { HttpClient } from '@angular/common/http'
@@ -14,6 +14,7 @@ export class ElementsService {
   currentElement$: Subject<string | null> = new Subject<string | null>()
   components$: Subject<any[]> = new Subject<Array<any>>()
   component$: Subject<IComponent> = new Subject<IComponent>()
+  contentChange$: Subject<any> = new Subject<any>()
 
   private sidenav!: MatSidenav
 
@@ -55,5 +56,9 @@ export class ElementsService {
   reset() {
     this.components$.next([])
     this.previewElements$.next([])
+  }
+
+  setContent(content: any) {
+    this.contentChange$.next(content)
   }
 }

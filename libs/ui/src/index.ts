@@ -43,15 +43,304 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'NavbarAComponent',
-        componentClass: NavbarAComponent
+        componentClass: NavbarAComponent,
+        componentData: {
+          title: 'Example',
+          titleFontSize: 15,
+          menuItems: [
+            { value: 'Home', url: '#' },
+            { value: 'About', url: '#' },
+            { value: 'Career', url: '#' },
+            { value: 'Contact', url: '#' }
+          ],
+          callToAction: {
+            value: 'Call to Action',
+            url: '#'
+          }
+        },
+        fields: [
+          {
+            wrappers: ['panel'],
+            templateOptions: { label: 'Title' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-9',
+                key: 'title',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'titleColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Title Color'
+                }
+              },
+              {
+                className: 'col-12',
+                key: 'titleFontSize',
+                type: 'slider',
+                templateOptions: {
+                  min: 5,
+                  max: 20,
+                  label: 'Title font size'
+                }
+              }
+            ]
+          },
+          {
+            wrappers: ['panel'],
+            key: 'menuItems',
+            type: 'repeat',
+            templateOptions: {
+              label: 'Menu items',
+              addText: 'Add item'
+            },
+            fieldArray: {
+              fieldGroup: [
+                {
+                  type: 'input',
+                  key: 'value',
+                  templateOptions: {
+                    label: 'Label'
+                  }
+                },
+                {
+                  type: 'input',
+                  key: 'url',
+                  templateOptions: {
+                    label: 'URL'
+                  }
+                }
+              ]
+            }
+          },
+          {
+            wrappers: ['panel'],
+            key: 'callToAction',
+            templateOptions: {
+              label: 'Call to action'
+            },
+            fieldGroup: [
+              {
+                type: 'input',
+                key: 'value',
+                templateOptions: {
+                  label: 'Label'
+                }
+              },
+              {
+                type: 'input',
+                key: 'url',
+                templateOptions: {
+                  label: 'URL'
+                }
+              },
+              {
+                type: 'select',
+                key: 'color',
+                templateOptions: {
+                  type: 'select',
+                  label: 'Color',
+                  options: [
+                    {
+                      value: 'btn-outline-primary',
+                      label: 'Primary'
+                    },
+                    {
+                      value: 'btn-outline-danger',
+                      label: 'Danger'
+                    },
+                    {
+                      value: 'btn-outline-info',
+                      label: 'Info'
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
       },
       {
         componentName: 'NavbarBComponent',
-        componentClass: NavbarBComponent
+        componentClass: NavbarBComponent,
+        componentData: {
+          title: 'Example',
+          titleFontSize: 15,
+          menuItems: [
+            { value: 'Home', url: '#' },
+            { value: 'About', url: '#' },
+            { value: 'Career', url: '#' },
+            { value: 'Contact', url: '#' }
+          ],
+          callToAction: {
+            value: 'Call to Action',
+            url: '#'
+          }
+        },
+        fields: [
+          {
+            wrappers: ['panel'],
+            templateOptions: { label: 'Title' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-9',
+                key: 'title',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'titleColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Title Color'
+                }
+              },
+              {
+                className: 'col-12',
+                key: 'titleFontSize',
+                type: 'slider',
+                templateOptions: {
+                  min: 5,
+                  max: 20,
+                  label: 'Title font size'
+                }
+              }
+            ]
+          },
+          {
+            wrappers: ['panel'],
+            key: 'menuItems',
+            type: 'repeat',
+            templateOptions: {
+              label: 'Menu items',
+              addText: 'Add item'
+            },
+            fieldArray: {
+              fieldGroup: [
+                {
+                  type: 'input',
+                  key: 'value',
+                  templateOptions: {
+                    label: 'Label'
+                  }
+                },
+                {
+                  type: 'input',
+                  key: 'url',
+                  templateOptions: {
+                    label: 'URL'
+                  }
+                }
+              ]
+            }
+          },
+          {
+            wrappers: ['panel'],
+            key: 'callToAction',
+            templateOptions: {
+              label: 'Call to action'
+            },
+            fieldGroup: [
+              {
+                type: 'input',
+                key: 'value',
+                templateOptions: {
+                  label: 'Label'
+                }
+              },
+              {
+                type: 'input',
+                key: 'url',
+                templateOptions: {
+                  label: 'URL'
+                }
+              },
+              {
+                type: 'select',
+                key: 'color',
+                templateOptions: {
+                  type: 'select',
+                  label: 'Color',
+                  options: [
+                    {
+                      value: 'btn-outline-primary',
+                      label: 'Primary'
+                    },
+                    {
+                      value: 'btn-outline-danger',
+                      label: 'Danger'
+                    },
+                    {
+                      value: 'btn-outline-info',
+                      label: 'Info'
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
       },
       {
         componentName: 'NavbarCComponent',
-        componentClass: NavbarCComponent
+        componentClass: NavbarCComponent,
+        componentData: {
+          title: 'Example',
+          titleFontSize: 15,
+          menuItems: [
+            { value: 'Home', url: '#' },
+            { value: 'About', url: '#' },
+            { value: 'Career', url: '#' },
+            { value: 'Contact', url: '#' }
+          ],
+          callToAction: {
+            value: 'Call to Action',
+            url: '#'
+          }
+        },
+        fields: [
+          {
+            wrappers: ['panel'],
+            key: 'menuItems',
+            type: 'repeat',
+            templateOptions: {
+              label: 'Menu items',
+              addText: 'Add item'
+            },
+            fieldArray: {
+              fieldGroup: [
+                {
+                  type: 'input',
+                  key: 'value',
+                  templateOptions: {
+                    label: 'Label'
+                  }
+                },
+                {
+                  type: 'input',
+                  key: 'url',
+                  templateOptions: {
+                    label: 'URL'
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     ]
   },
@@ -60,15 +349,78 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'HeaderAComponent',
-        componentClass: HeaderAComponent
+        componentClass: HeaderAComponent,
+        componentData: {
+          sectionHead: 'About',
+          image: './assets/500x300.png',
+          description:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
+        },
+        fields: [
+          {
+            wrappers: ['panel'],
+            templateOptions: { label: 'Edit Content' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-9',
+                key: 'sectionHead',
+                type: 'input',
+                templateOptions: {
+                  label: 'Heading',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'sectionHeadColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Color'
+                }
+              },
+              {
+                className: 'col-9',
+                key: 'description',
+                type: 'textarea',
+                templateOptions: {
+                  label: 'Description',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'descriptionColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Color'
+                }
+              },
+              {
+                className: 'col-12',
+                key: 'descriptionFontSize',
+                type: 'slider',
+                templateOptions: {
+                  min: 5,
+                  max: 20,
+                  label: 'Description font size'
+                }
+              }
+            ]
+          }
+        ]
       },
       {
         componentName: 'HeaderBComponent',
-        componentClass: HeaderBComponent
+        componentClass: HeaderBComponent,
+        fields: []
       },
       {
         componentName: 'HeaderCComponent',
-        componentClass: HeaderCComponent
+        componentClass: HeaderCComponent,
+        fields: []
       }
     ]
   },
@@ -78,30 +430,112 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'AboutAComponent',
         componentClass: AboutAComponent,
-        componentData: [
+        componentData: {
+          sectionHead: 'About',
+          title: 'Lorem Ipsum',
+          image: './assets/500x300.png',
+          description:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
+        },
+        fields: [
           {
-            image: './assets/500x300.png',
-            title: {
-              value: 'Lorem Ipsum',
-              style: '#000'
-            },
-            text: {
-              value:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged.",
-              style: '#000'
-            }
+            wrappers: ['panel'],
+            templateOptions: { label: 'Title' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-9',
+                key: 'sectionHead',
+                type: 'input',
+                templateOptions: {
+                  label: 'Heading',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'sectionHeadColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Color'
+                }
+              },
+              {
+                className: 'col-9',
+                key: 'title',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'titleColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Color'
+                }
+              },
+              {
+                className: 'col-12',
+                key: 'titleFontSize',
+                type: 'slider',
+                templateOptions: {
+                  min: 5,
+                  max: 20,
+                  label: 'Title font size'
+                }
+              },
+              {
+                className: 'col-9',
+                key: 'description',
+                type: 'textarea',
+                templateOptions: {
+                  label: 'Description',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'descriptionColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Color'
+                }
+              },
+              {
+                className: 'col-12',
+                key: 'descriptionFontSize',
+                type: 'slider',
+                templateOptions: {
+                  min: 5,
+                  max: 20,
+                  label: 'Description font size'
+                }
+              }
+            ]
           },
           {
-            image: './assets/500x300.png',
-            title: {
-              value: 'Lorem Ipsum',
-              style: '#000'
-            },
-            text: {
-              value:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged.",
-              style: '#000'
-            }
+            wrappers: ['panel'],
+            templateOptions: { label: 'Image/Video' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-12',
+                key: 'image',
+                type: 'input',
+                templateOptions: {
+                  type: 'input',
+                  label: 'Image',
+                  placeholder: 'Enter URL here',
+                  required: true
+                }
+              }
+            ]
           }
         ]
       }
@@ -113,6 +547,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'ServiceAComponent',
         componentClass: ServiceAComponent,
+        fields: [],
+
         componentData: [
           {
             title: {
@@ -164,15 +600,18 @@ export const builderElements: ModuleInterface[] = [
       },
       {
         componentName: 'ServiceBComponent',
-        componentClass: ServiceBComponent
+        componentClass: ServiceBComponent,
+        fields: []
       },
       {
         componentName: 'ServiceCComponent',
-        componentClass: ServiceCComponent
+        componentClass: ServiceCComponent,
+        fields: []
       },
       {
         componentName: 'ServiceDComponent',
-        componentClass: ServiceDComponent
+        componentClass: ServiceDComponent,
+        fields: []
       }
     ]
   },
@@ -181,11 +620,13 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'ActionAComponent',
-        componentClass: ActionAComponent
+        componentClass: ActionAComponent,
+        fields: []
       },
       {
         componentName: 'ActionBComponent',
-        componentClass: ActionBComponent
+        componentClass: ActionBComponent,
+        fields: []
       }
     ]
   },
@@ -194,7 +635,8 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'StatisticsAComponent',
-        componentClass: StatisticsAComponent
+        componentClass: StatisticsAComponent,
+        fields: []
       }
     ]
   },
@@ -203,11 +645,13 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'CountAComponent',
-        componentClass: CountAComponent
+        componentClass: CountAComponent,
+        fields: []
       },
       {
         componentName: 'CountBComponent',
-        componentClass: CountBComponent
+        componentClass: CountBComponent,
+        fields: []
       }
     ]
   },
@@ -216,11 +660,13 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'TeamAComponent',
-        componentClass: TeamAComponent
+        componentClass: TeamAComponent,
+        fields: []
       },
       {
         componentName: 'TeamBComponent',
-        componentClass: TeamBComponent
+        componentClass: TeamBComponent,
+        fields: []
       }
     ]
   },
@@ -229,7 +675,8 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'PricesAComponent',
-        componentClass: PricesAComponent
+        componentClass: PricesAComponent,
+        fields: []
       }
     ]
   },
@@ -238,7 +685,8 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'TestimonialsAComponent',
-        componentClass: TestimonialsAComponent
+        componentClass: TestimonialsAComponent,
+        fields: []
       }
     ]
   },
@@ -247,7 +695,8 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'GalleryAComponent',
-        componentClass: GalleryAComponent
+        componentClass: GalleryAComponent,
+        fields: []
       }
     ]
   },
@@ -256,7 +705,8 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'ContactAComponent',
-        componentClass: ContactAComponent
+        componentClass: ContactAComponent,
+        fields: []
       }
     ]
   },
@@ -265,7 +715,8 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'MapAComponent',
-        componentClass: MapAComponent
+        componentClass: MapAComponent,
+        fields: []
       }
     ]
   },
@@ -274,7 +725,8 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'DividerAComponent',
-        componentClass: DividerAComponent
+        componentClass: DividerAComponent,
+        fields: []
       }
     ]
   },
@@ -283,7 +735,8 @@ export const builderElements: ModuleInterface[] = [
     components: [
       {
         componentName: 'FooterAComponent',
-        componentClass: FooterAComponent
+        componentClass: FooterAComponent,
+        fields: []
       }
     ]
   }

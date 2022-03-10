@@ -1,0 +1,10 @@
+<div class="p-3">
+  <!--    <pre>-->
+  <!--      {{model | json}}-->
+  <!--    </pre>-->
+  <ng-container *ngIf="component?.fields?.length">
+    <form [formGroup]="form">
+      <formly-form [model]="model" [fields]="component.fields" [options]="options" [form]="form"></formly-form>
+    </form>
+  </ng-container>
+</div>

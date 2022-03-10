@@ -1,14 +1,21 @@
 <section class="section">
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm justify-content-between">
-    <h3 class="my-0 mr-md-auto font-weight-normal">Company name</h3>
+    <h3
+      class="my-0 mr-md-auto font-weight-normal"
+      [ngStyle]="{
+        'color': componentData?.titleColor && componentData?.titleColor,
+        'font-size': componentData?.titleFontSize && componentData?.titleFontSize + 'px'
+      }"
+    >
+      {{ componentData?.title }}
+    </h3>
     <div class="d-flex align-items-center">
       <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="#">Features</a>
-        <a class="p-2 text-dark" href="#">Enterprise</a>
-        <a class="p-2 text-dark" href="#">Support</a>
-        <a class="p-2 text-dark" href="#">Pricing</a>
+        <ng-container *ngFor="let menuItem of componentData?.menuItems">
+          <a class="p-2 text-dark" [href]="menuItem.url">{{ menuItem.value }}</a>
+        </ng-container>
       </nav>
-      <a class="btn btn-outline-primary" href="#">Sign up</a>
+      <a class="btn {{ componentData?.callToAction?.color ?? 'btn-outline-primary' }}" [href]="componentData?.callToAction?.url">{{ componentData?.callToAction?.value }}</a>
     </div>
   </div>
 </section>

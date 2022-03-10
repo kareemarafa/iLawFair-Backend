@@ -1,11 +1,11 @@
 import { Component, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
-import { finalize, lastValueFrom, Observable } from 'rxjs'
+import { lastValueFrom, Observable, takeWhile } from 'rxjs'
 import { map, shareReplay } from 'rxjs/operators'
 import { ElementsService } from '@ionhour/core'
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
-import { ComponentDate, IComponent, PageInterface, Project } from '@ionhour/interfaces'
+import { IComponent, PageInterface, Project } from '@ionhour/interfaces'
 import { ComponentControlComponent } from '@ionhour/core'
 import { MatSidenav } from '@angular/material/sidenav'
 import { ActivatedRoute, Router } from '@angular/router'
@@ -139,9 +139,9 @@ export class LayoutComponent implements OnInit {
   }
 
   updatePageContent() {
-    const components: { componentName: string; componentData?: ComponentDate[] | undefined }[] = []
+    const components: any[] = []
     this.components.map((component) => {
-      const { componentClass, ...newObj } = component
+      const { componentClass, fields, ...newObj } = component
       components.push(newObj)
     })
     const pageId = +JSON.stringify(this.currentPage.id)
@@ -165,7 +165,7 @@ export class LayoutComponent implements OnInit {
       return
     }
     const newState = this.components.map((component) => {
-      const { componentClass, ...newObj }: any = component
+      const { componentClass, fields, ...newObj }: any = component
       const ordered = Object.keys(newObj)
         .sort()
         .reduce((obj: any, key) => {
@@ -183,6 +183,7 @@ export class LayoutComponent implements OnInit {
     Promise.resolve().then((e) => {
       this.getProjectDetails(this.itemId)
       this.elementsService.setSidenav(this.sidenavComponentOption)
+      this.getDynamicContent()
     })
   }
 
@@ -190,6 +191,20 @@ export class LayoutComponent implements OnInit {
     this.elementsService.components$.pipe(untilDestroyed(this)).subscribe((components: IComponent[]) => {
       this.components = components
       this.viewComponent()
+    })
+  }
+
+  /**
+   * Get component dynamic content after edit
+   */
+  getDynamicContent() {
+    this.elementsService.contentChange$.pipe(untilDestroyed(this)).subscribe((content: any) => {
+      this.components.map((component) => {
+        if (content.componentName !== component.componentName) {
+          return
+        }
+        component.componentData = content.componentData
+      })
     })
   }
 

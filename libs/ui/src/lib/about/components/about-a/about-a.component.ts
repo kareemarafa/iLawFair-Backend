@@ -6,6 +6,5 @@ import { Component, Input } from '@angular/core'
   styleUrls: ['./about-a.component.scss']
 })
 export class AboutAComponent {
-  @Input()
-  componentData: any
+  @Input() componentData: any
 }
