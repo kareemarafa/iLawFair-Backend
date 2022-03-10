@@ -24,6 +24,7 @@ import { headerFields } from './lib/header/header.module'
 import { actionFields } from './lib/action/action.module'
 import { priceComponentData, priceFields } from './lib/prices/prices.module'
 import { testimonialComponentData, testimonialFields } from './lib/testimonials/testimonials.module'
+import { footerComponentData, footerFields } from './lib/footer/footer.module'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -1072,7 +1073,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'FooterAComponent',
         componentClass: FooterAComponent,
-        fields: []
+        componentData: footerComponentData,
+        fields: footerFields
       }
     ]
   }
