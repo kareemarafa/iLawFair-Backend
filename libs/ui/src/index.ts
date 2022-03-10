@@ -350,7 +350,67 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'HeaderAComponent',
         componentClass: HeaderAComponent,
-        fields: []
+        componentData: {
+          sectionHead: 'About',
+          image: './assets/500x300.png',
+          description:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
+        },
+        fields: [
+          {
+            wrappers: ['panel'],
+            templateOptions: { label: 'Edit Content' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-9',
+                key: 'sectionHead',
+                type: 'input',
+                templateOptions: {
+                  label: 'Heading',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'sectionHeadColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Color'
+                }
+              },
+              {
+                className: 'col-9',
+                key: 'description',
+                type: 'textarea',
+                templateOptions: {
+                  label: 'Description',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'descriptionColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Color'
+                }
+              },
+              {
+                className: 'col-12',
+                key: 'descriptionFontSize',
+                type: 'slider',
+                templateOptions: {
+                  min: 5,
+                  max: 20,
+                  label: 'Description font size'
+                }
+              }
+            ]
+          }
+        ]
       },
       {
         componentName: 'HeaderBComponent',
