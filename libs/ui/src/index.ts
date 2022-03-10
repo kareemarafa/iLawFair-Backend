@@ -20,7 +20,8 @@ import { PricesAComponent } from './lib/prices/components'
 import { StatisticsAComponent } from './lib/statistics/components'
 import { DividerAComponent } from './lib/divider/components'
 import { FooterAComponent } from './lib/footer/components'
-
+import { headerFields } from './lib/header/header.module'
+import { actionFields } from './lib/action/action.module'
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
 export * from './lib/about/about.module'
@@ -356,71 +357,67 @@ export const builderElements: ModuleInterface[] = [
           description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
         },
+        fields: headerFields
+      },
+      {
+        componentName: 'HeaderBComponent',
+        componentClass: HeaderBComponent,
+        componentData: {
+          sectionHead: 'About',
+          image: './assets/500x300.png',
+          description:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged.",
+          callToAction: {
+            value: 'Learn more',
+            url: '#'
+          }
+        },
+        fields: headerFields
+      },
+      {
+        componentName: 'HeaderCComponent',
+        componentClass: HeaderCComponent,
+        componentData: {
+          sectionHead: 'About',
+          description:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged.",
+          video: {
+            poster: 'https://assets.codepen.io/6093409/river.jpg',
+            url: 'https://assets.codepen.io/6093409/river.mp4'
+          }
+        },
         fields: [
+          ...headerFields,
           {
             wrappers: ['panel'],
-            templateOptions: { label: 'Edit Content' },
-            fieldGroupClassName: 'row',
+            key: 'video',
+            templateOptions: {
+              label: 'Video'
+            },
             fieldGroup: [
               {
-                className: 'col-9',
-                key: 'sectionHead',
+                className: 'col-12',
+                key: 'poster',
                 type: 'input',
                 templateOptions: {
-                  label: 'Heading',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'sectionHeadColor',
-                type: 'input',
-                templateOptions: {
-                  type: 'color',
-                  label: 'Color'
-                }
-              },
-              {
-                className: 'col-9',
-                key: 'description',
-                type: 'textarea',
-                templateOptions: {
-                  label: 'Description',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'descriptionColor',
-                type: 'input',
-                templateOptions: {
-                  type: 'color',
-                  label: 'Color'
+                  type: 'input',
+                  label: 'Poster',
+                  placeholder: 'Enter URL here'
                 }
               },
               {
                 className: 'col-12',
-                key: 'descriptionFontSize',
-                type: 'slider',
+                key: 'url',
+                type: 'input',
                 templateOptions: {
-                  min: 5,
-                  max: 20,
-                  label: 'Description font size'
+                  type: 'input',
+                  label: 'Video',
+                  placeholder: 'Enter URL here'
                 }
               }
             ]
           }
         ]
-      },
-      {
-        componentName: 'HeaderBComponent',
-        componentClass: HeaderBComponent,
-        fields: []
-      },
-      {
-        componentName: 'HeaderCComponent',
-        componentClass: HeaderCComponent,
-        fields: []
       }
     ]
   },
@@ -621,12 +618,49 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'ActionAComponent',
         componentClass: ActionAComponent,
-        fields: []
+        componentData: {
+          sectionHead: 'Action title',
+          description: 'Test',
+          callToAction: {
+            value: 'Action',
+            url: '#'
+          }
+        },
+        fields: actionFields
       },
       {
         componentName: 'ActionBComponent',
         componentClass: ActionBComponent,
-        fields: []
+        componentData: {
+          sectionHead: 'Action title',
+          description: 'Test',
+          callToAction: {
+            value: 'Action',
+            url: '#'
+          },
+          image: 'https://www.capturelandscapes.com/wp-content/uploads/2019/04/Desert-Nights.jpg'
+        },
+        fields: [
+          ...actionFields,
+          {
+            wrappers: ['panel'],
+            templateOptions: { label: 'Image' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-12',
+                key: 'image',
+                type: 'input',
+                templateOptions: {
+                  type: 'input',
+                  label: 'Image',
+                  placeholder: 'Enter URL here',
+                  required: true
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -636,7 +670,96 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'StatisticsAComponent',
         componentClass: StatisticsAComponent,
-        fields: []
+        componentData: {
+          title: 'Statistics',
+          description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+          items: [
+            {
+              title: 'Stars',
+              value: '10'
+            },
+            {
+              title: 'Projects',
+              value: '50'
+            },
+            {
+              title: 'Clients',
+              value: '100+'
+            }
+          ]
+        },
+        fields: [
+          {
+            wrappers: ['panel'],
+            templateOptions: { label: 'Title' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-9',
+                key: 'title',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'titleColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Title Color'
+                }
+              },
+              {
+                className: 'col-9',
+                key: 'description',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'descriptionColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Title Color'
+                }
+              }
+            ]
+          },
+          {
+            wrappers: ['panel'],
+            key: 'items',
+            type: 'repeat',
+            templateOptions: {
+              label: 'Items',
+              addText: 'Add item'
+            },
+            fieldArray: {
+              fieldGroup: [
+                {
+                  type: 'input',
+                  key: 'title',
+                  templateOptions: {
+                    label: 'Title'
+                  }
+                },
+                {
+                  type: 'input',
+                  key: 'value',
+                  templateOptions: {
+                    label: 'Value'
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     ]
   },
