@@ -27,6 +27,7 @@ import { testimonialComponentData, testimonialFields } from './lib/testimonials/
 import { footerComponentData, footerFields } from './lib/footer/footer.module'
 import { contactComponentData, contactFields } from './lib/contact/contact.module'
 import { galleryComponentData, galleryFields } from './lib/gallery/gallery.module'
+import { countComponentData, countFields } from './lib/count/count.module'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -775,13 +776,14 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'CountAComponent',
         componentClass: CountAComponent,
-        fields: []
-      },
-      {
-        componentName: 'CountBComponent',
-        componentClass: CountBComponent,
-        fields: []
+        componentData: countComponentData,
+        fields: countFields
       }
+      // {
+      //   componentName: 'CountBComponent',
+      //   componentClass: CountBComponent,
+      //   fields: []
+      // }
     ]
   },
   {
