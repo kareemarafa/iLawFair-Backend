@@ -21,7 +21,6 @@ import { StatisticsAComponent } from './lib/statistics/components'
 import { DividerAComponent } from './lib/divider/components'
 import { FooterAComponent } from './lib/footer/components'
 import { headerFields } from './lib/header/header.module'
-
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
 export * from './lib/about/about.module'
