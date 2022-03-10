@@ -23,6 +23,7 @@ import { FooterAComponent } from './lib/footer/components'
 import { headerFields } from './lib/header/header.module'
 import { actionFields } from './lib/action/action.module'
 import { priceComponentData, priceFields } from './lib/prices/prices.module'
+import { testimonialComponentData, testimonialFields } from './lib/testimonials/testimonials.module'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -1020,7 +1021,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'TestimonialsAComponent',
         componentClass: TestimonialsAComponent,
-        fields: []
+        componentData: testimonialComponentData,
+        fields: testimonialFields
       }
     ]
   },
