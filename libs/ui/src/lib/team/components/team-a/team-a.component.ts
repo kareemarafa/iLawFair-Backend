@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 
 @Component({
   selector: 'ionhour-team-a',
@@ -6,25 +6,26 @@ import { Component } from '@angular/core'
   styleUrls: ['./team-a.component.scss']
 })
 export class TeamAComponent {
-  componentData: any = {
-    title: `Section Title`,
-    text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
-    teams: [
-      {
-        image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
-        name: `Sam`,
-        role: `Front-end developer`
-      },
-      {
-        image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
-        name: `Sam`,
-        role: `Back-end developer`
-      },
-      {
-        image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
-        name: `Sam`,
-        role: `Android developer`
-      }
-    ]
-  }
+  @Input() componentData: any
+  //   {
+  //   title: `Section Title`,
+  //   text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
+  //   teams: [
+  //     {
+  //       image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
+  //       name: `Sam`,
+  //       role: `Front-end developer`
+  //     },
+  //     {
+  //       image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
+  //       name: `Sam`,
+  //       role: `Back-end developer`
+  //     },
+  //     {
+  //       image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
+  //       name: `Sam`,
+  //       role: `Android developer`
+  //     }
+  //   ]
+  // }
 }
