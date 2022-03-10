@@ -57,13 +57,111 @@ export const builderElements: ModuleInterface[] = [
         model: {},
         fields: [
           {
-            key: 'title',
-            type: 'input',
+            wrappers: ['panel'],
+            templateOptions: { label: 'Title' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-9',
+                key: 'title',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'titleColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Title Color'
+                }
+              },
+              {
+                className: 'col-12',
+                key: 'titleFontSize',
+                type: 'slider',
+                templateOptions: {
+                  min: 5,
+                  max: 20,
+                  label: 'Title font size'
+                }
+              }
+            ]
+          },
+          {
+            wrappers: ['panel'],
+            key: 'menuItems',
+            type: 'repeat',
             templateOptions: {
-              label: 'Title',
-              description: 'Your company name',
-              required: true
+              label: 'Menu items',
+              addText: 'Add item'
+            },
+            fieldArray: {
+              fieldGroup: [
+                {
+                  type: 'input',
+                  key: 'value',
+                  templateOptions: {
+                    label: 'Label'
+                  }
+                },
+                {
+                  type: 'input',
+                  key: 'url',
+                  templateOptions: {
+                    label: 'URL'
+                  }
+                }
+              ]
             }
+          },
+          {
+            wrappers: ['panel'],
+            key: 'callToAction',
+            templateOptions: {
+              label: 'Call to action'
+            },
+            fieldGroup: [
+              {
+                type: 'input',
+                key: 'value',
+                templateOptions: {
+                  label: 'Label'
+                }
+              },
+              {
+                type: 'input',
+                key: 'url',
+                templateOptions: {
+                  label: 'URL'
+                }
+              },
+              {
+                type: 'select',
+                key: 'color',
+                templateOptions: {
+                  type: 'select',
+                  label: 'Color',
+                  options: [
+                    {
+                      value: 'btn-outline-primary',
+                      label: 'Primary'
+                    },
+                    {
+                      value: 'btn-outline-danger',
+                      label: 'Danger'
+                    },
+                    {
+                      value: 'btn-outline-info',
+                      label: 'Info'
+                    }
+                  ]
+                }
+              }
+            ]
           }
         ]
       },
