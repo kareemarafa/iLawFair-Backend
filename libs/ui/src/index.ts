@@ -298,7 +298,49 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'NavbarCComponent',
         componentClass: NavbarCComponent,
-        fields: []
+        componentData: {
+          title: 'Example',
+          titleFontSize: 15,
+          menuItems: [
+            { value: 'Home', url: '#' },
+            { value: 'About', url: '#' },
+            { value: 'Career', url: '#' },
+            { value: 'Contact', url: '#' }
+          ],
+          callToAction: {
+            value: 'Call to Action',
+            url: '#'
+          }
+        },
+        fields: [
+          {
+            wrappers: ['panel'],
+            key: 'menuItems',
+            type: 'repeat',
+            templateOptions: {
+              label: 'Menu items',
+              addText: 'Add item'
+            },
+            fieldArray: {
+              fieldGroup: [
+                {
+                  type: 'input',
+                  key: 'value',
+                  templateOptions: {
+                    label: 'Label'
+                  }
+                },
+                {
+                  type: 'input',
+                  key: 'url',
+                  templateOptions: {
+                    label: 'URL'
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     ]
   },
