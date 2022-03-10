@@ -21,6 +21,7 @@ import { StatisticsAComponent } from './lib/statistics/components'
 import { DividerAComponent } from './lib/divider/components'
 import { FooterAComponent } from './lib/footer/components'
 import { headerFields } from './lib/header/header.module'
+import { actionFields } from './lib/action/action.module'
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
 export * from './lib/about/about.module'
@@ -617,12 +618,49 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'ActionAComponent',
         componentClass: ActionAComponent,
-        fields: []
+        componentData: {
+          sectionHead: 'Action title',
+          description: 'Test',
+          callToAction: {
+            value: 'Action',
+            url: '#'
+          }
+        },
+        fields: actionFields
       },
       {
         componentName: 'ActionBComponent',
         componentClass: ActionBComponent,
-        fields: []
+        componentData: {
+          sectionHead: 'Action title',
+          description: 'Test',
+          callToAction: {
+            value: 'Action',
+            url: '#'
+          },
+          image: 'https://www.capturelandscapes.com/wp-content/uploads/2019/04/Desert-Nights.jpg'
+        },
+        fields: [
+          ...actionFields,
+          {
+            wrappers: ['panel'],
+            templateOptions: { label: 'Image' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-12',
+                key: 'image',
+                type: 'input',
+                templateOptions: {
+                  type: 'input',
+                  label: 'Image',
+                  placeholder: 'Enter URL here',
+                  required: true
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   },
