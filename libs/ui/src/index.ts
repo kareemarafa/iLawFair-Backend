@@ -26,6 +26,7 @@ import { priceComponentData, priceFields } from './lib/prices/prices.module'
 import { testimonialComponentData, testimonialFields } from './lib/testimonials/testimonials.module'
 import { footerComponentData, footerFields } from './lib/footer/footer.module'
 import { contactComponentData, contactFields } from './lib/contact/contact.module'
+import { galleryComponentData, galleryFields } from './lib/gallery/gallery.module'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -1034,7 +1035,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'GalleryAComponent',
         componentClass: GalleryAComponent,
-        fields: []
+        componentData: galleryComponentData,
+        fields: galleryFields
       }
     ]
   },
