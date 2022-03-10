@@ -670,7 +670,96 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'StatisticsAComponent',
         componentClass: StatisticsAComponent,
-        fields: []
+        componentData: {
+          title: 'Statistics',
+          description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+          items: [
+            {
+              title: 'Stars',
+              value: '10'
+            },
+            {
+              title: 'Projects',
+              value: '50'
+            },
+            {
+              title: 'Clients',
+              value: '100+'
+            }
+          ]
+        },
+        fields: [
+          {
+            wrappers: ['panel'],
+            templateOptions: { label: 'Title' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-9',
+                key: 'title',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'titleColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Title Color'
+                }
+              },
+              {
+                className: 'col-9',
+                key: 'description',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'descriptionColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Title Color'
+                }
+              }
+            ]
+          },
+          {
+            wrappers: ['panel'],
+            key: 'items',
+            type: 'repeat',
+            templateOptions: {
+              label: 'Items',
+              addText: 'Add item'
+            },
+            fieldArray: {
+              fieldGroup: [
+                {
+                  type: 'input',
+                  key: 'title',
+                  templateOptions: {
+                    label: 'Title'
+                  }
+                },
+                {
+                  type: 'input',
+                  key: 'value',
+                  templateOptions: {
+                    label: 'Value'
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     ]
   },
