@@ -7,7 +7,6 @@ import { ServiceBComponent } from './lib/service/components/service-b/service-b.
 import { ServiceCComponent } from './lib/service/components/service-c/service-c.component'
 import { ServiceDComponent } from './lib/service/components/service-d/service-d.component'
 import { CountAComponent } from './lib/count/components/count-a/count-a.component'
-import { CountBComponent } from './lib/count/components/count-b/count-b.component'
 import { TeamAComponent } from './lib/team/components/team-a/team-a.component'
 import { TeamBComponent } from './lib/team/components/team-b/team-b.component'
 import { ActionAComponent } from './lib/action/components/action-a/action-a.component'
@@ -22,6 +21,13 @@ import { DividerAComponent } from './lib/divider/components'
 import { FooterAComponent } from './lib/footer/components'
 import { headerFields } from './lib/header/header.module'
 import { actionFields } from './lib/action/action.module'
+import { priceComponentData, priceFields } from './lib/prices/prices.module'
+import { testimonialComponentData, testimonialFields } from './lib/testimonials/testimonials.module'
+import { footerComponentData, footerFields } from './lib/footer/footer.module'
+import { contactComponentData, contactFields } from './lib/contact/contact.module'
+import { galleryComponentData, galleryFields } from './lib/gallery/gallery.module'
+import { countComponentData, countFields } from './lib/count/count.module'
+
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
 export * from './lib/about/about.module'
@@ -769,12 +775,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'CountAComponent',
         componentClass: CountAComponent,
-        fields: []
-      },
-      {
-        componentName: 'CountBComponent',
-        componentClass: CountBComponent,
-        fields: []
+        componentData: countComponentData,
+        fields: countFields
       }
     ]
   },
@@ -784,12 +786,220 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'TeamAComponent',
         componentClass: TeamAComponent,
-        fields: []
+        componentData: {
+          title: 'Teams',
+          description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+          items: [
+            {
+              image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
+              name: `Sam`,
+              role: `Front-end developer`
+            },
+            {
+              image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
+              name: `Sam`,
+              role: `Front-end developer`
+            },
+            {
+              image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
+              name: `Sam`,
+              role: `Front-end developer`
+            }
+          ]
+        },
+        fields: [
+          {
+            wrappers: ['panel'],
+            templateOptions: { label: 'Title' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-9',
+                key: 'title',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'titleColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Title Color'
+                }
+              },
+              {
+                className: 'col-9',
+                key: 'description',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'descriptionColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Title Color'
+                }
+              }
+            ]
+          },
+          {
+            wrappers: ['panel'],
+            key: 'items',
+            type: 'repeat',
+            templateOptions: {
+              label: 'Items',
+              addText: 'Add item'
+            },
+            fieldArray: {
+              fieldGroup: [
+                {
+                  type: 'input',
+                  key: 'name',
+                  templateOptions: {
+                    label: 'Name'
+                  }
+                },
+                {
+                  type: 'input',
+                  key: 'role',
+                  templateOptions: {
+                    label: 'Role'
+                  }
+                },
+                {
+                  type: 'input',
+                  key: 'image',
+                  templateOptions: {
+                    label: 'Image'
+                  }
+                }
+              ]
+            }
+          }
+        ]
       },
       {
         componentName: 'TeamBComponent',
         componentClass: TeamBComponent,
-        fields: []
+        componentData: {
+          title: 'Teams',
+          description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+          items: [
+            {
+              image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
+              name: `Sam`,
+              details: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis`,
+              role: `Front-end developer`
+            },
+            {
+              image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
+              name: `Sam`,
+              details: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis`,
+              role: `Front-end developer`
+            },
+            {
+              image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
+              name: `Sam`,
+              details: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis`,
+              role: `Front-end developer`
+            }
+          ]
+        },
+        fields: [
+          {
+            wrappers: ['panel'],
+            templateOptions: { label: 'Title' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-9',
+                key: 'title',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'titleColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Title Color'
+                }
+              },
+              {
+                className: 'col-9',
+                key: 'description',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'descriptionColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Title Color'
+                }
+              }
+            ]
+          },
+          {
+            wrappers: ['panel'],
+            key: 'items',
+            type: 'repeat',
+            templateOptions: {
+              label: 'Items',
+              addText: 'Add item'
+            },
+            fieldArray: {
+              fieldGroup: [
+                {
+                  type: 'input',
+                  key: 'name',
+                  templateOptions: {
+                    label: 'Name'
+                  }
+                },
+                {
+                  type: 'input',
+                  key: 'role',
+                  templateOptions: {
+                    label: 'Role'
+                  }
+                },
+                {
+                  type: 'input',
+                  key: 'details',
+                  templateOptions: {
+                    label: 'Details'
+                  }
+                },
+                {
+                  type: 'input',
+                  key: 'image',
+                  templateOptions: {
+                    label: 'Image'
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     ]
   },
@@ -799,7 +1009,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'PricesAComponent',
         componentClass: PricesAComponent,
-        fields: []
+        componentData: priceComponentData,
+        fields: priceFields
       }
     ]
   },
@@ -809,7 +1020,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'TestimonialsAComponent',
         componentClass: TestimonialsAComponent,
-        fields: []
+        componentData: testimonialComponentData,
+        fields: testimonialFields
       }
     ]
   },
@@ -819,7 +1031,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'GalleryAComponent',
         componentClass: GalleryAComponent,
-        fields: []
+        componentData: galleryComponentData,
+        fields: galleryFields
       }
     ]
   },
@@ -829,7 +1042,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'ContactAComponent',
         componentClass: ContactAComponent,
-        fields: []
+        componentData: contactComponentData,
+        fields: contactFields
       }
     ]
   },
@@ -859,7 +1073,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'FooterAComponent',
         componentClass: FooterAComponent,
-        fields: []
+        componentData: footerComponentData,
+        fields: footerFields
       }
     ]
   }

@@ -1,10 +1,21 @@
 <section class="section">
-  <div class="countdown-a bg-white px-3 py-5">
-    <div class="countdown countdown__a" [attr.data-date]="componentData.date" [attr.data-time]="componentData.time">
-      <div class="day text-primary"><span class="num"></span><span class="word"></span></div>
-      <div class="hour text-primary"><span class="num"></span><span class="word"></span></div>
-      <div class="min text-primary"><span class="num"></span><span class="word"></span></div>
-      <div class="sec text-primary"><span class="num"></span><span class="word"></span></div>
+  <div class="card">
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4" [ngStyle]="{ color: componentData?.sectionHeadColor }">{{ componentData?.sectionHead }}</h1>
+      <p
+        class="lead"
+        [ngStyle]="{
+          'color': componentData?.descriptionColor,
+          'font-size': componentData?.descriptionFontSize && componentData?.descriptionFontSize + 'px'
+        }"
+      >
+        {{ componentData?.description }}
+      </p>
+    </div>
+    <div class="card-body d-flex align-items-center justify-content-center">
+      <ng-container *ngIf="config">
+        <countdown class="custom-style d-flex align-items-center" #cd [config]="config"></countdown>
+      </ng-container>
     </div>
   </div>
 </section>

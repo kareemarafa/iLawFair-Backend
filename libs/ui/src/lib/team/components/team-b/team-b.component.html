@@ -1,28 +1,38 @@
 <section class="section">
-  <div class="team-b px-3 py-5">
+  <div class="team-b bg-white px-3 py-5">
     <div class="row">
       <div class="col-12">
-        <h1 class="h1 fw-bold text-center">{{ componentData.title }}</h1>
+        <h1 class="h1 fw-bold text-center" [ngStyle]="{ color: componentData?.titleColor }">{{ componentData?.title }}</h1>
+        <p class="text-center" [ngStyle]="{ color: componentData?.descriptionColor }">{{ componentData?.description }}</p>
       </div>
-      <div class="col-lg-4" *ngFor="let item of componentData.teams">
-        <div class="card item text-center">
+      <div class="col-lg-4" *ngFor="let item of componentData.items">
+        <div class="card item text-center border-0">
           <div class="image py-3">
-            <img class="team-b__img" [src]="item.image" alt="" srcset="" />
+            <img class="img-thumbnail team-b__img" [src]="item.image" alt="" srcset="" />
           </div>
           <div>
             <h3 class="h3 fw-bold my-2">{{ item.name }}</h3>
             <p class="text-secondary">{{ item.details }}</p>
             <p class="text-secondary">{{ item.role }}</p>
           </div>
-          <div class="social-links d-flex justify-content-center">
-            <a href="#" class="m-2 link border-2 border border-primary d-block rounded-circle d-flex align-items-center justify-content-center text-decoration-none">
-              <i class="fa fa-2x fa-facebook" aria-hidden="true"></i>
+          <div class="d-flex justify-content-center">
+            <a
+              href="#"
+              class="m-2 link border-1 border border-secondary text-secondary d-block rounded-circle d-flex align-items-center justify-content-center text-decoration-none"
+            >
+              <i class="fa fa-facebook" aria-hidden="true"></i>
             </a>
-            <a href="#" class="m-2 link border-2 border border-primary d-block rounded-circle d-flex align-items-center justify-content-center text-decoration-none">
-              <i class="fa fa-2x fa-twitter" aria-hidden="true"></i>
+            <a
+              href="#"
+              class="m-2 link border-1 border border-secondary text-secondary d-block rounded-circle d-flex align-items-center justify-content-center text-decoration-none"
+            >
+              <i class="fa fa-twitter" aria-hidden="true"></i>
             </a>
-            <a href="#" class="m-2 link border-2 border border-primary d-block rounded-circle d-flex align-items-center justify-content-center text-decoration-none">
-              <i class="fa fa-2x fa-linkedin" aria-hidden="true"></i>
+            <a
+              href="#"
+              class="m-2 link border-1 border border-secondary text-secondary d-block rounded-circle d-flex align-items-center justify-content-center text-decoration-none"
+            >
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
             </a>
           </div>
         </div>

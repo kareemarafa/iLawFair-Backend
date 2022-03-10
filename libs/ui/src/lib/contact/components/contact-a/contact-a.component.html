@@ -1,20 +1,20 @@
 <section class="section">
   <div class="contact-a bg-white px-3 py-5">
     <div class="container">
+      <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4" [ngStyle]="{ color: componentData?.titleColor }">{{ componentData?.title }}</h1>
+        <p class="lead" [ngStyle]="{ color: componentData?.descriptionColor }">
+          {{ componentData?.description }}
+        </p>
+      </div>
       <div class="row">
         <div class="col-5">
-          <div class="address mb-3">
-            <h1 class="h1 fw-bold">Address</h1>
-            <p class="text-secondary">{{ componentData.address }}</p>
-          </div>
-          <div class="phone mb-3">
-            <h1 class="h1 fw-bold">Phone</h1>
-            <p class="text-secondary">{{ componentData.phone }}</p>
-          </div>
-          <div class="email mb-3">
-            <h1 class="h1 fw-bold">Email</h1>
-            <p class="text-secondary">{{ componentData.email }}</p>
-          </div>
+          <ng-container *ngFor="let element of componentData?.elements">
+            <div class="mb-3">
+              <h1 class="h1 fw-bold">{{ element?.label }}</h1>
+              <p class="text-secondary">{{ element?.value }}</p>
+            </div>
+          </ng-container>
         </div>
         <div class="col-lg-7">
           <form>

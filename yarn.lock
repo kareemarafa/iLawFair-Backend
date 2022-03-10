@@ -7793,6 +7793,13 @@
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
 
+"ngx-countdown@^13.0.0":
+  "integrity" "sha512-PwGfzAsuycFBwB2YiUtJSi9YNiyThocmYyvA32+VFFYP58yrNpTE9b3oBtvPyYicsVPfLZyjatKEEIVNBLvoGg=="
+  "resolved" "https://registry.npmjs.org/ngx-countdown/-/ngx-countdown-13.0.0.tgz"
+  "version" "13.0.0"
+  dependencies:
+    "tslib" "^2.3.0"
+
 "nice-napi@^1.0.2":
   "integrity" "sha512-px/KnJAJZf5RuBGcfD+Sp2pAKq0ytz8j+1NehvgIGFkvtvFrDM3T8E4x/JJODXK9WZow8RRGrbA9QQ3hs+pDhA=="
   "resolved" "https://registry.npmjs.org/nice-napi/-/nice-napi-1.0.2.tgz"
