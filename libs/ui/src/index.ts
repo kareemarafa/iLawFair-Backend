@@ -370,32 +370,112 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'AboutAComponent',
         componentClass: AboutAComponent,
-        fields: [],
-
-        componentData: [
+        componentData: {
+          sectionHead: 'About',
+          title: 'Lorem Ipsum',
+          image: './assets/500x300.png',
+          description:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
+        },
+        fields: [
           {
-            image: './assets/500x300.png',
-            title: {
-              value: 'Lorem Ipsum',
-              style: '#000'
-            },
-            text: {
-              value:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged.",
-              style: '#000'
-            }
+            wrappers: ['panel'],
+            templateOptions: { label: 'Title' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-9',
+                key: 'sectionHead',
+                type: 'input',
+                templateOptions: {
+                  label: 'Heading',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'sectionHeadColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Color'
+                }
+              },
+              {
+                className: 'col-9',
+                key: 'title',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'titleColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Color'
+                }
+              },
+              {
+                className: 'col-12',
+                key: 'titleFontSize',
+                type: 'slider',
+                templateOptions: {
+                  min: 5,
+                  max: 20,
+                  label: 'Title font size'
+                }
+              },
+              {
+                className: 'col-9',
+                key: 'description',
+                type: 'textarea',
+                templateOptions: {
+                  label: 'Description',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'descriptionColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Color'
+                }
+              },
+              {
+                className: 'col-12',
+                key: 'descriptionFontSize',
+                type: 'slider',
+                templateOptions: {
+                  min: 5,
+                  max: 20,
+                  label: 'Description font size'
+                }
+              }
+            ]
           },
           {
-            image: './assets/500x300.png',
-            title: {
-              value: 'Lorem Ipsum',
-              style: '#000'
-            },
-            text: {
-              value:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged.",
-              style: '#000'
-            }
+            wrappers: ['panel'],
+            templateOptions: { label: 'Image/Video' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-12',
+                key: 'image',
+                type: 'input',
+                templateOptions: {
+                  type: 'input',
+                  label: 'Image',
+                  placeholder: 'Enter URL here',
+                  required: true
+                }
+              }
+            ]
           }
         ]
       }
