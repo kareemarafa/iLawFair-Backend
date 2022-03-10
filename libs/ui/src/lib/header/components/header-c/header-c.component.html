@@ -1,14 +1,19 @@
 <section class="section">
   <div class="position-relative overflow-hidden p-3 p-md-5 text-center bg-light bg-video">
     <div class="col-md-5 my-5 content">
-      <h1 class="display-4 fw-normal text-white">Punny headline</h1>
+      <h1 class="display-4 fw-normal text-white">{{ componentData?.sectionHead }}</h1>
       <p class="text-white">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere deserunt explicabo officiis facilis maxime quo commodi ipsa officia voluptatem iste ea hic laboriosam animi
-        architecto, consequatur tenetur sequi vero dolor?
+        {{ componentData?.description }}
       </p>
     </div>
-    <video class="video" autoplay loop muted poster="https://assets.codepen.io/6093409/river.jpg">
-      <source src="https://assets.codepen.io/6093409/river.mp4" type="video/mp4" />
-    </video>
+    <ng-container *ngIf="componentData?.video?.url">
+      <video class="video" autoplay loop muted [poster]="componentData?.video?.poster">
+        <source [src]="componentData?.video?.url" type="video/mp4" />
+      </video>
+    </ng-container>
+    <ng-container *ngIf="!componentData?.video?.url">
+      <img class="img-fluid" [alt]="componentData?.sectionHead" [src]="componentData?.image" />
+    </ng-container>
+    <a class="btn {{ componentData?.callToAction?.color ?? 'btn-outline-primary' }}" [href]="componentData?.callToAction?.url">{{ componentData?.callToAction?.value }}</a>
   </div>
 </section>

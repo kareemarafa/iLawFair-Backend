@@ -154,6 +154,11 @@ $light-gray1: #f3f3f3;
   font-size: 1.25rem;
 }
 
+.imageBackground {
+  background-size: cover;
+  background-position: center;
+}
+
 @media (min-width: 768px) {
 }
 
