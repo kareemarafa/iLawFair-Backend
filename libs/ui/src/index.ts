@@ -22,6 +22,7 @@ import { DividerAComponent } from './lib/divider/components'
 import { FooterAComponent } from './lib/footer/components'
 import { headerFields } from './lib/header/header.module'
 import { actionFields } from './lib/action/action.module'
+import { priceComponentData, priceFields } from './lib/prices/prices.module'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -1008,7 +1009,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'PricesAComponent',
         componentClass: PricesAComponent,
-        fields: []
+        componentData: priceComponentData,
+        fields: priceFields
       }
     ]
   },

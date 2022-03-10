@@ -1,8 +1,8 @@
 <section class="section prices-a bg-white">
   <div class="container">
     <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-      <h1 class="fw-normal">{{ componentData.title }}</h1>
-      <p class="fs-5 text-muted">
+      <h1 class="fw-normal" [ngStyle]="{ color: componentData?.titleColor }">{{ componentData.title }}</h1>
+      <p class="fs-5" [ngStyle]="{ color: componentData?.descriptionColor }">
         {{ componentData.description }}
       </p>
     </div>
@@ -11,16 +11,16 @@
         <div class="col">
           <div class="card mb-4 rounded-3 shadow-sm">
             <div class="card-header py-3">
-              <h4 class="my-0 fw-normal">{{ item.title }}</h4>
+              <h4 class="my-0 fw-normal">{{ item?.title }}</h4>
             </div>
             <div class="card-body">
               <h1 class="card-title pricing-card-title">
-                {{ item.price }}<small class="text-muted fw-light">/{{ item.per }}</small>
+                {{ item?.price }}<small class="text-muted fw-light">/{{ item?.per }}</small>
               </h1>
               <ul class="list-unstyled mt-3 mb-4">
-                <li *ngFor="let feature of item?.features">{{ feature }}</li>
+                <li *ngFor="let feature of item?.features">{{ feature?.title }}</li>
               </ul>
-              <a class="w-100 btn btn-lg {{ item.button.cssClass }}" [href]="item.button.action">{{ item.button.text }}</a>
+              <a class="w-100 btn btn-lg {{ item?.callToAction?.color }}" [href]="item?.callToAction?.url">{{ item?.callToAction?.value }}</a>
             </div>
           </div>
         </div>
