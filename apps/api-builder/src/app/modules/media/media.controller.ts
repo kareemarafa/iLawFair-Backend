@@ -37,11 +37,12 @@ export class MediaController implements CrudController<Media> {
   )
   @UseGuards(AuthGuard('jwt'))
   async upload(@Headers('Authorization') authToken: string, @UploadedFile() image?: Express.Multer.File) {
+    console.log({ image })
     const token = authToken.split(' ')[1]
     const user = await this.authService.checkAuth(token)
     const profile = await this.userService.findOneByEmail(user.email)
     const media: any = new Media()
-    media.fileName = `uploads/${image.filename}`
+    media.fileName = `uploads/${image?.filename}`
     media.user = { id: profile.id }
     return this.service.repo.save(media)
   }

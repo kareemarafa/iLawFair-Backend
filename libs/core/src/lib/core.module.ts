@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { ComponentControlDirective } from './directives'
-import { ComponentControlComponent, ComponentDynamicFormComponent, ComponentOptionComponent, PanelWrapperComponent, RepeatTypeComponent } from './components'
+import {
+  ComponentControlComponent,
+  ComponentDynamicFormComponent,
+  ComponentOptionComponent,
+  FileValueAccessor,
+  FormlyFieldFile,
+  PanelWrapperComponent,
+  RepeatTypeComponent
+} from './components'
 import { DragDropModule } from '@angular/cdk/drag-drop'
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
@@ -24,11 +32,22 @@ import { FormlyMaterialModule } from '@ngx-formly/material'
     ReactiveFormsModule,
     FormlyModule.forRoot({
       wrappers: [{ name: 'panel', component: PanelWrapperComponent }],
-      types: [{ name: 'repeat', component: RepeatTypeComponent }]
+      types: [
+        { name: 'repeat', component: RepeatTypeComponent },
+        { name: 'file', component: FormlyFieldFile, wrappers: ['form-field'] }
+      ]
     }),
     FormlyMaterialModule
   ],
-  declarations: [ComponentControlComponent, ComponentControlDirective, ComponentOptionComponent, ComponentDynamicFormComponent, RepeatTypeComponent],
+  declarations: [
+    ComponentControlComponent,
+    ComponentControlDirective,
+    ComponentOptionComponent,
+    ComponentDynamicFormComponent,
+    RepeatTypeComponent,
+    FileValueAccessor,
+    FormlyFieldFile
+  ],
   exports: [ComponentControlComponent, ComponentControlDirective, ComponentOptionComponent, ComponentDynamicFormComponent],
   providers: [ToasterService]
 })
