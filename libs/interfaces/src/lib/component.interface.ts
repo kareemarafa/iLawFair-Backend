@@ -22,7 +22,6 @@ export interface ComponentDate {
 export interface IComponent {
   componentName: string
   componentClass: Type<any>
-  componentData?: ComponentDate[]
-  model: any
+  componentData?: any
   fields: FormlyFieldConfig[]
 }

@@ -44,17 +44,20 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'NavbarAComponent',
         componentClass: NavbarAComponent,
-        componentData: [
-          {
-            // image?:
-            title: { value: 'Test' }
-            // text?:
-            // btn?:
-            // items?:
-            // icon?:
+        componentData: {
+          title: 'Example',
+          titleFontSize: 15,
+          menuItems: [
+            { value: 'Home', url: '#' },
+            { value: 'About', url: '#' },
+            { value: 'Career', url: '#' },
+            { value: 'Contact', url: '#' }
+          ],
+          callToAction: {
+            value: 'Call to Action',
+            url: '#'
           }
-        ],
-        model: {},
+        },
         fields: [
           {
             wrappers: ['panel'],
@@ -168,14 +171,134 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'NavbarBComponent',
         componentClass: NavbarBComponent,
-        fields: [],
-        model: {}
+        componentData: {
+          title: 'Example',
+          titleFontSize: 15,
+          menuItems: [
+            { value: 'Home', url: '#' },
+            { value: 'About', url: '#' },
+            { value: 'Career', url: '#' },
+            { value: 'Contact', url: '#' }
+          ],
+          callToAction: {
+            value: 'Call to Action',
+            url: '#'
+          }
+        },
+        fields: [
+          {
+            wrappers: ['panel'],
+            templateOptions: { label: 'Title' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-9',
+                key: 'title',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'titleColor',
+                type: 'input',
+                templateOptions: {
+                  type: 'color',
+                  label: 'Title Color'
+                }
+              },
+              {
+                className: 'col-12',
+                key: 'titleFontSize',
+                type: 'slider',
+                templateOptions: {
+                  min: 5,
+                  max: 20,
+                  label: 'Title font size'
+                }
+              }
+            ]
+          },
+          {
+            wrappers: ['panel'],
+            key: 'menuItems',
+            type: 'repeat',
+            templateOptions: {
+              label: 'Menu items',
+              addText: 'Add item'
+            },
+            fieldArray: {
+              fieldGroup: [
+                {
+                  type: 'input',
+                  key: 'value',
+                  templateOptions: {
+                    label: 'Label'
+                  }
+                },
+                {
+                  type: 'input',
+                  key: 'url',
+                  templateOptions: {
+                    label: 'URL'
+                  }
+                }
+              ]
+            }
+          },
+          {
+            wrappers: ['panel'],
+            key: 'callToAction',
+            templateOptions: {
+              label: 'Call to action'
+            },
+            fieldGroup: [
+              {
+                type: 'input',
+                key: 'value',
+                templateOptions: {
+                  label: 'Label'
+                }
+              },
+              {
+                type: 'input',
+                key: 'url',
+                templateOptions: {
+                  label: 'URL'
+                }
+              },
+              {
+                type: 'select',
+                key: 'color',
+                templateOptions: {
+                  type: 'select',
+                  label: 'Color',
+                  options: [
+                    {
+                      value: 'btn-outline-primary',
+                      label: 'Primary'
+                    },
+                    {
+                      value: 'btn-outline-danger',
+                      label: 'Danger'
+                    },
+                    {
+                      value: 'btn-outline-info',
+                      label: 'Info'
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
       },
       {
         componentName: 'NavbarCComponent',
         componentClass: NavbarCComponent,
-        fields: [],
-        model: {}
+        fields: []
       }
     ]
   },
@@ -185,20 +308,17 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'HeaderAComponent',
         componentClass: HeaderAComponent,
-        fields: [],
-        model: {}
+        fields: []
       },
       {
         componentName: 'HeaderBComponent',
         componentClass: HeaderBComponent,
-        fields: [],
-        model: {}
+        fields: []
       },
       {
         componentName: 'HeaderCComponent',
         componentClass: HeaderCComponent,
-        fields: [],
-        model: {}
+        fields: []
       }
     ]
   },
@@ -209,7 +329,7 @@ export const builderElements: ModuleInterface[] = [
         componentName: 'AboutAComponent',
         componentClass: AboutAComponent,
         fields: [],
-        model: {},
+
         componentData: [
           {
             image: './assets/500x300.png',
@@ -246,7 +366,7 @@ export const builderElements: ModuleInterface[] = [
         componentName: 'ServiceAComponent',
         componentClass: ServiceAComponent,
         fields: [],
-        model: {},
+
         componentData: [
           {
             title: {
@@ -299,20 +419,17 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'ServiceBComponent',
         componentClass: ServiceBComponent,
-        fields: [],
-        model: {}
+        fields: []
       },
       {
         componentName: 'ServiceCComponent',
         componentClass: ServiceCComponent,
-        fields: [],
-        model: {}
+        fields: []
       },
       {
         componentName: 'ServiceDComponent',
         componentClass: ServiceDComponent,
-        fields: [],
-        model: {}
+        fields: []
       }
     ]
   },
@@ -322,14 +439,12 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'ActionAComponent',
         componentClass: ActionAComponent,
-        fields: [],
-        model: {}
+        fields: []
       },
       {
         componentName: 'ActionBComponent',
         componentClass: ActionBComponent,
-        fields: [],
-        model: {}
+        fields: []
       }
     ]
   },
@@ -339,8 +454,7 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'StatisticsAComponent',
         componentClass: StatisticsAComponent,
-        fields: [],
-        model: {}
+        fields: []
       }
     ]
   },
@@ -350,14 +464,12 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'CountAComponent',
         componentClass: CountAComponent,
-        fields: [],
-        model: {}
+        fields: []
       },
       {
         componentName: 'CountBComponent',
         componentClass: CountBComponent,
-        fields: [],
-        model: {}
+        fields: []
       }
     ]
   },
@@ -367,14 +479,12 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'TeamAComponent',
         componentClass: TeamAComponent,
-        fields: [],
-        model: {}
+        fields: []
       },
       {
         componentName: 'TeamBComponent',
         componentClass: TeamBComponent,
-        fields: [],
-        model: {}
+        fields: []
       }
     ]
   },
@@ -384,8 +494,7 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'PricesAComponent',
         componentClass: PricesAComponent,
-        fields: [],
-        model: {}
+        fields: []
       }
     ]
   },
@@ -395,8 +504,7 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'TestimonialsAComponent',
         componentClass: TestimonialsAComponent,
-        fields: [],
-        model: {}
+        fields: []
       }
     ]
   },
@@ -406,8 +514,7 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'GalleryAComponent',
         componentClass: GalleryAComponent,
-        fields: [],
-        model: {}
+        fields: []
       }
     ]
   },
@@ -417,8 +524,7 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'ContactAComponent',
         componentClass: ContactAComponent,
-        fields: [],
-        model: {}
+        fields: []
       }
     ]
   },
@@ -428,8 +534,7 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'MapAComponent',
         componentClass: MapAComponent,
-        fields: [],
-        model: {}
+        fields: []
       }
     ]
   },
@@ -439,8 +544,7 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'DividerAComponent',
         componentClass: DividerAComponent,
-        fields: [],
-        model: {}
+        fields: []
       }
     ]
   },
@@ -450,8 +554,7 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'FooterAComponent',
         componentClass: FooterAComponent,
-        fields: [],
-        model: {}
+        fields: []
       }
     ]
   }
