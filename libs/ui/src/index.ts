@@ -25,6 +25,7 @@ import { actionFields } from './lib/action/action.module'
 import { priceComponentData, priceFields } from './lib/prices/prices.module'
 import { testimonialComponentData, testimonialFields } from './lib/testimonials/testimonials.module'
 import { footerComponentData, footerFields } from './lib/footer/footer.module'
+import { contactComponentData, contactFields } from './lib/contact/contact.module'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -1043,7 +1044,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'ContactAComponent',
         componentClass: ContactAComponent,
-        fields: []
+        componentData: contactComponentData,
+        fields: contactFields
       }
     ]
   },
