@@ -106,7 +106,7 @@ export const testimonialFields = [
           }
         },
         {
-          type: 'input',
+          type: 'gallery',
           key: 'image',
           templateOptions: {
             label: 'Image'

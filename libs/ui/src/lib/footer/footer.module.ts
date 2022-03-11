@@ -99,7 +99,7 @@ export const footerFields = [
       {
         className: 'col-9',
         key: 'image',
-        type: 'input',
+        type: 'gallery',
         templateOptions: {
           label: 'Logo',
           required: true

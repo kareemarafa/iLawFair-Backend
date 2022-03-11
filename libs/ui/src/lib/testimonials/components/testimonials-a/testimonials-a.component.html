@@ -10,8 +10,8 @@
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <div class="col" *ngFor="let testimonial of componentData.items">
-        <div class="card shadow-sm">
-          <img [src]="testimonial.image" />
+        <div class="card testimonial-item shadow-sm">
+          <div [ngStyle]="{ 'background-image': 'url(' + testimonial.image + ')' }" class="image-cover my-2"></div>
           <div class="card-body">
             <p class="text-center card-text text-muted">{{ testimonial?.description }}</p>
             <div class="d-flex flex-column justify-content-between align-items-center">

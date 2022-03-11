@@ -27,6 +27,8 @@ import { footerComponentData, footerFields } from './lib/footer/footer.module'
 import { contactComponentData, contactFields } from './lib/contact/contact.module'
 import { galleryComponentData, galleryFields } from './lib/gallery/gallery.module'
 import { countComponentData, countFields } from './lib/count/count.module'
+import { aboutComponentData, aboutFields } from './lib/about/about.module'
+import { teamComponentData, teamFields } from './lib/team/team.module'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -433,114 +435,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'AboutAComponent',
         componentClass: AboutAComponent,
-        componentData: {
-          sectionHead: 'About',
-          title: 'Lorem Ipsum',
-          image: './assets/500x300.png',
-          description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
-        },
-        fields: [
-          {
-            wrappers: ['panel'],
-            templateOptions: { label: 'Title' },
-            fieldGroupClassName: 'row',
-            fieldGroup: [
-              {
-                className: 'col-9',
-                key: 'sectionHead',
-                type: 'input',
-                templateOptions: {
-                  label: 'Heading',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'sectionHeadColor',
-                type: 'input',
-                templateOptions: {
-                  type: 'color',
-                  label: 'Color'
-                }
-              },
-              {
-                className: 'col-9',
-                key: 'title',
-                type: 'input',
-                templateOptions: {
-                  label: 'Title',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'titleColor',
-                type: 'input',
-                templateOptions: {
-                  type: 'color',
-                  label: 'Color'
-                }
-              },
-              {
-                className: 'col-12',
-                key: 'titleFontSize',
-                type: 'slider',
-                templateOptions: {
-                  min: 5,
-                  max: 20,
-                  label: 'Title font size'
-                }
-              },
-              {
-                className: 'col-9',
-                key: 'description',
-                type: 'textarea',
-                templateOptions: {
-                  label: 'Description',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'descriptionColor',
-                type: 'input',
-                templateOptions: {
-                  type: 'color',
-                  label: 'Color'
-                }
-              },
-              {
-                className: 'col-12',
-                key: 'descriptionFontSize',
-                type: 'slider',
-                templateOptions: {
-                  min: 5,
-                  max: 20,
-                  label: 'Description font size'
-                }
-              }
-            ]
-          },
-          {
-            wrappers: ['panel'],
-            templateOptions: { label: 'Image/Video' },
-            fieldGroupClassName: 'row',
-            fieldGroup: [
-              {
-                className: 'col-12',
-                key: 'image',
-                type: 'input',
-                templateOptions: {
-                  type: 'input',
-                  label: 'Image',
-                  placeholder: 'Enter URL here',
-                  required: true
-                }
-              }
-            ]
-          }
-        ]
+        componentData: aboutComponentData,
+        fields: aboutFields
       }
     ]
   },
@@ -656,12 +552,11 @@ export const builderElements: ModuleInterface[] = [
               {
                 className: 'col-12',
                 key: 'image',
-                type: 'input',
+                type: 'gallery',
                 templateOptions: {
                   type: 'input',
                   label: 'Image',
-                  placeholder: 'Enter URL here',
-                  required: true
+                  placeholder: 'Enter URL here'
                 }
               }
             ]
@@ -786,220 +681,14 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'TeamAComponent',
         componentClass: TeamAComponent,
-        componentData: {
-          title: 'Teams',
-          description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-          items: [
-            {
-              image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
-              name: `Sam`,
-              role: `Front-end developer`
-            },
-            {
-              image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
-              name: `Sam`,
-              role: `Front-end developer`
-            },
-            {
-              image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
-              name: `Sam`,
-              role: `Front-end developer`
-            }
-          ]
-        },
-        fields: [
-          {
-            wrappers: ['panel'],
-            templateOptions: { label: 'Title' },
-            fieldGroupClassName: 'row',
-            fieldGroup: [
-              {
-                className: 'col-9',
-                key: 'title',
-                type: 'input',
-                templateOptions: {
-                  label: 'Title',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'titleColor',
-                type: 'input',
-                templateOptions: {
-                  type: 'color',
-                  label: 'Title Color'
-                }
-              },
-              {
-                className: 'col-9',
-                key: 'description',
-                type: 'input',
-                templateOptions: {
-                  label: 'Title',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'descriptionColor',
-                type: 'input',
-                templateOptions: {
-                  type: 'color',
-                  label: 'Title Color'
-                }
-              }
-            ]
-          },
-          {
-            wrappers: ['panel'],
-            key: 'items',
-            type: 'repeat',
-            templateOptions: {
-              label: 'Items',
-              addText: 'Add item'
-            },
-            fieldArray: {
-              fieldGroup: [
-                {
-                  type: 'input',
-                  key: 'name',
-                  templateOptions: {
-                    label: 'Name'
-                  }
-                },
-                {
-                  type: 'input',
-                  key: 'role',
-                  templateOptions: {
-                    label: 'Role'
-                  }
-                },
-                {
-                  type: 'input',
-                  key: 'image',
-                  templateOptions: {
-                    label: 'Image'
-                  }
-                }
-              ]
-            }
-          }
-        ]
+        componentData: teamComponentData,
+        fields: teamFields
       },
       {
         componentName: 'TeamBComponent',
         componentClass: TeamBComponent,
-        componentData: {
-          title: 'Teams',
-          description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-          items: [
-            {
-              image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
-              name: `Sam`,
-              details: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis`,
-              role: `Front-end developer`
-            },
-            {
-              image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
-              name: `Sam`,
-              details: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis`,
-              role: `Front-end developer`
-            },
-            {
-              image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXSAGirBVOXf-ziW-ui6PE-7tTUeRqwUND4Q&usqp=CAU`,
-              name: `Sam`,
-              details: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis`,
-              role: `Front-end developer`
-            }
-          ]
-        },
-        fields: [
-          {
-            wrappers: ['panel'],
-            templateOptions: { label: 'Title' },
-            fieldGroupClassName: 'row',
-            fieldGroup: [
-              {
-                className: 'col-9',
-                key: 'title',
-                type: 'input',
-                templateOptions: {
-                  label: 'Title',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'titleColor',
-                type: 'input',
-                templateOptions: {
-                  type: 'color',
-                  label: 'Title Color'
-                }
-              },
-              {
-                className: 'col-9',
-                key: 'description',
-                type: 'input',
-                templateOptions: {
-                  label: 'Title',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'descriptionColor',
-                type: 'input',
-                templateOptions: {
-                  type: 'color',
-                  label: 'Title Color'
-                }
-              }
-            ]
-          },
-          {
-            wrappers: ['panel'],
-            key: 'items',
-            type: 'repeat',
-            templateOptions: {
-              label: 'Items',
-              addText: 'Add item'
-            },
-            fieldArray: {
-              fieldGroup: [
-                {
-                  type: 'input',
-                  key: 'name',
-                  templateOptions: {
-                    label: 'Name'
-                  }
-                },
-                {
-                  type: 'input',
-                  key: 'role',
-                  templateOptions: {
-                    label: 'Role'
-                  }
-                },
-                {
-                  type: 'input',
-                  key: 'details',
-                  templateOptions: {
-                    label: 'Details'
-                  }
-                },
-                {
-                  type: 'input',
-                  key: 'image',
-                  templateOptions: {
-                    label: 'Image'
-                  }
-                }
-              ]
-            }
-          }
-        ]
+        componentData: teamComponentData,
+        fields: teamFields
       }
     ]
   },
