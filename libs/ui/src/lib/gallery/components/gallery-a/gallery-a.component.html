@@ -5,12 +5,10 @@
         <h1 class="h1" [ngStyle]="{ color: componentData?.titleColor }">{{ componentData?.title }}</h1>
         <p [ngStyle]="{ color: componentData?.descriptionColor }">{{ componentData?.description }}</p>
       </div>
-      <div class="col-md-4" *ngFor="let item of componentData?.items">
-        <div class="gallery-a-list">
-          <div class="item">
-            <div class="image">
-              <img class="w-100" [src]="item.image" alt="" srcset="" />
-            </div>
+      <div class="my-2" fxFlex.xs="1 1 100%" fxFlex.sm="1 1 100%" fxFlex.md="1 1 33.33%" fxFlex.lg="1 1 25%" fxFlex.xl="1 1 20%" *ngFor="let item of componentData?.items">
+        <div class="card gallery-item">
+          <div class="card-body">
+            <div [ngStyle]="{ 'background-image': 'url(' + item.image + ')' }" class="image-cover my-2"></div>
             <div>
               <h2 class="text-center h2 mt-3">{{ item.title }}</h2>
             </div>

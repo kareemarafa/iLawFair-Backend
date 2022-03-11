@@ -152,6 +152,15 @@ $light-gray1: #f3f3f3;
   background-position: center;
 }
 
+.gallery-item {
+  height: 300px;
+  .image-cover {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
 @media (min-width: 768px) {
 }
 

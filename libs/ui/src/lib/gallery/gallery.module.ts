@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { GalleryAComponent } from './components/gallery-a/gallery-a.component'
+import { FlexModule } from '@angular/flex-layout'
 
 @NgModule({
   declarations: [GalleryAComponent],
-  imports: [CommonModule]
+  imports: [CommonModule, FlexModule]
 })
 export class GalleryModule {}
 
@@ -89,10 +90,11 @@ export const galleryFields = [
           }
         },
         {
-          type: 'input',
+          type: 'gallery',
           key: 'image',
           templateOptions: {
-            label: 'Image URL'
+            label: 'Image',
+            change: (field: any, $event: any) => console.log(field, $event)
           }
         }
       ]

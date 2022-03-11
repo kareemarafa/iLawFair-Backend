@@ -12,6 +12,8 @@ import { MatListModule } from '@angular/material/list'
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { ApiPrefixInterceptor } from './common/api-prefix.interceptor'
 import { TokenInterceptor } from './common/token.interceptor'
+import { environment } from '../environments/environment'
+import { APP_CONFIG } from '@ionhour/core'
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +27,11 @@ import { TokenInterceptor } from './common/token.interceptor'
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
+      multi: true
+    },
+    {
+      provide: APP_CONFIG,
+      useValue: environment,
       multi: true
     }
   ],

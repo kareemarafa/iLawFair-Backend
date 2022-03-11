@@ -23,13 +23,25 @@ export class ComponentDynamicFormComponent implements AfterViewInit, OnDestroy {
     this.getComponent()
 
     this.form.valueChanges.pipe(takeWhile(() => this.alive)).subscribe((form) => {
-      this.elementsService.setContent({ componentName: this.component.componentName, componentData: form })
+      const changed = this.getDirtyValues(this.form)
+      changed && this.elementsService.setContent({ componentName: this.component.componentName, componentData: form, changed })
     })
+  }
+
+  getDirtyValues(form: any) {
+    const dirtyValues: any = {}
+    Object.keys(form.controls).forEach((key) => {
+      const currentControl = form.controls[key]
+      if (currentControl.dirty) {
+        if (currentControl.controls) dirtyValues[key] = this.getDirtyValues(currentControl)
+        else dirtyValues[key] = currentControl.value
+      }
+    })
+    return dirtyValues
   }
 
   getComponent() {
     this.elementsService.component$.pipe(takeWhile(() => this.alive)).subscribe((component: any) => {
-      console.log(component.componentData)
       this.component = component
       this.model = component?.componentData
     })
