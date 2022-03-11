@@ -7,7 +7,6 @@
 
 # dependencies
 /node_modules
-/package-lock.json
 
 # IDEs and editors
 /.idea
@@ -40,4 +39,4 @@ testem.log
 Thumbs.db
 
 .angular
-/public/uploads/*
+/public/uploads/*.jpeg
