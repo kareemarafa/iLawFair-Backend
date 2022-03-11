@@ -2,21 +2,21 @@
   <div class="service-a bg-white px-3 py-5">
     <div class="row">
       <div class="col-md-6">
-        <h1 class="h1" [ngStyle]="{ color: componentData[0].title.style }">{{ componentData[0]?.title.value }}</h1>
-        <p class="" [ngStyle]="{ color: componentData[0].text.style }" [ngStyle]="{ color: componentData[0].text.style }">{{ componentData[0]?.text.value }}</p>
-        <button class="btn btn-primary">{{ componentData[0]?.btn }}</button>
+        <h1 class="h1" [ngStyle]="{ color: componentData.titleColor }">{{ componentData.title }}</h1>
+        <p class="" [ngStyle]="{ color: componentData.descriptionColor }">{{ componentData?.description }}</p>
+        <a [href]="componentData?.callToAction.url" class="btn {{ componentData?.callToAction.color ?? 'btn-primary' }}">{{ componentData?.callToAction.value }}</a>
       </div>
       <div class="col-md-6">
         <div class="service-a-list">
-          <div class="item d-flex" *ngFor="let item of componentData[0]?.items">
+          <div class="item d-flex" *ngFor="let item of componentData?.items">
             <div class="icon px-3">
               <span class="bg-primary text-white d-flex align-items-center justify-content-center">
                 <i class="fa fa-1x {{ item.icon }}" aria-hidden="true"></i>
               </span>
             </div>
             <div>
-              <h3 class="h3 fw-bold m-0" [ngStyle]="{ color: item.title.style }">{{ item.title.value }}</h3>
-              <p class="" [ngStyle]="{ color: item.text.style }">{{ item.text.value }}</p>
+              <h3 class="h3 fw-bold m-0">{{ item?.title }}</h3>
+              <p class="text-dark">{{ item.description }}</p>
             </div>
           </div>
         </div>
