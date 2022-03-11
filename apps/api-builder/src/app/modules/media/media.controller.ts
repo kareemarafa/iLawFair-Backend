@@ -9,6 +9,7 @@ import { editFileName, imageFileFilter } from '@ionhour/backend-core'
 import { AuthGuard } from '@nestjs/passport'
 import { AuthService } from '../auth/auth.service'
 import { UsersService } from '../users/users.service'
+import { join } from 'path'
 
 @Crud({
   model: {
@@ -31,7 +32,7 @@ export class MediaController implements CrudController<Media> {
   @Post('upload')
   @UseInterceptors(
     FileInterceptor('image', {
-      storage: diskStorage({ destination: './public/uploads', filename: editFileName }),
+      storage: diskStorage({ destination: join(__dirname, '../../..', 'public/uploads'), filename: editFileName }),
       fileFilter: imageFileFilter
     })
   )
