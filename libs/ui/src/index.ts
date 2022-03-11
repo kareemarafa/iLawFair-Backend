@@ -444,54 +444,146 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'ServiceAComponent',
         componentClass: ServiceAComponent,
-        fields: [],
-
-        componentData: [
+        componentData: {
+          title: `Service A Title`,
+          description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
+          callToAction: {
+            value: 'click here',
+            url: '#'
+          },
+          items: [
+            {
+              icon: `fa-handshake-o`,
+              title: `Item Title`,
+              description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`
+            },
+            {
+              icon: `fa-handshake-o`,
+              title: `Item Title`,
+              description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`
+            },
+            {
+              icon: `fa-handshake-o`,
+              title: `Item Title`,
+              description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`
+            }
+          ]
+        },
+        fields: [
           {
-            title: {
-              value: `Service A Title`,
-              style: '#000'
-            },
-            text: {
-              value: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
-              style: '#000'
-            },
-            btn: `Click Here`,
-            items: [
+            wrappers: ['panel'],
+            templateOptions: { label: 'Title' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
               {
-                icon: `fa-handshake-o`,
-                title: {
-                  value: `Item Title`,
-                  style: '#000'
-                },
-                text: {
-                  value: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
-                  style: '#ff0'
+                className: 'col-9',
+                key: 'title',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
                 }
               },
               {
-                icon: `fa-handshake-o`,
-                title: {
-                  value: `Item Title`,
-                  style: '#000'
-                },
-                text: {
-                  value: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
-                  style: '#ff0'
+                className: 'col-3',
+                key: 'titleColor',
+                type: 'input',
+                templateOptions: {
+                  label: 'Color',
+                  type: 'color'
                 }
               },
               {
-                icon: `fa-handshake-o`,
-                title: {
-                  value: `Item Title`,
-                  style: '#ff0'
-                },
-                text: {
-                  value: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
-                  style: '#ff0'
+                className: 'col-9',
+                key: 'description',
+                type: 'input',
+                templateOptions: {
+                  label: 'Description',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'descriptionColor',
+                type: 'input',
+                templateOptions: {
+                  label: 'Color',
+                  type: 'color'
                 }
               }
             ]
+          },
+          {
+            wrappers: ['panel'],
+            key: 'callToAction',
+            templateOptions: {
+              label: 'Call to action'
+            },
+            fieldGroup: [
+              {
+                type: 'input',
+                key: 'value',
+                templateOptions: {
+                  label: 'Label'
+                }
+              },
+              {
+                type: 'input',
+                key: 'url',
+                templateOptions: {
+                  label: 'URL'
+                }
+              },
+              {
+                type: 'select',
+                key: 'color',
+                templateOptions: {
+                  type: 'select',
+                  label: 'Color',
+                  options: [
+                    {
+                      value: 'btn-primary',
+                      label: 'Primary'
+                    },
+                    {
+                      value: 'btn-danger',
+                      label: 'Danger'
+                    },
+                    {
+                      value: 'btn-info',
+                      label: 'Info'
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            wrappers: ['panel'],
+            key: 'items',
+            type: 'repeat',
+            templateOptions: {
+              label: 'Service items',
+              addText: 'Add item'
+            },
+            fieldArray: {
+              fieldGroup: [
+                {
+                  type: 'input',
+                  key: 'title',
+                  templateOptions: {
+                    label: 'Label'
+                  }
+                },
+                {
+                  type: 'input',
+                  key: 'description',
+                  templateOptions: {
+                    label: 'description'
+                  }
+                }
+              ]
+            }
           }
         ]
       },
