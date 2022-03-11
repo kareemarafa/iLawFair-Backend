@@ -107,7 +107,6 @@ export const aboutFields = [
         key: 'image',
         type: 'gallery',
         templateOptions: {
-          type: 'input',
           label: 'Image'
         }
       }
