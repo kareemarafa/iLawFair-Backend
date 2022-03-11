@@ -1,0 +1,97 @@
+:host ::ng-deep .custom-style {
+  overflow: hidden;
+  span {
+    &:first-child {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+  font-size: 18px;
+  .item {
+    padding-left: 4px;
+    text-align: center;
+    &:nth-child(1) {
+      background-color: #8a99ab;
+      padding: 30px;
+      margin: 10px;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      font-size: 30px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      color: white;
+      &:after {
+        font-size: 20px;
+        display: block;
+        content: 'Days';
+        padding-top: 10px;
+      }
+    }
+    &:nth-child(2) {
+      background-color: #8a99ab;
+      padding: 30px;
+      margin: 10px;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      font-size: 30px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      color: white;
+      &:after {
+        font-size: 20px;
+        display: block;
+        content: 'Hours';
+        padding-top: 10px;
+      }
+    }
+    &:nth-child(3) {
+      background-color: #8a99ab;
+      padding: 30px;
+      margin: 10px;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      font-size: 30px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      color: white;
+      &:after {
+        font-size: 20px;
+        display: block;
+        content: 'Minutes';
+        padding-top: 10px;
+      }
+    }
+    &:nth-child(4) {
+      background-color: #8a99ab;
+      padding: 30px;
+      margin: 10px;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      font-size: 30px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      color: white;
+      &:after {
+        font-size: 20px;
+        display: block;
+        content: 'Seconds';
+        padding-top: 10px;
+      }
+    }
+  }
+}

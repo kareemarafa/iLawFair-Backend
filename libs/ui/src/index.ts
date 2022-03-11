@@ -7,7 +7,6 @@ import { ServiceBComponent } from './lib/service/components/service-b/service-b.
 import { ServiceCComponent } from './lib/service/components/service-c/service-c.component'
 import { ServiceDComponent } from './lib/service/components/service-d/service-d.component'
 import { CountAComponent } from './lib/count/components/count-a/count-a.component'
-import { CountBComponent } from './lib/count/components/count-b/count-b.component'
 import { TeamAComponent } from './lib/team/components/team-a/team-a.component'
 import { TeamBComponent } from './lib/team/components/team-b/team-b.component'
 import { ActionAComponent } from './lib/action/components/action-a/action-a.component'
@@ -22,6 +21,15 @@ import { DividerAComponent } from './lib/divider/components'
 import { FooterAComponent } from './lib/footer/components'
 import { headerFields } from './lib/header/header.module'
 import { actionFields } from './lib/action/action.module'
+import { priceComponentData, priceFields } from './lib/prices/prices.module'
+import { testimonialComponentData, testimonialFields } from './lib/testimonials/testimonials.module'
+import { footerComponentData, footerFields } from './lib/footer/footer.module'
+import { contactComponentData, contactFields } from './lib/contact/contact.module'
+import { galleryComponentData, galleryFields } from './lib/gallery/gallery.module'
+import { countComponentData, countFields } from './lib/count/count.module'
+import { aboutComponentData, aboutFields } from './lib/about/about.module'
+import { teamComponentData, teamFields } from './lib/team/team.module'
+
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
 export * from './lib/about/about.module'
@@ -352,7 +360,7 @@ export const builderElements: ModuleInterface[] = [
         componentName: 'HeaderAComponent',
         componentClass: HeaderAComponent,
         componentData: {
-          sectionHead: 'About',
+          sectionHead: 'Header',
           image: './assets/500x300.png',
           description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
@@ -363,7 +371,7 @@ export const builderElements: ModuleInterface[] = [
         componentName: 'HeaderBComponent',
         componentClass: HeaderBComponent,
         componentData: {
-          sectionHead: 'About',
+          sectionHead: 'Header',
           image: './assets/500x300.png',
           description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged.",
@@ -378,7 +386,7 @@ export const builderElements: ModuleInterface[] = [
         componentName: 'HeaderCComponent',
         componentClass: HeaderCComponent,
         componentData: {
-          sectionHead: 'About',
+          sectionHead: 'Header',
           description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged.",
           video: {
@@ -398,11 +406,9 @@ export const builderElements: ModuleInterface[] = [
               {
                 className: 'col-12',
                 key: 'poster',
-                type: 'input',
+                type: 'gallery',
                 templateOptions: {
-                  type: 'input',
-                  label: 'Poster',
-                  placeholder: 'Enter URL here'
+                  label: 'Poster'
                 }
               },
               {
@@ -427,114 +433,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'AboutAComponent',
         componentClass: AboutAComponent,
-        componentData: {
-          sectionHead: 'About',
-          title: 'Lorem Ipsum',
-          image: './assets/500x300.png',
-          description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
-        },
-        fields: [
-          {
-            wrappers: ['panel'],
-            templateOptions: { label: 'Title' },
-            fieldGroupClassName: 'row',
-            fieldGroup: [
-              {
-                className: 'col-9',
-                key: 'sectionHead',
-                type: 'input',
-                templateOptions: {
-                  label: 'Heading',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'sectionHeadColor',
-                type: 'input',
-                templateOptions: {
-                  type: 'color',
-                  label: 'Color'
-                }
-              },
-              {
-                className: 'col-9',
-                key: 'title',
-                type: 'input',
-                templateOptions: {
-                  label: 'Title',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'titleColor',
-                type: 'input',
-                templateOptions: {
-                  type: 'color',
-                  label: 'Color'
-                }
-              },
-              {
-                className: 'col-12',
-                key: 'titleFontSize',
-                type: 'slider',
-                templateOptions: {
-                  min: 5,
-                  max: 20,
-                  label: 'Title font size'
-                }
-              },
-              {
-                className: 'col-9',
-                key: 'description',
-                type: 'textarea',
-                templateOptions: {
-                  label: 'Description',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'descriptionColor',
-                type: 'input',
-                templateOptions: {
-                  type: 'color',
-                  label: 'Color'
-                }
-              },
-              {
-                className: 'col-12',
-                key: 'descriptionFontSize',
-                type: 'slider',
-                templateOptions: {
-                  min: 5,
-                  max: 20,
-                  label: 'Description font size'
-                }
-              }
-            ]
-          },
-          {
-            wrappers: ['panel'],
-            templateOptions: { label: 'Image/Video' },
-            fieldGroupClassName: 'row',
-            fieldGroup: [
-              {
-                className: 'col-12',
-                key: 'image',
-                type: 'input',
-                templateOptions: {
-                  type: 'input',
-                  label: 'Image',
-                  placeholder: 'Enter URL here',
-                  required: true
-                }
-              }
-            ]
-          }
-        ]
+        componentData: aboutComponentData,
+        fields: aboutFields
       }
     ]
   },
@@ -742,12 +642,11 @@ export const builderElements: ModuleInterface[] = [
               {
                 className: 'col-12',
                 key: 'image',
-                type: 'input',
+                type: 'gallery',
                 templateOptions: {
                   type: 'input',
                   label: 'Image',
-                  placeholder: 'Enter URL here',
-                  required: true
+                  placeholder: 'Enter URL here'
                 }
               }
             ]
@@ -861,12 +760,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'CountAComponent',
         componentClass: CountAComponent,
-        fields: []
-      },
-      {
-        componentName: 'CountBComponent',
-        componentClass: CountBComponent,
-        fields: []
+        componentData: countComponentData,
+        fields: countFields
       }
     ]
   },
@@ -876,12 +771,14 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'TeamAComponent',
         componentClass: TeamAComponent,
-        fields: []
+        componentData: teamComponentData,
+        fields: teamFields
       },
       {
         componentName: 'TeamBComponent',
         componentClass: TeamBComponent,
-        fields: []
+        componentData: teamComponentData,
+        fields: teamFields
       }
     ]
   },
@@ -891,7 +788,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'PricesAComponent',
         componentClass: PricesAComponent,
-        fields: []
+        componentData: priceComponentData,
+        fields: priceFields
       }
     ]
   },
@@ -901,7 +799,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'TestimonialsAComponent',
         componentClass: TestimonialsAComponent,
-        fields: []
+        componentData: testimonialComponentData,
+        fields: testimonialFields
       }
     ]
   },
@@ -911,7 +810,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'GalleryAComponent',
         componentClass: GalleryAComponent,
-        fields: []
+        componentData: galleryComponentData,
+        fields: galleryFields
       }
     ]
   },
@@ -921,7 +821,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'ContactAComponent',
         componentClass: ContactAComponent,
-        fields: []
+        componentData: contactComponentData,
+        fields: contactFields
       }
     ]
   },
@@ -951,7 +852,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'FooterAComponent',
         componentClass: FooterAComponent,
-        fields: []
+        componentData: footerComponentData,
+        fields: footerFields
       }
     ]
   }

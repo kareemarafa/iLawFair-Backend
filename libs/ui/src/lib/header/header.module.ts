@@ -53,12 +53,9 @@ export const headerFields = [
       {
         className: 'col-12',
         key: 'image',
-        type: 'input',
+        type: 'gallery',
         templateOptions: {
-          type: 'input',
-          label: 'Image',
-          placeholder: 'Enter URL here',
-          required: true
+          label: 'Image'
         }
       }
     ]
