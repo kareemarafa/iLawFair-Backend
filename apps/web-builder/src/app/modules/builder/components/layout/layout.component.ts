@@ -35,6 +35,8 @@ export class LayoutComponent implements OnInit {
   currentPage!: PageInterface
   initPageContent!: string
 
+  preview = false
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map((result) => result.matches),
     shareReplay()
@@ -147,6 +149,8 @@ export class LayoutComponent implements OnInit {
     const pageId = +JSON.stringify(this.currentPage.id)
     return lastValueFrom(this.pageService.update(pageId, { components })).then(() => this.getProjectDetails(this.itemId, pageId))
   }
+
+  switchToPreview() {}
 
   backToDashboard() {
     const isChanged = this.checkIfContentChanged()

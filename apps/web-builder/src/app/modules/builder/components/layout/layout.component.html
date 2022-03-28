@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="bg-custom mb-3">
+<mat-toolbar color="primary" class="bg-custom custom-navbar mb-3" [ngStyle]="{ top: preview ? '-80px' : '0px' }">
   <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
@@ -38,17 +38,27 @@
     </ng-container>
   </mat-menu>
 
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" [matTooltip]="'undo'" aria-label="Example icon-button with heart icon">
-    <mat-icon>undo</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" [matTooltip]="'redo'" aria-label="Example icon-button with share icon">
-    <mat-icon>redo</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon favorite-icon" [matTooltip]="'mobile view'" aria-label="Example icon-button with heart icon">
-    <mat-icon>phone_android</mat-icon>
-  </button>
-  <button mat-raised-button color="warn" (click)="updatePageContent()">Save</button>
+  <div fxFlex fxLayoutAlign="end" fxLayout="row" fxLayoutGap="5">
+    <button mat-icon-button class="example-icon favorite-icon" [matTooltip]="'undo'" aria-label="Example icon-button with heart icon">
+      <mat-icon>undo</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" [matTooltip]="'redo'" aria-label="Example icon-button with share icon">
+      <mat-icon>redo</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon favorite-icon" [matTooltip]="'mobile view'" aria-label="Example icon-button with heart icon">
+      <mat-icon>phone_android</mat-icon>
+    </button>
+    <button mat-raised-button color="primary" (click)="drawer.close(); sidenavComponentOption.close(); preview = true">Preview</button>
+    <button mat-raised-button color="warn" (click)="updatePageContent()">Save</button>
+  </div>
+</mat-toolbar>
+
+<mat-toolbar>
+  <div fxFlex fxLayoutAlign="end center" fxFlexAlign="center center" fxLayout="row" fxLayoutGap="5">
+    <div><small class="m-0 text-muted">Back to builder</small></div>
+    <button mat-stroked-button color="primary" (click)="drawer.open(); preview = false">Builder</button>
+    <button mat-stroked-button color="warn" (click)="updatePageContent()">Save</button>
+  </div>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container" [hasBackdrop]="false">
@@ -72,7 +82,12 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="left-panel" [ngStyle]="{ right: sidenavComponentOption.opened ? '333.3px' : 0, opacity: sidenavComponentOption.opened ? 1 : 0 }">
-      <button class="btn btn-sm btn-danger close-button" [matTooltip]="'Close'" (click)="sidenavComponentOption.close()">X</button>
+      <button class="btn btn-sm btn-outline-danger close-button" (click)="sidenavComponentOption.close()">
+        <mat-icon aria-hidden="false">close</mat-icon>
+      </button>
+      <button class="btn btn-sm btn-outline-primary close-button" (click)="sidenavComponentOption.close()">
+        <mat-icon aria-hidden="false">check</mat-icon>
+      </button>
     </div>
     <div class="card m-5 background-grey">
       <div class="card-body preview-sections p-2">

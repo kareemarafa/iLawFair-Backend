@@ -1,5 +1,5 @@
 .sidenav-container {
-  height: calc(100vh - 80px);
+  height: calc(100vh);
 }
 
 .sidenav {
@@ -29,4 +29,29 @@
 
 .preview-sections {
   min-height: calc(100vh - 200px);
+}
+
+.left-panel {
+  right: 0;
+  position: fixed;
+  padding: 10px 0;
+  background: white;
+  border-radius: 15px 0 0 10px;
+  border-width: 1px 0 1px 1px;
+  border-color: #e0e0e0;
+  border-style: solid;
+  z-index: 1;
+  transition: all 0.24s;
+  .close-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.6);
+  }
+}
+
+.custom-navbar {
+  position: fixed;
+  z-index: 2;
+  transition: all 0.24s;
 }
