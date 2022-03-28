@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, AfterViewChecked } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
 import { UserGalleryComponent } from '../user-gallery/user-gallery.component'
 import { FieldType } from '@ngx-formly/material/form-field'
@@ -8,9 +8,17 @@ import { FieldType } from '@ngx-formly/material/form-field'
   templateUrl: './gallery-dialog.component.html',
   styleUrls: ['./gallery-dialog.component.scss']
 })
-export class GalleryDialogComponent extends FieldType {
+export class GalleryDialogComponent extends FieldType implements AfterViewChecked {
+  image!: string
+
   constructor(public dialog: MatDialog) {
     super()
+  }
+
+  ngAfterViewChecked() {
+    if (this.formControl?.value) {
+      this.image = this.formControl.value
+    }
   }
 
   openUserGallery() {
@@ -20,8 +28,8 @@ export class GalleryDialogComponent extends FieldType {
       hasBackdrop: true
     })
     dialogRef.afterClosed().subscribe((result) => {
-      const value = result?.image?.fileName
-      return this.formControl.setValue(value)
+      this.image = result?.image?.fileName
+      return this.formControl.setValue(this.image)
     })
   }
 }

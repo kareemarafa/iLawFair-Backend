@@ -21,73 +21,90 @@ export class ProjectsFormComponent implements OnInit, OnDestroy {
   item$!: Observable<object>
   fields: FormlyFieldConfig[] = [
     {
-      key: 'projectName',
-      type: 'input',
-      templateOptions: {
-        type: 'text',
-        label: 'Project name',
-        placeholder: 'Enter project name',
-        required: true
-      }
-    },
-    {
-      key: 'themeFont',
-      type: 'input',
-      templateOptions: {
-        type: 'text',
-        label: 'Theme font',
-        placeholder: 'Enter Theme font',
-        required: true
-      }
-    },
-    {
-      key: 'background',
-      type: 'input',
-      templateOptions: {
-        type: 'text',
-        label: 'Background',
-        placeholder: 'Enter background',
-        required: true
-      }
-    },
-    {
-      key: 'themeColor',
-      type: 'colorLibraryPicker',
-      templateOptions: {
-        label: 'Theme color',
-        placeholder: 'Enter theme color',
-        required: true
-      }
-    },
-    {
-      key: 'logo',
-      type: 'input',
-      templateOptions: {
-        type: 'text',
-        label: 'Logo',
-        placeholder: 'Enter logo',
-        required: true
-      }
-    },
-    {
-      key: 'favicon',
-      type: 'input',
-      templateOptions: {
-        type: 'text',
-        label: 'favicon',
-        placeholder: 'Enter favicon',
-        required: true
-      }
-    },
-    {
-      key: 'description',
-      type: 'textarea',
-      templateOptions: {
-        type: 'text',
-        label: 'Description',
-        placeholder: 'Enter description',
-        required: true
-      }
+      fieldGroupClassName: 'row',
+      fieldGroup: [
+        {
+          key: 'projectName',
+          type: 'input',
+          templateOptions: {
+            type: 'text',
+            label: 'Project name',
+            placeholder: 'Enter project name',
+            required: true
+          }
+        },
+        {
+          key: 'themeFont',
+          type: 'input',
+          className: 'col-6',
+          templateOptions: {
+            type: 'text',
+            label: 'Theme font',
+            placeholder: 'Enter Theme font',
+            required: true
+          }
+        },
+        {
+          key: 'background',
+          type: 'gallery',
+          className: 'col-6',
+          templateOptions: {
+            label: 'Background',
+            placeholder: 'Enter background',
+            required: true
+          }
+        },
+        {
+          key: 'themeColor',
+          type: 'colorLibraryPicker',
+          className: 'col-6',
+          templateOptions: {
+            label: 'Theme color',
+            placeholder: 'Enter theme color',
+            required: true
+          }
+        },
+        {
+          key: 'themeSecondaryColor',
+          type: 'colorLibraryPicker',
+          className: 'col-6',
+          templateOptions: {
+            label: 'Theme secondary color',
+            placeholder: 'Enter theme secondary color',
+            required: true
+          }
+        },
+        {
+          key: 'logo',
+          type: 'gallery',
+          className: 'col-6',
+          templateOptions: {
+            label: 'Logo',
+            placeholder: 'Enter logo',
+            required: true
+          }
+        },
+        {
+          key: 'favicon',
+          type: 'gallery',
+          className: 'col-6',
+          templateOptions: {
+            label: 'favicon',
+            placeholder: 'Enter favicon',
+            required: true
+          }
+        },
+        {
+          key: 'description',
+          type: 'textarea',
+          templateOptions: {
+            type: 'text',
+            label: 'Description',
+            placeholder: 'Enter description',
+            required: true
+          }
+        }
+      ]
     }
   ]
   model = {}

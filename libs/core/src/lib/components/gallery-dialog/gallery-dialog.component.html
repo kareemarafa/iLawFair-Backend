@@ -1,3 +1,11 @@
-<div class="mb-2">
-  <button class="btn btn-outline-dark" (click)="openUserGallery()">Media Library</button>
+<div class="">
+  <label>{{ field?.templateOptions?.label }}</label>
+  <div class="mb-2 d-flex flex-row justify-content-start align-items-center">
+    <button mat-stroked-button color="primary" [matTooltip]="'Gallery'" (click)="openUserGallery()">
+      <mat-icon>photo</mat-icon>
+    </button>
+    <span *ngIf="image" class="mx-2">
+      <img [src]="image" class="image-preview img-thumbnail" />
+    </span>
+  </div>
 </div>

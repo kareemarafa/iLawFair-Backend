@@ -33,6 +33,13 @@ export class Project extends CoreEntity {
   @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
   themeColor: string
 
+  @IsOptional({ always: true })
+  @IsString({ always: true })
+  @MaxLength(100, { always: true })
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  @ApiProperty({ required: false, type: 'string', nullable: true, maxLength: 100 })
+  themeSecondaryColor: string
+
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsString({ always: true })

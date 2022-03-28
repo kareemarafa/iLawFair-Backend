@@ -26,6 +26,7 @@ import { GalleryDialogComponent } from './components'
 import { MatDialogModule } from '@angular/material/dialog'
 import { ColorPickerComponent } from './components/color-picker/color-picker.component'
 import { ColorPickerModule } from 'ngx-color-picker'
+import { HttpClientModule } from '@angular/common/http'
 
 export const APP_CONFIG = new InjectionToken('Application config')
 
@@ -39,13 +40,14 @@ export const APP_CONFIG = new InjectionToken('Application config')
     MatSnackBarModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     FormlyModule.forRoot({
       wrappers: [{ name: 'panel', component: PanelWrapperComponent }],
       types: [
         { name: 'repeat', component: RepeatTypeComponent },
         { name: 'file', component: FormlyFieldFile, wrappers: ['form-field'] },
-        { name: 'colorLibraryPicker', component: ColorPickerComponent, wrappers: ['form-field'] },
-        { name: 'gallery', component: GalleryDialogComponent, wrappers: ['form-field'] }
+        { name: 'colorLibraryPicker', component: ColorPickerComponent },
+        { name: 'gallery', component: GalleryDialogComponent }
       ]
     }),
     FormlyMaterialModule,

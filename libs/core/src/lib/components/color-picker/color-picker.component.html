@@ -1,8 +1,12 @@
-<input
-  [colorPicker]="formControl.value"
-  [cpCancelButtonClass]="'picker'"
-  [cpPresetColors]="customPalette.colors"
-  [style.background]="formControl.value"
-  [cpEyeDropper]="true"
-  (colorPickerChange)="colorChange($event)"
-/>
+<div class="d-flex flex-row align-items-center justify-content-between py-3 border-1 border-bottom border-secondary">
+  <label>{{ field?.templateOptions?.label }}</label>
+  <input
+    class="ms-2 align-self-end"
+    [colorPicker]="formControl.value"
+    [cpCancelButtonClass]="'picker'"
+    [cpPresetColors]="customPalette.colors"
+    [style.background]="formControl.value"
+    [cpEyeDropper]="true"
+    (colorPickerChange)="colorChange($event)"
+  />
+</div>
