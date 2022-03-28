@@ -66,11 +66,14 @@
       <ionhour-sub-element-list [moduleName]="moduleName" *ngIf="moduleName"></ionhour-sub-element-list>
     </div>
   </mat-sidenav>
+
   <mat-sidenav #sidenavComponentOption position="end" [mode]="'side'">
-    <!--    <ionhour-component-option></ionhour-component-option>-->
     <ionhour-component-dynamic-form></ionhour-component-dynamic-form>
   </mat-sidenav>
   <mat-sidenav-content>
+    <div class="left-panel" [ngStyle]="{ right: sidenavComponentOption.opened ? '333.3px' : 0, opacity: sidenavComponentOption.opened ? 1 : 0 }">
+      <button class="btn btn-sm btn-danger close-button" [matTooltip]="'Close'" (click)="sidenavComponentOption.close()">X</button>
+    </div>
     <div class="card m-5 background-grey">
       <div class="card-body preview-sections p-2">
         <div class="preview-components" cdkDropList (cdkDropListDropped)="drop($event)">
