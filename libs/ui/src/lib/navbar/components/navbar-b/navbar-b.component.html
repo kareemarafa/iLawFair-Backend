@@ -5,7 +5,27 @@
         <a class="text-muted" [href]="componentData?.callToAction?.url">{{ componentData?.callToAction?.value }}</a>
       </div>
       <div class="col-4 text-center">
-        <a class="blog-header-logo text-dark" href="#">{{ componentData?.title }}</a>
+        <a
+          class="d-flex flex-column align-items-center"
+          [href]="componentData?.baseUrl"
+          [ngStyle]="{
+            'color': componentData?.titleColor && componentData?.titleColor,
+            'font-size': componentData?.titleFontSize && componentData?.titleFontSize + 'px'
+          }"
+        >
+          <div *ngIf="componentData?.logo?.logoEnabled">
+            <img [src]="componentData?.logo?.src" [alt]="componentData?.title" [width]="componentData?.logo?.width" [height]="componentData?.logo?.height" />
+          </div>
+          <h3
+            class="my-0 mr-md-auto font-weight-normal"
+            [ngStyle]="{
+              'color': componentData?.titleColor && componentData?.titleColor,
+              'font-size': componentData?.titleFontSize && componentData?.titleFontSize + 'px'
+            }"
+          >
+            {{ componentData?.title }}
+          </h3>
+        </a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
         <a class="text-muted" href="#">

@@ -25,6 +25,9 @@ export const navbarComponentData = {
   callToAction: {
     value: 'Call to Action',
     url: '#'
+  },
+  logo: {
+    logoEnabled: false
   }
 }
 
@@ -34,6 +37,16 @@ export const navbarFields = [
     templateOptions: { label: 'Title' },
     fieldGroupClassName: 'row',
     fieldGroup: [
+      {
+        className: 'col-12',
+        key: 'baseUrl',
+        type: 'input',
+        templateOptions: {
+          type: 'input',
+          required: true,
+          label: 'Base URL'
+        }
+      },
       {
         className: 'col-9',
         key: 'title',
@@ -56,10 +69,62 @@ export const navbarFields = [
         key: 'titleFontSize',
         type: 'slider',
         templateOptions: {
-          min: 5,
-          max: 20,
+          min: 10,
+          max: 40,
           label: 'Title font size'
         }
+      }
+    ]
+  },
+
+  {
+    wrappers: ['panel'],
+    key: 'logo',
+    fieldGroupClassName: 'row',
+    templateOptions: {
+      label: 'Logo options'
+    },
+    fieldGroup: [
+      {
+        type: 'toggle',
+        key: 'logoEnabled',
+        templateOptions: {
+          label: 'Enabled logo image'
+        }
+      },
+      {
+        type: 'gallery',
+        key: 'src',
+        className: 'col-12',
+        templateOptions: {
+          label: 'Logo',
+          type: 'input'
+        },
+        hideExpression: (model: any) => !model.logoEnabled
+      },
+      {
+        className: 'col-6',
+        key: 'width',
+        type: 'input',
+        templateOptions: {
+          min: 50,
+          max: 250,
+          type: 'number',
+          label: 'Logo width'
+        },
+        hideExpression: (model: any) => !model.logoEnabled
+      },
+      {
+        className: 'col-6',
+        key: 'height',
+        type: 'input',
+        templateOptions: {
+          min: 50,
+          max: 250,
+          type: 'number',
+          label: 'Logo height'
+        },
+        hideExpression: (model: any) => !model.logoEnabled
       }
     ]
   },

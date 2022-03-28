@@ -1,25 +1,19 @@
 <section class="section">
   <nav class="site-header sticky-top py-1">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2" href="#">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          class="d-block mx-auto"
-          role="img"
-          viewBox="0 0 24 24"
-          focusable="false"
+      <a class="d-flex justify-content-center align-items-center flex-row" [href]="componentData?.baseUrl">
+        <div *ngIf="componentData?.logo?.logoEnabled" class="pe-2">
+          <img [src]="componentData?.logo?.src" [alt]="componentData?.title" [width]="componentData?.logo?.width" [height]="componentData?.logo?.height" />
+        </div>
+        <h3
+          class="my-0 mr-md-auto font-weight-normal"
+          [ngStyle]="{
+            'color': componentData?.titleColor && componentData?.titleColor,
+            'font-size': componentData?.titleFontSize && componentData?.titleFontSize + 'px'
+          }"
         >
-          <title>Product</title>
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
-        </svg>
+          {{ componentData?.title }}
+        </h3>
       </a>
       <ng-container *ngFor="let menuItem of componentData?.menuItems">
         <a class="py-2 d-none d-md-inline-block" [href]="menuItem.url">{{ menuItem.value }}</a>

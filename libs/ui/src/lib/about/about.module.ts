@@ -60,8 +60,8 @@ export const aboutFields = [
         key: 'titleFontSize',
         type: 'slider',
         templateOptions: {
-          min: 5,
-          max: 20,
+          min: 10,
+          max: 40,
           label: 'Title font size'
         }
       },
