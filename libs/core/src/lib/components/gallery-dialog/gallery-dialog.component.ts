@@ -16,7 +16,8 @@ export class GalleryDialogComponent extends FieldType {
   openUserGallery() {
     const dialogRef = this.dialog.open(UserGalleryComponent, {
       height: '500px',
-      width: '700px'
+      width: '700px',
+      hasBackdrop: true
     })
     dialogRef.afterClosed().subscribe((result) => {
       const value = result?.image?.fileName
