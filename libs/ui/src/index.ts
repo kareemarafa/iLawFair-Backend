@@ -29,6 +29,7 @@ import { galleryComponentData, galleryFields } from './lib/gallery/gallery.modul
 import { countComponentData, countFields } from './lib/count/count.module'
 import { aboutComponentData, aboutFields } from './lib/about/about.module'
 import { teamComponentData, teamFields } from './lib/team/team.module'
+import { navbarComponentData, navbarFields } from './lib/navbar/navbar.module'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -53,129 +54,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'NavbarAComponent',
         componentClass: NavbarAComponent,
-        componentData: {
-          title: 'Example',
-          titleFontSize: 15,
-          menuItems: [
-            { value: 'Home', url: '#' },
-            { value: 'About', url: '#' },
-            { value: 'Career', url: '#' },
-            { value: 'Contact', url: '#' }
-          ],
-          callToAction: {
-            value: 'Call to Action',
-            url: '#'
-          }
-        },
-        fields: [
-          {
-            wrappers: ['panel'],
-            templateOptions: { label: 'Title' },
-            fieldGroupClassName: 'row',
-            fieldGroup: [
-              {
-                className: 'col-9',
-                key: 'title',
-                type: 'input',
-                templateOptions: {
-                  label: 'Title',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'titleColor',
-                type: 'input',
-                templateOptions: {
-                  type: 'color',
-                  label: 'Title Color'
-                }
-              },
-              {
-                className: 'col-12',
-                key: 'titleFontSize',
-                type: 'slider',
-                templateOptions: {
-                  min: 5,
-                  max: 20,
-                  label: 'Title font size'
-                }
-              }
-            ]
-          },
-          {
-            wrappers: ['panel'],
-            key: 'menuItems',
-            type: 'repeat',
-            templateOptions: {
-              label: 'Menu items',
-              addText: 'Add item'
-            },
-            fieldArray: {
-              fieldGroup: [
-                {
-                  type: 'input',
-                  key: 'value',
-                  templateOptions: {
-                    label: 'Label'
-                  }
-                },
-                {
-                  type: 'input',
-                  key: 'url',
-                  templateOptions: {
-                    label: 'URL'
-                  }
-                }
-              ]
-            }
-          },
-          {
-            wrappers: ['panel'],
-            key: 'callToAction',
-            templateOptions: {
-              label: 'Call to action'
-            },
-            fieldGroup: [
-              {
-                type: 'input',
-                key: 'value',
-                templateOptions: {
-                  label: 'Label'
-                }
-              },
-              {
-                type: 'input',
-                key: 'url',
-                templateOptions: {
-                  label: 'URL'
-                }
-              },
-              {
-                type: 'select',
-                key: 'color',
-                templateOptions: {
-                  type: 'select',
-                  label: 'Color',
-                  options: [
-                    {
-                      value: 'btn-outline-primary',
-                      label: 'Primary'
-                    },
-                    {
-                      value: 'btn-outline-danger',
-                      label: 'Danger'
-                    },
-                    {
-                      value: 'btn-outline-info',
-                      label: 'Info'
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        ]
+        componentData: navbarComponentData,
+        fields: navbarFields
       },
       {
         componentName: 'NavbarBComponent',
@@ -212,9 +92,8 @@ export const builderElements: ModuleInterface[] = [
               {
                 className: 'col-3',
                 key: 'titleColor',
-                type: 'input',
+                type: 'colorLibraryPicker',
                 templateOptions: {
-                  type: 'color',
                   label: 'Title Color'
                 }
               },
@@ -487,10 +366,9 @@ export const builderElements: ModuleInterface[] = [
               {
                 className: 'col-3',
                 key: 'titleColor',
-                type: 'input',
+                type: 'colorLibraryPicker',
                 templateOptions: {
-                  label: 'Color',
-                  type: 'color'
+                  label: 'Color'
                 }
               },
               {
@@ -505,10 +383,9 @@ export const builderElements: ModuleInterface[] = [
               {
                 className: 'col-3',
                 key: 'descriptionColor',
-                type: 'input',
+                type: 'colorLibraryPicker',
                 templateOptions: {
-                  label: 'Color',
-                  type: 'color'
+                  label: 'Color'
                 }
               }
             ]
@@ -697,9 +574,8 @@ export const builderElements: ModuleInterface[] = [
               {
                 className: 'col-3',
                 key: 'titleColor',
-                type: 'input',
+                type: 'colorLibraryPicker',
                 templateOptions: {
-                  type: 'color',
                   label: 'Title Color'
                 }
               },
@@ -715,9 +591,8 @@ export const builderElements: ModuleInterface[] = [
               {
                 className: 'col-3',
                 key: 'descriptionColor',
-                type: 'input',
+                type: 'colorLibraryPicker',
                 templateOptions: {
-                  type: 'color',
                   label: 'Title Color'
                 }
               }

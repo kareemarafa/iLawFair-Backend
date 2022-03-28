@@ -35,9 +35,8 @@ export const countFields = [
       {
         className: 'col-3',
         key: 'sectionHeadColor',
-        type: 'input',
+        type: 'colorLibraryPicker',
         templateOptions: {
-          type: 'color',
           label: 'Color'
         }
       },
@@ -53,9 +52,8 @@ export const countFields = [
       {
         className: 'col-3',
         key: 'descriptionColor',
-        type: 'input',
+        type: 'colorLibraryPicker',
         templateOptions: {
-          type: 'color',
           label: 'Color'
         }
       }

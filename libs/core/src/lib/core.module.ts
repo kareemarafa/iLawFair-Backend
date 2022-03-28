@@ -22,8 +22,10 @@ import { FormlyModule } from '@ngx-formly/core'
 import { FormlyMaterialModule } from '@ngx-formly/material'
 import { InjectionToken } from '@angular/core'
 import { FlexModule } from '@angular/flex-layout'
-import { GalleryDialogComponent } from './components/gallery-dialog/gallery-dialog.component'
+import { GalleryDialogComponent } from './components'
 import { MatDialogModule } from '@angular/material/dialog'
+import { ColorPickerComponent } from './components/color-picker/color-picker.component'
+import { ColorPickerModule } from 'ngx-color-picker'
 
 export const APP_CONFIG = new InjectionToken('Application config')
 
@@ -42,12 +44,14 @@ export const APP_CONFIG = new InjectionToken('Application config')
       types: [
         { name: 'repeat', component: RepeatTypeComponent },
         { name: 'file', component: FormlyFieldFile, wrappers: ['form-field'] },
+        { name: 'colorLibraryPicker', component: ColorPickerComponent, wrappers: ['form-field'] },
         { name: 'gallery', component: GalleryDialogComponent, wrappers: ['form-field'] }
       ]
     }),
     FormlyMaterialModule,
     FlexModule,
-    MatDialogModule
+    MatDialogModule,
+    ColorPickerModule
   ],
   declarations: [
     ComponentControlComponent,
@@ -58,7 +62,8 @@ export const APP_CONFIG = new InjectionToken('Application config')
     FileValueAccessor,
     FormlyFieldFile,
     UserGalleryComponent,
-    GalleryDialogComponent
+    GalleryDialogComponent,
+    ColorPickerComponent
   ],
   exports: [ComponentControlComponent, ComponentControlDirective, ComponentOptionComponent, ComponentDynamicFormComponent],
   providers: [ToasterService]

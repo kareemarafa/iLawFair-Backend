@@ -1,0 +1,8 @@
+<input
+  [colorPicker]="formControl.value"
+  [cpCancelButtonClass]="'picker'"
+  [cpPresetColors]="customPalette.colors"
+  [style.background]="formControl.value"
+  [cpEyeDropper]="true"
+  (colorPickerChange)="colorChange($event)"
+/>

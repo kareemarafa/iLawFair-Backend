@@ -52,9 +52,8 @@ export class ProjectsFormComponent implements OnInit, OnDestroy {
     },
     {
       key: 'themeColor',
-      type: 'input',
+      type: 'colorLibraryPicker',
       templateOptions: {
-        type: 'color',
         label: 'Theme color',
         placeholder: 'Enter theme color',
         required: true

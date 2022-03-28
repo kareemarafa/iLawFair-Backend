@@ -67,9 +67,8 @@ export const priceFields = [
       {
         className: 'col-3',
         key: 'titleColor',
-        type: 'input',
+        type: 'colorLibraryPicker',
         templateOptions: {
-          type: 'color',
           label: 'Title Color'
         }
       },
@@ -85,9 +84,8 @@ export const priceFields = [
       {
         className: 'col-3',
         key: 'descriptionColor',
-        type: 'input',
+        type: 'colorLibraryPicker',
         templateOptions: {
-          type: 'color',
           label: 'Title Color'
         }
       }
