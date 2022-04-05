@@ -551,7 +551,7 @@ export const builderElements: ModuleInterface[] = [
     ]
   },
   {
-    moduleName: 'divider',
+    moduleName: 'spacing',
     components: [
       {
         componentName: 'DividerAComponent',
