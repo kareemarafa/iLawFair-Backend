@@ -13,10 +13,13 @@
   background: linear-gradient(90deg, #1645bf 0%, #20bdff 100%);
 }
 
-.preview-components {
+::ng-deep .preview-components {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  a {
+    pointer-events: none;
+  }
 }
 
 .example-spacer {
