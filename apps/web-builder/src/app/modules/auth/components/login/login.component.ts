@@ -27,7 +27,7 @@ export class LoginComponent implements OnDestroy {
     },
     {
       key: 'password',
-      type: 'input',
+      type: 'password',
       templateOptions: {
         type: 'password',
         label: 'Password',

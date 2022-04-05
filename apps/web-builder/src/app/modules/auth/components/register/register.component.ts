@@ -56,7 +56,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     },
     {
       key: 'password',
-      type: 'input',
+      type: 'password',
       templateOptions: {
         type: 'password',
         label: 'password',

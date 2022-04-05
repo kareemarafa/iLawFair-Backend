@@ -27,6 +27,9 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { ColorPickerComponent } from './components/color-picker/color-picker.component'
 import { ColorPickerModule } from 'ngx-color-picker'
 import { HttpClientModule } from '@angular/common/http'
+import { MaterialPasswordTypeComponent } from './components/password-type.component'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
 
 export const APP_CONFIG = new InjectionToken('Application config')
 
@@ -47,13 +50,16 @@ export const APP_CONFIG = new InjectionToken('Application config')
         { name: 'repeat', component: RepeatTypeComponent },
         { name: 'file', component: FormlyFieldFile, wrappers: ['form-field'] },
         { name: 'colorLibraryPicker', component: ColorPickerComponent },
-        { name: 'gallery', component: GalleryDialogComponent }
+        { name: 'gallery', component: GalleryDialogComponent },
+        { name: 'password', component: MaterialPasswordTypeComponent }
       ]
     }),
     FormlyMaterialModule,
     FlexModule,
     MatDialogModule,
-    ColorPickerModule
+    ColorPickerModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   declarations: [
     ComponentControlComponent,
@@ -65,6 +71,7 @@ export const APP_CONFIG = new InjectionToken('Application config')
     FormlyFieldFile,
     UserGalleryComponent,
     GalleryDialogComponent,
+    MaterialPasswordTypeComponent,
     ColorPickerComponent
   ],
   exports: [ComponentControlComponent, ComponentControlDirective, ComponentOptionComponent, ComponentDynamicFormComponent],
