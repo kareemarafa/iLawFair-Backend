@@ -13,6 +13,7 @@ import { FormlyMatToggleModule } from '@ngx-formly/material/toggle'
 import { FormlyMaterialModule } from '@ngx-formly/material'
 import { CoreModule } from '@ionhour/core'
 import { FormlyModule } from '@ngx-formly/core'
+import { MatIconModule } from '@angular/material/icon'
 
 const routes: Route[] = [
   {
@@ -50,7 +51,8 @@ const routes: Route[] = [
     FormlyMaterialModule,
     CoreModule,
     FormsModule,
-    FormlyModule
+    FormlyModule,
+    MatIconModule
   ]
 })
 export class AuthModule {}
