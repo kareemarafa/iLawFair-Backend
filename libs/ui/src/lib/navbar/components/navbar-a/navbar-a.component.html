@@ -5,7 +5,7 @@
         <img [src]="componentData?.logo?.src" [alt]="componentData?.title" [width]="componentData?.logo?.width" [height]="componentData?.logo?.height" />
       </span>
       <h3
-        class="my-0 mr-md-auto font-weight-normal"
+        class="my-0 mr-md-auto font-weight-normal themeFont"
         [ngStyle]="{
           'color': componentData?.titleColor && componentData?.titleColor,
           'font-size': componentData?.titleFontSize && componentData?.titleFontSize + 'px'
@@ -18,10 +18,12 @@
     <div class="d-flex align-items-center">
       <nav class="my-2 my-md-0 mr-md-3">
         <ng-container *ngFor="let menuItem of componentData?.menuItems">
-          <a class="p-2 text-dark" [href]="menuItem.url">{{ menuItem.value }}</a>
+          <a class="p-2 text-dark themeFont" [href]="menuItem.url">{{ menuItem.value }}</a>
         </ng-container>
       </nav>
-      <a class="btn {{ componentData?.callToAction?.color ?? 'btn-outline-primary' }}" [href]="componentData?.callToAction?.url">{{ componentData?.callToAction?.value }}</a>
+      <a class="btn themeFont {{ componentData?.callToAction?.color ?? 'btn-outline-primary' }}" [href]="componentData?.callToAction?.url">{{
+        componentData?.callToAction?.value
+      }}</a>
     </div>
   </div>
 </section>

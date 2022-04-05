@@ -35,7 +35,7 @@ export class ProjectsFormComponent implements OnInit, OnDestroy {
         },
         {
           key: 'themeFont',
-          type: 'input',
+          type: 'fontSelector',
           className: 'col-6',
           templateOptions: {
             type: 'text',

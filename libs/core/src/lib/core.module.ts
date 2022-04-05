@@ -30,6 +30,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { MaterialPasswordTypeComponent } from './components/password-type.component'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
+import { FontSelectorComponent } from './components/font-selector/font-selector.component'
+import { MatSelectModule } from '@angular/material/select'
 
 export const APP_CONFIG = new InjectionToken('Application config')
 
@@ -51,7 +53,8 @@ export const APP_CONFIG = new InjectionToken('Application config')
         { name: 'file', component: FormlyFieldFile, wrappers: ['form-field'] },
         { name: 'colorLibraryPicker', component: ColorPickerComponent },
         { name: 'gallery', component: GalleryDialogComponent },
-        { name: 'password', component: MaterialPasswordTypeComponent }
+        { name: 'password', component: MaterialPasswordTypeComponent },
+        { name: 'fontSelector', component: FontSelectorComponent }
       ]
     }),
     FormlyMaterialModule,
@@ -59,7 +62,8 @@ export const APP_CONFIG = new InjectionToken('Application config')
     MatDialogModule,
     ColorPickerModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule
   ],
   declarations: [
     ComponentControlComponent,
@@ -72,7 +76,8 @@ export const APP_CONFIG = new InjectionToken('Application config')
     UserGalleryComponent,
     GalleryDialogComponent,
     MaterialPasswordTypeComponent,
-    ColorPickerComponent
+    ColorPickerComponent,
+    FontSelectorComponent
   ],
   exports: [ComponentControlComponent, ComponentControlDirective, ComponentOptionComponent, ComponentDynamicFormComponent],
   providers: [ToasterService]

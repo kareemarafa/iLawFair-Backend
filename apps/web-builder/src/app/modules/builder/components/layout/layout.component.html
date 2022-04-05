@@ -91,7 +91,7 @@
     </div>
     <div class="card m-5 background-grey">
       <div class="card-body preview-sections p-2">
-        <div class="preview-components" cdkDropList (cdkDropListDropped)="drop($event)">
+        <div class="preview-components" #previewElementRef cdkDropList (cdkDropListDropped)="drop($event)">
           <ng-container #container></ng-container>
         </div>
       </div>

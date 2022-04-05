@@ -1,4 +1,4 @@
-import { Component, ComponentRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
+import { Component, ComponentRef, ElementRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
 import { lastValueFrom, Observable, takeWhile } from 'rxjs'
 import { map, shareReplay } from 'rxjs/operators'
@@ -29,11 +29,13 @@ export class LayoutComponent implements OnInit {
 
   @ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef
   @ViewChild('sidenavComponentOption', { read: MatSidenav }) sidenavComponentOption!: MatSidenav
+  @ViewChild('previewElementRef', { read: ElementRef }) previewElementRef!: ElementRef
 
   itemId!: number
   item$!: Observable<Project>
   currentPage!: PageInterface
   initPageContent!: string
+  fontName!: string
 
   preview = false
 
@@ -105,6 +107,7 @@ export class LayoutComponent implements OnInit {
   getProjectDetails(id: number, pageId?: number) {
     this.item$ = this.projectService.getOne(id)
     this.item$.pipe().subscribe((project) => {
+      this.setFont(project.themeFont ?? 'Arial')
       if (!project?.pages?.length) {
         this.showError()
         this.navigateToPageForm()
@@ -189,6 +192,22 @@ export class LayoutComponent implements OnInit {
       this.elementsService.setSidenav(this.sidenavComponentOption)
       this.getDynamicContent()
     })
+  }
+
+  setFont(font: string) {
+    const css = `@import url('https://fonts.googleapis.com/css2?family=${font}:wght@500&display=swap')`
+    const head = document.head || document.getElementsByTagName('head')[0]
+    const style: any = document.createElement('style')
+    head.appendChild(style)
+    style.type = 'text/css'
+    if (style.styleSheet) {
+      // This is required for IE8 and below.
+      style.styleSheet.cssText = css
+    } else {
+      style.appendChild(document.createTextNode(css))
+    }
+    const root = document.documentElement
+    root.style.setProperty('--theme-font', `${font}, sans-serf`)
   }
 
   getComponents() {
