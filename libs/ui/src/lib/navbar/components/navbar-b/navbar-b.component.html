@@ -2,7 +2,7 @@
   <header class="blog-header p-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
-        <a class="text-muted" [href]="componentData?.callToAction?.url">{{ componentData?.callToAction?.value }}</a>
+        <a class="text-muted themeFont" [href]="componentData?.callToAction?.url">{{ componentData?.callToAction?.value }}</a>
       </div>
       <div class="col-4 text-center">
         <a
@@ -17,7 +17,7 @@
             <img [src]="componentData?.logo?.src" [alt]="componentData?.title" [width]="componentData?.logo?.width" [height]="componentData?.logo?.height" />
           </div>
           <h3
-            class="my-0 mr-md-auto font-weight-normal"
+            class="my-0 mr-md-auto font-weight-normal themeFont"
             [ngStyle]="{
               'color': componentData?.titleColor && componentData?.titleColor,
               'font-size': componentData?.titleFontSize && componentData?.titleFontSize + 'px'
@@ -43,12 +43,12 @@
             viewBox="0 0 24 24"
             focusable="false"
           >
-            <title>Search</title>
+            <title class="themeFont">Search</title>
             <circle cx="10.5" cy="10.5" r="7.5"></circle>
             <path d="M21 21l-5.2-5.2"></path>
           </svg>
         </a>
-        <a class="btn btn-sm {{ componentData?.callToAction?.color ?? 'btn-outline-secondary' }}" [href]="componentData?.callToAction?.url">
+        <a class="btn btn-sm themeFont {{ componentData?.callToAction?.color ?? 'btn-outline-secondary' }}" [href]="componentData?.callToAction?.url">
           {{ componentData?.callToAction?.value }}
         </a>
       </div>
@@ -57,7 +57,7 @@
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-around">
       <ng-container *ngFor="let menuItem of componentData?.menuItems">
-        <a class="p-2 text-muted" [href]="menuItem.url">{{ menuItem.value }}</a>
+        <a class="p-2 text-muted themeFont" [href]="menuItem.url">{{ menuItem.value }}</a>
       </ng-container>
     </nav>
   </div>

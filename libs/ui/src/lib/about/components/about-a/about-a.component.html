@@ -4,12 +4,12 @@
       <div class="card border-0 px-5">
         <div class="card-body">
           <div class="d-flex justify-content-center">
-            <h1 class="font-bold" [ngStyle]="{ color: componentData?.sectionHeadColor }">{{ componentData?.sectionHead }}</h1>
+            <h1 class="font-bold themeFont" [ngStyle]="{ color: componentData?.sectionHeadColor }">{{ componentData?.sectionHead }}</h1>
           </div>
           <div class="row align-items-center justify-content-between">
             <div class="col">
               <h2
-                class="m-0"
+                class="m-0 themeFont"
                 [ngStyle]="{
                   'color': componentData?.titleColor,
                   'font-size': componentData?.titleFontSize && componentData?.titleFontSize + 'px'
@@ -18,7 +18,7 @@
                 {{ componentData?.title }}
               </h2>
               <p
-                class="m-0"
+                class="m-0 themeFont"
                 [ngStyle]="{
                   'color': componentData?.descriptionColor,
                   'font-size': componentData?.descriptionFontSize && componentData?.descriptionFontSize + 'px'

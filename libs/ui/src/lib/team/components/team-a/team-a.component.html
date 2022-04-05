@@ -2,8 +2,8 @@
   <div class="team-a bg-white px-3 py-5">
     <div class="row">
       <div class="col-12">
-        <h1 class="h1 fw-bold text-center" [ngStyle]="{ color: componentData?.titleColor }">{{ componentData?.title }}</h1>
-        <p class="text-center" [ngStyle]="{ color: componentData?.descriptionColor }">{{ componentData?.description }}</p>
+        <h1 class="h1 fw-bold text-center themeFont" [ngStyle]="{ color: componentData?.titleColor }">{{ componentData?.title }}</h1>
+        <p class="text-center themeFont" [ngStyle]="{ color: componentData?.descriptionColor }">{{ componentData?.description }}</p>
       </div>
       <div class="col-lg-4" *ngFor="let item of componentData?.items">
         <div class="item text-center">
@@ -11,8 +11,8 @@
             <img class="team-a__img rounded-circle" src="{{ item?.image }}" alt="" srcset="" />
           </div>
           <div>
-            <h3 class="h3 fw-bold my-2">{{ item?.name }}</h3>
-            <p class="text-secondary">{{ item?.role }}</p>
+            <h3 class="h3 fw-bold my-2 themeFont">{{ item?.name }}</h3>
+            <p class="text-secondary themeFont">{{ item?.role }}</p>
           </div>
         </div>
       </div>

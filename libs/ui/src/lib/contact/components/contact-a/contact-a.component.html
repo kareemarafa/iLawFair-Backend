@@ -2,8 +2,8 @@
   <div class="contact-a bg-white px-3 py-5">
     <div class="container">
       <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4" [ngStyle]="{ color: componentData?.titleColor }">{{ componentData?.title }}</h1>
-        <p class="lead" [ngStyle]="{ color: componentData?.descriptionColor }">
+        <h1 class="display-4 themeFont" [ngStyle]="{ color: componentData?.titleColor }">{{ componentData?.title }}</h1>
+        <p class="lead themeFont" [ngStyle]="{ color: componentData?.descriptionColor }">
           {{ componentData?.description }}
         </p>
       </div>
@@ -11,14 +11,14 @@
         <div class="col-5">
           <ng-container *ngFor="let element of componentData?.elements">
             <div class="mb-3">
-              <h1 class="h1 fw-bold">{{ element?.label }}</h1>
-              <p class="text-secondary">{{ element?.value }}</p>
+              <h1 class="h1 fw-bold themeFont">{{ element?.label }}</h1>
+              <p class="text-secondary themeFont">{{ element?.value }}</p>
             </div>
           </ng-container>
         </div>
         <div class="col-lg-7">
           <form>
-            <div class="mb-3">
+            <div class="mb-3 themeFont">
               <label for="email" class="form-label">Email address</label>
               <input type="email" class="form-control" id="email" aria-describedby="emailHelp" />
             </div>
@@ -30,7 +30,7 @@
               <label for="phone" class="form-label">Phone</label>
               <input type="text" class="form-control" id="phone" />
             </div>
-            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="submit" class="btn btn-primary themeFont">Send</button>
           </form>
         </div>
       </div>

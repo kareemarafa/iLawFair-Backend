@@ -3,15 +3,15 @@
     <div class="row">
       <div class="col-12 col-md">
         <img class="mb-2" [src]="componentData?.image" alt="" style="max-height: 100px; max-width: 100px" />
-        <small class="d-block mb-3 text-muted">© {{ componentData?.copyrightText }}</small>
+        <small class="d-block mb-3 text-muted themeFont">© {{ componentData?.copyrightText }}</small>
       </div>
       <ng-container *ngFor="let section of componentData?.sections">
         <div class="col-6 col-md">
-          <h5>{{ section?.title }}</h5>
+          <h5 class="themeFont">{{ section?.title }}</h5>
           <ul class="list-unstyled text-small">
             <ng-container *ngFor="let item of section?.items">
               <li class="mb-1">
-                <a class="link-secondary text-decoration-none" [href]="item?.url">{{ item?.value }}</a>
+                <a class="link-secondary text-decoration-none themeFont" [href]="item?.url">{{ item?.value }}</a>
               </li>
             </ng-container>
           </ul>

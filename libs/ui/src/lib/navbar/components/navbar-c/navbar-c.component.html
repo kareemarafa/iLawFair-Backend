@@ -6,7 +6,7 @@
           <img [src]="componentData?.logo?.src" [alt]="componentData?.title" [width]="componentData?.logo?.width" [height]="componentData?.logo?.height" />
         </div>
         <h3
-          class="my-0 mr-md-auto font-weight-normal"
+          class="my-0 mr-md-auto font-weight-normal themeFont"
           [ngStyle]="{
             'color': componentData?.titleColor && componentData?.titleColor,
             'font-size': componentData?.titleFontSize && componentData?.titleFontSize + 'px'
@@ -16,7 +16,7 @@
         </h3>
       </a>
       <ng-container *ngFor="let menuItem of componentData?.menuItems">
-        <a class="py-2 d-none d-md-inline-block" [href]="menuItem.url">{{ menuItem.value }}</a>
+        <a class="py-2 d-none d-md-inline-block themeFont" [href]="menuItem.url">{{ menuItem.value }}</a>
       </ng-container>
     </div>
   </nav>

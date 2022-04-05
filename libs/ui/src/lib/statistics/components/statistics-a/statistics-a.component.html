@@ -2,15 +2,15 @@
   <div class="container">
     <div class="row">
       <div class="col d-flex flex-column my-4 align-items-center">
-        <h1 [ngStyle]="{ color: componentData?.titleColor }">{{ componentData?.title }}</h1>
-        <p [ngStyle]="{ color: componentData?.descriptionColor }">{{ componentData?.description }}</p>
+        <h1 class="themeFont" [ngStyle]="{ color: componentData?.titleColor }">{{ componentData?.title }}</h1>
+        <p class="themeFont" [ngStyle]="{ color: componentData?.descriptionColor }">{{ componentData?.description }}</p>
       </div>
     </div>
     <div class="row">
       <ng-container *ngFor="let item of componentData?.items">
         <div class="col d-flex flex-column align-items-center">
-          <span class="rounded-number">{{ item.value }}</span>
-          <p class="my-3 statistics-a-title">{{ item.title }}</p>
+          <span class="themeFont rounded-number">{{ item.value }}</span>
+          <p class="themeFont my-3 statistics-a-title">{{ item.title }}</p>
         </div>
       </ng-container>
     </div>

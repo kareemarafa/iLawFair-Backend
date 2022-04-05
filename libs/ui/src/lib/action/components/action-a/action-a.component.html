@@ -2,12 +2,14 @@
   <div class="action-a bg-white px-3 py-5">
     <div class="row">
       <div class="col-md-6">
-        <h1 class="h1" [ngStyle]="{ color: componentData?.sectionHeadColor }">{{ componentData?.sectionHead }}</h1>
-        <p [ngStyle]="{ color: componentData?.descriptionColor }">{{ componentData?.description }}</p>
+        <h1 class="h1 themeFont" [ngStyle]="{ color: componentData?.sectionHeadColor }">{{ componentData?.sectionHead }}</h1>
+        <p class="themeFont" [ngStyle]="{ color: componentData?.descriptionColor }">{{ componentData?.description }}</p>
       </div>
       <div class="col-md-6">
         <div class="d-flex w-100 h-100 justify-content-end align-items-center">
-          <a class="btn {{ componentData?.callToAction?.color ?? 'btn-outline-primary' }}" [href]="componentData?.callToAction?.url">{{ componentData?.callToAction?.value }}</a>
+          <a class="btn themeFont {{ componentData?.callToAction?.color ?? 'btn-outline-primary' }}" [href]="componentData?.callToAction?.url">{{
+            componentData?.callToAction?.value
+          }}</a>
         </div>
       </div>
     </div>
