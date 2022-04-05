@@ -15,64 +15,81 @@ export class RegisterComponent implements OnInit, OnDestroy {
   alive = true
   fields: FormlyFieldConfig[] = [
     {
-      key: 'firstName',
-      type: 'input',
-      templateOptions: {
-        type: 'text',
-        label: 'first name',
-        placeholder: 'Enter first name',
-        required: true
-      }
-    },
-    {
-      key: 'lastName',
-      type: 'input',
-      templateOptions: {
-        type: 'text',
-        label: 'last name',
-        placeholder: 'Enter last name',
-        required: true
-      }
-    },
-    {
-      key: 'username',
-      type: 'input',
-      templateOptions: {
-        type: 'text',
-        label: 'username',
-        placeholder: 'Enter user name',
-        required: true
-      }
-    },
-    {
-      key: 'email',
-      type: 'input',
-      templateOptions: {
-        type: 'email',
-        label: 'email',
-        placeholder: 'Enter email',
-        required: true
-      }
-    },
-    {
-      key: 'password',
-      type: 'password',
-      templateOptions: {
-        type: 'password',
-        label: 'password',
-        placeholder: 'Enter password',
-        required: true
-      }
-    },
-    {
-      key: 'phone',
-      type: 'input',
-      templateOptions: {
-        type: 'text',
-        label: 'phone number',
-        placeholder: 'Enter phone number',
-        required: true
-      }
+      validators: {
+        validation: [{ name: 'fieldMatch', options: { errorPath: 'passwordConfirm' } }]
+      },
+      fieldGroup: [
+        {
+          key: 'firstName',
+          type: 'input',
+          templateOptions: {
+            type: 'text',
+            label: 'first name',
+            placeholder: 'Enter first name',
+            required: true
+          }
+        },
+        {
+          key: 'lastName',
+          type: 'input',
+          templateOptions: {
+            type: 'text',
+            label: 'last name',
+            placeholder: 'Enter last name',
+            required: true
+          }
+        },
+        {
+          key: 'username',
+          type: 'input',
+          templateOptions: {
+            type: 'text',
+            label: 'username',
+            placeholder: 'Enter user name',
+            required: true
+          }
+        },
+        {
+          key: 'email',
+          type: 'input',
+          templateOptions: {
+            type: 'email',
+            label: 'email',
+            placeholder: 'Enter email',
+            required: true
+          }
+        },
+        {
+          key: 'password',
+          type: 'password',
+          templateOptions: {
+            type: 'password',
+            label: 'password',
+            placeholder: 'Enter password',
+            required: true
+          }
+        },
+        {
+          key: 'passwordConfirm',
+          type: 'password',
+          templateOptions: {
+            type: 'password',
+            label: 'Confirm Password',
+            placeholder: 'Please re-enter your password',
+            required: true
+          }
+        },
+        {
+          key: 'phone',
+          type: 'input',
+          templateOptions: {
+            type: 'text',
+            label: 'phone number',
+            placeholder: 'Enter phone number',
+            required: true
+          }
+        }
+      ]
     }
   ]
   model: any = {}

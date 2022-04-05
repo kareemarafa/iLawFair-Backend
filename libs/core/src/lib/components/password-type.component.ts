@@ -10,6 +10,7 @@ import { FormControl } from '@angular/forms'
       <mat-label>{{ field?.templateOptions?.label }}</mat-label>
       <input matInput #passwordField type="password" [formControl]="formControl" [formlyAttributes]="field" />
       <mat-icon matSuffix class="toggle-password" (click)="showHidePassword()">remove_red_eye</mat-icon>
+      <mat-error *ngFor="let error of formControl?.errors | keyvalue">{{ error?.value?.message }}</mat-error>
     </mat-form-field>
   `,
   styles: ['.toggle-password { color: #ccc; cursor: pointer; }']

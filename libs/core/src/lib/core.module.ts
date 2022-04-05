@@ -15,7 +15,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
 import { MatTooltipModule } from '@angular/material/tooltip'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { AbstractControl, FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { ToasterService } from './services'
 import { FormlyModule } from '@ngx-formly/core'
@@ -35,6 +35,21 @@ import { MatSelectModule } from '@angular/material/select'
 
 export const APP_CONFIG = new InjectionToken('Application config')
 
+export function fieldMatchValidator(control: AbstractControl) {
+  const { password, passwordConfirm } = control.value
+
+  // avoid displaying the message error when values are empty
+  if (!passwordConfirm || !password) {
+    return null
+  }
+
+  if (passwordConfirm === password) {
+    return null
+  }
+
+  return { fieldMatch: { message: 'Password Not Matching' } }
+}
+
 @NgModule({
   imports: [
     CommonModule,
@@ -47,6 +62,7 @@ export const APP_CONFIG = new InjectionToken('Application config')
     ReactiveFormsModule,
     HttpClientModule,
     FormlyModule.forRoot({
+      validators: [{ name: 'fieldMatch', validation: fieldMatchValidator }],
       wrappers: [{ name: 'panel', component: PanelWrapperComponent }],
       types: [
         { name: 'repeat', component: RepeatTypeComponent },
