@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
-import { ActivatedRoute, Router } from '@angular/router'
+import { Router } from '@angular/router'
 import { lastValueFrom, takeWhile } from 'rxjs'
 import { AuthService } from '../../auth.service'
 import { FormlyFieldConfig } from '@ngx-formly/core'
+import { countries } from '../../../../common/countries'
 
 @Component({
   selector: 'ionhour-register',
@@ -15,6 +16,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   alive = true
   fields: FormlyFieldConfig[] = [
     {
+      fieldGroupClassName: 'row',
       validators: {
         validation: [{ name: 'fieldMatch', options: { errorPath: 'passwordConfirm' } }]
       },
@@ -80,8 +82,21 @@ export class RegisterComponent implements OnInit, OnDestroy {
           }
         },
         {
+          key: 'countryCode',
+          type: 'select',
+          className: 'w-25',
+          templateOptions: {
+            type: 'text',
+            label: 'Country',
+            placeholder: 'Code',
+            required: true,
+            options: countries.map((country) => ({ value: country.id, label: country.id + ' ' + country.label }))
+          }
+        },
+        {
           key: 'phone',
           type: 'input',
+          className: 'w-75',
           templateOptions: {
             type: 'text',
             label: 'phone number',
@@ -110,8 +125,13 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   register() {
+    const data = {
+      ...this.model,
+      phone: this.model.countryCode + this.model.phone
+    }
+    delete data.countryCode
     this.authService
-      .register(this.model)
+      .register(data)
       .pipe(takeWhile(() => this.alive))
       .subscribe(async () => {
         const profile = await lastValueFrom(this.authService.getProfile())
