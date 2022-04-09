@@ -153,8 +153,6 @@ export class LayoutComponent implements OnInit {
     return lastValueFrom(this.pageService.update(pageId, { components })).then(() => this.getProjectDetails(this.itemId, pageId))
   }
 
-  switchToPreview() {}
-
   backToDashboard() {
     const isChanged = this.checkIfContentChanged()
     if (isChanged) {

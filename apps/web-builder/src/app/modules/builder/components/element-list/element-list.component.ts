@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core'
 import { builderElements } from '@ionhour/ui'
 import { ElementsService } from '@ionhour/core'
 import { MatSlideToggleChange } from '@angular/material/slide-toggle/slide-toggle'
-import { ModuleInterface } from '@ionhour/interfaces'
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
+import { IComponent } from '@ionhour/interfaces'
 
 @UntilDestroy()
 @Component({
@@ -13,7 +13,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy'
 })
 export class ElementListComponent implements OnInit {
   builderElements = builderElements
-  activeModule!: string | null
+  activeModule!: Record<string, boolean>
 
   constructor(private elementService: ElementsService) {}
 
@@ -28,10 +28,16 @@ export class ElementListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.elementService.currentElement$.pipe(untilDestroyed(this)).subscribe((module) => (this.activeModule = module))
-  }
-
-  getCheckStatus(element: ModuleInterface): boolean {
-    return this.activeModule === element.moduleName
+    this.elementService.components$.pipe(untilDestroyed(this)).subscribe((currentComponents) => {
+      for (const key in this.activeModule) {
+        this.activeModule[key] = false
+      }
+      currentComponents.forEach((currentComponent: IComponent) => {
+        const existingItems = builderElements.filter((e) => e.components.filter((ec) => ec.componentName === currentComponent.componentName).length)
+        if (existingItems.length) {
+          this.activeModule = { ...this.activeModule, [existingItems[0].moduleName]: true }
+        }
+      })
+    })
   }
 }
