@@ -47,6 +47,17 @@ export class PageFormDialogComponent implements OnInit, OnDestroy {
         placeholder: 'Enter meta tags',
         required: false
       }
+    },
+    {
+      key: 'scripts',
+      type: 'textarea',
+      templateOptions: {
+        type: 'text',
+        rows: 4,
+        label: 'Scripts (WhatsApp, Google analytics, etc...)',
+        placeholder: 'Enter scripts',
+        required: false
+      }
     }
   ]
   model: any = {}

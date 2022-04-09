@@ -29,6 +29,10 @@ export class Page extends CoreEntity {
   @ApiProperty({ required: false, type: 'varchar', nullable: true })
   metaTags: string
 
+  @Column({ type: 'text', nullable: true })
+  @ApiProperty({ required: false, type: 'text', nullable: true })
+  scripts: string
+
   @ManyToOne(() => Project, (project) => project.pages)
   project: Project
 }
