@@ -28,7 +28,10 @@
               </p>
             </div>
             <div class="col">
-              <img class="img-thumbnail" [src]="componentData.image" [alt]="componentData?.title" />
+              <img class="img-thumbnail" *ngIf="!componentData?.isVideo" [src]="componentData.image" [alt]="componentData?.title" loading="lazy" />
+              <video class="video img-thumbnail" autoplay loop [muted]="true" *ngIf="componentData?.isVideo" [poster]="componentData.image" preload="metadata">
+                <source [src]="componentData?.video" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
