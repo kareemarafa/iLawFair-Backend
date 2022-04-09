@@ -1,7 +1,7 @@
 import { NavbarAComponent, NavbarBComponent, NavbarCComponent } from './lib/navbar/components'
 import { ModuleInterface } from '@ionhour/interfaces'
 import { HeaderAComponent, HeaderBComponent, HeaderCComponent } from './lib/header/components'
-import { AboutAComponent } from './lib/about/components'
+import { AboutAComponent, AboutBComponent } from './lib/about/components'
 import { ServiceAComponent } from './lib/service/components/service-a/service-a.component'
 import { ServiceBComponent } from './lib/service/components/service-b/service-b.component'
 import { ServiceCComponent } from './lib/service/components/service-c/service-c.component'
@@ -151,6 +151,12 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'AboutAComponent',
         componentClass: AboutAComponent,
+        componentData: aboutComponentData,
+        fields: aboutFields
+      },
+      {
+        componentName: 'AboutBComponent',
+        componentClass: AboutBComponent,
         componentData: aboutComponentData,
         fields: aboutFields
       }

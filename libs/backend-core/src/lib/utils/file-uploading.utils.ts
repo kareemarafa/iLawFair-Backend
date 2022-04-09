@@ -15,10 +15,10 @@ export const editFileName = (req, file, callback) => {
 }
 
 export const imageFileFilter = (req, file, callback) => {
-  if (file.originalname.match(/\.(jpg|jpeg|png|gif)$/) || file.mimetype.match(/\/(jpg|jpeg|png|gif)$/)) {
+  if (file.originalname.match(/\.(jpg|jpeg|png|gif|mp4)$/) || file.mimetype.match(/\/(jpg|jpeg|png|gif|mp4)$/)) {
     return callback(null, true)
   } else {
-    return callback(new BadRequestException('Only image files are allowed!'), false)
+    return callback(new BadRequestException('Only image and mp4 videos files are allowed!'), false)
   }
 }
 

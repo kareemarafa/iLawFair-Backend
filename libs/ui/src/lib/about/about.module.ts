@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { AboutAComponent } from './components'
+import { AboutAComponent, AboutBComponent } from './components'
+import { FormlyFieldConfig } from '@ngx-formly/core'
 
 @NgModule({
-  declarations: [AboutAComponent],
+  declarations: [AboutAComponent, AboutBComponent],
   imports: [CommonModule]
 })
 export class AboutModule {}
@@ -12,10 +13,11 @@ export const aboutComponentData = {
   sectionHead: 'About',
   title: 'Lorem Ipsum',
   image: './assets/500x300.png',
+  isVideo: false,
   description:
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
 }
-export const aboutFields = [
+export const aboutFields: FormlyFieldConfig[] = [
   {
     wrappers: ['panel'],
     templateOptions: { label: 'Title' },
@@ -96,15 +98,32 @@ export const aboutFields = [
   },
   {
     wrappers: ['panel'],
-    templateOptions: { label: 'Image' },
+    templateOptions: { label: 'Media' },
     fieldGroupClassName: 'row',
     fieldGroup: [
+      {
+        className: 'col-12',
+        key: 'isVideo',
+        type: 'toggle',
+        templateOptions: {
+          label: 'Check if media type is video'
+        }
+      },
       {
         className: 'col-12',
         key: 'image',
         type: 'gallery',
         templateOptions: {
           label: 'Image'
+        }
+      },
+      {
+        className: 'col-12',
+        key: 'video',
+        type: 'gallery',
+        hideExpression: (model) => !model['isVideo'],
+        templateOptions: {
+          label: 'Video'
         }
       }
     ]
