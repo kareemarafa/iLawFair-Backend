@@ -28,30 +28,37 @@
           </div>
         </mat-card-title>
         <mat-card-content>
-          <div>
-            <div class="d-flex flex-row">
-              <p style="margin-right: 10px">Pages</p>
-              <mat-chip-list>
-                <mat-chip class="example-box">
-                  {{ item?.pages?.length }}
-                </mat-chip>
-              </mat-chip-list>
+          <div class="d-flex flex-row justify-content-between">
+            <div class="">
+              <div class="d-flex flex-row">
+                <p style="margin-right: 10px">Pages</p>
+                <mat-chip-list>
+                  <mat-chip class="example-box">
+                    {{ item?.pages?.length }}
+                  </mat-chip>
+                </mat-chip-list>
+              </div>
+              <div class="d-flex flex-row">
+                <p style="margin-right: 10px">Theme font</p>
+                <mat-chip-list>
+                  <mat-chip class="example-box">
+                    {{ item.themeFont }}
+                  </mat-chip>
+                </mat-chip-list>
+              </div>
+              <div class="d-flex flex-row">
+                <p style="margin-right: 10px">Theme color</p>
+                <mat-chip-list>
+                  <mat-chip class="example-box" [style]="{ background: item.themeColor }">
+                    {{ item.themeColor }}
+                  </mat-chip>
+                </mat-chip-list>
+              </div>
             </div>
-            <div class="d-flex flex-row">
-              <p style="margin-right: 10px">Theme font</p>
-              <mat-chip-list>
-                <mat-chip class="example-box">
-                  {{ item.themeFont }}
-                </mat-chip>
-              </mat-chip-list>
-            </div>
-            <div class="d-flex flex-row">
-              <p style="margin-right: 10px">Theme color</p>
-              <mat-chip-list>
-                <mat-chip class="example-box" [style]="{ background: item.themeColor }">
-                  {{ item.themeColor }}
-                </mat-chip>
-              </mat-chip-list>
+            <div class="">
+              <a href="assets/qr-code.png" download [matTooltip]="'Download'">
+                <img class="img-thumbnail cursor-pointer" src="assets/qr-code.png" alt="WebMe" width="75" />
+              </a>
             </div>
           </div>
         </mat-card-content>
