@@ -82,12 +82,13 @@ export class PageFormDialogComponent implements OnInit, OnDestroy {
     })
   }
 
-  submit(model: { pageName: string; keywords: string; metaTags: string }): void {
+  submit(model: { pageName: string; keywords: string; metaTags: string; scripts: string }): void {
     const data = {
       pageName: model.pageName,
       keywords: model.keywords,
       metaTags: model.metaTags,
-      project: { id: this.data.projectId }
+      project: { id: this.data.projectId },
+      scripts: model.scripts
     }
     if (!this.data.item) {
       this.service
