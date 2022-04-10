@@ -169,6 +169,17 @@ $light-gray1: #f3f3f3;
   }
 }
 
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  font-size: 50px;
+  margin: 0 10px;
+}
+
 @media (min-width: 768px) {
 }
 

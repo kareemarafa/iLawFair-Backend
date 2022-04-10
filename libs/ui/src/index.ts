@@ -30,6 +30,7 @@ import { countComponentData, countFields } from './lib/count/count.module'
 import { aboutComponentData, aboutFields } from './lib/about/about.module'
 import { teamComponentData, teamFields } from './lib/team/team.module'
 import { navbarComponentData, navbarFields } from './lib/navbar/navbar.module'
+import { SocialAComponent } from './lib/social-media/components/social-a/social-a.component'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -369,6 +370,92 @@ export const builderElements: ModuleInterface[] = [
                   type: 'input',
                   label: 'Image',
                   placeholder: 'Enter URL here'
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    moduleName: 'social',
+    components: [
+      {
+        componentName: 'SocialAComponent',
+        componentClass: SocialAComponent,
+        componentData: {
+          title: 'Follow Us',
+          description: 'none',
+          facebook: '#',
+          twitter: '#',
+          instagram: '#'
+        },
+        fields: [
+          {
+            wrappers: ['panel'],
+            templateOptions: { label: 'Title' },
+            fieldGroupClassName: 'row',
+            fieldGroup: [
+              {
+                className: 'col-9',
+                key: 'title',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'titleColor',
+                type: 'colorLibraryPicker',
+                templateOptions: {
+                  label: 'Title Color'
+                }
+              },
+              {
+                className: 'col-9',
+                key: 'description',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-3',
+                key: 'descriptionColor',
+                type: 'colorLibraryPicker',
+                templateOptions: {
+                  label: 'Title Color'
+                }
+              },
+              {
+                className: 'col-9',
+                key: 'facebook',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-9',
+                key: 'twitter',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
+                }
+              },
+              {
+                className: 'col-9',
+                key: 'instagram',
+                type: 'input',
+                templateOptions: {
+                  label: 'Title',
+                  required: true
                 }
               }
             ]
