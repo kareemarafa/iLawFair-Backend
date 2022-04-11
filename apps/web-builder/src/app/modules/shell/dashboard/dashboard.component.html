@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3 class="text-muted"><strong>Statistics</strong></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <ngx-chartjs type="line" [data]="barChart.data" [options]="barChart.options"></ngx-chartjs>
+      <ngx-chartjs type="bar" [data]="barChart.data" [options]="barChart.options"></ngx-chartjs>
+    </div>
+    <div class="col">
+      <ngx-chartjs type="pie" [data]="donutChart.data" [options]="donutChart.options"></ngx-chartjs>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h3 class="text-muted"><strong>FAQ</strong></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-accordion class="example-headers-align" multi>
+        <mat-expansion-panel *ngFor="let faq of faqItems; let i = index" [expanded]="i === 0">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ faq.title }}
+            </mat-panel-title>
+            <mat-panel-description> </mat-panel-description>
+          </mat-expansion-panel-header>
+          {{ faq.description }}
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h3 class="text-muted"><strong>Tutorials</strong></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/Rn3VDjTIkkk"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="col">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/JiIk3lgPr7o"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</div>

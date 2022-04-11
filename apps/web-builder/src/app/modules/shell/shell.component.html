@@ -3,7 +3,10 @@
     <mat-list class="h-100">
       <div class="d-flex flex-column justify-content-between h-100">
         <div>
-          <h3>WebMe Dashboard</h3>
+          <div class="d-flex flex-row justify-content-center my-3">
+            <img class="my-2" src="assets/logo-shape.png" alt="WebMe" width="75" />
+          </div>
+          <a mat-list-item routerLink="view" routerLinkActive="text-primary">Dashboard</a>
           <a mat-list-item routerLink="profile" routerLinkActive="text-primary">Profile</a>
           <a mat-list-item routerLink="projects" routerLinkActive="text-primary">Projects</a>
           <a mat-list-item routerLink="subscriptions" routerLinkActive="text-primary">Subscription</a>
@@ -16,9 +19,9 @@
   <mat-drawer-content>
     <div>
       <mat-toolbar color="primary">
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
+        <!--        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">-->
+        <!--          <mat-icon>menu</mat-icon>-->
+        <!--        </button>-->
       </mat-toolbar>
       <div class="p-4">
         <router-outlet></router-outlet>

@@ -18,12 +18,19 @@ import { FormlyMatToggleModule } from '@ngx-formly/material/toggle'
 import { FormlyMaterialModule } from '@ngx-formly/material'
 import { MatCardModule } from '@angular/material/card'
 import { CoreModule } from '@ionhour/core'
+import { DashboardComponent } from './dashboard/dashboard.component'
+import { ChartjsModule } from '@ctrl/ngx-chartjs'
+import { MatExpansionModule } from '@angular/material/expansion'
 
 const routes: Route[] = [
   Shell.childRoutes([
     {
       path: '',
-      redirectTo: 'profile'
+      redirectTo: 'view'
+    },
+    {
+      path: 'view',
+      component: DashboardComponent
     },
     {
       path: 'profile',
@@ -46,7 +53,7 @@ const routes: Route[] = [
 ]
 
 @NgModule({
-  declarations: [ShellComponent, ProfileComponent, MediaComponent],
+  declarations: [ShellComponent, ProfileComponent, MediaComponent, DashboardComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -62,7 +69,9 @@ const routes: Route[] = [
     FormlyMatToggleModule,
     FormlyMaterialModule,
     MatCardModule,
-    CoreModule
+    CoreModule,
+    ChartjsModule,
+    MatExpansionModule
   ]
 })
 export class ShellModule {}

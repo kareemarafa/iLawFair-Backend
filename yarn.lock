@@ -1281,6 +1281,13 @@
   dependencies:
     "postcss-value-parser" "^4.2.0"
 
+"@ctrl/ngx-chartjs@^8.0.0":
+  "integrity" "sha512-6I7DgzgHnCJQWaI/y5EUA/wGO2p09mxGwMgXnvmbFweDcFX8fSA+9tsX6exGgs65AQbwHA1UBD6bvkqGFuxeMg=="
+  "resolved" "https://registry.npmjs.org/@ctrl/ngx-chartjs/-/ngx-chartjs-8.0.0.tgz"
+  "version" "8.0.0"
+  dependencies:
+    "tslib" "^2.3.0"
+
 "@cypress/request@^2.88.10":
   "integrity" "sha512-Zp7F+R93N0yZyG34GutyTNr+okam7s/Fzc1+i3kcqOP8vk6OuajuE9qZJ6Rs+10/1JFtXFYMdyarnU1rZuJesg=="
   "resolved" "https://registry.npmjs.org/@cypress/request/-/request-2.88.10.tgz"
@@ -3651,6 +3658,11 @@
   "integrity" "sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA=="
   "resolved" "https://registry.npmjs.org/chardet/-/chardet-0.7.0.tgz"
   "version" "0.7.0"
+
+"chart.js@^3.7.1":
+  "integrity" "sha512-8knRegQLFnPQAheZV8MjxIXc5gQEfDFD897BJgv/klO/vtIyFFmgMXrNfgrXpbTr/XbTturxRgxIXx/Y+ASJBA=="
+  "resolved" "https://registry.npmjs.org/chart.js/-/chart.js-3.7.1.tgz"
+  "version" "3.7.1"
 
 "check-more-types@^2.24.0":
   "integrity" "sha1-FCD/sQ/URNz8ebQ4kbv//TKoRgA="
