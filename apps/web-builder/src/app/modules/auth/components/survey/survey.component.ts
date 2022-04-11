@@ -103,7 +103,7 @@ export class SurveyComponent implements OnInit, OnDestroy {
   }
 
   login() {
-    return this.router.navigate(['dashboard/projects'])
+    return this.router.navigate(['dashboard/view'])
   }
 
   ngOnDestroy() {

@@ -52,7 +52,7 @@ export class LoginComponent implements OnDestroy {
         const profile = await lastValueFrom(this.authService.getProfile())
         localStorage.setItem('user', JSON.stringify(profile))
         if (profile) {
-          this.router.navigate(['dashboard/projects'])
+          this.router.navigate(['dashboard/view'])
         }
       })
   }
