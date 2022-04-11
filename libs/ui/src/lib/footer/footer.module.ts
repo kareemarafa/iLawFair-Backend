@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { FooterAComponent } from './components/'
+import { FooterAComponent, FooterBComponent } from './components/'
 
 @NgModule({
-  declarations: [FooterAComponent],
+  declarations: [FooterAComponent, FooterBComponent],
   imports: [CommonModule]
 })
 export class FooterModule {}
