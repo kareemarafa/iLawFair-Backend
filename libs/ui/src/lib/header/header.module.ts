@@ -1,14 +1,108 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { HeaderAComponent, HeaderBComponent, HeaderCComponent } from './components'
+import { CoreModule } from '@ionhour/core'
 
 @NgModule({
   declarations: [HeaderAComponent, HeaderBComponent, HeaderCComponent],
-  imports: [CommonModule]
+  imports: [CommonModule, CoreModule]
 })
 export class HeaderModule {}
 
+export const headerComponentData = {
+  sectionHead: 'Header',
+  image: './assets/500x300.png',
+  description:
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged.",
+  callToAction: {
+    value: 'Learn more',
+    url: '#'
+  }
+}
+
 export const headerFields = [
+  {
+    wrappers: ['panel'],
+    key: 'style',
+    fieldGroupClassName: 'row',
+    templateOptions: {
+      label: 'Section styles'
+    },
+    fieldGroup: [
+      {
+        className: 'col-12',
+        key: 'backgroundColor',
+        type: 'colorLibraryPicker',
+        templateOptions: {
+          label: 'Background Color'
+        }
+      },
+      {
+        className: 'col-12',
+        key: 'backgroundImage',
+        type: 'gallery',
+        templateOptions: {
+          label: 'Background Image'
+        }
+      },
+      {
+        className: 'col-6',
+        key: 'paddingTop',
+        type: 'slider',
+        templateOptions: {
+          label: 'Top Spacing',
+          min: 15,
+          max: 200
+        }
+      },
+      {
+        className: 'col-6',
+        key: 'paddingBottom',
+        type: 'slider',
+        templateOptions: {
+          label: 'Bottom Spacing',
+          min: 15,
+          max: 200
+        }
+      },
+      {
+        className: 'col-6',
+        key: 'paddingRight',
+        type: 'slider',
+        templateOptions: {
+          label: 'Right Spacing',
+          min: 15,
+          max: 200
+        }
+      },
+      {
+        className: 'col-6',
+        key: 'paddingLeft',
+        type: 'slider',
+        templateOptions: {
+          label: 'Left Spacing',
+          min: 15,
+          max: 200
+        }
+      }
+    ]
+  },
+  {
+    wrappers: ['panel'],
+    key: 'sectionOptions',
+    templateOptions: {
+      label: 'Section options'
+    },
+    fieldGroup: [
+      {
+        type: 'toggle',
+        key: 'fullWidth',
+        templateOptions: {
+          label: 'Full width'
+        }
+      }
+    ]
+  },
   {
     wrappers: ['panel'],
     templateOptions: { label: 'Edit Content' },

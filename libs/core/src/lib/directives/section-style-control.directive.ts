@@ -38,8 +38,8 @@ export class SectionStyleControlDirective implements OnInit, OnDestroy {
 
   handleSectionClasses() {
     this.appliedClasses = {
-      'container': !this.sectionOptions['fullWidth'],
-      'container-fluid': this.sectionOptions['fullWidth']
+      'container': !this.sectionOptions?.['fullWidth'],
+      'container-fluid': this.sectionOptions?.['fullWidth']
     }
   }
 

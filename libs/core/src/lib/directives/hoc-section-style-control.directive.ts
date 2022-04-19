@@ -25,12 +25,12 @@ export class HOCSectionStyleControlDirective implements OnInit, OnDestroy {
 
   handleSectionStyles() {
     this.appliedStyles = {
-      'background-color': this.styles['backgroundColor'],
-      'background-image': 'url(' + this.styles['backgroundImage'] + ')',
-      'padding-top': this.styles['paddingTop'] + 'px !important',
-      'padding-bottom': this.styles['paddingBottom'] + 'px !important',
-      'padding-left': this.styles['paddingLeft'] + 'px !important',
-      'padding-right': this.styles['paddingRight'] + 'px !important',
+      'background-color': this.styles?.['backgroundColor'],
+      'background-image': 'url(' + this.styles?.['backgroundImage'] + ')',
+      'padding-top': this.styles?.['paddingTop'] + 'px !important',
+      'padding-bottom': this.styles?.['paddingBottom'] + 'px !important',
+      'padding-left': this.styles?.['paddingLeft'] + 'px !important',
+      'padding-right': this.styles?.['paddingRight'] + 'px !important',
       'background-position': 'center',
       'background-size': 'cover'
     }

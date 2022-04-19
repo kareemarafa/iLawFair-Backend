@@ -19,7 +19,7 @@ import { PricesAComponent } from './lib/prices/components'
 import { StatisticsAComponent } from './lib/statistics/components'
 import { DividerAComponent } from './lib/divider/components'
 import { FooterAComponent, FooterBComponent } from './lib/footer/components'
-import { headerFields } from './lib/header/header.module'
+import { headerComponentData, headerFields } from './lib/header/header.module'
 import { actionFields } from './lib/action/action.module'
 import { priceComponentData, priceFields } from './lib/prices/prices.module'
 import { testimonialComponentData, testimonialFields } from './lib/testimonials/testimonials.module'
@@ -78,41 +78,19 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'HeaderAComponent',
         componentClass: HeaderAComponent,
-        componentData: {
-          sectionHead: 'Header',
-          image: './assets/500x300.png',
-          description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
-        },
+        componentData: headerComponentData,
         fields: headerFields
       },
       {
         componentName: 'HeaderBComponent',
         componentClass: HeaderBComponent,
-        componentData: {
-          sectionHead: 'Header',
-          image: './assets/500x300.png',
-          description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged.",
-          callToAction: {
-            value: 'Learn more',
-            url: '#'
-          }
-        },
+        componentData: headerComponentData,
         fields: headerFields
       },
       {
         componentName: 'HeaderCComponent',
         componentClass: HeaderCComponent,
-        componentData: {
-          sectionHead: 'Header',
-          description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged.",
-          video: {
-            poster: 'https://assets.codepen.io/6093409/river.jpg',
-            url: 'https://assets.codepen.io/6093409/river.mp4'
-          }
-        },
+        componentData: headerComponentData,
         fields: [
           ...headerFields,
           {
@@ -133,7 +111,7 @@ export const builderElements: ModuleInterface[] = [
               {
                 className: 'col-12',
                 key: 'url',
-                type: 'input',
+                type: 'gallery',
                 templateOptions: {
                   type: 'input',
                   label: 'Video',
