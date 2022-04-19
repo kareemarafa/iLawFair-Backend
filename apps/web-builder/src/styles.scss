@@ -5,6 +5,7 @@
 
 .about-section {
   gap: 15px;
+
   .card {
     border: none;
   }
@@ -12,6 +13,7 @@
 
 * {
   line-height: 30px;
+  //animation: all 1s ease;
 }
 
 a {
@@ -38,6 +40,7 @@ $light-gray1: #f3f3f3;
 
 .service-c {
   background-color: $light-gray1;
+
   .item {
     height: 185px;
   }
@@ -154,14 +157,17 @@ $light-gray1: #f3f3f3;
 
 .gallery-item {
   height: 300px;
+
   .image-cover {
     height: 200px;
     background-size: cover;
     background-position: center;
   }
 }
+
 .testimonial-item {
   height: 400px;
+
   .image-cover {
     height: 200px;
     background-size: cover;

@@ -21,7 +21,6 @@ export class ComponentDynamicFormComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.getComponent()
-
     this.form.valueChanges.pipe(takeWhile(() => this.alive)).subscribe((form) => {
       const changed = this.getDirtyValues(this.form)
       changed && this.elementsService.setContent({ componentName: this.component.componentName, componentData: form, changed })

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { ComponentControlDirective } from './directives'
+import { ComponentControlDirective, SectionStyleControlDirective } from './directives'
 import {
   ComponentControlComponent,
   ComponentDynamicFormComponent,
@@ -93,9 +93,10 @@ export function fieldMatchValidator(control: AbstractControl) {
     GalleryDialogComponent,
     MaterialPasswordTypeComponent,
     ColorPickerComponent,
-    FontSelectorComponent
+    FontSelectorComponent,
+    SectionStyleControlDirective
   ],
-  exports: [ComponentControlComponent, ComponentControlDirective, ComponentOptionComponent, ComponentDynamicFormComponent],
+  exports: [ComponentControlComponent, ComponentControlDirective, SectionStyleControlDirective, ComponentOptionComponent, ComponentDynamicFormComponent],
   providers: [ToasterService]
 })
 export class CoreModule {}

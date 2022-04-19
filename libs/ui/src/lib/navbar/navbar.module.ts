@@ -5,10 +5,11 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
 import { NavbarCComponent } from './components'
+import { CoreModule } from '@ionhour/core'
 
 @NgModule({
   declarations: [NavbarAComponent, NavbarBComponent, NavbarCComponent],
-  imports: [CommonModule, DragDropModule, MatButtonModule, MatIconModule],
+  imports: [CommonModule, DragDropModule, MatButtonModule, MatIconModule, CoreModule],
   exports: [NavbarAComponent]
 })
 export class NavbarModule {}
@@ -28,10 +29,98 @@ export const navbarComponentData = {
   },
   logo: {
     logoEnabled: false
+  },
+  style: {
+    backgroundColor: '#FFFFFF'
+  },
+  sectionOptions: {
+    fullWidth: false
   }
 }
 
 export const navbarFields = [
+  {
+    wrappers: ['panel'],
+    key: 'style',
+    fieldGroupClassName: 'row',
+    templateOptions: {
+      label: 'Section styles'
+    },
+    fieldGroup: [
+      {
+        className: 'col-12',
+        key: 'backgroundColor',
+        type: 'colorLibraryPicker',
+        templateOptions: {
+          label: 'Background Color'
+        }
+      },
+      {
+        className: 'col-12',
+        key: 'backgroundImage',
+        type: 'gallery',
+        templateOptions: {
+          label: 'Background Image'
+        }
+      },
+      {
+        className: 'col-6',
+        key: 'paddingTop',
+        type: 'slider',
+        templateOptions: {
+          label: 'Top Spacing',
+          min: 15,
+          max: 200
+        }
+      },
+      {
+        className: 'col-6',
+        key: 'paddingBottom',
+        type: 'slider',
+        templateOptions: {
+          label: 'Bottom Spacing',
+          min: 15,
+          max: 200
+        }
+      },
+      {
+        className: 'col-6',
+        key: 'paddingRight',
+        type: 'slider',
+        templateOptions: {
+          label: 'Right Spacing',
+          min: 15,
+          max: 200
+        }
+      },
+      {
+        className: 'col-6',
+        key: 'paddingLeft',
+        type: 'slider',
+        templateOptions: {
+          label: 'Left Spacing',
+          min: 15,
+          max: 200
+        }
+      }
+    ]
+  },
+  {
+    wrappers: ['panel'],
+    key: 'sectionOptions',
+    templateOptions: {
+      label: 'Section options'
+    },
+    fieldGroup: [
+      {
+        type: 'toggle',
+        key: 'fullWidth',
+        templateOptions: {
+          label: 'Full width'
+        }
+      }
+    ]
+  },
   {
     wrappers: ['panel'],
     templateOptions: { label: 'Title' },
@@ -150,6 +239,13 @@ export const navbarFields = [
           key: 'url',
           templateOptions: {
             label: 'URL'
+          }
+        },
+        {
+          type: 'colorLibraryPicker',
+          key: 'color',
+          templateOptions: {
+            label: 'Color'
           }
         }
       ]
