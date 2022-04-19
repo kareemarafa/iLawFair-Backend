@@ -1,64 +1,66 @@
-<section class="section bg-white">
-  <header class="blog-header p-3">
-    <div class="row flex-nowrap justify-content-between align-items-center">
-      <div class="col-4 pt-1">
-        <a class="text-muted themeFont" [href]="componentData?.callToAction?.url">{{ componentData?.callToAction?.value }}</a>
-      </div>
-      <div class="col-4 text-center">
-        <a
-          class="d-flex flex-column align-items-center"
-          [href]="componentData?.baseUrl"
-          [ngStyle]="{
-            'color': componentData?.titleColor && componentData?.titleColor,
-            'font-size': componentData?.titleFontSize && componentData?.titleFontSize + 'px'
-          }"
-        >
-          <div *ngIf="componentData?.logo?.logoEnabled">
-            <img [src]="componentData?.logo?.src" [alt]="componentData?.title" [width]="componentData?.logo?.width" [height]="componentData?.logo?.height" />
-          </div>
-          <h3
-            class="my-0 mr-md-auto font-weight-normal themeFont"
+<section class="section">
+  <div class="p-3" ionhourHOCSectionStyle [styles]="componentData?.style" [sectionOptions]="componentData?.sectionOptions">
+    <div class="blog-header" ionhourSectionStyle [styles]="componentData?.style" [sectionOptions]="componentData?.sectionOptions">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-4 pt-1">
+          <a class="text-muted themeFont" [href]="componentData?.callToAction?.url">{{ componentData?.callToAction?.value }}</a>
+        </div>
+        <div class="col-4 text-center">
+          <a
+            class="d-flex flex-column align-items-center"
+            [href]="componentData?.baseUrl"
             [ngStyle]="{
               'color': componentData?.titleColor && componentData?.titleColor,
               'font-size': componentData?.titleFontSize && componentData?.titleFontSize + 'px'
             }"
           >
-            {{ componentData?.title }}
-          </h3>
-        </a>
+            <div *ngIf="componentData?.logo?.logoEnabled">
+              <img [src]="componentData?.logo?.src" [alt]="componentData?.title" [width]="componentData?.logo?.width" [height]="componentData?.logo?.height" />
+            </div>
+            <h3
+              class="my-0 mr-md-auto font-weight-normal themeFont"
+              [ngStyle]="{
+                'color': componentData?.titleColor && componentData?.titleColor,
+                'font-size': componentData?.titleFontSize && componentData?.titleFontSize + 'px'
+              }"
+            >
+              {{ componentData?.title }}
+            </h3>
+          </a>
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+          <a class="text-muted" href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="mx-3"
+              role="img"
+              viewBox="0 0 24 24"
+              focusable="false"
+            >
+              <title class="themeFont">Search</title>
+              <circle cx="10.5" cy="10.5" r="7.5"></circle>
+              <path d="M21 21l-5.2-5.2"></path>
+            </svg>
+          </a>
+          <a class="btn btn-sm themeFont {{ componentData?.callToAction?.color ?? 'btn-outline-secondary' }}" [href]="componentData?.callToAction?.url">
+            {{ componentData?.callToAction?.value }}
+          </a>
+        </div>
       </div>
-      <div class="col-4 d-flex justify-content-end align-items-center">
-        <a class="text-muted" href="#">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            class="mx-3"
-            role="img"
-            viewBox="0 0 24 24"
-            focusable="false"
-          >
-            <title class="themeFont">Search</title>
-            <circle cx="10.5" cy="10.5" r="7.5"></circle>
-            <path d="M21 21l-5.2-5.2"></path>
-          </svg>
-        </a>
-        <a class="btn btn-sm themeFont {{ componentData?.callToAction?.color ?? 'btn-outline-secondary' }}" [href]="componentData?.callToAction?.url">
-          {{ componentData?.callToAction?.value }}
-        </a>
+      <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-around">
+          <ng-container *ngFor="let menuItem of componentData?.menuItems">
+            <a class="p-2 themeFont" [ngStyle]="{ color: menuItem?.color ?? '#e3e3e3' }" [href]="menuItem.url">{{ menuItem.value }}</a>
+          </ng-container>
+        </nav>
       </div>
     </div>
-  </header>
-  <div class="nav-scroller py-1 mb-2">
-    <nav class="nav d-flex justify-content-around">
-      <ng-container *ngFor="let menuItem of componentData?.menuItems">
-        <a class="p-2 text-muted themeFont" [href]="menuItem.url">{{ menuItem.value }}</a>
-      </ng-container>
-    </nav>
   </div>
 </section>

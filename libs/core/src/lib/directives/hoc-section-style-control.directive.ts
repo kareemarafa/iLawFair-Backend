@@ -3,9 +3,9 @@ import { ElementsService } from '../services'
 import { takeWhile } from 'rxjs'
 
 @Directive({
-  selector: '[ionhourSectionStyle]'
+  selector: '[ionhourHOCSectionStyle]'
 })
-export class SectionStyleControlDirective implements OnInit, OnDestroy {
+export class HOCSectionStyleControlDirective implements OnInit, OnDestroy {
   @Input() public styles!: Record<string, any>
   @Input() public sectionOptions!: Record<string, any>
   @HostBinding('style') appliedStyles!: Record<string, any>
@@ -25,21 +25,21 @@ export class SectionStyleControlDirective implements OnInit, OnDestroy {
 
   handleSectionStyles() {
     this.appliedStyles = {
-      // 'background-color': this.styles['backgroundColor'],
-      // 'background-image': 'url(' + this.styles['backgroundImage'] + ')',
-      // 'padding-top': this.styles['paddingTop'] + 'px !important',
-      // 'padding-bottom': this.styles['paddingBottom'] + 'px !important',
-      // 'padding-left': this.styles['paddingLeft'] + 'px !important',
-      // 'padding-right': this.styles['paddingRight'] + 'px !important',
-      // 'background-position': 'center',
-      // 'background-size': 'cover',
+      'background-color': this.styles['backgroundColor'],
+      'background-image': 'url(' + this.styles['backgroundImage'] + ')',
+      'padding-top': this.styles['paddingTop'] + 'px !important',
+      'padding-bottom': this.styles['paddingBottom'] + 'px !important',
+      'padding-left': this.styles['paddingLeft'] + 'px !important',
+      'padding-right': this.styles['paddingRight'] + 'px !important',
+      'background-position': 'center',
+      'background-size': 'cover'
     }
   }
 
   handleSectionClasses() {
     this.appliedClasses = {
-      'container': !this.sectionOptions['fullWidth'],
-      'container-fluid': this.sectionOptions['fullWidth']
+      // 'container': !this.sectionOptions['fullWidth'],
+      // 'container-fluid': this.sectionOptions['fullWidth']
     }
   }
 

@@ -1,6 +1,6 @@
 <section class="section">
-  <nav class="site-header sticky-top py-1">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
+  <div ionhourHOCSectionStyle [styles]="componentData?.style" [sectionOptions]="componentData?.sectionOptions">
+    <div ionhourSectionStyle [styles]="componentData?.style" [sectionOptions]="componentData?.sectionOptions" class="d-flex flex-column flex-md-row justify-content-between">
       <a class="d-flex justify-content-center align-items-center flex-row" [href]="componentData?.baseUrl">
         <div *ngIf="componentData?.logo?.logoEnabled" class="pe-2">
           <img [src]="componentData?.logo?.src" [alt]="componentData?.title" [width]="componentData?.logo?.width" [height]="componentData?.logo?.height" />
@@ -16,8 +16,8 @@
         </h3>
       </a>
       <ng-container *ngFor="let menuItem of componentData?.menuItems">
-        <a class="py-2 d-none d-md-inline-block themeFont" [href]="menuItem.url">{{ menuItem.value }}</a>
+        <a class="py-2 themeFont" [ngStyle]="{ color: menuItem?.color ?? '#333' }" [href]="menuItem.url">{{ menuItem.value }}</a>
       </ng-container>
     </div>
-  </nav>
+  </div>
 </section>
