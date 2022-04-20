@@ -10,7 +10,11 @@
     "build": "nx build",
     "test": "nx test",
     "serve:all": "nx run-many --parallel --target=serve --projects=api-builder,api-admin",
-    "serve:builder": "nx serve web-builder"
+    "serve:builder": "nx serve web-builder",
+    "release": "standard-version",
+    "commit": "cz",
+    "push": "git push --follow-tags",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@angular/animations": "13.3.3",
@@ -24,6 +28,8 @@
     "@angular/platform-browser": "13.3.3",
     "@angular/platform-browser-dynamic": "13.3.3",
     "@angular/router": "13.3.3",
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
     "@ctrl/ngx-chartjs": "^8.0.0",
     "@fortawesome/fontawesome-free": "^6.1.1",
     "@nestjs/common": "^8.0.0",
@@ -48,6 +54,7 @@
     "chart.js": "^3.7.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "cz": "^1.8.2",
     "multer": "^1.4.4",
     "mysql2": "^2.3.3",
     "ngx-color-picker": "^12.0.1",
@@ -58,6 +65,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.4.0",
     "serve": "^13.0.2",
+    "standard-version": "^9.3.2",
     "swagger-ui-express": "^4.3.0",
     "tslib": "^2.0.0",
     "typeorm": "^0.2.41",
@@ -92,7 +100,7 @@
     "eslint": "8.12.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
-    "husky": "^4.3.8",
+    "husky": "^7.0.4",
     "jest": "27.2.3",
     "jest-preset-angular": "11.1.1",
     "lint-staged": "^11.0.0",
@@ -115,5 +123,10 @@
       "eslint . --fix",
       "git add ."
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

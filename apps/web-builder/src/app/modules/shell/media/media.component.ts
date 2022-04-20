@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators'
 import { environment } from '../../../../environments/environment'
 import { FormGroup } from '@angular/forms'
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core'
+import {AuthService} from "../../auth/auth.service";
 
 @Component({
   selector: 'ionhour-media',
@@ -28,7 +29,7 @@ export class MediaComponent implements OnInit {
     }
   ]
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.loadList()
@@ -38,7 +39,7 @@ export class MediaComponent implements OnInit {
     const user = localStorage.getItem('user')
     const { id } = user && JSON.parse(user)
     return this.http
-      .get(`/api/media?filter=user.id||$eq||${id}&sort=createdDate,DESC`)
+      .get(`${environment.serverUrl}/api/media?filter=user.id||$eq||${id}&sort=createdDate,DESC`)
       .pipe(
         map((response: any) => {
           const data = response.data.map((item: any) => ({
@@ -52,13 +53,15 @@ export class MediaComponent implements OnInit {
   }
 
   async submit() {
+    const token = localStorage.getItem('auth')
     const headers = {
-      responseType: 'blob' as 'json'
+      responseType: 'blob' as 'json',
+      Authorization: `Bearer ${token}`
     }
     const formData = new FormData()
     const images: File[] = this.model?.image
     const file = images[0] as File
     formData.append('image', file, file.name)
-    return this.http.post('/api/media/upload', formData, { headers }).subscribe(() => this.loadList())
+    return this.http.post(`${environment.serverUrl}/api/media/upload`, formData, { headers }).subscribe(() => this.loadList())
   }
 }

@@ -123,6 +123,50 @@ export const navbarFields = [
   },
   {
     wrappers: ['panel'],
+    templateOptions: { label: 'Title' },
+    fieldGroupClassName: 'row',
+    fieldGroup: [
+      {
+        className: 'col-12',
+        key: 'baseUrl',
+        type: 'input',
+        templateOptions: {
+          type: 'input',
+          required: true,
+          label: 'Base URL'
+        }
+      },
+      {
+        className: 'col-9',
+        key: 'title',
+        type: 'input',
+        templateOptions: {
+          label: 'Title',
+          required: true
+        }
+      },
+      {
+        className: 'col-3',
+        key: 'titleColor',
+        type: 'colorLibraryPicker',
+        templateOptions: {
+          label: 'Title Color'
+        }
+      },
+      {
+        className: 'col-12',
+        key: 'titleFontSize',
+        type: 'slider',
+        templateOptions: {
+          min: 10,
+          max: 40,
+          label: 'Title font size'
+        }
+      }
+    ]
+  },
+  {
+    wrappers: ['panel'],
     key: 'logo',
     fieldGroupClassName: 'row',
     templateOptions: {
