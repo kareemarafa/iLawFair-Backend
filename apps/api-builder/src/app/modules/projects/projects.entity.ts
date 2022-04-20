@@ -8,6 +8,12 @@ import { User } from '../users/users.entity'
 
 const { CREATE, UPDATE } = CrudValidationGroups
 
+export enum builderType {
+  SINGLEPAGE = 'SinglePage',
+  MULTIPLEPAGES = 'MultiplePages'
+}
+
+
 @Entity('projects')
 export class Project extends CoreEntity {
   @IsNotEmpty({ groups: [CREATE] })
@@ -67,6 +73,31 @@ export class Project extends CoreEntity {
   @Column({ type: 'varchar', nullable: false })
   @ApiProperty({ required: true, type: 'string', nullable: false })
   projectName: string
+
+
+  @IsNotEmpty({ groups: [CREATE] })
+  @IsOptional({ groups: [UPDATE] })
+  @IsString({ always: true })
+  @Column({ type: 'varchar', nullable: false })
+  @ApiProperty({ required: true, type: 'string', nullable: false })
+  facebookUrl: string
+
+  @IsNotEmpty({ groups: [CREATE] })
+  @IsOptional({ groups: [UPDATE] })
+  @IsString({ always: true })
+  @Column({ type: 'varchar', nullable: false })
+  @ApiProperty({ required: true, type: 'string', nullable: false })
+  instagramUrl: string
+
+  @IsNotEmpty({ groups: [CREATE] })
+  @IsOptional({ groups: [UPDATE] })
+  @IsString({ always: true })
+  @Column({ type: 'varchar', nullable: false })
+  @ApiProperty({ required: true, type: 'string', nullable: false })
+  twitterUrl: string
+
+  @Column({type: 'enum', enum: builderType })
+  builderType: builderType
 
   @OneToMany(() => Page, (page) => page.project)
   pages: Page[]
