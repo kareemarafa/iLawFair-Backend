@@ -103,7 +103,53 @@ export class ProjectsFormComponent implements OnInit, OnDestroy {
             placeholder: 'Enter description',
             required: true
           }
-        }
+        },
+        {
+          key: 'facebookUrl',
+          type: 'input',
+          templateOptions: {
+            type: 'text',
+            label: 'Facebook URL',
+            placeholder: 'Enter Facebook URL',
+          }
+        },
+      {
+          key: 'instagramUrl',
+          type: 'input',
+          templateOptions: {
+            type: 'text',
+            label: 'Instagram URL',
+            placeholder: 'Enter Instagram URL',
+          }
+        },
+      {
+          key: 'twitterUrl',
+          type: 'input',
+          templateOptions: {
+            type: 'text',
+            label: 'Twitter URL',
+            placeholder: 'Enter Twitter URL',
+          }
+        },
+      {
+          key: 'builderType',
+          type: 'select',
+          templateOptions: {
+            label: 'Builder type',
+            required: true,
+            description: 'For Demo Purpose, It will not be exist at production',
+            options: [
+              {
+                label: 'Single Page',
+                value: 'single',
+              },
+              {
+                label: 'Multiple Pages',
+                value: 'multi',
+              },
+            ]
+          }
+        },
       ]
     }
   ]
