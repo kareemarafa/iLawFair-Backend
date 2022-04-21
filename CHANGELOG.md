@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/kareemarafa/ionhour-web-me/compare/v0.0.3...v0.0.4) (2022-04-21)
+
+
+### Features
+
+* **projects service:** update project validation ([306d632](https://github.com/kareemarafa/ionhour-web-me/commit/306d6328b2b2b9476ce01a043c6832bb7d2446dc))
+
 ### [0.0.3](https://github.com/kareemarafa/ionhour-web-me/compare/v0.0.2...v0.0.3) (2022-04-20)
 
 
