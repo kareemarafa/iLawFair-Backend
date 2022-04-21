@@ -5,13 +5,9 @@ import {IsEnum, IsNotEmpty, IsOptional, IsString, MaxLength} from 'class-validat
 import {ApiProperty} from '@nestjs/swagger'
 import {Page} from '../pages/pages.entity'
 import {User} from '../users/users.entity'
+import {BuilderType} from "@ionhour/interfaces";
 
 const {CREATE, UPDATE} = CrudValidationGroups
-
-export enum BuilderType {
-  SINGLE_PAGE = 'single',
-  MULTIPLE_PAGES = 'multi'
-}
 
 
 @Entity('projects')

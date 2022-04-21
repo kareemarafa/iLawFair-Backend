@@ -1,21 +1,37 @@
 <mat-toolbar color="primary" class="bg-custom custom-navbar mb-3" [ngStyle]="{ top: preview ? '-80px' : '0px' }">
-  <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+  <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
   <button mat-icon-button [matTooltip]="'Dashboard'" (click)="backToDashboard()">
     <mat-icon>chevron_left</mat-icon>
   </button>
 
-  <img src="assets/logo.png" alt="WebMe" width="50" />
+  <img src="assets/logo.png" alt="WebMe" width="50"/>
 
   <button class="mx-3" mat-icon-button [matTooltip]="'Manage sections'" (click)="drawer.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
 
-  <button mat-raised-button class="example-icon favorite-icon" [matMenuTriggerFor]="menu" [matTooltip]="'Project pages'" aria-label="Example icon-button with heart icon">
-    <mat-icon>article</mat-icon>
-    {{ currentPage?.pageName ?? 'Manage pages' }}
-  </button>
+  <ng-container *ngIf="(item$ | async)?.builderType === 'multi'">
+    <button mat-raised-button class="example-icon favorite-icon" [matMenuTriggerFor]="menu"
+            [matTooltip]="'Project pages'" aria-label="Example icon-button with heart icon">
+      <mat-icon>article</mat-icon>
+      {{ currentPage?.pageName ?? 'Manage pages' }}
+    </button>
+  </ng-container>
+
+  <ng-container *ngIf="(item$ | async)?.builderType === 'single' && (item$ | async)?.pages?.length === 0">
+    <button mat-raised-button class="example-icon favorite-icon" (click)="navigateToPageForm()">
+      <span>Add your page</span>
+    </button>
+  </ng-container>
+
+  <ng-container *ngIf="(item$ | async)?.builderType === 'single'">
+    <button mat-raised-button class="example-icon favorite-icon" (click)="navigateToPageForm(currentPage)">
+      <span>Manage {{(item$ | async)?.pages?.[0]?.pageName}}</span>
+    </button>
+  </ng-container>
 
   <mat-menu backdropClass="pages-menu" #menu="matMenu">
     <button mat-menu-item (click)="navigateToPageForm()">
@@ -39,16 +55,20 @@
   </mat-menu>
 
   <div fxFlex fxLayoutAlign="end" fxLayout="row" fxLayoutGap="5">
-    <button mat-icon-button class="example-icon favorite-icon" [matTooltip]="'undo'" aria-label="Example icon-button with heart icon">
+    <button mat-icon-button class="example-icon favorite-icon" [matTooltip]="'undo'"
+            aria-label="Example icon-button with heart icon">
       <mat-icon>undo</mat-icon>
     </button>
     <button mat-icon-button class="example-icon" [matTooltip]="'redo'" aria-label="Example icon-button with share icon">
       <mat-icon>redo</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon favorite-icon" [matTooltip]="'mobile view'" aria-label="Example icon-button with heart icon">
+    <button mat-icon-button class="example-icon favorite-icon" [matTooltip]="'mobile view'"
+            aria-label="Example icon-button with heart icon">
       <mat-icon>phone_android</mat-icon>
     </button>
-    <button mat-raised-button color="primary" (click)="drawer.close(); sidenavComponentOption.close(); preview = true">Preview</button>
+    <button mat-raised-button color="primary" (click)="drawer.close(); sidenavComponentOption.close(); preview = true">
+      Preview
+    </button>
     <button mat-raised-button color="warn" (click)="updatePageContent()">Save</button>
   </div>
 </mat-toolbar>
@@ -81,7 +101,8 @@
     <ionhour-component-dynamic-form></ionhour-component-dynamic-form>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div class="left-panel" [ngStyle]="{ right: sidenavComponentOption.opened ? '333.3px' : 0, opacity: sidenavComponentOption.opened ? 1 : 0 }">
+    <div class="left-panel"
+         [ngStyle]="{ right: sidenavComponentOption.opened ? '333.3px' : 0, opacity: sidenavComponentOption.opened ? 1 : 0 }">
       <button class="btn btn-sm btn-outline-danger close-button" (click)="sidenavComponentOption.close()">
         <mat-icon aria-hidden="false">close</mat-icon>
       </button>

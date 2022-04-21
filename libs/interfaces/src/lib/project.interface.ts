@@ -1,4 +1,5 @@
 import { PageInterface } from './page.interface'
+import {BuilderType} from "@ionhour/interfaces";
 
 export interface Project {
   id?: number
@@ -11,4 +12,5 @@ export interface Project {
   pages: PageInterface[]
   scripts?: string
   styles?: string
+  builderType: BuilderType
 }
