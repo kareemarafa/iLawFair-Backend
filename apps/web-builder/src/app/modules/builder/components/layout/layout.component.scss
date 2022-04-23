@@ -61,3 +61,7 @@
   z-index: 2;
   transition: all 0.24s;
 }
+
+::ng-deep .fixed-top {
+  position: relative;
+}

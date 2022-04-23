@@ -118,6 +118,23 @@ export const navbarFields = [
         templateOptions: {
           label: 'Full width'
         }
+      },
+      {
+        type: 'select',
+        key: 'appearance',
+        templateOptions: {
+          label: 'Appearance',
+          options: [
+            {
+              label: 'Normal',
+              value: 'normal'
+            },
+            {
+              label: 'Sticky',
+              value: 'sticky'
+            }
+          ]
+        }
       }
     ]
   },

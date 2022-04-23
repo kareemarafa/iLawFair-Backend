@@ -38,6 +38,7 @@ export class HOCSectionStyleControlDirective implements OnInit, OnDestroy {
 
   handleSectionClasses() {
     this.appliedClasses = {
+      'fixed-top': this.sectionOptions?.['appearance'] === 'sticky'
       // 'container': !this.sectionOptions['fullWidth'],
       // 'container-fluid': this.sectionOptions['fullWidth']
     }
