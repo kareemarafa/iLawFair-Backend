@@ -1,27 +1,28 @@
-import { NgModule } from '@angular/core'
-import { CommonModule } from '@angular/common'
-import { NavbarAComponent, NavbarBComponent } from './components'
-import { DragDropModule } from '@angular/cdk/drag-drop'
-import { MatButtonModule } from '@angular/material/button'
-import { MatIconModule } from '@angular/material/icon'
-import { NavbarCComponent } from './components'
-import { CoreModule } from '@ionhour/core'
+import {NgModule} from '@angular/core'
+import {CommonModule} from '@angular/common'
+import {NavbarAComponent, NavbarBComponent} from './components'
+import {DragDropModule} from '@angular/cdk/drag-drop'
+import {MatButtonModule} from '@angular/material/button'
+import {MatIconModule} from '@angular/material/icon'
+import {NavbarCComponent} from './components'
+import {CoreModule} from '@ionhour/core'
 
 @NgModule({
   declarations: [NavbarAComponent, NavbarBComponent, NavbarCComponent],
   imports: [CommonModule, DragDropModule, MatButtonModule, MatIconModule, CoreModule],
   exports: [NavbarAComponent]
 })
-export class NavbarModule {}
+export class NavbarModule {
+}
 
 export const navbarComponentData = {
   title: 'Example',
   titleFontSize: 15,
   menuItems: [
-    { value: 'Home', url: '#' },
-    { value: 'About', url: '#' },
-    { value: 'Career', url: '#' },
-    { value: 'Contact', url: '#' }
+    {value: 'Home', url: '#'},
+    {value: 'About', url: '#'},
+    {value: 'Career', url: '#'},
+    {value: 'Contact', url: '#'}
   ],
   callToAction: {
     value: 'Call to Action',
@@ -135,12 +136,20 @@ export const navbarFields = [
             }
           ]
         }
-      }
+      },
+      {
+        className: 'col-12',
+        type: 'toggle',
+        key: 'menuItemsEnabled',
+        templateOptions: {
+          label: 'Show menu items'
+        }
+      },
     ]
   },
   {
     wrappers: ['panel'],
-    templateOptions: { label: 'Title' },
+    templateOptions: {label: 'Title'},
     fieldGroupClassName: 'row',
     fieldGroup: [
       {
@@ -154,21 +163,31 @@ export const navbarFields = [
         }
       },
       {
+        className: 'col-12',
+        type: 'toggle',
+        key: 'titleEnabled',
+        templateOptions: {
+          label: 'Show title'
+        }
+      },
+      {
         className: 'col-9',
         key: 'title',
         type: 'input',
         templateOptions: {
           label: 'Title',
-          required: true
-        }
+          required: true,
+        },
+        hideExpression: (model: any) => !model.titleEnabled
       },
       {
         className: 'col-3',
         key: 'titleColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Title Color'
-        }
+          label: 'Title Color',
+        },
+        hideExpression: (model: any) => !model.titleEnabled
       },
       {
         className: 'col-12',
@@ -177,9 +196,27 @@ export const navbarFields = [
         templateOptions: {
           min: 10,
           max: 40,
-          label: 'Title font size'
+          label: 'Title font size',
+        },
+        hideExpression: (model: any) => !model.titleEnabled
+      },
+      {
+        className: 'col-12',
+        type: 'toggle',
+        key: 'sloganEnabled',
+        templateOptions: {
+          label: 'Show slogan'
         }
-      }
+      },
+      {
+        className: 'col-9',
+        key: 'slogan',
+        type: 'input',
+        templateOptions: {
+          label: 'Slogan',
+        },
+        hideExpression: (model: any) => !model.sloganEnabled
+      },
     ]
   },
   {
@@ -264,7 +301,7 @@ export const navbarFields = [
             label: 'Color'
           }
         }
-      ]
+      ],
     }
   },
   {

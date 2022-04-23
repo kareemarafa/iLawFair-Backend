@@ -1,22 +1,31 @@
 <section class="section">
   <div ionhourHOCSectionStyle [styles]="componentData?.style" [sectionOptions]="componentData?.sectionOptions">
-    <div ionhourSectionStyle [styles]="componentData?.style" [sectionOptions]="componentData?.sectionOptions" class="d-flex flex-column flex-md-row justify-content-between">
+    <div ionhourSectionStyle [styles]="componentData?.style" [sectionOptions]="componentData?.sectionOptions"
+         class="d-flex flex-column flex-md-row justify-content-between align-items-center">
       <a class="d-flex justify-content-center align-items-center flex-row" [href]="componentData?.baseUrl">
         <div *ngIf="componentData?.logo?.logoEnabled" class="pe-2">
-          <img [src]="componentData?.logo?.src" [alt]="componentData?.title" [width]="componentData?.logo?.width" [height]="componentData?.logo?.height" />
+          <img [src]="componentData?.logo?.src" [alt]="componentData?.title" [width]="componentData?.logo?.width"
+               [height]="componentData?.logo?.height"/>
         </div>
-        <h3
-          class="my-0 mr-md-auto font-weight-normal themeFont"
-          [ngStyle]="{
+        <div class="d-flex flex-column">
+          <h3
+            class="my-0 mr-md-auto font-weight-normal themeFont"
+            *ngIf="componentData?.titleEnabled"
+            [ngStyle]="{
             'color': componentData?.titleColor && componentData?.titleColor,
             'font-size': componentData?.titleFontSize && componentData?.titleFontSize + 'px'
           }"
-        >
-          {{ componentData?.title }}
-        </h3>
+          >
+            {{ componentData?.title }}
+          </h3>
+          <small class="text-muted" *ngIf="componentData?.sloganEnabled">{{ componentData?.slogan }}</small>
+        </div>
       </a>
-      <ng-container *ngFor="let menuItem of componentData?.menuItems">
-        <a class="py-2 themeFont" [ngStyle]="{ color: menuItem?.color ?? '#333' }" [href]="menuItem.url">{{ menuItem.value }}</a>
+      <ng-container *ngIf="componentData?.sectionOptions?.menuItemsEnabled">
+        <div *ngFor="let menuItem of componentData?.menuItems">
+          <a class="py-2 themeFont" [ngStyle]="{ color: menuItem?.color ?? '#333' }"
+             [href]="menuItem.url">{{ menuItem.value }}</a>
+        </div>
       </ng-container>
     </div>
   </div>

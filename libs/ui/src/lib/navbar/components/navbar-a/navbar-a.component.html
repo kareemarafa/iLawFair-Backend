@@ -1,35 +1,44 @@
 <section class="section">
-  <div ionhourHOCSectionStyle [styles]="componentData?.style" [sectionOptions]="componentData?.sectionOptions" class="shadow-sm border-bottom">
+  <div ionhourHOCSectionStyle [styles]="componentData?.style" [sectionOptions]="componentData?.sectionOptions"
+       class="shadow-sm border-bottom">
     <div
       ionhourSectionStyle
       [styles]="componentData?.style"
       [sectionOptions]="componentData?.sectionOptions"
       class="justify-content-between d-flex flex-column flex-md-row align-items-center p-3 px-md-4"
     >
-      <a *ngIf="componentData?.logo" [href]="componentData?.baseUrl" class="d-flex align-items-center justify-content-center">
+      <a *ngIf="componentData?.logo" [href]="componentData?.baseUrl"
+         class="d-flex align-items-center justify-content-center">
         <span class="navbar-brand" *ngIf="componentData?.logo?.logoEnabled">
-          <img [src]="componentData?.logo?.src" [alt]="componentData?.title" [width]="componentData?.logo?.width" [height]="componentData?.logo?.height" />
+          <img [src]="componentData?.logo?.src" [alt]="componentData?.title" [width]="componentData?.logo?.width"
+               [height]="componentData?.logo?.height"/>
         </span>
-        <h3
-          class="my-0 mr-md-auto font-weight-normal themeFont"
-          [ngStyle]="{
+        <div class="d-flex flex-column">
+          <h3
+            *ngIf="componentData?.titleEnabled"
+            class="my-0 mr-md-auto font-weight-normal themeFont"
+            [ngStyle]="{
             'color': componentData?.titleColor && componentData?.titleColor,
             'font-size': componentData?.titleFontSize && componentData?.titleFontSize + 'px'
           }"
-        >
-          {{ componentData?.title }}
-        </h3>
+          >
+            {{ componentData?.title }}
+          </h3>
+          <small class="text-muted" *ngIf="componentData?.sloganEnabled">{{ componentData?.slogan }}</small>
+        </div>
       </a>
 
-      <div class="d-flex align-items-center">
+      <div class="d-flex align-items-center" *ngIf="componentData?.sectionOptions?.menuItemsEnabled">
         <nav class="my-2 my-md-0 mr-md-3">
           <ng-container *ngFor="let menuItem of componentData?.menuItems">
-            <a class="p-2 themeFont" [ngStyle]="{ color: menuItem?.color ?? '#333' }" [href]="menuItem.url">{{ menuItem.value }}</a>
+            <a class="p-2 themeFont" [ngStyle]="{ color: menuItem?.color ?? '#333' }"
+               [href]="menuItem.url">{{ menuItem.value }}</a>
           </ng-container>
         </nav>
-        <a class="btn themeFont {{ componentData?.callToAction?.color ?? 'btn-outline-primary' }}" [href]="componentData?.callToAction?.url">{{
+        <a class="btn themeFont {{ componentData?.callToAction?.color ?? 'btn-outline-primary' }}"
+           [href]="componentData?.callToAction?.url">{{
           componentData?.callToAction?.value
-        }}</a>
+          }}</a>
       </div>
     </div>
   </div>
