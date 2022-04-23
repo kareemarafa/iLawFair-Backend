@@ -24,6 +24,15 @@ export class ElementListComponent implements OnInit {
       this.elementService.setCurrentElement(name)
     } else {
       this.elementService.setCurrentElement(null)
+      // Get indexes of module's nested items
+      // Delete them
+        const moduleComponents = builderElements.filter(e => e.moduleName === name)[0]
+        moduleComponents.components.forEach(com => {
+          const index = this.elementService.components.indexOf(com, 0);
+          if (index > -1) {
+            this.elementService.delete(index)
+          }
+        })
     }
   }
 

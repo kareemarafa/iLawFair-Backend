@@ -43,6 +43,7 @@ export class ElementsService {
   }
 
   delete(index: number) {
+    console.log(this.components)
     this.components.splice(index, 1)
     this.components$.next(this.components)
   }
