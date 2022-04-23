@@ -118,6 +118,34 @@ export const footerFields = [
   },
   {
     wrappers: ['panel'],
+    templateOptions: { label: 'Social media' },
+    fieldGroupClassName: 'row',
+    fieldGroup: [
+      {
+        type: 'input',
+        key: 'facebook',
+        templateOptions: {
+          label: 'Facebook'
+        }
+      },
+      {
+        type: 'input',
+        key: 'twitter',
+        templateOptions: {
+          label: 'Twitter'
+        }
+      },
+      {
+        type: 'input',
+        key: 'linkedin',
+        templateOptions: {
+          label: 'LinkedIn'
+        }
+      }
+    ]
+  },
+  {
+    wrappers: ['panel'],
     key: 'sections',
     type: 'repeat',
     templateOptions: {
