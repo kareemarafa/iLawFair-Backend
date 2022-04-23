@@ -100,7 +100,7 @@ $light-gray1: #f3f3f3;
   }
 }
 
-.team-b {
+.team-b, .team-a {
   .link {
     width: 50px;
     height: 50px;
@@ -184,6 +184,10 @@ $light-gray1: #f3f3f3;
   border-radius: 50%;
   font-size: 50px;
   margin: 0 10px;
+}
+
+.themeFont {
+  font-family: var(--theme-font) !important;
 }
 
 @media (min-width: 768px) {

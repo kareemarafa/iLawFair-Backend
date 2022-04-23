@@ -14,9 +14,6 @@
 }
 
 ::ng-deep .preview-components {
-  .themeFont {
-    font-family: var(--theme-font) !important;
-  }
   display: flex;
   flex-direction: column;
   gap: 5px;

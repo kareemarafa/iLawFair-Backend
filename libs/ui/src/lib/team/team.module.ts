@@ -101,6 +101,27 @@ export const teamFields = [
           templateOptions: {
             label: 'Image'
           }
+        },
+        {
+          type: 'input',
+          key: 'facebook',
+          templateOptions: {
+            label: 'Facebook'
+          }
+        },
+        {
+          type: 'input',
+          key: 'twitter',
+          templateOptions: {
+            label: 'Twitter'
+          }
+        },
+        {
+          type: 'input',
+          key: 'linkedin',
+          templateOptions: {
+            label: 'LinkedIn'
+          }
         }
       ]
     }

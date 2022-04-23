@@ -284,9 +284,6 @@
             "inlineStyleLanguage": "scss",
             "assets": ["apps/web-builder/src/favicon.ico", "apps/web-builder/src/assets"],
             "styles": [
-              "./node_modules/@fortawesome/fontawesome-free/css/fontawesome.css",
-              "./node_modules/@fortawesome/fontawesome-free/css/brands.css",
-              "./node_modules/@fortawesome/fontawesome-free/css/solid.css",
               "apps/web-builder/src/styles.scss"
             ],
             "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.js"]
