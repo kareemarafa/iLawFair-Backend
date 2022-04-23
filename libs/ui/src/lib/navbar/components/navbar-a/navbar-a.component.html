@@ -1,4 +1,14 @@
 <section class="section">
+  <template #htmlTemplate>
+    <div class="d-flex flex-row">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary btn-sm btn-group-sm">Left</button>
+        <button type="button" class="btn btn-secondary btn-sm btn-group-sm">Middle</button>
+        <button type="button" class="btn btn-secondary btn-sm btn-group-sm">Right</button>
+      </div>
+    </div>
+  </template>
+
   <div ionhourHOCSectionStyle [styles]="componentData?.style" [sectionOptions]="componentData?.sectionOptions"
        class="shadow-sm border-bottom">
     <div
@@ -7,7 +17,7 @@
       [sectionOptions]="componentData?.sectionOptions"
       class="justify-content-between d-flex flex-column flex-md-row align-items-center p-3 px-md-4"
     >
-      <a *ngIf="componentData?.logo" [href]="componentData?.baseUrl"
+      <div *ngIf="componentData?.logo"
          class="d-flex align-items-center justify-content-center">
         <span class="navbar-brand" *ngIf="componentData?.logo?.logoEnabled">
           <img [src]="componentData?.logo?.src" [alt]="componentData?.title" [width]="componentData?.logo?.width"
@@ -15,6 +25,8 @@
         </span>
         <div class="d-flex flex-column">
           <h3
+            [ngxTippy]="htmlTemplate"
+            [tippyProps]="templateRef"
             *ngIf="componentData?.titleEnabled"
             class="my-0 mr-md-auto font-weight-normal themeFont"
             [ngStyle]="{
@@ -26,7 +38,7 @@
           </h3>
           <small class="text-muted" *ngIf="componentData?.sloganEnabled">{{ componentData?.slogan }}</small>
         </div>
-      </a>
+      </div>
 
       <div class="d-flex align-items-center" *ngIf="componentData?.sectionOptions?.menuItemsEnabled">
         <nav class="my-2 my-md-0 mr-md-3">

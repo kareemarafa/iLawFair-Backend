@@ -45,6 +45,7 @@ export * from './lib/statistics/statistics.module'
 export * from './lib/prices/prices.module'
 export * from './lib/testimonials/testimonials.module'
 export * from './lib/divider/divider.module'
+export * from './lib/social-media/social-media.module'
 
 export * from './lib/navbar/components'
 

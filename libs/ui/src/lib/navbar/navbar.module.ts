@@ -6,11 +6,13 @@ import {MatButtonModule} from '@angular/material/button'
 import {MatIconModule} from '@angular/material/icon'
 import {NavbarCComponent} from './components'
 import {CoreModule} from '@ionhour/core'
+import {NgxTippyModule, NgxTippyService} from 'ngx-tippy-wrapper';
 
 @NgModule({
   declarations: [NavbarAComponent, NavbarBComponent, NavbarCComponent],
-  imports: [CommonModule, DragDropModule, MatButtonModule, MatIconModule, CoreModule],
-  exports: [NavbarAComponent]
+  imports: [CommonModule, DragDropModule, MatButtonModule, MatIconModule, CoreModule, NgxTippyModule],
+  exports: [NavbarAComponent],
+  providers: [NgxTippyService]
 })
 export class NavbarModule {
 }
@@ -171,7 +173,7 @@ export const navbarFields = [
         }
       },
       {
-        className: 'col-9',
+        className: 'col-7',
         key: 'title',
         type: 'input',
         templateOptions: {
@@ -181,11 +183,11 @@ export const navbarFields = [
         hideExpression: (model: any) => !model.titleEnabled
       },
       {
-        className: 'col-3',
+        className: 'col-5',
         key: 'titleColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Title Color',
+          label: 'Color',
         },
         hideExpression: (model: any) => !model.titleEnabled
       },
@@ -209,7 +211,7 @@ export const navbarFields = [
         }
       },
       {
-        className: 'col-9',
+        className: 'col-12',
         key: 'slogan',
         type: 'input',
         templateOptions: {
@@ -247,9 +249,9 @@ export const navbarFields = [
       {
         className: 'col-6',
         key: 'width',
-        type: 'input',
+        type: 'slider',
         templateOptions: {
-          min: 50,
+          min: 25,
           max: 250,
           type: 'number',
           label: 'Logo width'
@@ -259,9 +261,9 @@ export const navbarFields = [
       {
         className: 'col-6',
         key: 'height',
-        type: 'input',
+        type: 'slider',
         templateOptions: {
-          min: 50,
+          min: 25,
           max: 250,
           type: 'number',
           label: 'Logo height'

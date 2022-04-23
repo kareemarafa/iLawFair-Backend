@@ -2,6 +2,13 @@
 
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '~bootstrap/scss/bootstrap';
+@import '~tippy.js/dist/tippy.css';
+
+formly-field ionhour-color-picker .color-picker {
+  //position: absolute;
+  //left: 120px;
+  //top: 0;
+}
 
 .about-section {
   gap: 15px;

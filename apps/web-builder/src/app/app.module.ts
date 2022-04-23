@@ -33,7 +33,7 @@ import { APP_CONFIG } from '@ionhour/core'
       provide: APP_CONFIG,
       useValue: environment,
       multi: true
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })

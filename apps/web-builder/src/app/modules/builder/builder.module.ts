@@ -19,7 +19,8 @@ import {
   PricesModule,
   ContactModule,
   TestimonialsModule,
-  DividerModule
+  DividerModule,
+  SocialMediaModule
 } from '@ionhour/ui'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { ElementListComponent, SubElementListComponent, PageFormDialogComponent } from './components'
@@ -37,7 +38,6 @@ import { FormlyMatSliderModule } from '@ngx-formly/material/slider'
 import { FormlyMatToggleModule } from '@ngx-formly/material/toggle'
 import { FormlyMaterialModule } from '@ngx-formly/material'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
-import { SocialMediaModule } from '../../../../../../libs/ui/src/lib/social-media/social-media.module'
 
 @NgModule({
   declarations: [LayoutComponent, ElementListComponent, SubElementListComponent, WrapperComponent, PageFormDialogComponent],
