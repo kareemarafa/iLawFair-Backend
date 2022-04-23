@@ -6,8 +6,14 @@
           <div class="d-flex justify-content-center">
             <h1 class="font-bold themeFont" [ngStyle]="{ color: componentData?.sectionHeadColor }">{{ componentData?.sectionHead }}</h1>
           </div>
-          <div class="row flex-row-reverse align-items-center justify-content-between">
-            <div class="col">
+          <div class="row flex-row align-items-center justify-content-between">
+            <div [class]="componentData?.descriptionColumnSize ? 'col-' + componentData?.descriptionColumnSize : 'col'">
+              <img class="img-thumbnail" *ngIf="!componentData?.isVideo" [src]="componentData.image" [alt]="componentData?.title" loading="lazy" />
+              <video class="video img-thumbnail" autoplay loop [muted]="true" *ngIf="componentData?.isVideo" [poster]="componentData.image" preload="metadata">
+                <source [src]="componentData?.video" type="video/mp4" />
+              </video>
+            </div>
+            <div [class]="componentData?.titleColumnSize ? 'col-' + componentData?.titleColumnSize : 'col'">
               <h2
                 class="m-0 themeFont"
                 [ngStyle]="{
@@ -26,12 +32,6 @@
               >
                 {{ componentData?.description }}
               </p>
-            </div>
-            <div class="col">
-              <img class="img-thumbnail" *ngIf="!componentData?.isVideo" [src]="componentData.image" [alt]="componentData?.title" loading="lazy" />
-              <video class="video img-thumbnail" autoplay loop [muted]="true" *ngIf="componentData?.isVideo" [poster]="componentData.image" preload="metadata">
-                <source [src]="componentData?.video" type="video/mp4" />
-              </video>
             </div>
           </div>
         </div>

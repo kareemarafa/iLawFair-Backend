@@ -93,7 +93,27 @@ export const aboutFields: FormlyFieldConfig[] = [
           max: 20,
           label: 'Description font size'
         }
-      }
+      },
+      {
+        className: 'col-6',
+        key: 'titleColumnSize',
+        type: 'slider',
+        templateOptions: {
+          min: 3,
+          max: 9,
+          label: 'Title column size'
+        }
+      },
+      {
+        className: 'col-6',
+        key: 'descriptionColumnSize',
+        type: 'slider',
+        templateOptions: {
+          min: 3,
+          max: 9,
+          label: 'Description column size'
+        }
+      },
     ]
   },
   {
