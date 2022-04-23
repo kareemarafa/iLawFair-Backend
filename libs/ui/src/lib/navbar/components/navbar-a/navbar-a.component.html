@@ -1,11 +1,17 @@
 <section class="section">
   <template #htmlTemplate>
     <div class="d-flex flex-row">
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary btn-sm btn-group-sm">Left</button>
-        <button type="button" class="btn btn-secondary btn-sm btn-group-sm">Middle</button>
-        <button type="button" class="btn btn-secondary btn-sm btn-group-sm">Right</button>
-      </div>
+      <mat-button-toggle-group name="text_transform" aria-label="text_transform" multiple>
+        <mat-button-toggle value="bold" [matTooltip]="'Bold'">
+          <mat-icon>format_bold</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle value="italic" [matTooltip]="'italic'">
+          <mat-icon>format_italic</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle value="underline" [matTooltip]="'underline'">
+          <mat-icon>format_underline</mat-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
     </div>
   </template>
 

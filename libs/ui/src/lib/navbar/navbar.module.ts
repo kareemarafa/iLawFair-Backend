@@ -7,10 +7,12 @@ import {MatIconModule} from '@angular/material/icon'
 import {NavbarCComponent} from './components'
 import {CoreModule} from '@ionhour/core'
 import {NgxTippyModule, NgxTippyService} from 'ngx-tippy-wrapper';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [NavbarAComponent, NavbarBComponent, NavbarCComponent],
-  imports: [CommonModule, DragDropModule, MatButtonModule, MatIconModule, CoreModule, NgxTippyModule],
+  imports: [CommonModule, DragDropModule, MatButtonModule, MatIconModule, CoreModule, NgxTippyModule, MatButtonToggleModule, MatTooltipModule],
   exports: [NavbarAComponent],
   providers: [NgxTippyService]
 })

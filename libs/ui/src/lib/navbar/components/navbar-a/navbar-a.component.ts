@@ -11,7 +11,7 @@ export class NavbarAComponent {
   @Input() componentData!: any;
   public baseProps: NgxTippyProps = {
     arrow: true,
-    theme: "light",
+    theme: 'material',
     placement: 'bottom'
   };
 
