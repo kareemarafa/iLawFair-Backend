@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/kareemarafa/ionhour-web-me/compare/v0.0.4...v0.0.5) (2022-04-23)
+
+
+### Features
+
+* add navbar sticky and normal option ([6f50957](https://github.com/kareemarafa/ionhour-web-me/commit/6f509570eadbab7bdfebf3ebacbed28083fd0c8d))
+* add social media links to teams ([1e202c4](https://github.com/kareemarafa/ionhour-web-me/commit/1e202c4ac720aa598e43f253222ec5d4491601bd))
+* add social media to footer ([7a45e0e](https://github.com/kareemarafa/ionhour-web-me/commit/7a45e0e2e3fdab1fcb149e4e7466b51dba734471))
+* column size control ([2261b58](https://github.com/kareemarafa/ionhour-web-me/commit/2261b5871e32b0bf6f8f1b9e3a4ce980bda26b5b))
+* remove exist components when element toggle switched off ([f7a6314](https://github.com/kareemarafa/ionhour-web-me/commit/f7a63140c0a4e937c2384f93d3b0a9d29bcfc606))
+
 ### [0.0.4](https://github.com/kareemarafa/ionhour-web-me/compare/v0.0.3...v0.0.4) (2022-04-21)
 
 
