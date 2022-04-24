@@ -7,9 +7,12 @@
       <div class="col-lg-4" *ngFor="let item of componentData?.items">
         <div class="item text-center">
           <div class="icon py-3">
-            <span class="text-primary">
+            <span *ngIf="!item?.isImage" class="text-primary">
               <i class="fa fa-3x {{ item.icon }}" aria-hidden="true"></i>
             </span>
+            <span *ngIf="item?.isImage">
+                <img class="img-thumbnail" width="100" height="100" [alt]="item?.title"  [src]="item?.image"/>
+              </span>
           </div>
           <div>
             <h3 class="h3 fw-bold my-2">{{ item.title }}</h3>

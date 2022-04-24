@@ -136,11 +136,29 @@ export const serviceFields = [
       fieldGroup: [
         {
           className: 'col-12',
+          type: 'toggle',
+          key: 'isImage',
+          templateOptions: {
+            label: 'Show as Image',
+          }
+        },
+        {
+          className: 'col-12',
           type: 'iconPicker',
           key: 'icon',
           templateOptions: {
             label: 'Icon',
-          }
+          },
+          hideExpression: (model: any) => model.isImage
+        },
+        {
+          className: 'col-12',
+          type: 'gallery',
+          key: 'image',
+          templateOptions: {
+            label: 'Image',
+          },
+          hideExpression: (model: any) => !model.isImage
         },
         {
           type: 'input',
