@@ -6,7 +6,7 @@ import {
   ComponentDynamicFormComponent,
   ComponentOptionComponent,
   FileValueAccessor,
-  FormlyFieldFile,
+  FormlyFieldFile, IconPickerComponent,
   PanelWrapperComponent,
   RepeatTypeComponent,
   UserGalleryComponent
@@ -32,6 +32,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { FontSelectorComponent } from './components/font-selector/font-selector.component'
 import { MatSelectModule } from '@angular/material/select'
+import { IconPickerModule } from 'ngx-icon-picker';
 
 export const APP_CONFIG = new InjectionToken('Application config')
 
@@ -61,6 +62,7 @@ export function fieldMatchValidator(control: AbstractControl) {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    IconPickerModule,
     FormlyModule.forRoot({
       validators: [{ name: 'fieldMatch', validation: fieldMatchValidator }],
       wrappers: [{ name: 'panel', component: PanelWrapperComponent }],
@@ -68,6 +70,7 @@ export function fieldMatchValidator(control: AbstractControl) {
         { name: 'repeat', component: RepeatTypeComponent },
         { name: 'file', component: FormlyFieldFile, wrappers: ['form-field'] },
         { name: 'colorLibraryPicker', component: ColorPickerComponent },
+        { name: 'iconPicker', component: IconPickerComponent },
         { name: 'gallery', component: GalleryDialogComponent },
         { name: 'password', component: MaterialPasswordTypeComponent },
         { name: 'fontSelector', component: FontSelectorComponent }
@@ -95,7 +98,8 @@ export function fieldMatchValidator(control: AbstractControl) {
     ColorPickerComponent,
     FontSelectorComponent,
     SectionStyleControlDirective,
-    HOCSectionStyleControlDirective
+    HOCSectionStyleControlDirective,
+    IconPickerComponent
   ],
   exports: [
     ComponentControlComponent,

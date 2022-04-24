@@ -31,6 +31,7 @@ import { aboutComponentData, aboutFields } from './lib/about/about.module'
 import { teamComponentData, teamFields } from './lib/team/team.module'
 import { navbarComponentData, navbarFields } from './lib/navbar/navbar.module'
 import { SocialAComponent } from './lib/social-media/components/social-a/social-a.component'
+import {serviceComponentData, serviceFields} from "./lib/service/service.module";
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -148,146 +149,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'ServiceAComponent',
         componentClass: ServiceAComponent,
-        componentData: {
-          title: `Service A Title`,
-          description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`,
-          callToAction: {
-            value: 'click here',
-            url: '#'
-          },
-          items: [
-            {
-              icon: `fa-handshake-o`,
-              title: `Item Title`,
-              description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`
-            },
-            {
-              icon: `fa-handshake-o`,
-              title: `Item Title`,
-              description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`
-            },
-            {
-              icon: `fa-handshake-o`,
-              title: `Item Title`,
-              description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`
-            }
-          ]
-        },
-        fields: [
-          {
-            wrappers: ['panel'],
-            templateOptions: { label: 'Title' },
-            fieldGroupClassName: 'row',
-            fieldGroup: [
-              {
-                className: 'col-9',
-                key: 'title',
-                type: 'input',
-                templateOptions: {
-                  label: 'Title',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'titleColor',
-                type: 'colorLibraryPicker',
-                templateOptions: {
-                  label: 'Color'
-                }
-              },
-              {
-                className: 'col-9',
-                key: 'description',
-                type: 'input',
-                templateOptions: {
-                  label: 'Description',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'descriptionColor',
-                type: 'colorLibraryPicker',
-                templateOptions: {
-                  label: 'Color'
-                }
-              }
-            ]
-          },
-          {
-            wrappers: ['panel'],
-            key: 'callToAction',
-            templateOptions: {
-              label: 'Call to action'
-            },
-            fieldGroup: [
-              {
-                type: 'input',
-                key: 'value',
-                templateOptions: {
-                  label: 'Label'
-                }
-              },
-              {
-                type: 'input',
-                key: 'url',
-                templateOptions: {
-                  label: 'URL'
-                }
-              },
-              {
-                type: 'select',
-                key: 'color',
-                templateOptions: {
-                  type: 'select',
-                  label: 'Color',
-                  options: [
-                    {
-                      value: 'btn-primary',
-                      label: 'Primary'
-                    },
-                    {
-                      value: 'btn-danger',
-                      label: 'Danger'
-                    },
-                    {
-                      value: 'btn-info',
-                      label: 'Info'
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            wrappers: ['panel'],
-            key: 'items',
-            type: 'repeat',
-            templateOptions: {
-              label: 'Service items',
-              addText: 'Add item'
-            },
-            fieldArray: {
-              fieldGroup: [
-                {
-                  type: 'input',
-                  key: 'title',
-                  templateOptions: {
-                    label: 'Label'
-                  }
-                },
-                {
-                  type: 'input',
-                  key: 'description',
-                  templateOptions: {
-                    label: 'description'
-                  }
-                }
-              ]
-            }
-          }
-        ]
+        componentData: serviceComponentData,
+        fields: serviceFields
       },
       {
         componentName: 'ServiceBComponent',
