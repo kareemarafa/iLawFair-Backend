@@ -27,6 +27,10 @@
              [href]="menuItem.url">{{ menuItem.value }}</a>
         </div>
       </ng-container>
+      <a *ngIf="componentData?.callToAction?.isEnabled" class="btn btn-sm themeFont {{ componentData?.callToAction?.color ?? 'btn-outline-secondary' }}"
+         [href]="componentData?.callToAction?.url">
+        {{ componentData?.callToAction?.value }}
+      </a>
     </div>
   </div>
 </section>

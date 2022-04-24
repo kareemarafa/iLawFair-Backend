@@ -153,6 +153,62 @@ export const navbarFields = [
   },
   {
     wrappers: ['panel'],
+    key: 'callToAction',
+    templateOptions: {
+      label: 'Call to action'
+    },
+    fieldGroup: [
+      {
+        type: 'toggle',
+        key: 'isEnabled',
+        templateOptions: {
+          label: 'Show CTA button'
+        }
+      },
+      {
+        type: 'input',
+        key: 'value',
+        templateOptions: {
+          label: 'Label'
+        },
+        hideExpression: (model: any) => !model.isEnabled
+
+      },
+      {
+        type: 'input',
+        key: 'url',
+        templateOptions: {
+          label: 'URL'
+        },
+        hideExpression: (model: any) => !model.isEnabled
+      },
+      {
+        type: 'select',
+        key: 'color',
+        templateOptions: {
+          type: 'select',
+          label: 'Color',
+          options: [
+            {
+              value: 'btn-outline-primary',
+              label: 'Primary'
+            },
+            {
+              value: 'btn-outline-danger',
+              label: 'Danger'
+            },
+            {
+              value: 'btn-outline-info',
+              label: 'Info'
+            }
+          ]
+        },
+        hideExpression: (model: any) => !model.isEnabled
+      }
+    ]
+  },
+  {
+    wrappers: ['panel'],
     templateOptions: {label: 'Title'},
     fieldGroupClassName: 'row',
     fieldGroup: [
@@ -308,49 +364,4 @@ export const navbarFields = [
       ],
     }
   },
-  {
-    wrappers: ['panel'],
-    key: 'callToAction',
-    templateOptions: {
-      label: 'Call to action'
-    },
-    fieldGroup: [
-      {
-        type: 'input',
-        key: 'value',
-        templateOptions: {
-          label: 'Label'
-        }
-      },
-      {
-        type: 'input',
-        key: 'url',
-        templateOptions: {
-          label: 'URL'
-        }
-      },
-      {
-        type: 'select',
-        key: 'color',
-        templateOptions: {
-          type: 'select',
-          label: 'Color',
-          options: [
-            {
-              value: 'btn-outline-primary',
-              label: 'Primary'
-            },
-            {
-              value: 'btn-outline-danger',
-              label: 'Danger'
-            },
-            {
-              value: 'btn-outline-info',
-              label: 'Info'
-            }
-          ]
-        }
-      }
-    ]
-  }
 ]

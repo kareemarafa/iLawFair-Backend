@@ -53,7 +53,7 @@
                [href]="menuItem.url">{{ menuItem.value }}</a>
           </ng-container>
         </nav>
-        <a class="btn themeFont {{ componentData?.callToAction?.color ?? 'btn-outline-primary' }}"
+        <a *ngIf="componentData?.callToAction?.isEnabled" class="btn themeFont {{ componentData?.callToAction?.color ?? 'btn-outline-primary' }}"
            [href]="componentData?.callToAction?.url">{{
           componentData?.callToAction?.value
           }}</a>
