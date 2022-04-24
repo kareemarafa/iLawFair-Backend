@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/kareemarafa/ionhour-web-me/compare/v0.0.6...v0.0.7) (2022-04-24)
+
+
+### Features
+
+* add icon library as iconPicker formly type ([95a7853](https://github.com/kareemarafa/ionhour-web-me/commit/95a7853ae05e9bda2e0f3134261e68a2a71c1568))
+* **map:** support address and zoom inputs ([1e9cab9](https://github.com/kareemarafa/ionhour-web-me/commit/1e9cab9ca4103bed77d20c997dcafc0a85e9d3df))
+* **navbar:** logo position ([2ce4570](https://github.com/kareemarafa/ionhour-web-me/commit/2ce4570dae91853170ae6c873efb5163b60d4ace))
+* **services:** show image/icon ([e9b336f](https://github.com/kareemarafa/ionhour-web-me/commit/e9b336fdaa248cba94ed0a6feb49a841e50afbf4))
+* show and hide slogan, title, menuItems ([7927eae](https://github.com/kareemarafa/ionhour-web-me/commit/7927eae9515fd0fb7f69a60e32de9fe6c1005eeb))
+* **tippy.js:** wIP implement tippy.js for text formats ([3d15455](https://github.com/kareemarafa/ionhour-web-me/commit/3d154552cc4df1dee65317ee53348ad88b9e3985))
+* wIP tippy.js implementation ([14e2067](https://github.com/kareemarafa/ionhour-web-me/commit/14e2067bd0b5111299d790e1766e4dfe9d5dcad9))
+
+
+### Bug Fixes
+
+* **navbar:** cTA implementation ([fa27367](https://github.com/kareemarafa/ionhour-web-me/commit/fa27367c143191ab0f3e2fe5477012f5786cc092))
+* **services:** move component data and fields to service.module and fix service-b, service-c comps ([52312a1](https://github.com/kareemarafa/ionhour-web-me/commit/52312a1ab59e50f716eef6549c631da97a51bb30))
+
 ### [0.0.6](https://github.com/kareemarafa/ionhour-web-me/compare/v0.0.5...v0.0.6) (2022-04-23)
 
 ### [0.0.5](https://github.com/kareemarafa/ionhour-web-me/compare/v0.0.4...v0.0.5) (2022-04-23)
