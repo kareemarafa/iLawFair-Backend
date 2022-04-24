@@ -21,10 +21,10 @@
       ionhourSectionStyle
       [styles]="componentData?.style"
       [sectionOptions]="componentData?.sectionOptions"
-      class="justify-content-between d-flex flex-column flex-md-row align-items-center p-3 px-md-4"
+      class="justify-content-between d-flex flex-wrap align-items-center p-3 px-md-4"
     >
       <div *ngIf="componentData?.logo"
-         class="d-flex align-items-center justify-content-center">
+         class="d-flex">
         <span class="navbar-brand" *ngIf="componentData?.logo?.logoEnabled">
           <img [src]="componentData?.logo?.src" [alt]="componentData?.title" [width]="componentData?.logo?.width"
                [height]="componentData?.logo?.height"/>

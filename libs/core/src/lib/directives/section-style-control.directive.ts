@@ -39,7 +39,10 @@ export class SectionStyleControlDirective implements OnInit, OnDestroy {
   handleSectionClasses() {
     this.appliedClasses = {
       'container': !this.sectionOptions?.['fullWidth'],
-      'container-fluid': this.sectionOptions?.['fullWidth']
+      'container-fluid': this.sectionOptions?.['fullWidth'],
+      'flex-row': this.sectionOptions?.['logoPosition'] === 'left',
+      'flex-column': this.sectionOptions?.['logoPosition'] === 'center',
+      'flex-row-reverse': this.sectionOptions?.['logoPosition'] === 'right',
     }
   }
 

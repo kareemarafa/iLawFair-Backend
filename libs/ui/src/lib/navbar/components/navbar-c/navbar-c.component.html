@@ -1,7 +1,7 @@
 <section class="section">
   <div ionhourHOCSectionStyle [styles]="componentData?.style" [sectionOptions]="componentData?.sectionOptions">
     <div ionhourSectionStyle [styles]="componentData?.style" [sectionOptions]="componentData?.sectionOptions"
-         class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+         class="d-flex flex-column justify-content-between align-items-center">
       <a class="d-flex justify-content-center align-items-center flex-row" [href]="componentData?.baseUrl">
         <div *ngIf="componentData?.logo?.logoEnabled" class="pe-2">
           <img [src]="componentData?.logo?.src" [alt]="componentData?.title" [width]="componentData?.logo?.width"
@@ -21,16 +21,18 @@
           <small class="text-muted" *ngIf="componentData?.sloganEnabled">{{ componentData?.slogan }}</small>
         </div>
       </a>
-      <ng-container *ngIf="componentData?.sectionOptions?.menuItemsEnabled">
-        <div *ngFor="let menuItem of componentData?.menuItems">
-          <a class="py-2 themeFont" [ngStyle]="{ color: menuItem?.color ?? '#333' }"
-             [href]="menuItem.url">{{ menuItem.value }}</a>
-        </div>
-      </ng-container>
-      <a *ngIf="componentData?.callToAction?.isEnabled" class="btn btn-sm themeFont {{ componentData?.callToAction?.color ?? 'btn-outline-secondary' }}"
-         [href]="componentData?.callToAction?.url">
-        {{ componentData?.callToAction?.value }}
-      </a>
+      <div class="d-flex align-items-center">
+        <ng-container *ngIf="componentData?.sectionOptions?.menuItemsEnabled">
+          <div *ngFor="let menuItem of componentData?.menuItems">
+            <a class="pe-2 themeFont" [ngStyle]="{ color: menuItem?.color ?? '#333' }"
+               [href]="menuItem.url">{{ menuItem.value }}</a>
+          </div>
+        </ng-container>
+        <a *ngIf="componentData?.callToAction?.isEnabled" class="btn btn-sm themeFont {{ componentData?.callToAction?.color ?? 'btn-outline-secondary' }}"
+           [href]="componentData?.callToAction?.url">
+          {{ componentData?.callToAction?.value }}
+        </a>
+      </div>
     </div>
   </div>
 </section>

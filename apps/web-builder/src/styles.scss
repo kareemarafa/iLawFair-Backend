@@ -200,6 +200,21 @@ $light-gray1: #f3f3f3;
   font-family: var(--theme-font) !important;
 }
 
+.center > div:first-of-type {
+  margin: 0 auto;
+}
+
+.left > div:first-of-type {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.right > div:first-of-type {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+
 @media (min-width: 768px) {
 }
 

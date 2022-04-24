@@ -142,6 +142,27 @@ export const navbarFields = [
         }
       },
       {
+        type: 'select',
+        key: 'logoPosition',
+        templateOptions: {
+          label: 'Logo position',
+          options: [
+            {
+              label: 'Left',
+              value: 'left'
+            },
+            {
+              label: 'Center',
+              value: 'center'
+            },
+            {
+              label: 'Right',
+              value: 'right'
+            },
+          ]
+        }
+      },
+      {
         className: 'col-12',
         type: 'toggle',
         key: 'menuItemsEnabled',
