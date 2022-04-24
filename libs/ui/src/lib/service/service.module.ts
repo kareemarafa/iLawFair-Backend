@@ -3,10 +3,9 @@ import {CommonModule} from '@angular/common'
 import {ServiceAComponent} from './components/service-a/service-a.component'
 import {ServiceBComponent} from './components/service-b/service-b.component'
 import {ServiceCComponent} from './components/service-c/service-c.component'
-import {ServiceDComponent} from './components/service-d/service-d.component'
 
 @NgModule({
-  declarations: [ServiceAComponent, ServiceBComponent, ServiceCComponent, ServiceDComponent],
+  declarations: [ServiceAComponent, ServiceBComponent, ServiceCComponent],
   imports: [CommonModule]
 })
 export class ServiceModule {
@@ -21,17 +20,17 @@ export const serviceComponentData = {
   },
   items: [
     {
-      icon: `fa-handshake-o`,
+      icon: `fa fa-envelope-o`,
       title: `Item Title`,
       description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`
     },
     {
-      icon: `fa-handshake-o`,
+      icon: `fa fa-handshake-o`,
       title: `Item Title`,
       description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`
     },
     {
-      icon: `fa-handshake-o`,
+      icon: `fa fa-film`,
       title: `Item Title`,
       description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores officiis nemo reiciendis, fugiat praesentium est.`
     }

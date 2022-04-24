@@ -5,7 +5,6 @@ import { AboutAComponent, AboutBComponent } from './lib/about/components'
 import { ServiceAComponent } from './lib/service/components/service-a/service-a.component'
 import { ServiceBComponent } from './lib/service/components/service-b/service-b.component'
 import { ServiceCComponent } from './lib/service/components/service-c/service-c.component'
-import { ServiceDComponent } from './lib/service/components/service-d/service-d.component'
 import { CountAComponent } from './lib/count/components/count-a/count-a.component'
 import { TeamAComponent } from './lib/team/components/team-a/team-a.component'
 import { TeamBComponent } from './lib/team/components/team-b/team-b.component'
@@ -155,18 +154,15 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'ServiceBComponent',
         componentClass: ServiceBComponent,
-        fields: []
+        componentData: serviceComponentData,
+        fields: serviceFields
       },
       {
         componentName: 'ServiceCComponent',
         componentClass: ServiceCComponent,
-        fields: []
+        componentData: serviceComponentData,
+        fields: serviceFields
       },
-      {
-        componentName: 'ServiceDComponent',
-        componentClass: ServiceDComponent,
-        fields: []
-      }
     ]
   },
   {
