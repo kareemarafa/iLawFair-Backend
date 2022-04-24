@@ -1,8 +1,10 @@
-import { Component } from '@angular/core'
+import {Component, Input} from '@angular/core'
 
 @Component({
   selector: 'ionhour-map-a',
   templateUrl: './map-a.component.html',
   styleUrls: ['./map-a.component.scss']
 })
-export class MapAComponent {}
+export class MapAComponent {
+  @Input() componentData!: any;
+}

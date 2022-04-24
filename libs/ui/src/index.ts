@@ -31,6 +31,7 @@ import { teamComponentData, teamFields } from './lib/team/team.module'
 import { navbarComponentData, navbarFields } from './lib/navbar/navbar.module'
 import { SocialAComponent } from './lib/social-media/components/social-a/social-a.component'
 import {serviceComponentData, serviceFields} from "./lib/service/service.module";
+import {mapsComponentData, mapsFields} from "./lib/map/map.module";
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -477,7 +478,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'MapAComponent',
         componentClass: MapAComponent,
-        fields: []
+        componentData: mapsComponentData,
+        fields: mapsFields
       }
     ]
   },
