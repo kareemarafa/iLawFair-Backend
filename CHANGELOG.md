@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/kareemarafa/ionhour-web-me/compare/v0.0.7...v0.0.8) (2022-04-30)
+
+
+### Features
+
+* **language switch:** implement language switch in toolbar ([30936a6](https://github.com/kareemarafa/ionhour-web-me/commit/30936a6e35caf689010402511ec52c63e7a3cfcb))
+* **side-menu:** translate menu items ([d2f6392](https://github.com/kareemarafa/ionhour-web-me/commit/d2f6392238622d2ac5ce894f1df543664e65cd1a))
+* translate dashboard ([e6b8ae4](https://github.com/kareemarafa/ionhour-web-me/commit/e6b8ae422b47c7d3f1b8ab6789882f97ea94489b))
+* **translation:** setup translation module ([49ccce9](https://github.com/kareemarafa/ionhour-web-me/commit/49ccce9e972a10778dbcb62d9605426071b5d37b))
+
 ### [0.0.7](https://github.com/kareemarafa/ionhour-web-me/compare/v0.0.6...v0.0.7) (2022-04-24)
 
 
