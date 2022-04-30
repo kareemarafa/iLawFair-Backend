@@ -6,6 +6,8 @@
   "PROJECTS": "Projects",
   "SUBSCRIPTION": "Subscription",
   "MEDIA_LIBRARY": "Media library",
-  "LOGOUT": "Logout"
-
+  "LOGOUT": "Logout",
+  "Statistics": "Statistics",
+  "FAQ": "FAQ",
+  "Tutorials": "Tutorials"
 }
