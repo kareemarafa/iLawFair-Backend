@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/kareemarafa/ionhour-web-me/compare/v0.0.8...v0.0.9) (2022-04-30)
+
+
+### Features
+
+* **blog:** add blog module with blog-a component ([da100f9](https://github.com/kareemarafa/ionhour-web-me/commit/da100f9ef1c4b35d96c6bccbca3f7777182dc89b))
+* **newsletter:** add newsletter module ([0bd947d](https://github.com/kareemarafa/ionhour-web-me/commit/0bd947d9113b2eb796e2b315fdb1230cded4af2c))
+
+
+### Bug Fixes
+
+* **environment:** include translation properties to production environment ([ff65c56](https://github.com/kareemarafa/ionhour-web-me/commit/ff65c56ef4c8f77a6eb3273706482424ee647682))
+
 ### [0.0.8](https://github.com/kareemarafa/ionhour-web-me/compare/v0.0.7...v0.0.8) (2022-04-30)
 
 
