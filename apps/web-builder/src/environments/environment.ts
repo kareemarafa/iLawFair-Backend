@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   // serverUrl: 'https://webme-builder.api.ionhour.com'
-  serverUrl: 'http://localhost:7100'
+  serverUrl: 'http://localhost:7100',
+  defaultLanguage: 'en-US',
+  supportedLanguages: ['en-US', 'ar-SA'],
 }
 
 /*

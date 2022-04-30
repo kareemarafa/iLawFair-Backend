@@ -14,10 +14,22 @@ import { ApiPrefixInterceptor } from './common/api-prefix.interceptor'
 import { TokenInterceptor } from './common/token.interceptor'
 import { environment } from '../environments/environment'
 import { APP_CONFIG } from '@ionhour/core'
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [HttpClientModule, BrowserModule, BrowserAnimationsModule, AppRoutingModule, MatSidenavModule, MatIconModule, MatButtonModule, MatToolbarModule, MatListModule],
+  imports: [
+    HttpClientModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatListModule,
+    TranslateModule.forRoot()
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
