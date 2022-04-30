@@ -214,6 +214,15 @@ $light-gray1: #f3f3f3;
   margin-right: 0;
 }
 
+.blog-a {
+  .card-text {
+    width: 100%;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
 
 @media (min-width: 768px) {
 }

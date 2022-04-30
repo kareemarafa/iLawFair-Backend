@@ -32,6 +32,8 @@ import { navbarComponentData, navbarFields } from './lib/navbar/navbar.module'
 import { SocialAComponent } from './lib/social-media/components/social-a/social-a.component'
 import {serviceComponentData, serviceFields} from "./lib/service/service.module";
 import {mapsComponentData, mapsFields} from "./lib/map/map.module";
+import {BlogAComponent} from "./lib/blog/components/blog-a/blog-a.component";
+import {blogComponentData, blogFields} from "./lib/blog/blog.module";
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -491,6 +493,17 @@ export const builderElements: ModuleInterface[] = [
         componentClass: DividerAComponent,
         fields: []
       }
+    ]
+  },
+  {
+    moduleName: 'blog',
+    components: [
+      {
+        componentName: 'BlogAComponent',
+        componentClass: BlogAComponent,
+        componentData: blogComponentData,
+        fields: blogFields
+      },
     ]
   },
   {

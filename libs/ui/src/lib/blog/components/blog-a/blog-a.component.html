@@ -1,0 +1,54 @@
+<div class="section blog-a">
+  <div ionhourHOCSectionStyle
+       [styles]="componentData?.style" [sectionOptions]="componentData?.sectionOptions"
+       class="card border-0 px-5">
+  <div ionhourSectionStyle
+       [styles]="componentData?.style" [sectionOptions]="componentData?.sectionOptions"
+       class="card-body">
+    <div class="row">
+      <div class="col">
+        <div class="d-flex justify-content-center">
+          <h1 class="font-bold themeFont" [ngStyle]="{ color: componentData?.titleColor }">{{ componentData?.title }}</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <p
+        class="pb-3 themeFont text-center"
+        [ngStyle]="{
+                  'color': componentData?.descriptionColor,
+                  'font-size': componentData?.descriptionFontSize && componentData?.descriptionFontSize + 'px'
+                }"
+      >
+        {{ componentData?.description }}
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-auto" *ngFor="let item of componentData?.posts">
+        <div class="card" style="width: 18rem;">
+          <svg *ngIf="!item?.image" class="bd-placeholder-img card-img-top"
+               width="100%" height="200"
+               xmlns="http://www.w3.org/2000/svg"
+               role="img" aria-label="Placeholder: Image cap"
+               preserveAspectRatio="xMidYMid slice"
+               focusable="false">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#868e96"></rect>
+            <text x="37%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+          </svg>
+          <img *ngIf="item?.image" [src]="item?.image" class="card-img-top" height="180" [alt]="item?.title">
+          <div class="card-body">
+            <h5 class="card-title">{{item?.title}}</h5>
+            <p class="card-text">
+              {{item?.description}}
+            </p>
+            <a [href]="item?.callToAction?.href"
+               *ngIf="item?.callToAction?.href"
+               class="btn btn-primary">{{item?.callToAction?.text}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
