@@ -59,7 +59,8 @@ export class ShellComponent implements OnInit {
 
   setLanguage(language: string) {
     this.i18nService.language = language;
-    // AppHelper.setDirectionVars(language === 'en-US' ? 'ltr' : 'rtl');
-    // this.shared.sendLanguage.next(language);
+    // const dir = language === 'en-US' ? 'ltr' : 'rtl';
+    // document.body.setAttribute('dir', dir);
+    // window.location.reload()
   }
 }

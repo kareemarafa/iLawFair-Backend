@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {I18nService} from "./common/i18n.service";
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from "../environments/environment";
@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private translateService: TranslateService,
@@ -19,13 +19,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.i18nService.init(environment.defaultLanguage, environment.supportedLanguages);
-    // this.setDirectionVars();
+    // const dir = this.i18nService.language === 'en-US' ? 'ltr' : 'rtl';
+    // document.body.setAttribute('dir', dir);
   }
 
-  // setDirectionVars() {
-  //   const language = this.i18nService.language;
-    // AppHelper.setDirectionVars(language === 'en-US' ? 'ltr' : 'rtl');
-  // }
 
   ngOnDestroy() {
     this.i18nService.destroy();
