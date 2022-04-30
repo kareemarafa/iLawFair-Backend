@@ -39,6 +39,7 @@ import { FormlyMatToggleModule } from '@ngx-formly/material/toggle'
 import { FormlyMaterialModule } from '@ngx-formly/material'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import {BlogModule} from "../../../../../../libs/ui/src/lib/blog/blog.module";
+import {NewsletterModule} from "../../../../../../libs/ui/src/lib/newsletter/newsletter.module";
 
 @NgModule({
   declarations: [LayoutComponent, ElementListComponent, SubElementListComponent, WrapperComponent, PageFormDialogComponent],
@@ -78,7 +79,8 @@ import {BlogModule} from "../../../../../../libs/ui/src/lib/blog/blog.module";
     FormsModule,
     MatSnackBarModule,
     SocialMediaModule,
-    BlogModule
+    BlogModule,
+    NewsletterModule
   ],
   providers: [{ provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }]
 })

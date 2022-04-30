@@ -34,6 +34,8 @@ import {serviceComponentData, serviceFields} from "./lib/service/service.module"
 import {mapsComponentData, mapsFields} from "./lib/map/map.module";
 import {BlogAComponent} from "./lib/blog/components/blog-a/blog-a.component";
 import {blogComponentData, blogFields} from "./lib/blog/blog.module";
+import {NewsletterAComponent} from "./lib/newsletter/components/newsletter-a/newsletter-a.component";
+import {newsletterComponentData, newsletterFields} from "./lib/newsletter/newsletter.module";
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -503,6 +505,17 @@ export const builderElements: ModuleInterface[] = [
         componentClass: BlogAComponent,
         componentData: blogComponentData,
         fields: blogFields
+      },
+    ]
+  },
+  {
+    moduleName: 'newsletter',
+    components: [
+      {
+        componentName: 'NewsletterAComponent',
+        componentClass: NewsletterAComponent,
+        componentData: newsletterComponentData,
+        fields: newsletterFields
       },
     ]
   },
