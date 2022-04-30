@@ -21,6 +21,9 @@ import { CoreModule } from '@ionhour/core'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { ChartjsModule } from '@ctrl/ngx-chartjs'
 import { MatExpansionModule } from '@angular/material/expansion'
+import {TranslateModule} from "@ngx-translate/core";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatMenuModule} from "@angular/material/menu";
 
 const routes: Route[] = [
   Shell.childRoutes([
@@ -71,7 +74,10 @@ const routes: Route[] = [
     MatCardModule,
     CoreModule,
     ChartjsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    TranslateModule,
+    MatTooltipModule,
+    MatMenuModule
   ]
 })
 export class ShellModule {}

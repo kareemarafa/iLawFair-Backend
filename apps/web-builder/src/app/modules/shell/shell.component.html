@@ -4,7 +4,7 @@
       <div class="d-flex flex-column justify-content-between h-100">
         <div>
           <div class="d-flex flex-row justify-content-center my-3">
-            <img class="my-2" src="assets/logo-shape.png" alt="WebMe" width="75" />
+            <img class="my-2" src="assets/logo-shape.png" alt="WebMe" width="75"/>
           </div>
           <a mat-list-item routerLink="view" routerLinkActive="text-primary">Dashboard</a>
           <a mat-list-item routerLink="profile" routerLinkActive="text-primary">Profile</a>
@@ -19,9 +19,20 @@
   <mat-drawer-content>
     <div>
       <mat-toolbar color="primary">
-        <!--        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">-->
-        <!--          <mat-icon>menu</mat-icon>-->
-        <!--        </button>-->
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+                (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="example-spacer"></span>
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>language</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+        <ng-container *ngFor="let language of languages">
+          <button mat-menu-item (click)="setLanguage(language)">{{language | translate}}</button>
+        </ng-container>
+        </mat-menu>
+
       </mat-toolbar>
       <div class="p-4">
         <router-outlet></router-outlet>
