@@ -1,4 +1,11 @@
 {
   "en-US": "English",
-  "ar-SA": "العربية"
+  "ar-SA": "العربية",
+  "DASHBOARD": "Dashboard",
+  "PROFILE": "Profile",
+  "PROJECTS": "Projects",
+  "SUBSCRIPTION": "Subscription",
+  "MEDIA_LIBRARY": "Media library",
+  "LOGOUT": "Logout"
+
 }

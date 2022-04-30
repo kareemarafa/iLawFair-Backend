@@ -6,13 +6,13 @@
           <div class="d-flex flex-row justify-content-center my-3">
             <img class="my-2" src="assets/logo-shape.png" alt="WebMe" width="75"/>
           </div>
-          <a mat-list-item routerLink="view" routerLinkActive="text-primary">Dashboard</a>
-          <a mat-list-item routerLink="profile" routerLinkActive="text-primary">Profile</a>
-          <a mat-list-item routerLink="projects" routerLinkActive="text-primary">Projects</a>
-          <a mat-list-item routerLink="subscriptions" routerLinkActive="text-primary">Subscription</a>
-          <a mat-list-item routerLink="media" routerLinkActive="text-primary">Media library</a>
+          <a mat-list-item routerLink="view" routerLinkActive="text-primary">{{"DASHBOARD" | translate}}</a>
+          <a mat-list-item routerLink="profile" routerLinkActive="text-primary">{{"PROFILE" | translate}}</a>
+          <a mat-list-item routerLink="projects" routerLinkActive="text-primary">{{"PROJECTS" | translate}}</a>
+          <a mat-list-item routerLink="subscriptions" routerLinkActive="text-primary">{{"SUBSCRIPTION" | translate}}</a>
+          <a mat-list-item routerLink="media" routerLinkActive="text-primary">{{"MEDIA_LIBRARY" | translate}}</a>
         </div>
-        <a mat-list-item routerLink="/auth/login" routerLinkActive="text-primary">Logout</a>
+        <a mat-list-item routerLink="/auth/login" routerLinkActive="text-primary">{{"LOGOUT" | translate}}</a>
       </div>
     </mat-list>
   </mat-drawer>

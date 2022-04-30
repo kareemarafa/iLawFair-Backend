@@ -1,4 +1,11 @@
 {
   "en-US": "English",
-  "ar-SA": "العربية"
+  "ar-SA": "العربية",
+  "DASHBOARD": "لوحة التحكم",
+  "PROFILE": "الملف الشخصي",
+  "PROJECTS": "المشاريع",
+  "SUBSCRIPTION": "الاشتراكات",
+  "MEDIA_LIBRARY": "مكتبة الوسائط",
+  "LOGOUT": "تسجيل الخروج"
+
 }
