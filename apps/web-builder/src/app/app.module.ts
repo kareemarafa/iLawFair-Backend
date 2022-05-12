@@ -15,6 +15,7 @@ import { TokenInterceptor } from './common/token.interceptor'
 import { environment } from '../environments/environment'
 import { APP_CONFIG } from '@ionhour/core'
 import {TranslateModule} from "@ngx-translate/core";
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
@@ -46,6 +47,7 @@ import {TranslateModule} from "@ngx-translate/core";
       useValue: environment,
       multi: true
     },
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })
