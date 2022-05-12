@@ -7,7 +7,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: webme_builder
-      MYSQL_USER: root
+      MYSQL_USER: admin
       MYSQL_PASSWORD: password
     restart: always
     ports:

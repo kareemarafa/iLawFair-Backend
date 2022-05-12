@@ -13,7 +13,7 @@ export const databaseConfig = () => ({
   database: {
     host: 'localhost',
     port: 8886,
-    username: 'root',
+    username: 'admin',
     password: 'password',
     name: 'webme_builder',
     autoLoadEntities: false,
