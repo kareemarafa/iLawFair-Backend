@@ -17,6 +17,7 @@ import { CoreModule } from '@ionhour/core'
 import { FormlyMatSliderModule } from '@ngx-formly/material/slider'
 import { FormlyMatToggleModule } from '@ngx-formly/material/toggle'
 import { FormlyMaterialModule } from '@ngx-formly/material'
+import {TranslateModule} from "@ngx-translate/core";
 
 const routes: Route[] = [
   {
@@ -52,7 +53,8 @@ const routes: Route[] = [
     FormlyModule.forRoot(),
     FormlyMatSliderModule,
     FormlyMatToggleModule,
-    FormlyMaterialModule
+    FormlyMaterialModule,
+    TranslateModule
   ]
 })
 export class ProjectsModule {}

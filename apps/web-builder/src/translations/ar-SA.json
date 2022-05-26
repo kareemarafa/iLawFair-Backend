@@ -21,5 +21,14 @@
     "email": "البريد الالكتروني",
     "password": "كلمه المرور",
     "phoneNumber": "رقم التليفون"
+  },
+  "projects": {
+    "title": "المشاريع",
+    "add": "اضافه مشروع",
+    "pages": "الصفحات",
+    "themeFont": "خط المشروع",
+    "themeColor": "لون المشروع",
+    "startBuilding": "ابدا البناء",
+    "settings": "الاعدادات"
   }
 }
