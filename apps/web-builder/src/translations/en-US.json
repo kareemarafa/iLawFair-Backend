@@ -34,5 +34,34 @@
   "media": {
     "upload": "Upload",
     "reset": "Reset"
+  },
+  "modules": {
+    "menu": "Menu",
+    "header": "Header",
+    "about": "About",
+    "services": "Services",
+    "action": "Action",
+    "social": "Social",
+    "statistics": "Statistics",
+    "countdown": "Countdown",
+    "team": "Team",
+    "price": "Price",
+    "testimonial": "Testimonial",
+    "gallery": "Gallery",
+    "form": "Form",
+    "map": "Map",
+    "spacing": "Spacing",
+    "blog": "Blog",
+    "newsletter": "Newsletter",
+    "footer": "Footer"
+  },
+  "builder": {
+    "managePages": "Manage pages",
+    "addPage": "Add page",
+    "manage": "Manage",
+    "preview": "Preview",
+    "save": "Save",
+    "back": "Back",
+    "title": "Builder"
   }
 }

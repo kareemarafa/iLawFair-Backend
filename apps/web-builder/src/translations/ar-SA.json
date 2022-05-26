@@ -34,5 +34,34 @@
   "media": {
     "upload": "رفع",
     "reset": "مسح"
+  },
+  "modules": {
+    "menu": "القائمة",
+    "header": "راس الصفحه",
+    "about": "معلومات",
+    "services": "الخدمات",
+    "action": "حدث",
+    "social": "اجتماعي",
+    "statistics": "الاحصائيات",
+    "countdown": "عد تنازلي",
+    "team": "الفريق",
+    "price": "الاسعار",
+    "testimonial": "الاراء",
+    "gallery": "المعرض",
+    "form": "نموذج",
+    "map": "خريطه",
+    "spacing": "مساحات",
+    "blog": "مدونه",
+    "newsletter": "قائمه بريديه",
+    "footer": "ذيل الصفحه"
+  },
+  "builder": {
+    "managePages": "اداره الصفحات",
+    "addPage": "اضافه صفحه",
+    "manage": "اداره",
+    "preview": "معاينه",
+    "save": "حفظ",
+    "back": "رجوع",
+    "title": "البناء"
   }
 }

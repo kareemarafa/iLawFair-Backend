@@ -2,7 +2,7 @@
   <mat-nav-list>
     <ng-container *ngFor="let element of builderElements">
       <mat-slide-toggle [labelPosition]="'before'" [checked]="activeModule?.[element.moduleName]" [name]="element.moduleName" (change)="setCurrentElement($event)">
-        {{ element.moduleName.toUpperCase() }}
+        {{ 'modules.' + element.moduleName | translate }}
       </mat-slide-toggle>
     </ng-container>
   </mat-nav-list>
