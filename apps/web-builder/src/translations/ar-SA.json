@@ -30,5 +30,9 @@
     "themeColor": "لون المشروع",
     "startBuilding": "ابدا البناء",
     "settings": "الاعدادات"
+  },
+  "media": {
+    "upload": "رفع",
+    "reset": "مسح"
   }
 }

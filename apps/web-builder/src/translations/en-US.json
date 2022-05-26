@@ -30,5 +30,9 @@
     "themeColor": "Theme color",
     "startBuilding": "Start building",
     "settings": "Settings"
+  },
+  "media": {
+    "upload": "Upload",
+    "reset": "Reset"
   }
 }
