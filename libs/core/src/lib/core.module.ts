@@ -4,7 +4,6 @@ import { ComponentControlDirective, HOCSectionStyleControlDirective, SectionStyl
 import {
   ComponentControlComponent,
   ComponentDynamicFormComponent,
-  ComponentOptionComponent,
   FileValueAccessor,
   FormlyFieldFile, IconPickerComponent,
   PanelWrapperComponent,
@@ -87,7 +86,6 @@ export function fieldMatchValidator(control: AbstractControl) {
   declarations: [
     ComponentControlComponent,
     ComponentControlDirective,
-    ComponentOptionComponent,
     ComponentDynamicFormComponent,
     RepeatTypeComponent,
     FileValueAccessor,
@@ -106,7 +104,6 @@ export function fieldMatchValidator(control: AbstractControl) {
     ComponentControlDirective,
     SectionStyleControlDirective,
     HOCSectionStyleControlDirective,
-    ComponentOptionComponent,
     ComponentDynamicFormComponent
   ],
   providers: [ToasterService]

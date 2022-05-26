@@ -63,5 +63,33 @@
     "save": "Save",
     "back": "Back",
     "title": "Builder"
+  },
+  "form": {
+    "sectionStyle": "Section style",
+    "sectionOptions": "Section settings",
+    "callToAction": "Call to action",
+    "title": "Title",
+    "logoOptions": "Logo options",
+    "menuItems": "Menu items",
+    "backgroundColor": "Background color",
+    "backgroundImage": "Background image",
+    "paddingTop": "Top spacing",
+    "paddingBottom": "Bottom spacing",
+    "paddingRight": "right spacing",
+    "paddingLeft": "Left spacing",
+    "fullWidth": "Full width",
+    "appearance": "Appearance",
+    "logoPosition": "Logo position",
+    "showMenuItems": "Show menu items",
+    "showCTAButton": "Show CTA Button",
+    "label": "Label",
+    "url": "Link",
+    "color": "Color",
+    "baseUrl": "Base link",
+    "showTitle": "Show title",
+    "showSlogan": "Show slogan",
+    "slogan": "Slogan",
+    "showLogoImage": "Show logo",
+    "titleFontSize": "Title font size"
   }
 }

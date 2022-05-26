@@ -63,5 +63,33 @@
     "save": "حفظ",
     "back": "رجوع",
     "title": "البناء"
+  },
+  "form": {
+    "sectionStyle": "ستايل الهيكل",
+    "sectionOptions": "اعدادات الهيكل",
+    "callToAction": "زر الحدث",
+    "title": "العنوان",
+    "logoOptions": "اعدادات اللوجو",
+    "menuItems": "عناصر القائمه",
+    "backgroundColor": "لون الخلفية",
+    "backgroundImage": "صوره الخلفيه",
+    "paddingTop": "المسافه من الاعلي",
+    "paddingBottom": "المسافه من الاسفل",
+    "paddingRight": "المسافه من اليمين",
+    "paddingLeft": "المسافه من اليسار",
+    "fullWidth": "كامل العرض",
+    "appearance": "الظهور",
+    "logoPosition": "مكان اللوجو",
+    "showMenuItems": "اظهار عناصر القائمه",
+    "showCTAButton": "اظهار زر الحدث",
+    "label": "العنوان",
+    "url": "الرابط",
+    "color": "اللون",
+    "baseUrl": "رابط المشروع",
+    "showTitle": "اظهار العنوان",
+    "showSlogan": "اظهار العنوان الفرعي",
+    "slogan": "العنوان الفرعي",
+    "showLogoImage": "اظهار اللوجو",
+    "titleFontSize": "حجم خط العنوان"
   }
 }

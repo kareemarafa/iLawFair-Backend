@@ -188,7 +188,7 @@ export const navbarFields = [
     key: 'style',
     fieldGroupClassName: 'row',
     templateOptions: {
-      label: 'Section styles'
+      label: 'sectionStyle'
     },
     fieldGroup: [
       {
@@ -196,7 +196,7 @@ export const navbarFields = [
         key: 'backgroundColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Background Color'
+          label: 'backgroundColor'
         }
       },
       {
@@ -204,7 +204,7 @@ export const navbarFields = [
         key: 'backgroundImage',
         type: 'gallery',
         templateOptions: {
-          label: 'Background Image'
+          label: 'backgroundImage'
         }
       },
       {
@@ -212,7 +212,7 @@ export const navbarFields = [
         key: 'paddingTop',
         type: 'slider',
         templateOptions: {
-          label: 'Top Spacing',
+          label: 'paddingTop',
           min: 15,
           max: 200
         }
@@ -222,7 +222,7 @@ export const navbarFields = [
         key: 'paddingBottom',
         type: 'slider',
         templateOptions: {
-          label: 'Bottom Spacing',
+          label: 'paddingBottom',
           min: 15,
           max: 200
         }
@@ -232,7 +232,7 @@ export const navbarFields = [
         key: 'paddingRight',
         type: 'slider',
         templateOptions: {
-          label: 'Right Spacing',
+          label: 'paddingRight',
           min: 15,
           max: 200
         }
@@ -242,7 +242,7 @@ export const navbarFields = [
         key: 'paddingLeft',
         type: 'slider',
         templateOptions: {
-          label: 'Left Spacing',
+          label: 'paddingLeft',
           min: 15,
           max: 200
         }
@@ -253,21 +253,21 @@ export const navbarFields = [
     wrappers: ['panel'],
     key: 'sectionOptions',
     templateOptions: {
-      label: 'Section options'
+      label: 'sectionOptions'
     },
     fieldGroup: [
       {
         type: 'toggle',
         key: 'fullWidth',
         templateOptions: {
-          label: 'Full width'
+          label: 'fullWidth'
         }
       },
       {
         type: 'select',
         key: 'appearance',
         templateOptions: {
-          label: 'Appearance',
+          label: 'appearance',
           options: [
             {
               label: 'Normal',
@@ -284,7 +284,7 @@ export const navbarFields = [
         type: 'select',
         key: 'logoPosition',
         templateOptions: {
-          label: 'Logo position',
+          label: 'logoPosition',
           options: [
             {
               label: 'Left',
@@ -306,7 +306,7 @@ export const navbarFields = [
         type: 'toggle',
         key: 'menuItemsEnabled',
         templateOptions: {
-          label: 'Show menu items'
+          label: 'showMenuItems'
         }
       },
     ]
@@ -315,21 +315,21 @@ export const navbarFields = [
     wrappers: ['panel'],
     key: 'callToAction',
     templateOptions: {
-      label: 'Call to action'
+      label: 'callToAction'
     },
     fieldGroup: [
       {
         type: 'toggle',
         key: 'isEnabled',
         templateOptions: {
-          label: 'Show CTA button'
+          label: 'showCTAButton'
         }
       },
       {
         type: 'input',
         key: 'value',
         templateOptions: {
-          label: 'Label'
+          label: 'label'
         },
         hideExpression: (model: any) => !model.isEnabled
 
@@ -338,7 +338,7 @@ export const navbarFields = [
         type: 'input',
         key: 'url',
         templateOptions: {
-          label: 'URL'
+          label: 'url'
         },
         hideExpression: (model: any) => !model.isEnabled
       },
@@ -347,7 +347,7 @@ export const navbarFields = [
         key: 'color',
         templateOptions: {
           type: 'select',
-          label: 'Color',
+          label: 'color',
           options: [
             {
               value: 'btn-outline-primary',
@@ -369,7 +369,7 @@ export const navbarFields = [
   },
   {
     wrappers: ['panel'],
-    templateOptions: {label: 'Title'},
+    templateOptions: {label: 'title'},
     fieldGroupClassName: 'row',
     fieldGroup: [
       {
@@ -379,7 +379,7 @@ export const navbarFields = [
         templateOptions: {
           type: 'input',
           required: true,
-          label: 'Base URL'
+          label: 'baseUrl'
         }
       },
       {
@@ -387,7 +387,7 @@ export const navbarFields = [
         type: 'toggle',
         key: 'titleEnabled',
         templateOptions: {
-          label: 'Show title'
+          label: 'showTitle'
         }
       },
       {
@@ -395,7 +395,7 @@ export const navbarFields = [
         key: 'title',
         type: 'input',
         templateOptions: {
-          label: 'Title',
+          label: 'title',
           required: true,
         },
         hideExpression: (model: any) => !model.titleEnabled
@@ -405,7 +405,7 @@ export const navbarFields = [
         key: 'titleColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Color',
+          label: 'color',
         },
         hideExpression: (model: any) => !model.titleEnabled
       },
@@ -416,7 +416,7 @@ export const navbarFields = [
         templateOptions: {
           min: 10,
           max: 40,
-          label: 'Title font size',
+          label: 'titleFontSize',
         },
         hideExpression: (model: any) => !model.titleEnabled
       },
@@ -425,7 +425,7 @@ export const navbarFields = [
         type: 'toggle',
         key: 'sloganEnabled',
         templateOptions: {
-          label: 'Show slogan'
+          label: 'showSlogan'
         }
       },
       {
@@ -433,7 +433,7 @@ export const navbarFields = [
         key: 'slogan',
         type: 'input',
         templateOptions: {
-          label: 'Slogan',
+          label: 'slogan',
         },
         hideExpression: (model: any) => !model.sloganEnabled
       },
@@ -444,14 +444,14 @@ export const navbarFields = [
     key: 'logo',
     fieldGroupClassName: 'row',
     templateOptions: {
-      label: 'Logo options'
+      label: 'logoOptions'
     },
     fieldGroup: [
       {
         type: 'toggle',
         key: 'logoEnabled',
         templateOptions: {
-          label: 'Enabled logo image'
+          label: 'showLogoImage'
         }
       },
       {
@@ -459,7 +459,7 @@ export const navbarFields = [
         key: 'src',
         className: 'col-12',
         templateOptions: {
-          label: 'Logo',
+          label: 'logo',
           type: 'input'
         },
         hideExpression: (model: any) => !model.logoEnabled
@@ -472,7 +472,7 @@ export const navbarFields = [
           min: 25,
           max: 250,
           type: 'number',
-          label: 'Logo width'
+          label: 'logoWidth'
         },
         hideExpression: (model: any) => !model.logoEnabled
       },
@@ -484,7 +484,7 @@ export const navbarFields = [
           min: 25,
           max: 250,
           type: 'number',
-          label: 'Logo height'
+          label: 'logoHeight'
         },
         hideExpression: (model: any) => !model.logoEnabled
       }
@@ -495,8 +495,8 @@ export const navbarFields = [
     key: 'menuItems',
     type: 'repeat',
     templateOptions: {
-      label: 'Menu items',
-      addText: 'Add item'
+      label: 'menuItems',
+      addText: 'addItem'
     },
     fieldArray: {
       fieldGroup: [
@@ -504,21 +504,21 @@ export const navbarFields = [
           type: 'input',
           key: 'value',
           templateOptions: {
-            label: 'Label'
+            label: 'label'
           }
         },
         {
           type: 'input',
           key: 'url',
           templateOptions: {
-            label: 'URL'
+            label: 'url'
           }
         },
         {
           type: 'colorLibraryPicker',
           key: 'color',
           templateOptions: {
-            label: 'Color'
+            label: 'color'
           }
         }
       ],

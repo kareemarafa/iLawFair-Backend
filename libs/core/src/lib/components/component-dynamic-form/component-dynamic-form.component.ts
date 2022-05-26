@@ -1,9 +1,10 @@
-import { AfterViewInit, Component, OnDestroy } from '@angular/core'
-import { IComponent } from '@ionhour/interfaces'
-import { ElementsService } from '../../services'
-import { FormGroup } from '@angular/forms'
-import { FormlyFormOptions } from '@ngx-formly/core'
-import { takeWhile } from 'rxjs'
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core'
+import {IComponent} from '@ionhour/interfaces'
+import {ElementsService} from '../../services'
+import {FormGroup} from '@angular/forms'
+import {FormlyFieldConfig, FormlyFormOptions} from '@ngx-formly/core'
+import {map, takeWhile} from 'rxjs'
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'ionhour-component-dynamic-form',
@@ -16,14 +17,20 @@ export class ComponentDynamicFormComponent implements AfterViewInit, OnDestroy {
   options: FormlyFormOptions = {}
   alive = true
   model = {}
+  fields!: FormlyFieldConfig[]
 
-  constructor(private elementsService: ElementsService) {}
+  constructor(private elementsService: ElementsService, private translation: TranslateService) {
+  }
 
   ngAfterViewInit(): void {
     this.getComponent()
     this.form.valueChanges.pipe(takeWhile(() => this.alive)).subscribe((form) => {
       const changed = this.getDirtyValues(this.form)
-      changed && this.elementsService.setContent({ componentName: this.component.componentName, componentData: form, changed })
+      changed && this.elementsService.setContent({
+        componentName: this.component.componentName,
+        componentData: form,
+        changed
+      })
     })
   }
 
@@ -40,9 +47,41 @@ export class ComponentDynamicFormComponent implements AfterViewInit, OnDestroy {
   }
 
   getComponent() {
-    this.elementsService.component$.pipe(takeWhile(() => this.alive)).subscribe((component: any) => {
-      this.component = component
-      this.model = component?.componentData
+    return this.elementsService.component$.pipe(
+      takeWhile(() => this.alive),
+      map((component: any) => {
+        this.component = component;
+        this.model = component?.componentData;
+        component.fields = component?.fields.map((field: FormlyFieldConfig) => {
+          if (field?.templateOptions?.label) {
+            field.templateOptions.label = this.translation.instant('form.' + field?.templateOptions?.label)
+          }
+          if (field?.fieldGroup?.length) {
+            field.fieldGroup = field.fieldGroup.map(nestedField => ({
+              ...nestedField,
+              templateOptions: {
+                ...nestedField.templateOptions,
+                label: this.translation.instant('form.' + nestedField?.templateOptions?.label)
+              }
+            }))
+          }
+          if (field?.fieldArray?.fieldGroup?.length) {
+            field.fieldArray = {
+              ...field.fieldArray,
+              fieldGroup: field.fieldArray.fieldGroup.map(nestedField => ({
+                ...nestedField,
+                templateOptions: {
+                  ...nestedField.templateOptions,
+                  label: this.translation.instant('form.' + nestedField?.templateOptions?.label)
+                }
+              }))
+            }
+          }
+          return field;
+        });
+        return component;
+      })).subscribe((component: any) => {
+      this.fields = component.fields;
     })
   }
 
