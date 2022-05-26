@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { map } from 'rxjs/operators'
+import {Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectsService {
   cid!: string
+  private _activeProject: Subject<any> = new Subject<any>()
 
   constructor(private http: HttpClient) {
     this.cid = 'projects'
@@ -14,6 +16,14 @@ export class ProjectsService {
 
   get routerPrefix(): string {
     return this.cid
+  }
+
+  setActiveProject(activeProject: any) {
+    this._activeProject.next(activeProject);
+  }
+
+  getActiveProject() {
+    return this._activeProject;
   }
 
   create(data: any) {

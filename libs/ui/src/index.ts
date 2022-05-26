@@ -28,7 +28,7 @@ import { galleryComponentData, galleryFields } from './lib/gallery/gallery.modul
 import { countComponentData, countFields } from './lib/count/count.module'
 import { aboutComponentData, aboutFields } from './lib/about/about.module'
 import { teamComponentData, teamFields } from './lib/team/team.module'
-import { navbarComponentData, navbarFields } from './lib/navbar/navbar.module'
+import {navbarAData, navbarBData, navbarCData, navbarFields} from './lib/navbar/navbar.module'
 import { SocialAComponent } from './lib/social-media/components/social-a/social-a.component'
 import {serviceComponentData, serviceFields} from "./lib/service/service.module";
 import {mapsComponentData, mapsFields} from "./lib/map/map.module";
@@ -61,19 +61,19 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'NavbarAComponent',
         componentClass: NavbarAComponent,
-        componentData: navbarComponentData,
+        componentData: navbarAData,
         fields: navbarFields
       },
       {
         componentName: 'NavbarBComponent',
         componentClass: NavbarBComponent,
-        componentData: navbarComponentData,
+        componentData: navbarBData,
         fields: navbarFields
       },
       {
         componentName: 'NavbarCComponent',
         componentClass: NavbarCComponent,
-        componentData: navbarComponentData,
+        componentData: navbarCData,
         fields: navbarFields
       }
     ]

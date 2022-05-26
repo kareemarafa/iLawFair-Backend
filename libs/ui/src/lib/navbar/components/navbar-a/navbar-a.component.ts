@@ -9,6 +9,7 @@ import {NgxTippyProps} from "ngx-tippy-wrapper";
 })
 export class NavbarAComponent {
   @Input() componentData!: any;
+
   public baseProps: NgxTippyProps = {
     arrow: true,
     theme: 'material',
@@ -21,7 +22,5 @@ export class NavbarAComponent {
     appendTo: "parent",
     interactive: true,
     interactiveBorder: 50,
-
   };
-
 }

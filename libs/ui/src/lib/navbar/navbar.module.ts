@@ -19,28 +19,167 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 export class NavbarModule {
 }
 
-export const navbarComponentData = {
-  title: 'Example',
-  titleFontSize: 15,
-  menuItems: [
-    {value: 'Home', url: '#'},
-    {value: 'About', url: '#'},
-    {value: 'Career', url: '#'},
-    {value: 'Contact', url: '#'}
+export const navbarAData = {
+  "style": {
+    "backgroundColor": "#FFFFFF",
+    "backgroundImage": null,
+    "paddingTop": 17,
+    "paddingBottom": 17,
+    "paddingRight": 15,
+    "paddingLeft": null
+  },
+  "sectionOptions": {
+    "fullWidth": false,
+    "appearance": "normal",
+    "logoPosition": "left",
+    "menuItemsEnabled": true
+  },
+  "callToAction": {
+    "isEnabled": true,
+    "value": "Call to Action",
+    "url": "#",
+    "color": null
+  },
+  "baseUrl": "/home",
+  "titleEnabled": true,
+  "sloganEnabled": true,
+  "logo": {
+    "logoEnabled": false
+  },
+  "menuItems": [
+    {
+      "value": "Home",
+      "url": "#",
+      "color": null
+    },
+    {
+      "value": "About",
+      "url": "#",
+      "color": null
+    },
+    {
+      "value": "Career",
+      "url": "#",
+      "color": null
+    },
+    {
+      "value": "Contact",
+      "url": "#",
+      "color": null
+    }
   ],
-  callToAction: {
-    value: 'Call to Action',
-    url: '#'
+  "title": "Example",
+  "titleColor": "#256efd",
+  "titleFontSize": 19,
+  "slogan": "Hi buddy, I'm slogan :)"
+}
+
+export const navbarBData = {
+  "style": {
+    "backgroundColor": "#6e2121",
+    "backgroundImage": null,
+    "paddingTop": null,
+    "paddingBottom": null,
+    "paddingRight": null,
+    "paddingLeft": null
   },
-  logo: {
-    logoEnabled: false
+  "sectionOptions": {
+    "fullWidth": false,
+    "appearance": "normal",
+    "logoPosition": "right",
+    "menuItemsEnabled": true
   },
-  style: {
-    backgroundColor: '#FFFFFF'
+  "callToAction": {
+    "isEnabled": true,
+    "value": "Call to Action",
+    "url": "#",
+    "color": "btn-outline-danger"
   },
-  sectionOptions: {
-    fullWidth: false
-  }
+  "baseUrl": "/home",
+  "titleEnabled": true,
+  "sloganEnabled": false,
+  "logo": {
+    "logoEnabled": false
+  },
+  "menuItems": [
+    {
+      "value": "Home",
+      "url": "#",
+      "color": null
+    },
+    {
+      "value": "About",
+      "url": "#",
+      "color": null
+    },
+    {
+      "value": "Career",
+      "url": "#",
+      "color": null
+    },
+    {
+      "value": "Contact",
+      "url": "#",
+      "color": null
+    }
+  ],
+  "title": "Example",
+  "titleColor": "#ffb0b0",
+  "titleFontSize": 20
+}
+
+export const navbarCData = {
+  "style": {
+    "backgroundColor": "#353535",
+    "backgroundImage": null,
+    "paddingTop": 20,
+    "paddingBottom": 17,
+    "paddingRight": null,
+    "paddingLeft": 15
+  },
+  "sectionOptions": {
+    "fullWidth": false,
+    "appearance": null,
+    "logoPosition": "center",
+    "menuItemsEnabled": true
+  },
+  "callToAction": {
+    "isEnabled": true,
+    "value": "Call to Action",
+    "url": "#",
+    "color": "btn-outline-info"
+  },
+  "baseUrl": "/home",
+  "titleEnabled": true,
+  "sloganEnabled": false,
+  "logo": {
+    "logoEnabled": false
+  },
+  "menuItems": [
+    {
+      "value": "Home",
+      "url": "#",
+      "color": "#ffffff"
+    },
+    {
+      "value": "About",
+      "url": "#",
+      "color": "#ffffff"
+    },
+    {
+      "value": "Career",
+      "url": "#",
+      "color": "#ffffff"
+    },
+    {
+      "value": "Contact",
+      "url": "#",
+      "color": "#ffffff"
+    }
+  ],
+  "title": "Example",
+  "titleColor": "#eeeeee",
+  "titleFontSize": 20
 }
 
 export const navbarFields = [

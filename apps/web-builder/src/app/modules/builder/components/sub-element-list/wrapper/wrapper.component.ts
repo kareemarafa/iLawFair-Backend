@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
+import { AfterViewInit, Component, Input, ViewChild, ViewContainerRef } from '@angular/core'
 import { ElementsService } from '@ionhour/core'
 import { IComponent } from '@ionhour/interfaces'
+import {ProjectsService} from "../../../../projects/projects.service";
 
 @Component({
   selector: 'ionhour-wrapper',
@@ -13,7 +14,7 @@ export class WrapperComponent implements AfterViewInit {
 
   @ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef
 
-  constructor(public elementService: ElementsService) {}
+  constructor(public elementService: ElementsService, private projectService: ProjectsService) {}
 
   ngAfterViewInit(): void {
     Promise.resolve().then((e) => {

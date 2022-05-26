@@ -11,6 +11,19 @@ export class HeaderModule {}
 
 export const headerComponentData = {
   sectionHead: 'Header',
+  "style": {
+  "backgroundColor": "#fbfbfb",
+    "backgroundImage": null,
+    "paddingTop": null,
+    "paddingBottom": null,
+    "paddingRight": 15,
+    "paddingLeft": null
+},
+  "sectionOptions": {
+  "fullWidth": true
+},
+  "sectionHeadColor": "#474747",
+  "descriptionColor": "#949494",
   image: './assets/500x300.png',
   description:
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged.",

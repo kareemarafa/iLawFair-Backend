@@ -9,5 +9,17 @@
   "LOGOUT": "تسجيل الخروج",
   "Statistics": "الاحصائيات",
   "FAQ": "الاسئلة الشائعة",
-  "Tutorials": "تدريبات"
+  "Tutorials": "تدريبات",
+  "enter": "ادخل",
+  "update": "حفظ",
+  "reset": "مسح",
+  "profile": {
+    "loggedInAs": "تسجيل الدخول بواسطة",
+    "firstName": "الاسم الاول",
+    "lastName": "الاسم الاخير",
+    "userName": "اسم المستخدم",
+    "email": "البريد الالكتروني",
+    "password": "كلمه المرور",
+    "phoneNumber": "رقم التليفون"
+  }
 }

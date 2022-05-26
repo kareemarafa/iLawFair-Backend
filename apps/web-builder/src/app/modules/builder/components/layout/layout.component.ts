@@ -107,6 +107,7 @@ export class LayoutComponent implements OnInit {
   getProjectDetails(id: number, pageId?: number) {
     this.item$ = this.projectService.getOne(id)
     this.item$.pipe().subscribe((project) => {
+      this.projectService.setActiveProject(project);
       this.setFont(project.themeFont ?? 'Arial')
       if (!project?.pages?.length) {
         this.showError()
@@ -224,7 +225,7 @@ export class LayoutComponent implements OnInit {
         if (content.componentName !== component.componentName) {
           return
         }
-        component.componentData = content.componentData
+        component.componentData = content.componentData;
       })
     })
   }
