@@ -90,6 +90,9 @@
     "showSlogan": "اظهار العنوان الفرعي",
     "slogan": "العنوان الفرعي",
     "showLogoImage": "اظهار اللوجو",
-    "titleFontSize": "حجم خط العنوان"
+    "titleFontSize": "حجم خط العنوان",
+    "image": "الصورة",
+    "heading": "العنوان",
+    "description": "الوصف"
   }
 }

@@ -48,7 +48,7 @@ export const testimonialFields = [
         key: 'title',
         type: 'input',
         templateOptions: {
-          label: 'Title',
+      label: 'form.Title',
           required: true
         }
       },
@@ -57,7 +57,7 @@ export const testimonialFields = [
         key: 'titleColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Title Color'
+      label: 'form.Title Color'
         }
       },
       {
@@ -65,7 +65,7 @@ export const testimonialFields = [
         key: 'description',
         type: 'input',
         templateOptions: {
-          label: 'Title',
+      label: 'form.Title',
           required: true
         }
       },
@@ -74,7 +74,7 @@ export const testimonialFields = [
         key: 'descriptionColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Title Color'
+      label: 'form.Title Color'
         }
       }
     ]

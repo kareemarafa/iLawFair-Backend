@@ -101,7 +101,7 @@ export const footerFields = [
         key: 'image',
         type: 'gallery',
         templateOptions: {
-          label: 'Logo',
+      label: 'form.Logo',
           required: true
         }
       },
@@ -110,7 +110,7 @@ export const footerFields = [
         key: 'copyrightText',
         type: 'input',
         templateOptions: {
-          label: 'Copyright',
+      label: 'form.Copyright',
           required: true
         }
       }
@@ -125,21 +125,21 @@ export const footerFields = [
         type: 'input',
         key: 'facebook',
         templateOptions: {
-          label: 'Facebook'
+      label: 'form.Facebook'
         }
       },
       {
         type: 'input',
         key: 'twitter',
         templateOptions: {
-          label: 'Twitter'
+      label: 'form.Twitter'
         }
       },
       {
         type: 'input',
         key: 'linkedin',
         templateOptions: {
-          label: 'LinkedIn'
+      label: 'form.LinkedIn'
         }
       }
     ]

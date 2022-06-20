@@ -1,13 +1,19 @@
 <section class="section">
-  <div class="flex-row row justify-content-between">
-    <div class="col-12">
-      <div class="card border-0 px-5">
-        <div class="card-body">
+  <div ionhourHOCSectionStyle [styles]="componentData?.style"
+       [sectionOptions]="componentData?.sectionOptions">
+    <div ionhourSectionStyle [styles]="componentData?.style"
+         [sectionOptions]="componentData?.sectionOptions">
+      <div class="row">
+        <div class="col-12 px-5">
           <div class="d-flex justify-content-center">
-            <h1 class="font-bold themeFont" [ngStyle]="{ color: componentData?.sectionHeadColor }">{{ componentData?.sectionHead }}</h1>
+            <h1 class="font-bold themeFont"
+                [ngStyle]="{ color: componentData?.sectionHeadColor }">{{ componentData?.sectionHead }}</h1>
           </div>
+        </div>
+        <div class="col-12 px-5">
           <div class="row align-items-center justify-content-between">
-            <div [class]="componentData?.titleColumnSize ? 'col-' + componentData?.titleColumnSize : 'col'">
+            <div
+              class="d-flex flex-column {{componentData?.titleColumnSize ? 'col-' + componentData?.titleColumnSize : 'col'}}">
               <h2
                 class="m-0 themeFont"
                 [ngStyle]="{
@@ -17,6 +23,7 @@
               >
                 {{ componentData?.title }}
               </h2>
+
               <p
                 class="m-0 themeFont"
                 [ngStyle]="{
@@ -27,10 +34,13 @@
                 {{ componentData?.description }}
               </p>
             </div>
-              <div [class]="componentData?.descriptionColumnSize ? 'col-' + componentData?.descriptionColumnSize : 'col'">
-              <img class="img-thumbnail" *ngIf="!componentData?.isVideo" [src]="componentData.image" [alt]="componentData?.title" loading="lazy" />
-              <video class="video img-thumbnail" autoplay loop [muted]="true" *ngIf="componentData?.isVideo" [poster]="componentData.image" preload="metadata">
-                <source [src]="componentData?.video" type="video/mp4" />
+            <div
+              class="d-flex justify-content-end {{componentData?.descriptionColumnSize ? 'col-' + componentData?.descriptionColumnSize : 'col'}}">
+              <img class="img-thumbnail" *ngIf="!componentData?.isVideo" [src]="componentData.image"
+                   [alt]="componentData?.title" loading="lazy"/>
+              <video class="video img-thumbnail" autoplay loop [muted]="true" *ngIf="componentData?.isVideo"
+                     [poster]="componentData.image" preload="metadata">
+                <source [src]="componentData?.video" type="video/mp4"/>
               </video>
             </div>
           </div>

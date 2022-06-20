@@ -35,7 +35,7 @@ export const newsletterFields = [
         key: 'backgroundColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Background Color'
+      label: 'form.Background Color'
         }
       },
       {
@@ -43,7 +43,7 @@ export const newsletterFields = [
         key: 'backgroundImage',
         type: 'gallery',
         templateOptions: {
-          label: 'Background Image'
+      label: 'form.Background Image'
         }
       },
       {
@@ -51,7 +51,7 @@ export const newsletterFields = [
         key: 'paddingTop',
         type: 'slider',
         templateOptions: {
-          label: 'Top Spacing',
+      label: 'form.Top Spacing',
           min: 15,
           max: 200
         }
@@ -61,7 +61,7 @@ export const newsletterFields = [
         key: 'paddingBottom',
         type: 'slider',
         templateOptions: {
-          label: 'Bottom Spacing',
+      label: 'form.Bottom Spacing',
           min: 15,
           max: 200
         }
@@ -71,7 +71,7 @@ export const newsletterFields = [
         key: 'paddingRight',
         type: 'slider',
         templateOptions: {
-          label: 'Right Spacing',
+      label: 'form.Right Spacing',
           min: 15,
           max: 200
         }
@@ -81,7 +81,7 @@ export const newsletterFields = [
         key: 'paddingLeft',
         type: 'slider',
         templateOptions: {
-          label: 'Left Spacing',
+      label: 'form.Left Spacing',
           min: 15,
           max: 200
         }
@@ -99,7 +99,7 @@ export const newsletterFields = [
         type: 'toggle',
         key: 'fullWidth',
         templateOptions: {
-          label: 'Full width'
+      label: 'form.Full width'
         }
       }
     ]
@@ -114,7 +114,7 @@ export const newsletterFields = [
         key: 'title',
         type: 'input',
         templateOptions: {
-          label: 'Title'
+      label: 'form.Title'
         }
       },
       {
@@ -122,7 +122,7 @@ export const newsletterFields = [
         key: 'titleColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Color'
+      label: 'form.color'
         }
       },
       {
@@ -130,7 +130,7 @@ export const newsletterFields = [
         key: 'description',
         type: 'input',
         templateOptions: {
-          label: 'Description'
+      label: 'form.description'
         }
       },
       {
@@ -138,7 +138,7 @@ export const newsletterFields = [
         key: 'descriptionColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Color'
+      label: 'form.color'
         }
       },
     ]

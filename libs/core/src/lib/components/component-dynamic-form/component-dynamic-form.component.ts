@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core'
+import {AfterViewInit, Component, OnDestroy} from '@angular/core'
 import {IComponent} from '@ionhour/interfaces'
 import {ElementsService} from '../../services'
 import {FormGroup} from '@angular/forms'
@@ -46,6 +46,11 @@ export class ComponentDynamicFormComponent implements AfterViewInit, OnDestroy {
     return dirtyValues
   }
 
+  translateFieldLabel(field: FormlyFieldConfig): string {
+    const fieldLabel: string = field?.templateOptions?.label ?? '';
+    return this.translation.instant(fieldLabel);
+  }
+
   getComponent() {
     return this.elementsService.component$.pipe(
       takeWhile(() => this.alive),
@@ -54,14 +59,14 @@ export class ComponentDynamicFormComponent implements AfterViewInit, OnDestroy {
         this.model = component?.componentData;
         component.fields = component?.fields.map((field: FormlyFieldConfig) => {
           if (field?.templateOptions?.label) {
-            field.templateOptions.label = this.translation.instant('form.' + field?.templateOptions?.label)
+            field.templateOptions.label = this.translateFieldLabel(field);
           }
           if (field?.fieldGroup?.length) {
             field.fieldGroup = field.fieldGroup.map(nestedField => ({
               ...nestedField,
               templateOptions: {
                 ...nestedField.templateOptions,
-                label: this.translation.instant('form.' + nestedField?.templateOptions?.label)
+                label: this.translateFieldLabel(nestedField)
               }
             }))
           }
@@ -72,7 +77,7 @@ export class ComponentDynamicFormComponent implements AfterViewInit, OnDestroy {
                 ...nestedField,
                 templateOptions: {
                   ...nestedField.templateOptions,
-                  label: this.translation.instant('form.' + nestedField?.templateOptions?.label)
+                  label: this.translateFieldLabel(nestedField)
                 }
               }))
             }

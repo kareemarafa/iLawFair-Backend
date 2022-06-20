@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { AboutAComponent, AboutBComponent } from './components'
 import { FormlyFieldConfig } from '@ngx-formly/core'
+import {genericFields} from "../generic-fields";
+import {CoreModule} from "@ionhour/core";
 
 @NgModule({
   declarations: [AboutAComponent, AboutBComponent],
-  imports: [CommonModule]
+  imports: [CoreModule, CommonModule]
 })
 export class AboutModule {}
 
@@ -18,6 +20,7 @@ export const aboutComponentData = {
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, but also the leap into electronic typesetting, remaining essentially unchanged."
 }
 export const aboutFields: FormlyFieldConfig[] = [
+  ...genericFields,
   {
     wrappers: ['panel'],
     templateOptions: { label: 'Title' },
@@ -28,7 +31,7 @@ export const aboutFields: FormlyFieldConfig[] = [
         key: 'sectionHead',
         type: 'input',
         templateOptions: {
-          label: 'Heading',
+      label: 'form.heading',
           required: true
         }
       },
@@ -37,7 +40,7 @@ export const aboutFields: FormlyFieldConfig[] = [
         key: 'sectionHeadColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Color'
+      label: 'form.color'
         }
       },
       {
@@ -45,7 +48,7 @@ export const aboutFields: FormlyFieldConfig[] = [
         key: 'title',
         type: 'input',
         templateOptions: {
-          label: 'Title',
+      label: 'form.Title',
           required: true
         }
       },
@@ -54,7 +57,7 @@ export const aboutFields: FormlyFieldConfig[] = [
         key: 'titleColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Color'
+      label: 'form.color'
         }
       },
       {
@@ -72,7 +75,7 @@ export const aboutFields: FormlyFieldConfig[] = [
         key: 'description',
         type: 'textarea',
         templateOptions: {
-          label: 'Description',
+      label: 'form.description',
           required: true
         }
       },
@@ -81,7 +84,7 @@ export const aboutFields: FormlyFieldConfig[] = [
         key: 'descriptionColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Color'
+      label: 'form.color'
         }
       },
       {
@@ -126,7 +129,7 @@ export const aboutFields: FormlyFieldConfig[] = [
         key: 'isVideo',
         type: 'toggle',
         templateOptions: {
-          label: 'Check if media type is video'
+      label: 'form.Check if media type is video'
         }
       },
       {
@@ -134,7 +137,7 @@ export const aboutFields: FormlyFieldConfig[] = [
         key: 'image',
         type: 'gallery',
         templateOptions: {
-          label: 'Image'
+      label: 'form.image'
         }
       },
       {
@@ -143,7 +146,7 @@ export const aboutFields: FormlyFieldConfig[] = [
         type: 'gallery',
         hideExpression: (model) => !model['isVideo'],
         templateOptions: {
-          label: 'Video'
+      label: 'form.Video'
         }
       }
     ]

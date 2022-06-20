@@ -28,7 +28,7 @@ export const countFields = [
         key: 'sectionHead',
         type: 'input',
         templateOptions: {
-          label: 'Heading',
+      label: 'form.heading',
           required: true
         }
       },
@@ -37,7 +37,7 @@ export const countFields = [
         key: 'sectionHeadColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Color'
+      label: 'form.color'
         }
       },
       {
@@ -45,7 +45,7 @@ export const countFields = [
         key: 'description',
         type: 'textarea',
         templateOptions: {
-          label: 'Description',
+      label: 'form.description',
           required: true
         }
       },
@@ -54,7 +54,7 @@ export const countFields = [
         key: 'descriptionColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Color'
+      label: 'form.color'
         }
       }
     ]

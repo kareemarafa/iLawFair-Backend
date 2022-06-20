@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { HeaderAComponent, HeaderBComponent, HeaderCComponent } from './components'
 import { CoreModule } from '@ionhour/core'
+import {genericFields} from "../generic-fields";
 
 @NgModule({
   declarations: [HeaderAComponent, HeaderBComponent, HeaderCComponent],
@@ -34,88 +35,7 @@ export const headerComponentData = {
 }
 
 export const headerFields = [
-  {
-    wrappers: ['panel'],
-    key: 'style',
-    fieldGroupClassName: 'row',
-    templateOptions: {
-      label: 'Section styles'
-    },
-    fieldGroup: [
-      {
-        className: 'col-12',
-        key: 'backgroundColor',
-        type: 'colorLibraryPicker',
-        templateOptions: {
-          label: 'Background Color'
-        }
-      },
-      {
-        className: 'col-12',
-        key: 'backgroundImage',
-        type: 'gallery',
-        templateOptions: {
-          label: 'Background Image'
-        }
-      },
-      {
-        className: 'col-6',
-        key: 'paddingTop',
-        type: 'slider',
-        templateOptions: {
-          label: 'Top Spacing',
-          min: 15,
-          max: 200
-        }
-      },
-      {
-        className: 'col-6',
-        key: 'paddingBottom',
-        type: 'slider',
-        templateOptions: {
-          label: 'Bottom Spacing',
-          min: 15,
-          max: 200
-        }
-      },
-      {
-        className: 'col-6',
-        key: 'paddingRight',
-        type: 'slider',
-        templateOptions: {
-          label: 'Right Spacing',
-          min: 15,
-          max: 200
-        }
-      },
-      {
-        className: 'col-6',
-        key: 'paddingLeft',
-        type: 'slider',
-        templateOptions: {
-          label: 'Left Spacing',
-          min: 15,
-          max: 200
-        }
-      }
-    ]
-  },
-  {
-    wrappers: ['panel'],
-    key: 'sectionOptions',
-    templateOptions: {
-      label: 'Section options'
-    },
-    fieldGroup: [
-      {
-        type: 'toggle',
-        key: 'fullWidth',
-        templateOptions: {
-          label: 'Full width'
-        }
-      }
-    ]
-  },
+  ...genericFields,
   {
     wrappers: ['panel'],
     templateOptions: { label: 'Edit Content' },
@@ -126,7 +46,7 @@ export const headerFields = [
         key: 'sectionHead',
         type: 'input',
         templateOptions: {
-          label: 'Heading',
+      label: 'form.heading',
           required: true
         }
       },
@@ -135,7 +55,7 @@ export const headerFields = [
         key: 'sectionHeadColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Color'
+      label: 'form.color'
         }
       },
       {
@@ -143,7 +63,7 @@ export const headerFields = [
         key: 'description',
         type: 'textarea',
         templateOptions: {
-          label: 'Description',
+      label: 'form.description',
           required: true
         }
       },
@@ -152,7 +72,7 @@ export const headerFields = [
         key: 'descriptionColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Color'
+      label: 'form.color'
         }
       },
       {
@@ -160,7 +80,7 @@ export const headerFields = [
         key: 'image',
         type: 'gallery',
         templateOptions: {
-          label: 'Image'
+      label: 'form.image'
         }
       }
     ]
@@ -176,14 +96,14 @@ export const headerFields = [
         type: 'input',
         key: 'value',
         templateOptions: {
-          label: 'Label'
+      label: 'form.label'
         }
       },
       {
         type: 'input',
         key: 'url',
         templateOptions: {
-          label: 'URL'
+      label: 'form.url'
         }
       },
       {

@@ -47,7 +47,7 @@ export const serviceFields = [
         key: 'title',
         type: 'input',
         templateOptions: {
-          label: 'Title',
+      label: 'form.Title',
           required: true
         }
       },
@@ -56,7 +56,7 @@ export const serviceFields = [
         key: 'titleColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Color'
+      label: 'form.color'
         }
       },
       {
@@ -64,7 +64,7 @@ export const serviceFields = [
         key: 'description',
         type: 'input',
         templateOptions: {
-          label: 'Description',
+      label: 'form.description',
           required: true
         }
       },
@@ -73,7 +73,7 @@ export const serviceFields = [
         key: 'descriptionColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Color'
+      label: 'form.color'
         }
       }
     ]
@@ -89,14 +89,14 @@ export const serviceFields = [
         type: 'input',
         key: 'value',
         templateOptions: {
-          label: 'Label'
+      label: 'form.label'
         }
       },
       {
         type: 'input',
         key: 'url',
         templateOptions: {
-          label: 'URL'
+      label: 'form.url'
         }
       },
       {

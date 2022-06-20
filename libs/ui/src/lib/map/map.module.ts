@@ -39,7 +39,7 @@ export const mapsFields = [
         key: 'address',
         type: 'input',
         templateOptions: {
-          label: 'Address',
+      label: 'form.Address',
           required: true
         }
       },
@@ -47,7 +47,7 @@ export const mapsFields = [
         key: 'zoom',
         type: 'slider',
         templateOptions: {
-          label: 'Zoom',
+      label: 'form.Zoom',
           min: 7,
           max: 25
         },

@@ -40,7 +40,7 @@ export const teamFields = [
         key: 'title',
         type: 'input',
         templateOptions: {
-          label: 'Title',
+      label: 'form.Title',
           required: true
         }
       },
@@ -49,7 +49,7 @@ export const teamFields = [
         key: 'titleColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Title Color'
+      label: 'form.Title Color'
         }
       },
       {
@@ -57,7 +57,7 @@ export const teamFields = [
         key: 'description',
         type: 'input',
         templateOptions: {
-          label: 'Title',
+      label: 'form.Title',
           required: true
         }
       },
@@ -66,7 +66,7 @@ export const teamFields = [
         key: 'descriptionColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Title Color'
+      label: 'form.Title Color'
         }
       }
     ]

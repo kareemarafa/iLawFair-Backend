@@ -25,7 +25,7 @@ export const actionFields = [
         key: 'sectionHead',
         type: 'input',
         templateOptions: {
-          label: 'Heading',
+      label: 'form.heading',
           required: true
         }
       },
@@ -34,7 +34,7 @@ export const actionFields = [
         key: 'sectionHeadColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Color'
+      label: 'form.color'
         }
       },
       {
@@ -42,7 +42,7 @@ export const actionFields = [
         key: 'description',
         type: 'textarea',
         templateOptions: {
-          label: 'Description',
+      label: 'form.description',
           required: true
         }
       },
@@ -51,7 +51,7 @@ export const actionFields = [
         key: 'descriptionColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Color'
+      label: 'form.color'
         }
       }
     ]
@@ -67,14 +67,14 @@ export const actionFields = [
         type: 'input',
         key: 'value',
         templateOptions: {
-          label: 'Label'
+      label: 'form.label'
         }
       },
       {
         type: 'input',
         key: 'url',
         templateOptions: {
-          label: 'URL'
+      label: 'form.url'
         }
       },
       {

@@ -39,7 +39,7 @@ export const galleryFields = [
         key: 'title',
         type: 'input',
         templateOptions: {
-          label: 'Title',
+      label: 'form.Title',
           required: true
         }
       },
@@ -48,7 +48,7 @@ export const galleryFields = [
         key: 'titleColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Title Color'
+      label: 'form.Title Color'
         }
       },
       {
@@ -56,7 +56,7 @@ export const galleryFields = [
         key: 'description',
         type: 'input',
         templateOptions: {
-          label: 'Description',
+      label: 'form.description',
           required: true
         }
       },
@@ -65,7 +65,7 @@ export const galleryFields = [
         key: 'descriptionColor',
         type: 'colorLibraryPicker',
         templateOptions: {
-          label: 'Title Color'
+      label: 'form.Title Color'
         }
       }
     ]
