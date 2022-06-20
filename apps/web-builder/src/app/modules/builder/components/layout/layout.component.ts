@@ -15,6 +15,7 @@ import { ProjectsService } from '../../../projects/projects.service'
 import { PagesService } from '../../../pages/pages.service'
 import { builderElements } from '@ionhour/ui'
 import { MatSnackBar } from '@angular/material/snack-bar'
+import {ProjectsFormComponent} from "../../../projects/components";
 
 @UntilDestroy()
 @Component({
@@ -142,6 +143,10 @@ export class LayoutComponent implements OnInit {
         this.currentPage = pageContent
       }
     })
+  }
+
+  navigateToProjectForm() {
+    return this.router.navigate([`dashboard/projects/edit`], {queryParams: {id: this.itemId}})
   }
 
   updatePageContent() {

@@ -9,8 +9,12 @@
 
   <img src="assets/logo.png" alt="WebMe" width="50"/>
 
-  <button class="mx-3" mat-icon-button [matTooltip]="'Manage sections'" (click)="drawer.toggle()">
+  <button class="mx-3" mat-icon-button [matTooltip]="'builder.manageSections' | translate" (click)="drawer.toggle()">
     <mat-icon>menu</mat-icon>
+  </button>
+
+  <button class="mx-3" mat-icon-button [matTooltip]="'builder.projectSettings' | translate" (click)="navigateToProjectForm()">
+    <mat-icon>settings</mat-icon>
   </button>
 
   <ng-container *ngIf="(item$ | async)?.builderType === 'multi'">
