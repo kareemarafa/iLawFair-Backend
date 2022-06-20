@@ -36,6 +36,7 @@ import {BlogAComponent} from "./lib/blog/components/blog-a/blog-a.component";
 import {blogComponentData, blogFields} from "./lib/blog/blog.module";
 import {NewsletterAComponent} from "./lib/newsletter/components/newsletter-a/newsletter-a.component";
 import {newsletterComponentData, newsletterFields} from "./lib/newsletter/newsletter.module";
+import {socialComponentData, socialFields} from "./lib/social-media/social-media.module";
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -227,83 +228,8 @@ export const builderElements: ModuleInterface[] = [
       {
         componentName: 'SocialAComponent',
         componentClass: SocialAComponent,
-        componentData: {
-          title: 'Follow Us',
-          description: 'none',
-          facebook: '#',
-          twitter: '#',
-          instagram: '#'
-        },
-        fields: [
-          {
-            wrappers: ['panel'],
-            templateOptions: { label: 'Title' },
-            fieldGroupClassName: 'row',
-            fieldGroup: [
-              {
-                className: 'col-9',
-                key: 'title',
-                type: 'input',
-                templateOptions: {
-                  label: 'Title',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'titleColor',
-                type: 'colorLibraryPicker',
-                templateOptions: {
-                  label: 'Title Color'
-                }
-              },
-              {
-                className: 'col-9',
-                key: 'description',
-                type: 'input',
-                templateOptions: {
-                  label: 'Title',
-                  required: true
-                }
-              },
-              {
-                className: 'col-3',
-                key: 'descriptionColor',
-                type: 'colorLibraryPicker',
-                templateOptions: {
-                  label: 'Title Color'
-                }
-              },
-              {
-                className: 'col-9',
-                key: 'facebook',
-                type: 'input',
-                templateOptions: {
-                  label: 'Title',
-                  required: true
-                }
-              },
-              {
-                className: 'col-9',
-                key: 'twitter',
-                type: 'input',
-                templateOptions: {
-                  label: 'Title',
-                  required: true
-                }
-              },
-              {
-                className: 'col-9',
-                key: 'instagram',
-                type: 'input',
-                templateOptions: {
-                  label: 'Title',
-                  required: true
-                }
-              }
-            ]
-          }
-        ]
+        componentData: socialComponentData,
+        fields: socialFields
       }
     ]
   },

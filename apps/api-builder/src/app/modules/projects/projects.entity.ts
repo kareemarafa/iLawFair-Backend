@@ -70,28 +70,6 @@ export class Project extends CoreEntity {
   @ApiProperty({required: true, type: 'string', nullable: false})
   projectName: string
 
-
-  @IsNotEmpty({groups: [CREATE]})
-  @IsOptional({groups: [UPDATE]})
-  @IsString({always: true})
-  @Column({type: 'varchar', nullable: false})
-  @ApiProperty({required: true, type: 'string', nullable: false})
-  facebookUrl: string
-
-  @IsNotEmpty({groups: [CREATE]})
-  @IsOptional({groups: [UPDATE]})
-  @IsString({always: true})
-  @Column({type: 'varchar', nullable: false})
-  @ApiProperty({required: true, type: 'string', nullable: false})
-  instagramUrl: string
-
-  @IsNotEmpty({groups: [CREATE]})
-  @IsOptional({groups: [UPDATE]})
-  @IsString({always: true})
-  @Column({type: 'varchar', nullable: false})
-  @ApiProperty({required: true, type: 'string', nullable: false})
-  twitterUrl: string
-
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsEnum(BuilderType, {always: true})
