@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/kareemarafa/ionhour-web-me/compare/v0.0.9...v0.0.10) (2022-06-20)
+
+
+### Features
+
+* **builder-layout:** translation ([fc03a14](https://github.com/kareemarafa/ionhour-web-me/commit/fc03a143e1111c8b398d26e3ceefba69ccb30028))
+* **builder-navbar:** translation ([3a6aa4d](https://github.com/kareemarafa/ionhour-web-me/commit/3a6aa4d3b46b8132143e214f13e4f1a33b07c53e))
+* **docker:** add docker-compose file ([3d798a3](https://github.com/kareemarafa/ionhour-web-me/commit/3d798a3cedc71991236dc24cc53e89252e36610e))
+* **media:** translation ([f50fa86](https://github.com/kareemarafa/ionhour-web-me/commit/f50fa86e6fc4c689dab7b6b18f1b155867c6a799))
+* **profile:** translation ([2147e69](https://github.com/kareemarafa/ionhour-web-me/commit/2147e69ef1562fd8e8700e98ccf4c6423fa810f2))
+* **projects:** translation ([865bada](https://github.com/kareemarafa/ionhour-web-me/commit/865badad551cb4b666165c2fe59531b85cd01498))
+* **translation:** translation ([d9048b5](https://github.com/kareemarafa/ionhour-web-me/commit/d9048b520ac815e997b395a0b462ec5e6a68c631))
+
+
+### Bug Fixes
+
+* fix build issue ([1daa27e](https://github.com/kareemarafa/ionhour-web-me/commit/1daa27ecb91e9820d4bc4d2d8f22994b393a1b1f))
+* refresh page withour getting 404 ([8dc70fd](https://github.com/kareemarafa/ionhour-web-me/commit/8dc70fd8127615c609018c127132530d3e6452b0))
+
 ### [0.0.9](https://github.com/kareemarafa/ionhour-web-me/compare/v0.0.8...v0.0.9) (2022-04-30)
 
 
