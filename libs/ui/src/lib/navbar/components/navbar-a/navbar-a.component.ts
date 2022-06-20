@@ -1,5 +1,4 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core'
-import {NgxTippyProps} from "ngx-tippy-wrapper";
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core'
 
 @Component({
   selector: 'ionhour-navbar-a',
@@ -7,20 +6,20 @@ import {NgxTippyProps} from "ngx-tippy-wrapper";
   styleUrls: ['./navbar-a.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class NavbarAComponent {
+export class NavbarAComponent implements OnInit {
   @Input() componentData!: any;
+  currentProject: any;
 
-  public baseProps: NgxTippyProps = {
-    arrow: true,
-    theme: 'material',
-    placement: 'bottom'
-  };
+  constructor() {
+    this.currentProject = JSON.parse(localStorage.getItem('currentProject') ?? '');
+  }
 
-  templateRef: NgxTippyProps = {
-    ...this.baseProps,
-    allowHTML: true,
-    appendTo: "parent",
-    interactive: true,
-    interactiveBorder: 50,
-  };
+
+  ngOnInit() {
+    const {logo} = this.currentProject;
+    this.componentData.logo.src = logo;
+    this.componentData.logo.height = 50;
+    this.componentData.logo.width = 75;
+  }
+
 }

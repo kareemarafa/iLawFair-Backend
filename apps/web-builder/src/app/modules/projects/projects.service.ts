@@ -19,6 +19,7 @@ export class ProjectsService {
   }
 
   setActiveProject(activeProject: any) {
+    localStorage.setItem('currentProject', JSON.stringify(activeProject));
     this._activeProject.next(activeProject);
   }
 
