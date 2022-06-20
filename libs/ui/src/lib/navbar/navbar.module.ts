@@ -10,6 +10,7 @@ import {NgxTippyModule, NgxTippyService} from 'ngx-tippy-wrapper';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {genericFields} from "../generic-fields";
+import {getPagesAsList} from "../../../../core/src/lib/utils/pages-list.util";
 
 @NgModule({
   declarations: [NavbarAComponent, NavbarBComponent, NavbarCComponent],
@@ -19,6 +20,7 @@ import {genericFields} from "../generic-fields";
 })
 export class NavbarModule {
 }
+
 
 export const navbarAData = {
   "style": {
@@ -209,12 +211,39 @@ export const navbarFields = [
 
       },
       {
+        type: 'select',
+        key: 'navType',
+        templateOptions: {
+          label: 'form.navType',
+          options: [
+            {
+              label: 'form.link',
+              value: 'link'
+            },
+            {
+              label: 'form.page',
+              value: 'page'
+            }
+          ]
+        },
+        hideExpression: (model: any) => !model.isEnabled
+      },
+      {
+        type: 'select',
+        key: 'page',
+        templateOptions: {
+          label: 'form.page',
+          options: getPagesAsList()
+        },
+        hideExpression: (model: any) => !model.isEnabled || model.navType !== 'page'
+      },
+      {
         type: 'input',
         key: 'url',
         templateOptions: {
           label: 'form.url'
         },
-        hideExpression: (model: any) => !model.isEnabled
+        hideExpression: (model: any) => !model.isEnabled || model.navType !== 'link'
       },
       {
         type: 'select',
@@ -382,11 +411,38 @@ export const navbarFields = [
           }
         },
         {
+          type: 'select',
+          key: 'navType',
+          templateOptions: {
+            label: 'form.navType',
+            options: [
+              {
+                label: 'form.link',
+                value: 'link'
+              },
+              {
+                label: 'form.page',
+                value: 'page'
+              }
+            ]
+          },
+        },
+        {
+          type: 'select',
+          key: 'page',
+          templateOptions: {
+            label: 'form.page',
+            options: getPagesAsList()
+          },
+          hideExpression: (model: any) => model.navType !== 'page'
+        },
+        {
           type: 'input',
           key: 'url',
           templateOptions: {
             label: 'form.url'
-          }
+          },
+          hideExpression: (model: any) => model.navType !== 'link'
         },
         {
           type: 'colorLibraryPicker',

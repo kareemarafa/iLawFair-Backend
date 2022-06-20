@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common'
 import {ServiceAComponent} from './components/service-a/service-a.component'
 import {ServiceBComponent} from './components/service-b/service-b.component'
 import {ServiceCComponent} from './components/service-c/service-c.component'
+import {getPagesAsList} from "../../../../core/src/lib/utils/pages-list.util";
 
 @NgModule({
   declarations: [ServiceAComponent, ServiceBComponent, ServiceCComponent],
@@ -93,10 +94,44 @@ export const serviceFields = [
         }
       },
       {
+        type: 'select',
+        key: 'navType',
+        templateOptions: {
+          label: 'form.navType',
+          options: [
+            {
+              label: 'form.link',
+              value: 'link'
+            },
+            {
+              label: 'form.page',
+              value: 'page'
+            }
+          ]
+        },
+      },
+      {
+        type: 'select',
+        key: 'page',
+        templateOptions: {
+          label: 'form.page',
+          options: getPagesAsList()
+        },
+        hideExpression: (model: any) => model.navType !== 'page'
+      },
+      {
         type: 'input',
         key: 'url',
         templateOptions: {
-      label: 'form.url'
+          label: 'form.url'
+        },
+        hideExpression: (model: any) => model.navType !== 'link'
+      },
+      {
+        type: 'colorLibraryPicker',
+        key: 'color',
+        templateOptions: {
+          label: 'form.color'
         }
       },
       {

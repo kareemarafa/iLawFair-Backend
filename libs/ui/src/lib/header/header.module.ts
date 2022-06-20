@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common'
 import { HeaderAComponent, HeaderBComponent, HeaderCComponent } from './components'
 import { CoreModule } from '@ionhour/core'
 import {genericFields} from "../generic-fields";
+import {getPagesAsList} from "../../../../core/src/lib/utils/pages-list.util";
 
 @NgModule({
   declarations: [HeaderAComponent, HeaderBComponent, HeaderCComponent],
@@ -100,10 +101,44 @@ export const headerFields = [
         }
       },
       {
+        type: 'select',
+        key: 'navType',
+        templateOptions: {
+          label: 'form.navType',
+          options: [
+            {
+              label: 'form.link',
+              value: 'link'
+            },
+            {
+              label: 'form.page',
+              value: 'page'
+            }
+          ]
+        },
+      },
+      {
+        type: 'select',
+        key: 'page',
+        templateOptions: {
+          label: 'form.page',
+          options: getPagesAsList()
+        },
+        hideExpression: (model: any) => model.navType !== 'page'
+      },
+      {
         type: 'input',
         key: 'url',
         templateOptions: {
-      label: 'form.url'
+          label: 'form.url'
+        },
+        hideExpression: (model: any) => model.navType !== 'link'
+      },
+      {
+        type: 'colorLibraryPicker',
+        key: 'color',
+        templateOptions: {
+          label: 'form.color'
         }
       },
       {
