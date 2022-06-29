@@ -1,24 +1,25 @@
 <div class="auth-container">
-  <mat-card fxFlex.xs="1 1 100%" fxFlex.sm="1 1 75%" fxFlex.md="1 1 50%" fxFlex.lg="33.33%" fxLayout="column">
+  <mat-card fxFlex.xs="1 1 100%" fxFlex.sm="1 1 75%" fxFlex.md="1 1 50%" fxFlex="1 1 50%" fxFlex.lg="33.33%" fxLayout="column">
     <section class="auth-head">
       <img class="my-2" src="assets/logo-shape.png" alt="WebMe" width="75" />
       <h2>WebMe | Login</h2>
     </section>
     <form [formGroup]="form" (ngSubmit)="login()" fxFlex="1 1 100%" fxLayout="column">
       <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
-      <div class="help-link">
-        <p>
-          Doesn't have account
-          <a class="text-primary" routerLink="/auth/register">Register</a>
-        </p>
-      </div>
+
       <div class="d-flex flex-column align-items-center">
+        <div class="help-link">
+          <p>
+            Doesn't have account
+            <a class="text-primary" routerLink="/auth/register">Register</a>
+          </p>
+        </div>
         <a class="my-2 btn w-75 btn-primary d-flex flex-row justify-content-center align-items-center">Continue with Facebook</a>
         <a class="my-2 btn w-75 btn-danger d-flex flex-row justify-content-center align-items-center">Continue with Google</a>
-      </div>
-      <div class="auth-button-group">
-        <button mat-flat-button type="submit" color="primary">Login</button>
-        <button mat-flat-button type="reset">Reset</button>
+        <div class="auth-button-group">
+          <button mat-flat-button type="submit" color="primary">Login</button>
+          <button mat-flat-button type="reset">Reset</button>
+        </div>
       </div>
     </form>
   </mat-card>
