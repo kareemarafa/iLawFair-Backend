@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { I18nService } from '../../../common/i18n.service'
 import {
   ArcElement,
   BarController,
@@ -18,16 +19,15 @@ import {
   Tooltip,
   Legend
 } from 'chart.js'
-import { I18nService } from '../../common/i18n.service'
-
 @Component({
-  selector: 'ionhour-shell',
-  templateUrl: './shell.component.html',
-  styleUrls: ['./shell.component.scss']
+  selector: 'ionhour-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class ShellComponent implements OnInit {
+export class HeaderComponent implements OnInit {
   constructor(private i18nService: I18nService) {}
-  ngOnInit() {
+
+  ngOnInit(): void {
     Chart.register(
       ArcElement,
       BarController,
@@ -47,7 +47,6 @@ export class ShellComponent implements OnInit {
       Legend
     )
   }
-
   get currentLang(): string {
     return this.i18nService.language
   }
@@ -63,3 +62,4 @@ export class ShellComponent implements OnInit {
     // window.location.reload()
   }
 }
+

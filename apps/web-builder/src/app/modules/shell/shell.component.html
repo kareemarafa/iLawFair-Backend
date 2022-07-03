@@ -1,42 +1,40 @@
-<mat-drawer-container class="example-container">
-  <mat-drawer #drawer mode="side" class="example-sidenav" opened>
-    <mat-list class="h-100">
-      <div class="d-flex flex-column justify-content-between h-100">
-        <div>
-          <div class="d-flex flex-row justify-content-center my-3">
-            <img class="my-2" src="assets/logo-shape.png" alt="WebMe" width="75"/>
-          </div>
-          <a mat-list-item routerLink="view" routerLinkActive="text-primary">{{"DASHBOARD" | translate}}</a>
-          <a mat-list-item routerLink="profile" routerLinkActive="text-primary">{{"PROFILE" | translate}}</a>
-          <a mat-list-item routerLink="projects" routerLinkActive="text-primary">{{"PROJECTS" | translate}}</a>
-          <a mat-list-item routerLink="subscriptions" routerLinkActive="text-primary">{{"SUBSCRIPTION" | translate}}</a>
-          <a mat-list-item routerLink="media" routerLinkActive="text-primary">{{"MEDIA_LIBRARY" | translate}}</a>
-        </div>
-        <a mat-list-item routerLink="/auth/login" routerLinkActive="text-primary">{{"LOGOUT" | translate}}</a>
-      </div>
-    </mat-list>
-  </mat-drawer>
-  <mat-drawer-content>
-    <div>
-      <mat-toolbar color="primary">
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
-                (click)="drawer.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span class="example-spacer"></span>
-        <button mat-button [matMenuTriggerFor]="menu">
-          <mat-icon>language</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-        <ng-container *ngFor="let language of languages">
-          <button mat-menu-item (click)="setLanguage(language)">{{language | translate}}</button>
-        </ng-container>
-        </mat-menu>
+<ionhour-header></ionhour-header>
+<div class="shell">
+  <mat-drawer-container class="example-container">
+    <!-- <mat-drawer #drawer mode="side" class="example-sidenav" opened>
+      <mat-list class="h-100">
+        <div class="d-flex flex-column justify-content-between h-100">
+          <div>
+            <div class="d-flex flex-column text-center align-items-center justify-content-center my-3">
+              <img class="my-2" src="assets/logo-shape.png" alt="WebMe" width="75" />
+              <h3>Web-<span class="me">Me</span></h3>
+            </div>
+            <a mat-list-item routerLink="view" routerLinkActive="text-light">{{ 'DASHBOARD' | translate }}</a>
+            <mat-divider></mat-divider>
+            <a mat-list-item routerLink="profile" routerLinkActive="text-light">{{ 'PROFILE' | translate }}</a>
+            <mat-divider></mat-divider>
 
-      </mat-toolbar>
-      <div class="p-4">
-        <router-outlet></router-outlet>
+            <a mat-list-item routerLink="projects" routerLinkActive="text-light">{{ 'PROJECTS' | translate }}</a>
+            <mat-divider></mat-divider>
+
+            <a mat-list-item routerLink="subscriptions" routerLinkActive="text-light">{{ 'SUBSCRIPTION' | translate }}</a>
+            <mat-divider></mat-divider>
+
+            <a mat-list-item routerLink="media" routerLinkActive="text-light">{{ 'MEDIA_LIBRARY' | translate }}</a>
+            <mat-divider></mat-divider>
+          </div>
+          <a mat-list-item routerLink="/auth/login" routerLinkActive="text-light">{{ 'LOGOUT' | translate }}</a>
+        </div>
+      </mat-list>
+    </mat-drawer> -->
+    <mat-drawer-content>
+      <div>
+        <div class="p-4" class="shell-route">
+          <div class="container route">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
       </div>
-    </div>
-  </mat-drawer-content>
-</mat-drawer-container>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

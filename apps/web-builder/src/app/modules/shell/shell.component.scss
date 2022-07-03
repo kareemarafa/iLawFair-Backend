@@ -1,3 +1,7 @@
+.shell {
+  // width: max-content;
+  height: auto !important;
+}
 .example-container {
   height: 100vh;
 }
@@ -10,10 +14,42 @@
 }
 
 .example-sidenav {
-  padding: 20px;
-  width: 200px;
+  width: 235px;
+  background-color: rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  margin-bottom: 10px;
+  padding: 0;
+  position: fixed;
+  z-index: 5;
+  a {
+    font-size: 20px;
+    &:hover {
+      background-color: #000000c9;
+      color: #26d5c5;
+    }
+  }
 }
 
 .example-spacer {
   flex: 1 1 auto;
+}
+.toolbar {
+  background-color: #26d5c5;
+}
+.me {
+  color: #fff;
+}
+.shell-route {
+  background-image: url(../../../assets/background1.jpg);
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  .route {
+    margin: 122px 0 0 0;
+    position: absolute;
+    display: block;
+    width: 100%;
+  }
 }
