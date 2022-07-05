@@ -1,6 +1,8 @@
 <section class="section bg-white py-4">
-  <div class="row">
-    <div class="col-lg-6 col-md-8 mx-auto text-center">
+  <div class="row" ionhourHOCSectionStyle [styles]="componentData?.style"
+       [sectionOptions]="componentData?.sectionOptions">
+    <div class="col-lg-6 col-md-8 mx-auto text-center" ionhourSectionStyle [styles]="componentData?.style"
+         [sectionOptions]="componentData?.sectionOptions">
       <h1 class="fw-light themeFont" [ngStyle]="{ color: componentData?.titleColor }">{{ componentData.title }}</h1>
       <p class="lead themeFont" [ngStyle]="{ color: componentData?.descriptionColor }">
         {{ componentData.description }}

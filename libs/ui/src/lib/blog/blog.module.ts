@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BlogAComponent } from './components/blog-a/blog-a.component';
 import {CoreModule} from "@ionhour/core";
+import {genericFields} from "../generic-fields";
 
 
 
@@ -48,6 +49,7 @@ export const blogComponentData = {
 }
 
 export const blogFields = [
+  ...genericFields,
   {
     wrappers: ['panel'],
     key: 'style',

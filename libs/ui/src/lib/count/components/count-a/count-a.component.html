@@ -1,6 +1,8 @@
 <section class="section">
-  <div class="card">
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <div class="card" ionhourHOCSectionStyle [styles]="componentData?.style"
+       [sectionOptions]="componentData?.sectionOptions">
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" ionhourSectionStyle [styles]="componentData?.style"
+       [sectionOptions]="componentData?.sectionOptions">
       <h1 class="display-4 themeFont" [ngStyle]="{ color: componentData?.sectionHeadColor }">{{ componentData?.sectionHead }}</h1>
       <p
         class="lead themeFont"

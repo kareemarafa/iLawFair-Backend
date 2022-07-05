@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { ContactAComponent } from './components/contact-a/contact-a.component'
+import {genericFields} from "../generic-fields";
+import {CoreModule} from "@ionhour/core";
 
 @NgModule({
   declarations: [ContactAComponent],
-  imports: [CommonModule]
+  imports: [CommonModule, CoreModule]
 })
 export class ContactModule {}
 
@@ -29,6 +31,7 @@ export const contactComponentData = {
 }
 
 export const contactFields = [
+  ...genericFields,
   {
     wrappers: ['panel'],
     templateOptions: { label: 'Title' },

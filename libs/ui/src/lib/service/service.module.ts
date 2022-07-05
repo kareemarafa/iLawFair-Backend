@@ -4,10 +4,12 @@ import {ServiceAComponent} from './components/service-a/service-a.component'
 import {ServiceBComponent} from './components/service-b/service-b.component'
 import {ServiceCComponent} from './components/service-c/service-c.component'
 import {getPagesAsList} from "../../../../core/src/lib/utils/pages-list.util";
+import {genericFields} from "../generic-fields";
+import {CoreModule} from "@ionhour/core";
 
 @NgModule({
   declarations: [ServiceAComponent, ServiceBComponent, ServiceCComponent],
-  imports: [CommonModule]
+  imports: [CommonModule, CoreModule]
 })
 export class ServiceModule {
 }
@@ -38,6 +40,7 @@ export const serviceComponentData = {
   ]
 };
 export const serviceFields = [
+  ...genericFields,
   {
     wrappers: ['panel'],
     templateOptions: {label: 'Title'},

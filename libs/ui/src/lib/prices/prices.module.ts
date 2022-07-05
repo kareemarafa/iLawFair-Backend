@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core'
 import { PricesAComponent } from './components'
 import { CommonModule } from '@angular/common'
+import {genericFields} from "../generic-fields";
+import {CoreModule} from "@ionhour/core";
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, CoreModule],
   declarations: [PricesAComponent]
 })
 export class PricesModule {}
@@ -50,6 +52,7 @@ export const priceComponentData = {
 }
 
 export const priceFields = [
+  ...genericFields,
   {
     wrappers: ['panel'],
     templateOptions: { label: 'Title' },

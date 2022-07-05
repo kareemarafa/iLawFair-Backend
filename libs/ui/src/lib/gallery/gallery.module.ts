@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { GalleryAComponent } from './components/gallery-a/gallery-a.component'
 import { FlexModule } from '@angular/flex-layout'
+import {genericFields} from "../generic-fields";
+import {CoreModule} from "@ionhour/core";
 
 @NgModule({
   declarations: [GalleryAComponent],
-  imports: [CommonModule, FlexModule]
+  imports: [CommonModule, FlexModule, CoreModule]
 })
 export class GalleryModule {}
 
@@ -29,6 +31,7 @@ export const galleryComponentData = {
 }
 
 export const galleryFields = [
+  ...genericFields,
   {
     wrappers: ['panel'],
     templateOptions: { label: 'Title' },

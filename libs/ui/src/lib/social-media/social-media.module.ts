@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { SocialAComponent } from './components/social-a/social-a.component'
-import {getPagesAsList} from "../../../../core/src/lib/utils/pages-list.util";
+import {CoreModule} from "@ionhour/core";
+import {genericFields} from "../generic-fields";
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, CoreModule],
   declarations: [SocialAComponent]
 })
 export class SocialMediaModule {}
@@ -16,6 +17,7 @@ export const socialComponentData = {
   instagram: '#'
 }
 export const socialFields = [
+  ...genericFields,
   {
     wrappers: ['panel'],
     templateOptions: { label: 'Title' },

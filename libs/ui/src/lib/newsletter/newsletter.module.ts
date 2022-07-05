@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewsletterAComponent } from './components/newsletter-a/newsletter-a.component';
 import {CoreModule} from "@ionhour/core";
+import {genericFields} from "../generic-fields";
 
 
 
@@ -22,6 +23,7 @@ export const newsletterComponentData = {
 }
 
 export const newsletterFields = [
+  ...genericFields,
   {
     wrappers: ['panel'],
     key: 'style',

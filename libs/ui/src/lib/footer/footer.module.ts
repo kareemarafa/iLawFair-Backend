@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { FooterAComponent, FooterBComponent } from './components/'
+import {genericFields} from "../generic-fields";
+import {CoreModule} from "@ionhour/core";
 
 @NgModule({
   declarations: [FooterAComponent, FooterBComponent],
-  imports: [CommonModule]
+  imports: [CommonModule, CoreModule]
 })
 export class FooterModule {}
 
@@ -91,6 +93,7 @@ export const footerComponentData = {
 }
 
 export const footerFields = [
+  ...genericFields,
   {
     wrappers: ['panel'],
     templateOptions: { label: 'Title' },

@@ -1,6 +1,8 @@
 <section class="section">
-  <div class="action-a bg-white px-3 py-5">
-    <div class="row">
+  <div class="action-a bg-white px-3 py-5" ionhourHOCSectionStyle [styles]="componentData?.style"
+       [sectionOptions]="componentData?.sectionOptions">
+    <div class="row" ionhourSectionStyle [styles]="componentData?.style"
+         [sectionOptions]="componentData?.sectionOptions">
       <div class="col-md-6">
         <h1 class="h1 themeFont" [ngStyle]="{ color: componentData?.titleColor }">{{ componentData?.title }}</h1>
         <p class="themeFont" [ngStyle]="{ color: componentData?.descriptionColor }">{{ componentData?.description }}</p>

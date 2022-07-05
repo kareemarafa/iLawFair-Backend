@@ -8,14 +8,17 @@ import { MatInputModule } from '@angular/material/input'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatButtonModule } from '@angular/material/button'
 import {getPagesAsList} from "../../../../core/src/lib/utils/pages-list.util";
+import {genericFields} from "../generic-fields";
+import {CoreModule} from "@ionhour/core";
 
 @NgModule({
   declarations: [ActionAComponent, ActionBComponent],
-  imports: [CommonModule, HttpClientModule, MatDialogModule, MatInputModule, FormsModule, ReactiveFormsModule, MatButtonModule]
+  imports: [CommonModule, HttpClientModule, MatDialogModule, MatInputModule, FormsModule, ReactiveFormsModule, MatButtonModule, CoreModule]
 })
 export class ActionModule {}
 
 export const actionFields = [
+  ...genericFields,
   {
     wrappers: ['panel'],
     templateOptions: { label: 'Edit Content' },

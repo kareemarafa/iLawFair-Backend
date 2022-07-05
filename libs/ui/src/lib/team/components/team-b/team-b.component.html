@@ -1,6 +1,8 @@
 <section class="section">
-  <div class="team-b bg-white px-3 py-5">
-    <div class="row">
+  <div class="team-b bg-white px-3 py-5" ionhourHOCSectionStyle [styles]="componentData?.style"
+       [sectionOptions]="componentData?.sectionOptions">
+    <div class="row" ionhourSectionStyle [styles]="componentData?.style"
+         [sectionOptions]="componentData?.sectionOptions">
       <div class="col-12">
         <h1 class="h1 fw-bold text-center themeFont" [ngStyle]="{ color: componentData?.titleColor }">{{ componentData?.title }}</h1>
         <p class="text-center themeFont" [ngStyle]="{ color: componentData?.descriptionColor }">{{ componentData?.description }}</p>

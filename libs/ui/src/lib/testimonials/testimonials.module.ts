@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { TestimonialsAComponent } from './components'
+import {genericFields} from "../generic-fields";
+import {CoreModule} from "@ionhour/core";
 
 @NgModule({
   declarations: [TestimonialsAComponent],
-  imports: [CommonModule]
+  imports: [CommonModule, CoreModule]
 })
 export class TestimonialsModule {}
 
@@ -38,6 +40,7 @@ export const testimonialComponentData = {
 }
 
 export const testimonialFields = [
+  ...genericFields,
   {
     wrappers: ['panel'],
     templateOptions: { label: 'Heading' },

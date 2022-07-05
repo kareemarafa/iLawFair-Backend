@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { TeamAComponent } from './components/team-a/team-a.component'
 import { TeamBComponent } from './components/team-b/team-b.component'
+import {genericFields} from "../generic-fields";
+import {CoreModule} from "@ionhour/core";
 
 @NgModule({
   declarations: [TeamAComponent, TeamBComponent],
-  imports: [CommonModule]
+  imports: [CommonModule, CoreModule]
 })
 export class TeamModule {}
 export const teamComponentData = {
@@ -30,6 +32,7 @@ export const teamComponentData = {
   ]
 }
 export const teamFields = [
+  ...genericFields,
   {
     wrappers: ['panel'],
     templateOptions: { label: 'Title' },

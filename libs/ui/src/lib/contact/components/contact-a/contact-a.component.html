@@ -1,6 +1,8 @@
 <section class="section">
-  <div class="contact-a bg-white px-3 py-5">
-    <div class="container">
+  <div class="contact-a bg-white px-3 py-5" ionhourHOCSectionStyle [styles]="componentData?.style"
+       [sectionOptions]="componentData?.sectionOptions">
+    <div class="container" ionhourSectionStyle [styles]="componentData?.style"
+       [sectionOptions]="componentData?.sectionOptions">
       <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h1 class="display-4 themeFont" [ngStyle]="{ color: componentData?.titleColor }">{{ componentData?.title }}</h1>
         <p class="lead themeFont" [ngStyle]="{ color: componentData?.descriptionColor }">

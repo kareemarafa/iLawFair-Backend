@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { CountAComponent } from './components/count-a/count-a.component'
 import { CountdownModule } from 'ngx-countdown'
+import {genericFields} from "../generic-fields";
+import {CoreModule} from "@ionhour/core";
 
 @NgModule({
   declarations: [CountAComponent],
-  imports: [CommonModule, CountdownModule]
+  imports: [CommonModule, CountdownModule, CoreModule]
 })
 export class CountModule {}
 
@@ -18,6 +20,7 @@ export const countComponentData = {
 }
 
 export const countFields = [
+  ...genericFields,
   {
     wrappers: ['panel'],
     templateOptions: { label: 'Edit Content' },

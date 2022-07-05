@@ -1,6 +1,8 @@
 <section class="section">
-  <div class="service-b bg-white px-3 py-5">
-    <div class="row">
+  <div class="service-b bg-white px-3 py-5" ionhourHOCSectionStyle [styles]="componentData?.style"
+       [sectionOptions]="componentData?.sectionOptions">
+    <div class="row" ionhourSectionStyle [styles]="componentData?.style"
+       [sectionOptions]="componentData?.sectionOptions">
       <div class="col-12">
         <h1 class="h1 fw-bold text-center">{{ componentData?.title }}</h1>
       </div>
