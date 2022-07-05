@@ -1,7 +1,7 @@
-<ionhour-header></ionhour-header>
 <div class="shell">
+  <ionhour-header></ionhour-header>
   <mat-drawer-container class="example-container">
-    <!-- <mat-drawer #drawer mode="side" class="example-sidenav" opened>
+    <mat-drawer #drawer mode="side" class="example-sidenav" opened>
       <mat-list class="h-100">
         <div class="d-flex flex-column justify-content-between h-100">
           <div>
@@ -9,6 +9,8 @@
               <img class="my-2" src="assets/logo-shape.png" alt="WebMe" width="75" />
               <h3>Web-<span class="me">Me</span></h3>
             </div>
+            <!-- <a mat-list-item routerLink="view" routerLinkActive="text-primary">{{ 'DASHBOARD' | translate }}</a>
+          <mat-divider></mat-divider> -->
             <a mat-list-item routerLink="view" routerLinkActive="text-light">{{ 'DASHBOARD' | translate }}</a>
             <mat-divider></mat-divider>
             <a mat-list-item routerLink="profile" routerLinkActive="text-light">{{ 'PROFILE' | translate }}</a>
@@ -26,13 +28,25 @@
           <a mat-list-item routerLink="/auth/login" routerLinkActive="text-light">{{ 'LOGOUT' | translate }}</a>
         </div>
       </mat-list>
-    </mat-drawer> -->
-    <mat-drawer-content>
+    </mat-drawer>
+    <mat-drawer-content style="overflow: unset">
       <div>
-        <div class="p-4" class="shell-route">
-          <div class="container route">
-            <router-outlet></router-outlet>
-          </div>
+        <mat-toolbar class="toolbar">
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <span class="example-spacer"></span>
+          <button mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>language</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <ng-container *ngFor="let language of languages">
+              <button mat-menu-item (click)="setLanguage(language)">{{ language | translate }}</button>
+            </ng-container>
+          </mat-menu>
+        </mat-toolbar>
+        <div class="p-4">
+          <router-outlet></router-outlet>
         </div>
       </div>
     </mat-drawer-content>

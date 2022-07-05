@@ -13,14 +13,18 @@
     border-radius: 15px;
     color: #fff;
     padding: 60px !important;
-    transform: skewX(346deg);
+    // transform: skewX(346deg);
   }
   .auth-head {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+    h2 {
+      span {
+        color: #71c230;
+      }
+    }
     p {
       margin: 0;
     }

@@ -2,7 +2,7 @@
   <mat-card fxFlex.xs="1 1 100%" fxFlex.sm="1 1 75%" fxFlex.md="1 1 50%" fxFlex="1 1 50%" fxLayout="column">
     <section class="auth-head">
       <img class="my-2" src="assets/logo-shape.png" alt="WebMe" width="75" />
-      <h2>WebMe | Register</h2>
+      <h2>WebMe | <span>Register</span></h2>
     </section>
     <form [formGroup]="form" (ngSubmit)="register()" fxFlex="1 1 100%" fxLayout="column">
       <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
