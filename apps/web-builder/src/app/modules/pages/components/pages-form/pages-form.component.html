@@ -1,21 +1,20 @@
-<div class="d-flex flex-column">
-  <div class="pb-2 d-flex flex-row align-items-baseline">
+<div class="d-flex flex-column paren-login">
+  <div class="pb-2 d-flex flex-row align-items-baseline heading-login">
     <a mat-icon-button routerLink="/pages" matTooltip="Back" aria-label="Example icon button with a vertical three dot icon">
       <mat-icon>chevron_left</mat-icon>
     </a>
     <h3 class="m-0 p-0">Add Page</h3>
   </div>
-  <mat-card fxFlex.xs="1 1 100%" fxFlex.sm="1 1 100%" fxFlex.md="1 1 50%" fxFlex.lg="33.33%" fxLayout="column">
+  <mat-card class="card-login" fxFlex.xs="1 1 100%" fxFlex.sm="1 1 100%" fxFlex.md="1 1 50%" fxFlex.lg="33.33%" fxLayout="column">
     <form [formGroup]="form" (ngSubmit)="create()" fxFlex="1 1 100%" fxLayout="column">
-      <mat-form-field appearance="fill">
+      <mat-form-field class="user-name" appearance="outline">
         <mat-label>Username</mat-label>
-        <input matInput type="text" formControlName="username" />
+        <input class="user-input" matInput type="text" formControlName="username" />
       </mat-form-field>
-      <mat-form-field appearance="fill">
+      <mat-form-field class="password" appearance="outline">
         <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password" />
+        <input class="password-input" matInput type="password" formControlName="password" />
       </mat-form-field>
-
       <div class="d-flex justify-content-end">
         <button mat-flat-button type="submit" color="primary">Submit</button>
         <button mat-flat-button type="reset">Reset</button>

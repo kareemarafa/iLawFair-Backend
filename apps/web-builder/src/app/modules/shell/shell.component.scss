@@ -1,3 +1,6 @@
+.shell {
+  // width: max-content;
+}
 .example-container {
   height: 100vh;
 }
@@ -10,10 +13,24 @@
 }
 
 .example-sidenav {
-  padding: 20px;
-  width: 200px;
+  width: 235px;
+  background: #26d5c5;
+  overflow: hidden;
+  a {
+    font-size: 20px;
+    &:hover {
+      background-color: #000000c9;
+      color: #26d5c5;
+    }
+  }
 }
 
 .example-spacer {
   flex: 1 1 auto;
+}
+.toolbar {
+  background-color: #26d5c5;
+}
+.me {
+  color: #fff;
 }

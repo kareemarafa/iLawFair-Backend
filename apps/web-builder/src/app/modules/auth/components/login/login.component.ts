@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { Router } from '@angular/router'
 import { AuthService } from '../../auth.service'
-import { finalize, lastValueFrom, takeWhile } from 'rxjs'
+import { lastValueFrom, takeWhile } from 'rxjs'
 import { FormlyFieldConfig } from '@ngx-formly/core'
 
 @Component({
@@ -16,6 +16,7 @@ export class LoginComponent implements OnDestroy {
   model: any = {}
   fields: FormlyFieldConfig[] = [
     {
+      className: 'email-input',
       key: 'email',
       type: 'input',
       templateOptions: {
