@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
       },
       fieldGroup: [
         {
+          className: 'col-6',
           key: 'firstName',
           type: 'input',
           templateOptions: {
@@ -32,6 +33,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
           }
         },
         {
+          className: 'col-6',
           key: 'lastName',
           type: 'input',
           templateOptions: {
@@ -42,6 +44,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
           }
         },
         {
+          className: 'col-6',
           key: 'username',
           type: 'input',
           templateOptions: {
@@ -52,6 +55,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
           }
         },
         {
+          className: 'col-6',
           key: 'email',
           type: 'input',
           templateOptions: {
@@ -62,6 +66,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
           }
         },
         {
+          className: 'col-6',
           key: 'password',
           type: 'password',
           templateOptions: {
@@ -72,6 +77,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
           }
         },
         {
+          className: 'col-6',
           key: 'passwordConfirm',
           type: 'password',
           templateOptions: {
@@ -82,9 +88,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
           }
         },
         {
+          className: 'col-3 country-space',
           key: 'countryCode',
           type: 'select',
-          className: 'w-25',
           templateOptions: {
             type: 'text',
             label: 'Country',
@@ -94,9 +100,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
           }
         },
         {
+          className: 'col-3',
           key: 'phone',
           type: 'input',
-          className: 'w-75',
           templateOptions: {
             type: 'text',
             label: 'phone number',

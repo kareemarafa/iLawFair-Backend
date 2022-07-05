@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  // serverUrl: 'https://webme-builder.api.ionhour.com'
-  serverUrl: 'http://localhost:7100',
+  serverUrl: 'https://webme-builder.api.ionhour.com',
+  // serverUrl: 'http://localhost:7100',
   defaultLanguage: 'ar-SA',
-  supportedLanguages: ['en-US', 'ar-SA'],
+  supportedLanguages: ['en-US', 'ar-SA']
 }
 
 /*

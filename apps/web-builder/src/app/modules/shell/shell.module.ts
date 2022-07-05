@@ -24,6 +24,7 @@ import { MatExpansionModule } from '@angular/material/expansion'
 import {TranslateModule} from "@ngx-translate/core";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatMenuModule} from "@angular/material/menu";
+import { HeaderComponent } from './header/header.component';
 
 const routes: Route[] = [
   Shell.childRoutes([
@@ -56,7 +57,7 @@ const routes: Route[] = [
 ]
 
 @NgModule({
-  declarations: [ShellComponent, ProfileComponent, MediaComponent, DashboardComponent],
+  declarations: [ShellComponent, ProfileComponent, MediaComponent, DashboardComponent, HeaderComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

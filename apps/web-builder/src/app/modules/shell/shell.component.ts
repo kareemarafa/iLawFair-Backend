@@ -18,7 +18,7 @@ import {
   Tooltip,
   Legend
 } from 'chart.js'
-import {I18nService} from "../../common/i18n.service";
+import { I18nService } from '../../common/i18n.service'
 
 @Component({
   selector: 'ionhour-shell',
@@ -26,8 +26,7 @@ import {I18nService} from "../../common/i18n.service";
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent implements OnInit {
-  constructor(private i18nService: I18nService) {
-  }
+  constructor(private i18nService: I18nService) {}
   ngOnInit() {
     Chart.register(
       ArcElement,
@@ -50,15 +49,15 @@ export class ShellComponent implements OnInit {
   }
 
   get currentLang(): string {
-    return this.i18nService.language;
+    return this.i18nService.language
   }
 
   get languages(): string[] {
-    return this.i18nService.supportedLanguages;
+    return this.i18nService.supportedLanguages
   }
 
   setLanguage(language: string) {
-    this.i18nService.language = language;
+    this.i18nService.language = language
     // const dir = language === 'en-US' ? 'ltr' : 'rtl';
     // document.body.setAttribute('dir', dir);
     // window.location.reload()
