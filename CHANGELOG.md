@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/kareemarafa/ionhour-web-me/compare/v0.0.10...v0.0.11) (2022-07-05)
+
+
+### Features
+
+* add project settings navigation button ([758a2d7](https://github.com/kareemarafa/ionhour-web-me/commit/758a2d775c98d003e8e04463486253545e068bd7))
+* all sections style ([c59d5e5](https://github.com/kareemarafa/ionhour-web-me/commit/c59d5e5f13c463379742446b8ef2142069117863))
+* let social icons be array ([6745a9f](https://github.com/kareemarafa/ionhour-web-me/commit/6745a9f855f9980fe7490651010fd86f4e3985e0))
+* navigate CRA to pages ([9adde27](https://github.com/kareemarafa/ionhour-web-me/commit/9adde2737371c6c71af4bff0da0c6e75e70dac04))
+* project logo should be selected by default ([fb34deb](https://github.com/kareemarafa/ionhour-web-me/commit/fb34debd7ec06f2ae3d839eb605eb763f3ec52c5))
+
 ### [0.0.10](https://github.com/kareemarafa/ionhour-web-me/compare/v0.0.9...v0.0.10) (2022-06-20)
 
 
