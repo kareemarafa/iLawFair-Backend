@@ -4,18 +4,17 @@
 .example-container {
   height: 100vh;
 }
-
 .example-sidenav-content {
   display: flex;
   height: 100%;
   align-items: center;
   justify-content: center;
 }
-
 .example-sidenav {
   width: 235px;
-  background: #26d5c5;
+  background: #26d5c547;
   overflow: hidden;
+  box-shadow: -5px -2px 13px 0px;
   a {
     font-size: 20px;
     &:hover {
@@ -24,13 +23,18 @@
     }
   }
 }
-
 .example-spacer {
   flex: 1 1 auto;
 }
 .toolbar {
-  background-color: #26d5c5;
+  // background-color: #26d5c5;
+  box-shadow: 3px 1px 9px 0px;
 }
 .me {
-  color: #fff;
+  color: #26d5c5;
+  font-size: 20px;
+}
+.active {
+  background-color: #000000c9;
+  color: #26d5c5;
 }

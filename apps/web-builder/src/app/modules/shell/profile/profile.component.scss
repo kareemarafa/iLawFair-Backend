@@ -6,7 +6,7 @@
   padding: 2rem;
   overflow: auto;
   mat-card {
-    background: #6b887987;
+    background: #1b3835;
     border-radius: 15px;
     color: #fff;
     padding: 60px !important;
@@ -60,6 +60,6 @@
     }
   }
 }
-::ng-deep .email-input {
-  // background-color: red !important;
+::ng-deep .input {
+  border-bottom: 4px solid #fff !important;
 }
