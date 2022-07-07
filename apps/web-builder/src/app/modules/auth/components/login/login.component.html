@@ -6,7 +6,6 @@
     </section>
     <form [formGroup]="form" (ngSubmit)="login()" fxFlex="1 1 100%" fxLayout="column">
       <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
-
       <div class="d-flex flex-column align-items-center">
         <div class="help-link">
           <p>
@@ -18,7 +17,7 @@
         <a class="my-2 btn w-75 btn-danger d-flex flex-row justify-content-center align-items-center">Continue with Google</a>
         <div class="auth-button-group">
           <button mat-flat-button type="submit" color="primary">Login</button>
-          <button mat-flat-button type="reset">Reset</button>
+          <button mat-flat-button type="reset" color="warn">Reset</button>
         </div>
       </div>
     </form>
