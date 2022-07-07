@@ -28,15 +28,15 @@ import { galleryComponentData, galleryFields } from './lib/gallery/gallery.modul
 import { countComponentData, countFields } from './lib/count/count.module'
 import { aboutComponentData, aboutFields } from './lib/about/about.module'
 import { teamComponentData, teamFields } from './lib/team/team.module'
-import {navbarAData, navbarBData, navbarCData, navbarFields} from './lib/navbar/navbar.module'
+import { navbarAData, navbarBData, navbarCData, navbarFields } from './lib/navbar/navbar.module'
 import { SocialAComponent } from './lib/social-media/components/social-a/social-a.component'
-import {serviceComponentData, serviceFields} from "./lib/service/service.module";
-import {mapsComponentData, mapsFields} from "./lib/map/map.module";
-import {BlogAComponent} from "./lib/blog/components/blog-a/blog-a.component";
-import {blogComponentData, blogFields} from "./lib/blog/blog.module";
-import {NewsletterAComponent} from "./lib/newsletter/components/newsletter-a/newsletter-a.component";
-import {newsletterComponentData, newsletterFields} from "./lib/newsletter/newsletter.module";
-import {socialComponentData, socialFields} from "./lib/social-media/social-media.module";
+import { serviceComponentData, serviceFields } from './lib/service/service.module'
+import { mapsComponentData, mapsFields } from './lib/map/map.module'
+import { BlogAComponent } from './lib/blog/components/blog-a/blog-a.component'
+import { blogComponentData, blogFields } from './lib/blog/blog.module'
+import { NewsletterAComponent } from './lib/newsletter/components/newsletter-a/newsletter-a.component'
+import { newsletterComponentData, newsletterFields } from './lib/newsletter/newsletter.module'
+import { socialComponentData, socialFields } from './lib/social-media/social-media.module'
 
 export * from './lib/navbar/navbar.module'
 export * from './lib/header/header.module'
@@ -52,6 +52,8 @@ export * from './lib/prices/prices.module'
 export * from './lib/testimonials/testimonials.module'
 export * from './lib/divider/divider.module'
 export * from './lib/social-media/social-media.module'
+export * from './lib/blog/blog.module'
+export * from './lib/newsletter/newsletter.module'
 
 export * from './lib/navbar/components'
 
@@ -168,7 +170,7 @@ export const builderElements: ModuleInterface[] = [
         componentClass: ServiceCComponent,
         componentData: serviceComponentData,
         fields: serviceFields
-      },
+      }
     ]
   },
   {
@@ -431,7 +433,7 @@ export const builderElements: ModuleInterface[] = [
         componentClass: BlogAComponent,
         componentData: blogComponentData,
         fields: blogFields
-      },
+      }
     ]
   },
   {
@@ -442,7 +444,7 @@ export const builderElements: ModuleInterface[] = [
         componentClass: NewsletterAComponent,
         componentData: newsletterComponentData,
         fields: newsletterFields
-      },
+      }
     ]
   },
   {

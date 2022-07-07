@@ -20,7 +20,9 @@ import {
   ContactModule,
   TestimonialsModule,
   DividerModule,
-  SocialMediaModule
+  SocialMediaModule,
+  BlogModule,
+  NewsletterModule
 } from '@ionhour/ui'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { ElementListComponent, SubElementListComponent, PageFormDialogComponent } from './components'
@@ -38,9 +40,7 @@ import { FormlyMatSliderModule } from '@ngx-formly/material/slider'
 import { FormlyMatToggleModule } from '@ngx-formly/material/toggle'
 import { FormlyMaterialModule } from '@ngx-formly/material'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
-import {BlogModule} from "../../../../../../libs/ui/src/lib/blog/blog.module";
-import {NewsletterModule} from "../../../../../../libs/ui/src/lib/newsletter/newsletter.module";
-import {TranslateModule} from "@ngx-translate/core";
+import { TranslateModule } from '@ngx-translate/core'
 
 @NgModule({
   declarations: [LayoutComponent, ElementListComponent, SubElementListComponent, WrapperComponent, PageFormDialogComponent],
