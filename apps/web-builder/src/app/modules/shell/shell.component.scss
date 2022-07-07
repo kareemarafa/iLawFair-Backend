@@ -2,7 +2,7 @@
   // width: max-content;
 }
 .example-container {
-  height: 100vh;
+  height: calc(100vh - 71px);
 }
 .example-sidenav-content {
   display: flex;

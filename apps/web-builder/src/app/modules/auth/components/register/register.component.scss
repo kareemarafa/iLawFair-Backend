@@ -1,5 +1,5 @@
 .auth-container {
-  background-image: url(../../../../../assets/2.jpg);
+  background-image: url(../../../../../assets/103.jpg);
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -8,19 +8,14 @@
   align-items: center;
   padding: 2rem;
   overflow: auto;
-  mat-card {
-    background: #6b887987;
-    border-radius: 15px;
-    color: #fff;
-    padding: 60px !important;
-    // transform: skewX(346deg);
-  }
+
   .auth-head {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     h2 {
+      color: #112f46;
       span {
         color: #71c230;
       }
@@ -33,7 +28,12 @@
   mat-card {
     margin: 0.5rem;
     padding: 2rem;
-
+    background-size: cover;
+    border-radius: 15px;
+    color: #fff;
+    padding: 60px !important;
+    border: 5px solid #26d5c547;
+    background: #fffffff0;
     .auth-button-group {
       margin-top: 1rem;
       display: flex;
