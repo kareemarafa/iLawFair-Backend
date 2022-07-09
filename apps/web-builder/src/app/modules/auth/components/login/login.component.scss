@@ -8,6 +8,17 @@
   align-items: center;
   padding: 2rem;
   overflow: auto;
+  .overlay {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
+    bottom: 0;
+    position: absolute;
+    background: #000;
+  }
   .auth-head {
     display: flex;
     justify-content: center;
@@ -31,8 +42,10 @@
     border-radius: 15px;
     color: #fff;
     padding: 60px !important;
-    border: 5px solid #26d5c547;
+    // border: 5px solid #26d5c547;
     background: #fffffff0;
+    box-shadow: 4px 6px 10px 8px #00000042;
+    max-width: 30% !important;
     .auth-button-group {
       margin-top: 1rem;
       display: flex;
