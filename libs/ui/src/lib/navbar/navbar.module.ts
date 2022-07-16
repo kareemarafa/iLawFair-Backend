@@ -10,7 +10,7 @@ import {NgxTippyModule, NgxTippyService} from 'ngx-tippy-wrapper';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {genericFields} from "../generic-fields";
-import {getPagesAsList} from "../../../../core/src/lib/utils/pages-list.util";
+import {getPagesAsList} from "@ionhour/core";
 
 @NgModule({
   declarations: [NavbarAComponent, NavbarBComponent, NavbarCComponent],

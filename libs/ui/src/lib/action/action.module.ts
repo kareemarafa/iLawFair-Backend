@@ -7,7 +7,7 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { MatInputModule } from '@angular/material/input'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MatButtonModule } from '@angular/material/button'
-import {getPagesAsList} from "../../../../core/src/lib/utils/pages-list.util";
+import {getPagesAsList} from "@ionhour/core";
 import {genericFields} from "../generic-fields";
 import {CoreModule} from "@ionhour/core";
 

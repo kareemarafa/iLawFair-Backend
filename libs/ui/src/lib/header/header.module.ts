@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common'
 import { HeaderAComponent, HeaderBComponent, HeaderCComponent } from './components'
 import { CoreModule } from '@ionhour/core'
 import {genericFields} from "../generic-fields";
-import {getPagesAsList} from "../../../../core/src/lib/utils/pages-list.util";
+import {getPagesAsList} from "@ionhour/core";
 
 @NgModule({
   declarations: [HeaderAComponent, HeaderBComponent, HeaderCComponent],

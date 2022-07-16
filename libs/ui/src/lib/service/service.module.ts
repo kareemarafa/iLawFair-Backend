@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common'
 import {ServiceAComponent} from './components/service-a/service-a.component'
 import {ServiceBComponent} from './components/service-b/service-b.component'
 import {ServiceCComponent} from './components/service-c/service-c.component'
-import {getPagesAsList} from "../../../../core/src/lib/utils/pages-list.util";
+import {getPagesAsList} from "@ionhour/core";
 import {genericFields} from "../generic-fields";
 import {CoreModule} from "@ionhour/core";
 
