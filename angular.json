@@ -316,6 +316,20 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/web-builder/src/environments/environment.ts",
+                  "with": "apps/web-builder/src/environments/environment.dev.ts"
+                }
+              ]
+            },
+            "local": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
               "namedChunks": true
             }
           },
@@ -329,6 +343,9 @@
             },
             "development": {
               "browserTarget": "web-builder:build:development"
+            },
+            "local": {
+              "browserTarget": "web-builder:build:local"
             }
           },
           "defaultConfiguration": "development"
