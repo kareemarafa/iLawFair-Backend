@@ -1,18 +1,36 @@
 .auth-container {
-  background: #e3e3e3;
+  background-image: url(../../../../../assets/103.jpg);
+  background-size: cover;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  overflow: auto;
+  .overlay {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
+    bottom: 0;
+    position: absolute;
+    background: #000;
+  }
 
   .auth-head {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+    h2 {
+      color: #112f46;
+      span {
+        color: #71c230;
+      }
+    }
     p {
       margin: 0;
     }
@@ -21,12 +39,22 @@
   mat-card {
     margin: 0.5rem;
     padding: 2rem;
-
+    background-size: cover;
+    border-radius: 15px;
+    color: #fff;
+    padding: 60px !important;
+    background: #fffffff0;
+    box-shadow: 4px 6px 10px 8px #00000042;
     .auth-button-group {
       margin-top: 1rem;
       display: flex;
       flex-direction: row-reverse;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 18px;
+
+      button {
+        width: 95px;
+      }
     }
 
     .help-link {
@@ -39,4 +67,7 @@
       }
     }
   }
+}
+::ng-deep .country-space {
+  margin-top: 10px;
 }

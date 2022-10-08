@@ -1,16 +1,59 @@
 .auth-container {
+  // background-image: url(../../../../../assets/2.jpg);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
+  overflow: auto;
+
+  .auth-head {
+    color: #112f46;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h2 {
+      span {
+        color: #71c230;
+      }
+    }
+    p {
+      margin: 0;
+    }
+  }
+
   mat-card {
     margin: 0.5rem;
     padding: 2rem;
-
+    background-image: rgb(232, 209, 209);
+    background-size: cover;
+    border-radius: 15px;
+    color: #fff;
+    padding: 60px !important;
+    border: 2px solid #26d5c547;
     .auth-button-group {
       margin-top: 1rem;
       display: flex;
       flex-direction: row-reverse;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 18px;
+
+      button {
+        width: 95px;
+      }
+    }
+
+    .help-link {
+      margin-left: 10px;
+
+      a {
+        font-size: 0.9rem;
+        text-decoration: none;
+        color: #112f46;
+      }
     }
   }
+}
+::ng-deep .input {
+  border-bottom: 4px solid #fff !important;
 }

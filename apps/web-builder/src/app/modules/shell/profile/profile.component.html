@@ -1,13 +1,13 @@
 <div class="auth-container">
   <mat-card fxFlex.xs="1 1 100%" fxFlex.sm="1 1 75%" fxFlex.md="1 1 75%" fxFlex="1 1 50%" fxLayout="column">
     <section class="auth-head">
-      <h2>{{'profile.loggedInAs' | translate}} {{ model?.firstName }} {{ model?.lastName }}</h2>
+      <h2>{{ 'profile.loggedInAs' | translate }} {{ model?.firstName }} {{ model?.lastName }}</h2>
     </section>
     <form [formGroup]="form" (ngSubmit)="update()" fxFlex="1 1 100%" fxLayout="column">
       <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
       <div class="auth-button-group">
-        <button mat-flat-button type="submit" color="primary">{{'update' | translate}}</button>
-        <button mat-flat-button type="reset">{{'reset' | translate}}</button>
+        <button mat-flat-button type="submit" color="primary">{{ 'update' | translate }}</button>
+        <button mat-flat-button type="reset" color="warn">{{ 'reset' | translate }}</button>
       </div>
     </form>
   </mat-card>

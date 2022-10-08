@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms'
 import { Router } from '@angular/router'
 import { AuthService } from '../../auth/auth.service'
 import { lastValueFrom } from 'rxjs'
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core'
 
 @Component({
   selector: 'ionhour-profile',
@@ -15,6 +15,7 @@ export class ProfileComponent {
   form: FormGroup
   fields: FormlyFieldConfig[] = [
     {
+      className: 'input',
       key: 'firstName',
       type: 'input',
       templateOptions: {
@@ -23,10 +24,11 @@ export class ProfileComponent {
       },
       expressionProperties: {
         'templateOptions.label': () => this.translation.instant('profile.firstName'),
-        'templateOptions.placeholder': () => this.translation.instant('enter') + ' ' + this.translation.instant('profile.firstName'),
+        'templateOptions.placeholder': () => this.translation.instant('enter') + ' ' + this.translation.instant('profile.firstName')
       }
     },
     {
+      className: 'input',
       key: 'lastName',
       type: 'input',
       templateOptions: {
@@ -35,10 +37,11 @@ export class ProfileComponent {
       },
       expressionProperties: {
         'templateOptions.label': () => this.translation.instant('profile.lastName'),
-        'templateOptions.placeholder': () => this.translation.instant('enter') + ' ' + this.translation.instant('profile.lastName'),
+        'templateOptions.placeholder': () => this.translation.instant('enter') + ' ' + this.translation.instant('profile.lastName')
       }
     },
     {
+      className: 'input',
       key: 'username',
       type: 'input',
       templateOptions: {
@@ -47,10 +50,11 @@ export class ProfileComponent {
       },
       expressionProperties: {
         'templateOptions.label': () => this.translation.instant('profile.userName'),
-        'templateOptions.placeholder': () => this.translation.instant('enter') + ' ' + this.translation.instant('profile.userName'),
+        'templateOptions.placeholder': () => this.translation.instant('enter') + ' ' + this.translation.instant('profile.userName')
       }
     },
     {
+      className: 'input',
       key: 'email',
       type: 'input',
       templateOptions: {
@@ -59,10 +63,11 @@ export class ProfileComponent {
       },
       expressionProperties: {
         'templateOptions.label': () => this.translation.instant('profile.email'),
-        'templateOptions.placeholder': () => this.translation.instant('enter') + ' ' + this.translation.instant('profile.email'),
+        'templateOptions.placeholder': () => this.translation.instant('enter') + ' ' + this.translation.instant('profile.email')
       }
     },
     {
+      className: 'input',
       key: 'password',
       type: 'input',
       templateOptions: {
@@ -71,10 +76,11 @@ export class ProfileComponent {
       },
       expressionProperties: {
         'templateOptions.label': () => this.translation.instant('profile.password'),
-        'templateOptions.placeholder': () => this.translation.instant('enter') + ' ' + this.translation.instant('profile.password'),
+        'templateOptions.placeholder': () => this.translation.instant('enter') + ' ' + this.translation.instant('profile.password')
       }
     },
     {
+      className: 'input',
       key: 'phone',
       type: 'input',
       templateOptions: {
@@ -83,7 +89,7 @@ export class ProfileComponent {
       },
       expressionProperties: {
         'templateOptions.label': () => this.translation.instant('profile.phoneNumber'),
-        'templateOptions.placeholder': () => this.translation.instant('enter') + ' ' + this.translation.instant('profile.phoneNumber'),
+        'templateOptions.placeholder': () => this.translation.instant('enter') + ' ' + this.translation.instant('profile.phoneNumber')
       }
     }
   ]
