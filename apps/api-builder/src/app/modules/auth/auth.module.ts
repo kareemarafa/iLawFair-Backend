@@ -1,19 +1,18 @@
-import { forwardRef, Module } from '@nestjs/common'
-import { AuthService } from './auth.service'
-import { UsersModule } from '../users/users.module'
-import { PassportModule } from '@nestjs/passport'
-import { LocalStrategy } from './strategys'
-import { JwtModule } from '@nestjs/jwt'
-import { JwtStrategy } from './strategys'
-import { AuthController } from './auth.controller'
-import { ConfigModule, ConfigService } from '@nestjs/config'
-import { EncryptionModule } from '@ionhour/encryption'
+import {forwardRef, Module} from '@nestjs/common'
+import {AuthService} from './auth.service'
+import {UsersModule} from '../users/users.module'
+import {PassportModule} from '@nestjs/passport'
+import {LocalStrategy, JwtStrategy} from './strategies'
+import {JwtModule} from '@nestjs/jwt'
+import {AuthController} from './auth.controller'
+import {ConfigModule, ConfigService} from '@nestjs/config'
+import {EncryptionModule} from '@ionhour/encryption'
 
 @Module({
   imports: [
     EncryptionModule,
     forwardRef(() => UsersModule),
-    PassportModule.register({ defaultStrategy: 'local' }),
+    PassportModule.register({defaultStrategy: 'local'}),
     JwtModule.registerAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
@@ -29,4 +28,5 @@ import { EncryptionModule } from '@ionhour/encryption'
   controllers: [AuthController],
   exports: [AuthService]
 })
-export class AuthModule {}
+export class AuthModule {
+}

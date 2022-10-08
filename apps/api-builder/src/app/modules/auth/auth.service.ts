@@ -70,7 +70,6 @@ export class AuthService {
     try {
       verifyObject = await this.jwtService.verify(token)
     } catch (e) {
-      console.log(e)
       throw new UnauthorizedException()
     }
     return verifyObject
