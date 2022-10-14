@@ -3,7 +3,7 @@
  * This is only a minimal backend to get started.
  */
 
-import { Logger } from '@nestjs/common'
+import {Logger, ValidationPipe} from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { CrudConfigService } from '@nestjsx/crud'
 
@@ -21,6 +21,7 @@ import { NestExpressApplication } from '@nestjs/platform-express'
 
 async function bootstrap() {
   const app: NestExpressApplication = await NestFactory.create(AppModule)
+  app.useGlobalPipes(new ValidationPipe());
   app.enableCors()
   const globalPrefix = 'api'
   app.setGlobalPrefix(globalPrefix)

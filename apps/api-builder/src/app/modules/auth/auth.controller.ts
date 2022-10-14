@@ -3,6 +3,7 @@ import { AuthService } from './auth.service'
 import { User } from '../users/users.entity'
 import { ApiTags } from '@nestjs/swagger'
 import { AuthGuard } from '@nestjs/passport'
+import {RegisterUserDto} from "./dto";
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -12,7 +13,6 @@ export class AuthController {
   /**
    * the login
    * @param req
-   * @param body
    */
   @Post('login')
   @UseGuards(AuthGuard('local'))
@@ -27,7 +27,7 @@ export class AuthController {
    */
   @Post('register')
   @HttpCode(HttpStatus.CREATED)
-  public async register(@Body() userData: User): Promise<User> {
+  public async register(@Body() userData: RegisterUserDto): Promise<User> {
     return this.authService.register(userData)
   }
 }

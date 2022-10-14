@@ -59,8 +59,8 @@ export class User extends CoreEntity {
   phone: string
 
   @OneToMany(() => Project, (project) => project.user)
-  projects: Project[]
+  projects?: Project[]
 
   @OneToMany(() => Media, (media) => media.user)
-  media: Media[]
+  media?: Media[]
 }
