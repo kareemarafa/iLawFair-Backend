@@ -21,7 +21,9 @@ import { NestExpressApplication } from '@nestjs/platform-express'
 
 async function bootstrap() {
   const app: NestExpressApplication = await NestFactory.create(AppModule)
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(new ValidationPipe({skipMissingProperties: true}));
+  app.useGlobalPipes(new ValidationPipe({forbidNonWhitelisted :true, whitelist:true, transform:true}));
+
   app.enableCors()
   const globalPrefix = 'api'
   app.setGlobalPrefix(globalPrefix)
