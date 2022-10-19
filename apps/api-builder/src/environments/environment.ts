@@ -13,9 +13,9 @@ export const databaseConfig = () => ({
   database: {
     host: 'localhost',
     port: 8886,
-    username: 'root',
-    password: 'password',
-    name: 'webme_builder',
+    username: 'admin',
+    password: '^1Wr04yB!NF8',
+    name: 'dev_API_builder',
     autoLoadEntities: false,
     synchronize: true,
     entities: [ User, Project, Page, Subscription, Media],
