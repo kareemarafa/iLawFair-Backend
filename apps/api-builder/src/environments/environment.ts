@@ -15,7 +15,7 @@ export const databaseConfig = () => ({
     port: 8886,
     username: 'admin',
     password: '^1Wr04yB!NF8',
-    name: 'dev_API_builder',
+    name: 'dev_user_builder',
     autoLoadEntities: false,
     synchronize: true,
     entities: [ User, Project, Page, Subscription, Media],
