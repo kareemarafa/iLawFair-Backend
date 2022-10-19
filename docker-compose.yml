@@ -6,9 +6,9 @@ services:
     container_name: db
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: webme_builder
+      MYSQL_DATABASE: dev_user_builder
       MYSQL_USER: admin
-      MYSQL_PASSWORD: password
+      MYSQL_PASSWORD: ^1Wr04yB!NF8
     restart: always
     ports:
       - '8886:3306'
