@@ -9,7 +9,7 @@ import {ConnectionOptions} from 'typeorm'
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => {
-        const configs = {
+        return {
           type: 'mysql',
           host: configService.get<string>('database.host'),
           port: configService.get<number>('database.port'),
@@ -21,8 +21,6 @@ import {ConnectionOptions} from 'typeorm'
           entities: configService.get<any[]>('database.entities'),
           seeds: configService.get<any[]>('database.seeds')
         } as ConnectionOptions;
-        console.log(configs)
-        return configs;
       }
     })
   ],
