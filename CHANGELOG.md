@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.11...v0.0.12) (2022-10-21)
+
+
+### Features
+
+* **multi-environment:** setup multi environment strategy ([f7ad964](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/f7ad9640e84d79846ff9eb9174cce6c0f7027d8c))
+* **register:** implement validations ([9b25aaa](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/9b25aaac133c38c61649635919b4771e4424a524))
+* setup multi environment frontend API ([f666d3f](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/f666d3faed17dc8383db636291d99c6508561dfc))
+
+
+### Bug Fixes
+
+* **registeration:** validate if property is missing ([3fd4849](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/3fd4849e8c4b2a546ef3be92d2922f9accb5f6c2))
+
 ### [0.0.11](https://github.com/kareemarafa/ionhour-web-me/compare/v0.0.10...v0.0.11) (2022-07-05)
 
 
