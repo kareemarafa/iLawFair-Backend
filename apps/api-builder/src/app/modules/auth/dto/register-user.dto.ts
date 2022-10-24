@@ -1,4 +1,4 @@
-import {IsDefined, IsEmail, IsNotEmpty, IsPhoneNumber, IsString, MaxLength, ValidateIf} from "class-validator";
+import {IsEmail, IsNotEmpty, IsPhoneNumber, IsString, MaxLength, ValidateIf} from "class-validator";
 import {ApiProperty, PartialType} from "@nestjs/swagger";
 import {User} from "../../users/users.entity";
 
@@ -13,21 +13,7 @@ export class RegisterUserDto extends PartialType(User) {
   @ValidateIf(() => true)
   @MaxLength(100, {always: true})
   @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
-  firstName: string
-
-  @IsNotEmpty()
-  @IsString()
-  @ValidateIf(() => true)
-  @MaxLength(100, {always: true})
-  @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
-  lastName: string
-
-  @IsNotEmpty()
-  @IsString()
-  @ValidateIf(() => true)
-  @MaxLength(100, {always: true})
-  @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
-  username: string
+  fullName: string
 
   @IsNotEmpty()
   @IsEmail()

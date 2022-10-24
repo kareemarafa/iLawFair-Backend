@@ -16,29 +16,13 @@ export class User extends CoreEntity {
   @MaxLength(100, { always: true })
   @Column({ type: 'varchar', length: 100, nullable: false })
   @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
-  firstName: string
-
-  @IsNotEmpty({ groups: [CREATE] })
-  @IsOptional({ groups: [UPDATE] })
-  @IsString({ always: true })
-  @MaxLength(100, { always: true })
-  @Column({ type: 'varchar', length: 100, nullable: false })
-  @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
-  lastName: string
-
-  @IsNotEmpty({ groups: [CREATE] })
-  @IsOptional({ groups: [UPDATE] })
-  @IsString({ always: true })
-  @MaxLength(100, { always: true })
-  @Column({ type: 'varchar', length: 100, nullable: false })
-  @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
-  username: string
+  fullName: string
 
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsEmail({ always: true })
   @MaxLength(100, { always: true })
-  @Column({ type: 'varchar', length: 100, nullable: false })
+  @Column({ type: 'varchar', length: 100, nullable: false, unique: true })
   @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
   email: string
 
@@ -54,7 +38,7 @@ export class User extends CoreEntity {
   @IsOptional({ groups: [UPDATE] })
   @IsString({ always: true })
   @MaxLength(100, { always: true })
-  @Column({ type: 'varchar', length: 100, nullable: false })
+  @Column({ type: 'varchar', length: 100, nullable: false, unique: true })
   @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
   phone: string
 

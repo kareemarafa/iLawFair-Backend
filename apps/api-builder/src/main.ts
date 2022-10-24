@@ -37,7 +37,6 @@ async function bootstrap() {
 
   app.useStaticAssets(assetsPath)
   await app.listen(port)
-  Logger.error(assetsPath)
   Logger.log(`🚀 Application is running on: http://localhost:${port}/${globalPrefix}`)
 }
 

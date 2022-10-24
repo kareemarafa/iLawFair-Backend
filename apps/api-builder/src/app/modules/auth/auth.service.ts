@@ -49,9 +49,9 @@ export class AuthService {
 
   async register(user: User): Promise<User> {
     const _user: User = await this.usersService.findOneByEmail(user?.email)
-    const _username: User = await this.usersService.findOneByUsername(user?.username)
-    if (_user || _username) {
-      this.handleBadRequest('Email or username already exists')
+    const _phoneNumber: User = await this.usersService.findOneByPhone(user?.phone)
+    if (_user || _phoneNumber) {
+      this.handleBadRequest('Email or Phone number is already exists')
     }
     user.password = await this.encryptionService.hash(user.password)
     const createdUser = await this.usersService.createUser(user)

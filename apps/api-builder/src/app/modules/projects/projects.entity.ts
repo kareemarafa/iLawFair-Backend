@@ -6,6 +6,7 @@ import {ApiProperty} from '@nestjs/swagger'
 import {Page} from '../pages/pages.entity'
 import {User} from '../users/users.entity'
 import {BuilderType} from "@ionhour/interfaces";
+import {Category} from "../categories/categories.entity";
 
 const {CREATE, UPDATE} = CrudValidationGroups
 
@@ -15,32 +16,9 @@ export class Project extends CoreEntity {
   @IsNotEmpty({groups: [CREATE]})
   @IsOptional({groups: [UPDATE]})
   @IsString({always: true})
-  @MaxLength(100, {always: true})
-  @Column({type: 'varchar', length: 100, nullable: false})
-  @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
-  themeFont: string
-
-  @IsNotEmpty({groups: [CREATE]})
-  @IsOptional({groups: [UPDATE]})
-  @IsString({always: true})
   @Column({type: 'varchar', nullable: false})
   @ApiProperty({required: true, type: 'string', nullable: false})
-  background: string
-
-  @IsNotEmpty({groups: [CREATE]})
-  @IsOptional({groups: [UPDATE]})
-  @IsString({always: true})
-  @MaxLength(100, {always: true})
-  @Column({type: 'varchar', length: 100, nullable: false})
-  @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
-  themeColor: string
-
-  @IsOptional({always: true})
-  @IsString({always: true})
-  @MaxLength(100, {always: true})
-  @Column({type: 'varchar', length: 100, nullable: true})
-  @ApiProperty({required: false, type: 'string', nullable: true, maxLength: 100})
-  themeSecondaryColor: string
+  projectName: string
 
   @IsNotEmpty({groups: [CREATE]})
   @IsOptional({groups: [UPDATE]})
@@ -52,9 +30,10 @@ export class Project extends CoreEntity {
   @IsNotEmpty({groups: [CREATE]})
   @IsOptional({groups: [UPDATE]})
   @IsString({always: true})
-  @Column({type: 'varchar', nullable: false})
-  @ApiProperty({required: true, type: 'string', nullable: false})
-  favicon: string
+  @MaxLength(100, {always: true})
+  @Column({type: 'varchar', length: 100, nullable: false})
+  @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
+  color: string
 
   @IsNotEmpty({groups: [CREATE]})
   @IsOptional({groups: [UPDATE]})
@@ -63,19 +42,19 @@ export class Project extends CoreEntity {
   @ApiProperty({required: true, type: 'string', nullable: false})
   description: string
 
-  @IsNotEmpty({groups: [CREATE]})
-  @IsOptional({groups: [UPDATE]})
-  @IsString({always: true})
-  @Column({type: 'varchar', nullable: false})
-  @ApiProperty({required: true, type: 'string', nullable: false})
-  projectName: string
+  @IsNotEmpty({ groups: [CREATE] })
+  @IsOptional({ groups: [UPDATE] })
+  @IsEnum(BuilderType, {always: true})
+  @ApiProperty({ required: false, type: 'enum', enum: BuilderType, default: BuilderType.MULTIPLE_PAGES })
+  @Column('enum', {enum: BuilderType, default: BuilderType.MULTIPLE_PAGES})
+  builderType!: BuilderType;
 
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })
   @IsEnum(BuilderType, {always: true})
-  @ApiProperty({ required: true, type: 'enum', enum: BuilderType, default: BuilderType.SINGLE_PAGE })
-  @Column('enum', {enum: BuilderType, default: BuilderType.SINGLE_PAGE})
-  builderType: string;
+  @ApiProperty({ required: false, type: 'boolean', default: 0 })
+  @Column('boolean', {default: 0})
+  isTemplate!: boolean;
 
   @OneToMany(() => Page, (page) => page.project)
   pages: Page[]
@@ -83,4 +62,8 @@ export class Project extends CoreEntity {
   @ManyToOne(() => User, (user) => user.projects, {eager: true, onDelete: 'CASCADE'})
   @JoinColumn()
   user: User
+
+  @ManyToOne(() => Category, (category) => category.templates, {eager: true, onDelete: 'CASCADE'})
+  @JoinColumn()
+  category!: Category
 }
