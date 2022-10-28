@@ -58,8 +58,8 @@ export class Project extends CoreEntity {
   @Column('enum', {enum: BuilderType, default: BuilderType.MULTIPLE_PAGES})
   builderType!: BuilderType;
 
-  @IsNotEmpty({groups: [CREATE]})
-  @IsOptional({groups: [UPDATE]})
+  @IsNotEmpty()
+  @IsOptional({groups: [CREATE, UPDATE]})
   @IsBoolean({always: true})
   @ApiProperty({required: false, type: 'boolean', default: 0})
   @Column('boolean', {default: 0})
