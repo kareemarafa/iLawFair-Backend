@@ -5,11 +5,10 @@ import {
   IsBoolean,
   IsEnum,
   IsNotEmpty,
-  IsNotEmptyObject,
+  IsNotEmptyObject, IsNumber, IsObject,
   IsOptional,
   IsString,
-  MaxLength,
-  ValidateIf
+  MaxLength
 } from 'class-validator'
 import {ApiProperty} from '@nestjs/swagger'
 import {Page} from '../pages/pages.entity'
@@ -20,6 +19,13 @@ import {Type} from "class-transformer";
 
 const {CREATE, UPDATE} = CrudValidationGroups
 
+
+class CategoryType {
+  @IsNotEmpty()
+  @IsNumber()
+  @ApiProperty({ required: true, type: 'number'})
+  id: number;
+}
 
 @Entity('projects')
 export class Project extends CoreEntity {
@@ -78,7 +84,10 @@ export class Project extends CoreEntity {
   @Type((t) => Category)
   @JoinColumn()
   @IsOptional()
+  @IsObject()
+  @IsNotEmpty()
   @IsNotEmptyObject()
-  @ApiProperty({type: Category, required: false, nullable: true})
+  @ApiProperty({type: CategoryType, required: false, nullable: true})
   category!: Category
 }
+

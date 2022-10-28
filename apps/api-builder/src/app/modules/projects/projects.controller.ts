@@ -1,9 +1,10 @@
-import {Crud, CrudController} from '@nestjsx/crud'
+import {Crud, CrudAuth, CrudController} from '@nestjsx/crud'
 import {Controller, UseGuards} from '@nestjs/common'
 import {ApiBearerAuth, ApiTags} from '@nestjs/swagger'
 import {Project} from './projects.entity'
 import {ProjectsService} from './projects.service'
 import {AuthGuard} from '@nestjs/passport'
+import {User} from "../users/users.entity";
 
 @Crud({
   model: {
@@ -26,6 +27,15 @@ import {AuthGuard} from '@nestjs/passport'
       }
     }
   }
+})
+@CrudAuth({
+  property: 'user',
+  filter: (user: User) => ({
+    'user.id': user['userId'],
+  }),
+  persist: (user: User) => ({
+    'user.id': user['userId'],
+  }),
 })
 @Controller('projects')
 @ApiTags('Projects')
