@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.12...v0.0.13) (2022-10-28)
+
+
+### Features
+
+* get meta by key API, secure all modules ([737b9cb](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/737b9cba4e2f0fec2daad722e1509720499c8156))
+* include categories, enhance profile APIs in swagger ([35a391f](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/35a391febda813061f4fd8104306866df070b206))
+* **meta-feature:** implement meta feature that stores all settings ([12a1986](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/12a1986ee6039906f1de74ea38da43af989540e2))
+* **templates:** implement CRUD for categories and add template logic to projects endpoints ([34968d3](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/34968d3d6defb9b21aa4d55542a8da3528b27770))
+* **templates:** implement templates CRUD ([14c3321](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/14c332161fa124a64c70cec4195122314d470552))
+
+
+### Bug Fixes
+
+* implement auth guard to meta and categories ([85a0979](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/85a0979af55417ff69e32a6b714899992a65f5c2))
+* **projects:** retrieve only user projects ([5e30382](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/5e3038299b23904b8392ec14edee7950ef2bf35c))
+* **projects:** set isTemplate property as optional while create project ([175219f](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/175219f669ec2c5a3d09d38f77ea75cf38df78cd))
+
 ### [0.0.12](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.11...v0.0.12) (2022-10-21)
 
 
