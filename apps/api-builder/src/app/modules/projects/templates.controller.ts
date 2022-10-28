@@ -10,6 +10,7 @@ import { AuthGuard } from '@nestjs/passport'
     type: Project
   },
   query: {
+    exclude: ['isTemplate'],
     join: {
       pages: {
         eager: true
@@ -26,8 +27,4 @@ import { AuthGuard } from '@nestjs/passport'
 @ApiBearerAuth()
 export class TemplatesController implements CrudController<Project> {
   constructor(public service: ProjectsService) {}
-
-  get base(): CrudController<Project> {
-    return this
-  }
 }

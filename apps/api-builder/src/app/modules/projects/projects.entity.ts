@@ -1,7 +1,16 @@
 import {CrudValidationGroups} from '@nestjsx/crud'
 import {Column, Entity, ManyToOne, OneToMany, JoinColumn} from 'typeorm'
 import {CoreEntity} from '@ionhour/backend-core'
-import {IsEnum, IsNotEmpty, IsOptional, IsString, MaxLength} from 'class-validator'
+import {
+  IsBoolean,
+  IsEnum,
+  IsNotEmpty,
+  IsNotEmptyObject,
+  IsOptional,
+  IsString,
+  MaxLength,
+  ValidateIf
+} from 'class-validator'
 import {ApiProperty} from '@nestjs/swagger'
 import {Page} from '../pages/pages.entity'
 import {User} from '../users/users.entity'
@@ -42,19 +51,19 @@ export class Project extends CoreEntity {
   @ApiProperty({required: true, type: 'string', nullable: false})
   description: string
 
-  @IsNotEmpty({ groups: [CREATE] })
-  @IsOptional({ groups: [UPDATE] })
+  @IsNotEmpty({groups: [CREATE]})
+  @IsOptional({groups: [UPDATE]})
   @IsEnum(BuilderType, {always: true})
-  @ApiProperty({ required: false, type: 'enum', enum: BuilderType, default: BuilderType.MULTIPLE_PAGES })
+  @ApiProperty({required: false, type: 'enum', enum: BuilderType, default: BuilderType.MULTIPLE_PAGES})
   @Column('enum', {enum: BuilderType, default: BuilderType.MULTIPLE_PAGES})
   builderType!: BuilderType;
 
-  @IsNotEmpty({ groups: [CREATE] })
-  @IsOptional({ groups: [UPDATE] })
-  @IsEnum(BuilderType, {always: true})
-  @ApiProperty({ required: false, type: 'boolean', default: 0 })
+  @IsNotEmpty({groups: [CREATE]})
+  @IsOptional({groups: [UPDATE]})
+  @IsBoolean({always: true})
+  @ApiProperty({required: false, type: 'boolean', default: 0})
   @Column('boolean', {default: 0})
-  isTemplate!: boolean;
+  isTemplate: boolean;
 
   @OneToMany(() => Page, (page) => page.project)
   pages: Page[]
@@ -65,5 +74,7 @@ export class Project extends CoreEntity {
 
   @ManyToOne(() => Category, (category) => category.templates, {eager: true, onDelete: 'CASCADE'})
   @JoinColumn()
+  @IsOptional()
+  @IsNotEmptyObject()
   category!: Category
 }
