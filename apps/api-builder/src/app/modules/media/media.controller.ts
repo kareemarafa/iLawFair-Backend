@@ -1,7 +1,7 @@
 import { Crud, CrudController } from '@nestjsx/crud'
 import { Media } from './media.entity'
 import { Controller, Headers, Post, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common'
-import { ApiTags } from '@nestjs/swagger'
+import {ApiBearerAuth, ApiTags} from '@nestjs/swagger'
 import { MediaService } from './media.service'
 import { FileInterceptor } from '@nestjs/platform-express'
 import { diskStorage } from 'multer'
@@ -25,7 +25,9 @@ import { join } from 'path'
   }
 })
 @Controller('media')
-@ApiTags('media')
+@ApiTags('Media')
+@UseGuards(AuthGuard('jwt'))
+@ApiBearerAuth()
 export class MediaController implements CrudController<Media> {
   constructor(public service: MediaService, private authService: AuthService, private userService: UsersService) {}
 

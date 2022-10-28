@@ -11,7 +11,7 @@ import { SubscriptionsService } from './subscriptions.service'
 })
 @ApiBearerAuth()
 @Controller('subscriptions')
-@ApiTags('subscriptions')
+@ApiTags('Subscriptions')
 export class SubscriptionsController implements CrudController<Subscription> {
   constructor(public service: SubscriptionsService) {}
 }

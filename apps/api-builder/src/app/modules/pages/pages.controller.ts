@@ -1,8 +1,9 @@
 import { Crud, CrudController } from '@nestjsx/crud'
-import { Controller } from '@nestjs/common'
-import { ApiTags } from '@nestjs/swagger'
+import {Controller, UseGuards} from '@nestjs/common'
+import {ApiBearerAuth, ApiTags} from '@nestjs/swagger'
 import { Page } from './pages.entity'
 import { PagesService } from './pages.service'
+import {AuthGuard} from "@nestjs/passport";
 
 @Crud({
   model: {
@@ -16,6 +17,8 @@ import { PagesService } from './pages.service'
 })
 @Controller('pages')
 @ApiTags('Pages')
+@UseGuards(AuthGuard('jwt'))
+@ApiBearerAuth()
 export class PagesController implements CrudController<Page> {
   constructor(public service: PagesService) {}
 }

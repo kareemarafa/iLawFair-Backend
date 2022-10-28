@@ -10,10 +10,10 @@ import {AuthGuard} from "@nestjs/passport";
     type: Category
   }
 })
-@ApiBearerAuth()
 @Controller('categories')
-@ApiTags('categories')
+@ApiTags('Categories')
 @UseGuards(AuthGuard('jwt'))
+@ApiBearerAuth()
 export class CategoriesController implements CrudController<Category> {
   constructor(public service: CategoriesService) {}
 }

@@ -28,8 +28,19 @@ async function bootstrap() {
   const globalPrefix = 'api'
   app.setGlobalPrefix(globalPrefix)
 
-  const config = new DocumentBuilder().setTitle('Web-builder Open API').setDescription('WebMe API description').setVersion('1.0').build()
-  const document = SwaggerModule.createDocument(app, config)
+  const swaggerOptions = new DocumentBuilder()
+    .setTitle('Web-builder Open API')
+    .setDescription('WebMe API description')
+    .setVersion('1.0')
+    .addServer('http://localhost:7100', 'Local')
+    .addServer('https://dev.api.user.website-me.com', 'Development')
+    .addServer('https://test.api.user.website-me.com', 'Testing')
+    .addServer('https://api.user.website-me.com', 'Production')
+    .addBearerAuth()
+    .build();
+
+  const document = SwaggerModule.createDocument(app, swaggerOptions)
+
   SwaggerModule.setup('swagger', app, document)
 
   const port = AppModule.port || 3333

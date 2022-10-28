@@ -14,18 +14,17 @@ import { AuthGuard } from '@nestjs/passport'
       pages: {
         eager: true
       },
-      user: {
-        eager: true,
-        select: false
+      category: {
+        eager: true
       }
     }
   }
 })
-@Controller('projects')
-@ApiTags('Projects')
+@Controller('templates')
+@ApiTags('Templates')
 @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
-export class ProjectsController implements CrudController<Project> {
+export class TemplatesController implements CrudController<Project> {
   constructor(public service: ProjectsService) {}
 
   get base(): CrudController<Project> {
