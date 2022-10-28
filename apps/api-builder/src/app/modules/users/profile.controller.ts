@@ -3,8 +3,10 @@ import { AuthService } from '../auth/auth.service'
 import { AuthGuard } from '@nestjs/passport'
 import { UsersService } from './users.service'
 import { UpdateProfileDto } from './dto/update-profile.dto'
+import {ApiTags} from "@nestjs/swagger";
 
 @Controller('profile')
+@ApiTags('Profile')
 @UseGuards(AuthGuard('jwt'))
 export class ProfileController {
   constructor(private authService: AuthService, private userService: UsersService) {}
@@ -13,7 +15,6 @@ export class ProfileController {
     const token = authToken.split(' ')[1]
     const user = await this.authService.checkAuth(token)
     const profile = await this.userService.findOneByEmail(user.email)
-    console.log(profile)
     const { password, ..._profile } = profile
     return _profile
   }
