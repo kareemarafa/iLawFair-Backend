@@ -12,7 +12,7 @@ export class Category extends CoreEntity {
   @IsNotEmpty({groups: [CREATE]})
   @IsString({always: true})
   @IsOptional({groups: [UPDATE]})
-  @Column({type: 'varchar', nullable: false})
+  @Column({unique: true, type: 'varchar', nullable: false})
   @ApiProperty({required: true, type: 'string', nullable: false})
   name: string
 

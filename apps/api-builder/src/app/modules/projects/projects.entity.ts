@@ -16,6 +16,7 @@ import {Page} from '../pages/pages.entity'
 import {User} from '../users/users.entity'
 import {BuilderType} from "@ionhour/interfaces";
 import {Category} from "../categories/categories.entity";
+import {Type} from "class-transformer";
 
 const {CREATE, UPDATE} = CrudValidationGroups
 
@@ -69,12 +70,15 @@ export class Project extends CoreEntity {
   pages: Page[]
 
   @ManyToOne(() => User, (user) => user.projects, {eager: true, onDelete: 'CASCADE'})
+  @Type((t) => User)
   @JoinColumn()
   user: User
 
   @ManyToOne(() => Category, (category) => category.templates, {eager: true, onDelete: 'CASCADE'})
+  @Type((t) => Category)
   @JoinColumn()
   @IsOptional()
   @IsNotEmptyObject()
+  @ApiProperty({type: Category, required: false, nullable: true})
   category!: Category
 }
