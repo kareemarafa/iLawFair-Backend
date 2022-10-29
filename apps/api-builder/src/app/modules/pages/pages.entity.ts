@@ -1,9 +1,10 @@
-import {Column, Entity, ManyToOne} from 'typeorm'
+import {Column, Entity, JoinColumn, ManyToOne, OneToOne} from 'typeorm'
 import {IsNotEmpty, IsOptional, IsString, MaxLength} from 'class-validator'
 import {ApiProperty} from '@nestjs/swagger'
 import {CrudValidationGroups} from '@nestjsx/crud'
 import {CoreEntity} from '@ionhour/backend-core'
 import {Project} from '../projects/projects.entity'
+import {Media} from "../media/media.entity";
 
 const {CREATE, UPDATE} = CrudValidationGroups
 
@@ -19,15 +20,14 @@ export class Page extends CoreEntity {
 
   @Column({type: 'json', nullable: true})
   @ApiProperty({required: false, type: 'json', nullable: true})
+  @IsNotEmpty()
   components: string
 
-  @IsNotEmpty({groups: [CREATE]})
-  @IsOptional({groups: [UPDATE]})
-  @IsString({always: true})
-  @Column({type: 'varchar', nullable: false})
-  @ApiProperty({required: true, type: 'string', nullable: false})
-  screenshot: string
+  @OneToOne(() => Media)
+  @JoinColumn()
+  screenshot: Media
 
   @ManyToOne(() => Project, (project) => project.pages)
+  @IsNotEmpty()
   project: Project
 }

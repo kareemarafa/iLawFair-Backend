@@ -66,14 +66,16 @@ export class ProjectsController implements CrudController<Project> {
     @ParsedBody() dto: Project,
     @UploadedFile() uploadedFile: any,
   ) {
-    const logo = new Media();
-    logo.filename = uploadedFile.filename;
-    logo.path = uploadedFile.path;
-    logo.destination = uploadedFile.destination;
-    logo.mimetype = uploadedFile.mimetype;
-    logo.user = {id: req.parsed.authPersist['user.id']} as User;
-    await this.mediaService.saveUploadedFile(logo);
-    dto.logo = logo;
+    if(uploadedFile) {
+      const logo = new Media();
+      logo.filename = uploadedFile.filename;
+      logo.path = uploadedFile.path;
+      logo.destination = uploadedFile.destination;
+      logo.mimetype = uploadedFile.mimetype;
+      logo.user = {id: req.parsed.authPersist['user.id']} as User;
+      await this.mediaService.saveUploadedFile(logo);
+      dto.logo = logo;
+    }
     dto.user = {id: req.parsed.authPersist['user.id']} as User;
     return this.base.createOneBase(req, dto);
   }
