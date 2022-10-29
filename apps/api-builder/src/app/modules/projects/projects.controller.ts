@@ -66,7 +66,6 @@ export class ProjectsController implements CrudController<Project> {
     @ParsedBody() dto: Project,
     @UploadedFile() uploadedFile: any,
   ) {
-
     const logo = new Media();
     logo.filename = uploadedFile.filename;
     logo.path = uploadedFile.path;
