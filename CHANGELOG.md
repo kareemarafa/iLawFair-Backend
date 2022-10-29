@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.14](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.13...v0.0.14) (2022-10-29)
+
+
+### Features
+
+* **pages:** change page creation to form-data ([8c1ebd5](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/8c1ebd565084427a492bff6bbf026af81e1834ee))
+* **projects:** upload logo during the project creation API, save logo as media object ([8841305](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/8841305cd620a397d24cc22efbf2aca623e29ae4))
+
 ### [0.0.13](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.12...v0.0.13) (2022-10-28)
 
 
