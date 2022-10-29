@@ -1,9 +1,9 @@
 import {CrudValidationGroups} from '@nestjsx/crud'
-import {Column, Entity, ManyToOne, OneToMany, JoinColumn} from 'typeorm'
+import {Column, Entity, ManyToOne, OneToMany, JoinColumn, OneToOne} from 'typeorm'
 import {CoreEntity} from '@ionhour/backend-core'
 import {
   IsBoolean,
-  IsEnum,
+  IsEnum, IsHexColor,
   IsNotEmpty,
   IsNotEmptyObject, IsNumber, IsObject,
   IsOptional,
@@ -16,6 +16,7 @@ import {User} from '../users/users.entity'
 import {BuilderType} from "@ionhour/interfaces";
 import {Category} from "../categories/categories.entity";
 import {Type} from "class-transformer";
+import {Media} from "../media/media.entity";
 
 const {CREATE, UPDATE} = CrudValidationGroups
 
@@ -36,16 +37,13 @@ export class Project extends CoreEntity {
   @ApiProperty({required: true, type: 'string', nullable: false})
   projectName: string
 
-  @IsNotEmpty({groups: [CREATE]})
-  @IsOptional({groups: [UPDATE]})
-  @IsString({always: true})
-  @Column({type: 'varchar', nullable: false})
-  @ApiProperty({required: true, type: 'string', nullable: false})
-  logo: string
+  @OneToOne(() => Media)
+  @JoinColumn()
+  logo: Media
 
   @IsNotEmpty({groups: [CREATE]})
   @IsOptional({groups: [UPDATE]})
-  @IsString({always: true})
+  @IsHexColor({always: true})
   @MaxLength(100, {always: true})
   @Column({type: 'varchar', length: 100, nullable: false})
   @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})

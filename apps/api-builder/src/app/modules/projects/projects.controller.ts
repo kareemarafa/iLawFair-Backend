@@ -1,10 +1,13 @@
-import {Crud, CrudAuth, CrudController} from '@nestjsx/crud'
-import {Controller, UseGuards} from '@nestjs/common'
+import {Crud, CrudAuth, CrudController, CrudRequest, Override, ParsedBody, ParsedRequest} from '@nestjsx/crud'
+import {Controller, UploadedFile, UseGuards} from '@nestjs/common'
 import {ApiBearerAuth, ApiTags} from '@nestjs/swagger'
 import {Project} from './projects.entity'
 import {ProjectsService} from './projects.service'
 import {AuthGuard} from '@nestjs/passport'
 import {User} from "../users/users.entity";
+import {FileUploadingUtils} from "@ionhour/backend-core";
+import {Media} from "../media/media.entity";
+import {MediaService} from "../media/media.service";
 
 @Crud({
   model: {
@@ -24,9 +27,17 @@ import {User} from "../users/users.entity";
       user: {
         eager: true,
         select: false
+      },
+      logo: {
+        eager: true
       }
     }
-  }
+  },
+  routes: {
+    createOneBase: {
+      interceptors: [FileUploadingUtils.singleFileUploader('logo')],
+    },
+  },
 })
 @CrudAuth({
   property: 'user',
@@ -42,10 +53,30 @@ import {User} from "../users/users.entity";
 @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
 export class ProjectsController implements CrudController<Project> {
-  constructor(public service: ProjectsService) {
+  constructor(public service: ProjectsService, private mediaService: MediaService) {
   }
 
   get base(): CrudController<Project> {
     return this
   }
+
+  @Override()
+  async createOne(
+    @ParsedRequest() req: CrudRequest,
+    @ParsedBody() dto: Project,
+    @UploadedFile() uploadedFile: any,
+  ) {
+
+    const logo = new Media();
+    logo.filename = uploadedFile.filename;
+    logo.path = uploadedFile.path;
+    logo.destination = uploadedFile.destination;
+    logo.mimetype = uploadedFile.mimetype;
+    logo.user = {id: req.parsed.authPersist['user.id']} as User;
+    await this.mediaService.saveUploadedFile(logo);
+    dto.logo = logo;
+    dto.user = {id: req.parsed.authPersist['user.id']} as User;
+    return this.base.createOneBase(req, dto);
+  }
 }
+

@@ -9,4 +9,8 @@ export class MediaService extends TypeOrmCrudService<Media> {
   constructor(@InjectRepository(Media) public repo: Repository<Media>) {
     super(repo)
   }
+
+  async saveUploadedFile(dto) {
+    return this.repo.save(dto);
+  }
 }
