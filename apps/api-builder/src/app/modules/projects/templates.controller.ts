@@ -38,15 +38,6 @@ import {FileUploadingUtils} from "@ionhour/backend-core";
     },
   },
 })
-@CrudAuth({
-  property: 'user',
-  filter: (user: User) => ({
-    'user.id': user['userId'],
-  }),
-  persist: (user: User) => ({
-    'user.id': user['userId'],
-  }),
-})
 @Controller('templates')
 @ApiTags('Templates')
 @UseGuards(AuthGuard('jwt'))
@@ -72,13 +63,11 @@ export class TemplatesController implements CrudController<Project> {
       screenshot.path = uploadedFile.path;
       screenshot.destination = uploadedFile.destination;
       screenshot.mimetype = uploadedFile.mimetype;
-      screenshot.user = {id: req.parsed.authPersist['user.id']} as User;
       await this.mediaService.saveUploadedFile(screenshot);
       dto.screenshot = screenshot;
     }
     dto.isTemplate = true;
     Object.assign(dto, {category: {id: dto.category}})
-    dto.user = {id: req.parsed.authPersist['user.id']} as User;
     return this.base.createOneBase(req, dto);
   }
 }
