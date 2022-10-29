@@ -42,6 +42,11 @@ export class Project extends CoreEntity {
   @ApiProperty({type: 'file', nullable: true, required: false})
   logo: Media
 
+  @OneToOne(() => Media)
+  @JoinColumn()
+  @ApiProperty({type: 'file', nullable: true, required: false})
+  screenshot: Media
+
   @IsNotEmpty({groups: [CREATE]})
   @IsOptional({groups: [UPDATE]})
   @IsHexColor({always: true})
@@ -66,8 +71,6 @@ export class Project extends CoreEntity {
 
   @IsNotEmpty()
   @IsOptional({groups: [CREATE, UPDATE]})
-  @IsBoolean({always: true})
-  @ApiProperty({required: false, type: 'boolean', default: 0})
   @Column('boolean', {default: 0})
   isTemplate: boolean;
 
@@ -83,9 +86,7 @@ export class Project extends CoreEntity {
   @Type((t) => Category)
   @JoinColumn()
   @IsOptional()
-  @IsObject()
   @IsNotEmpty()
-  @IsNotEmptyObject()
   @ApiProperty({type: CategoryType, required: false, nullable: true})
   category!: Category
 }

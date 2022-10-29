@@ -1,15 +1,24 @@
-import { Crud, CrudController } from '@nestjsx/crud'
-import { Controller, UseGuards } from '@nestjs/common'
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger'
-import { Project } from './projects.entity'
-import { ProjectsService } from './projects.service'
-import { AuthGuard } from '@nestjs/passport'
+import {Crud, CrudAuth, CrudController, CrudRequest, Override, ParsedBody, ParsedRequest} from '@nestjsx/crud'
+import {Controller, UploadedFile, UseGuards} from '@nestjs/common'
+import {ApiBearerAuth, ApiConsumes, ApiTags} from '@nestjs/swagger'
+import {Project} from './projects.entity'
+import {ProjectsService} from './projects.service'
+import {AuthGuard} from '@nestjs/passport'
+import {Media} from "../media/media.entity";
+import {User} from "../users/users.entity";
+import {MediaService} from "../media/media.service";
+import {FileUploadingUtils} from "@ionhour/backend-core";
 
 @Crud({
   model: {
     type: Project
   },
   query: {
+    filter: {
+      isTemplate: {
+        $eq: true
+      }
+    },
     exclude: ['isTemplate'],
     join: {
       pages: {
@@ -17,14 +26,59 @@ import { AuthGuard } from '@nestjs/passport'
       },
       category: {
         eager: true
+      },
+      screenshot: {
+        eager: true
       }
     }
-  }
+  },
+  routes: {
+    createOneBase: {
+      interceptors: [FileUploadingUtils.singleFileUploader('screenshot')],
+    },
+  },
+})
+@CrudAuth({
+  property: 'user',
+  filter: (user: User) => ({
+    'user.id': user['userId'],
+  }),
+  persist: (user: User) => ({
+    'user.id': user['userId'],
+  }),
 })
 @Controller('templates')
 @ApiTags('Templates')
 @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
 export class TemplatesController implements CrudController<Project> {
-  constructor(public service: ProjectsService) {}
+  constructor(public service: ProjectsService, private mediaService: MediaService) {
+  }
+
+  get base(): CrudController<Project> {
+    return this
+  }
+
+  @Override()
+  @ApiConsumes('multipart/form-data')
+  async createOne(
+    @ParsedRequest() req: CrudRequest,
+    @ParsedBody() dto: Project,
+    @UploadedFile() uploadedFile: any,
+  ) {
+    if (uploadedFile) {
+      const screenshot = new Media();
+      screenshot.filename = uploadedFile.filename;
+      screenshot.path = uploadedFile.path;
+      screenshot.destination = uploadedFile.destination;
+      screenshot.mimetype = uploadedFile.mimetype;
+      screenshot.user = {id: req.parsed.authPersist['user.id']} as User;
+      await this.mediaService.saveUploadedFile(screenshot);
+      dto.screenshot = screenshot;
+    }
+    dto.isTemplate = true;
+    Object.assign(dto, {category: {id: dto.category}})
+    dto.user = {id: req.parsed.authPersist['user.id']} as User;
+    return this.base.createOneBase(req, dto);
+  }
 }
