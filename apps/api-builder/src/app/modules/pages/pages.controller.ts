@@ -1,6 +1,6 @@
 import {Crud, CrudAuth, CrudController, CrudRequest, Override, ParsedBody, ParsedRequest} from '@nestjsx/crud'
 import {Controller, UploadedFile, UseGuards} from '@nestjs/common'
-import {ApiBearerAuth, ApiTags} from '@nestjs/swagger'
+import {ApiBearerAuth, ApiConsumes, ApiTags} from '@nestjs/swagger'
 import {Page} from './pages.entity'
 import {PagesService} from './pages.service'
 import {AuthGuard} from "@nestjs/passport";
@@ -42,6 +42,7 @@ export class PagesController implements CrudController<Page> {
   }
 
   @Override()
+  @ApiConsumes('multipart/form-data')
   async createOne(
     @ParsedRequest() req: CrudRequest,
     @ParsedBody() dto: Page,

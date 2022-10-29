@@ -25,6 +25,7 @@ export class Page extends CoreEntity {
 
   @OneToOne(() => Media)
   @JoinColumn()
+  @ApiProperty({type: 'file', nullable: true, required: false})
   screenshot: Media
 
   @ManyToOne(() => Project, (project) => project.pages)

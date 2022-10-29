@@ -1,6 +1,6 @@
 import {Crud, CrudAuth, CrudController, CrudRequest, Override, ParsedBody, ParsedRequest} from '@nestjsx/crud'
 import {Controller, UploadedFile, UseGuards} from '@nestjs/common'
-import {ApiBearerAuth, ApiTags} from '@nestjs/swagger'
+import {ApiBearerAuth, ApiConsumes, ApiTags} from '@nestjs/swagger'
 import {Project} from './projects.entity'
 import {ProjectsService} from './projects.service'
 import {AuthGuard} from '@nestjs/passport'
@@ -61,6 +61,7 @@ export class ProjectsController implements CrudController<Project> {
   }
 
   @Override()
+  @ApiConsumes('multipart/form-data')
   async createOne(
     @ParsedRequest() req: CrudRequest,
     @ParsedBody() dto: Project,

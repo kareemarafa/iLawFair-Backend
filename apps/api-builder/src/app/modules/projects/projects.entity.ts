@@ -39,6 +39,7 @@ export class Project extends CoreEntity {
 
   @OneToOne(() => Media)
   @JoinColumn()
+  @ApiProperty({type: 'file', nullable: true, required: false})
   logo: Media
 
   @IsNotEmpty({groups: [CREATE]})
