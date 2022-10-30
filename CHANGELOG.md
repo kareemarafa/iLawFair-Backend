@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.15](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.14...v0.0.15) (2022-10-30)
+
+
+### Features
+
+* **templates:** include screenshot and pages screenshot in list ([2a9c1df](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/2a9c1df03452328c644722af9c3849d50c9d475c))
+
+
+### Bug Fixes
+
+* **templates:** include screenshot field ([4c50879](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/4c50879150ca89f257b4c600675a1bc4df69af75))
+* **templates:** remove user relation when creating template ([63f22a7](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/63f22a79701bd98a74a369c2a62f2040fdbb9084))
+
 ### [0.0.14](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.13...v0.0.14) (2022-10-29)
 
 
