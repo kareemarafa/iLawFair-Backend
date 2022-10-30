@@ -1,5 +1,5 @@
 import {CrudValidationGroups} from '@nestjsx/crud'
-import {Column, Entity, OneToMany} from 'typeorm'
+import {Column, Entity, ManyToMany} from 'typeorm'
 import {CoreEntity} from '@ionhour/backend-core'
 import {IsNotEmpty, IsOptional, IsString} from 'class-validator'
 import {ApiProperty} from '@nestjs/swagger'
@@ -16,6 +16,6 @@ export class Category extends CoreEntity {
   @ApiProperty({required: true, type: 'string', nullable: false})
   name: string
 
-  @OneToMany(() => Project, (project) => project.user)
-  templates?: Project[]
+  @ManyToMany(() => Project, (category) => category.categories)
+  templates: Project[]
 }
