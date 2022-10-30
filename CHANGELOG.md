@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.16](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.15...v0.0.16) (2022-10-30)
+
+
+### Features
+
+* **templates:** let templates accept multi categories ([74360bb](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/74360bb6974c94cefedff4c87d8cb112c9fb23c3))
+
 ### [0.0.15](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.14...v0.0.15) (2022-10-30)
 
 
