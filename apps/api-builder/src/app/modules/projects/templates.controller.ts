@@ -5,7 +5,6 @@ import {Project} from './projects.entity'
 import {ProjectsService} from './projects.service'
 import {AuthGuard} from '@nestjs/passport'
 import {Media} from "../media/media.entity";
-import {User} from "../users/users.entity";
 import {MediaService} from "../media/media.service";
 import {FileUploadingUtils} from "@ionhour/backend-core";
 
@@ -28,6 +27,10 @@ import {FileUploadingUtils} from "@ionhour/backend-core";
         eager: true
       },
       screenshot: {
+        eager: true
+      },
+      'pages.screenshot': {
+        alias: 'pagesScreenshot',
         eager: true
       }
     }
