@@ -30,6 +30,9 @@ import {MediaService} from "../media/media.service";
       },
       logo: {
         eager: true
+      },
+      categories: {
+        eager: true
       }
     }
   },
@@ -78,6 +81,7 @@ export class ProjectsController implements CrudController<Project> {
       dto.logo = logo;
     }
     dto.user = {id: req.parsed.authPersist['user.id']} as User;
+    Object.assign(dto, {categories: dto.categories.map(cat => ({id: cat}))})
     return this.base.createOneBase(req, dto);
   }
 }
