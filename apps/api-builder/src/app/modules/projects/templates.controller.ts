@@ -23,8 +23,8 @@ import {FileUploadingUtils} from "@ionhour/backend-core";
       pages: {
         eager: true
       },
-      category: {
-        eager: true
+      categories: {
+        eager: true,
       },
       screenshot: {
         eager: true
@@ -70,7 +70,7 @@ export class TemplatesController implements CrudController<Project> {
       dto.screenshot = screenshot;
     }
     dto.isTemplate = true;
-    Object.assign(dto, {category: {id: dto.category}})
+    Object.assign(dto, {categories: dto.categories.map(cat => ({id: cat}))})
     return this.base.createOneBase(req, dto);
   }
 }
