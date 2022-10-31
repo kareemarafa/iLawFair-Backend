@@ -2,6 +2,7 @@ import {CrudValidationGroups} from '@nestjsx/crud'
 import {Column, Entity, ManyToOne, OneToMany, JoinColumn, OneToOne, ManyToMany, JoinTable} from 'typeorm'
 import {CoreEntity} from '@ionhour/backend-core'
 import {
+  IsArray,
   IsBoolean,
   IsEnum, IsHexColor,
   IsNotEmpty,
@@ -20,13 +21,6 @@ import {Media} from "../media/media.entity";
 
 const {CREATE, UPDATE} = CrudValidationGroups
 
-
-class CategoryType {
-  @IsNotEmpty()
-  @IsNumber()
-  @ApiProperty({required: true, type: 'number'})
-  id: number;
-}
 
 @Entity('projects')
 export class Project extends CoreEntity {
@@ -85,8 +79,8 @@ export class Project extends CoreEntity {
   @ManyToMany(() => Category, (category) => category.templates)
   @JoinTable({name: 'templates-categories'})
   @IsOptional()
-  @IsNotEmpty()
-  @ApiProperty({type: CategoryType, required: false, nullable: true})
+  @IsArray()
+  @ApiProperty({type: [Number], required: false, nullable: true})
   categories: Category[]
 }
 
