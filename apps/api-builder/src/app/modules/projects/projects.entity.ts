@@ -9,7 +9,7 @@ import {
   IsNotEmptyObject, IsNumber, IsObject,
   IsOptional,
   IsString,
-  MaxLength
+  MaxLength, ValidateIf
 } from 'class-validator'
 import {ApiProperty} from '@nestjs/swagger'
 import {Page} from '../pages/pages.entity'
@@ -33,11 +33,13 @@ export class Project extends CoreEntity {
 
   @OneToOne(() => Media)
   @JoinColumn()
+  @ValidateIf(obj => !obj.isTemplate)
   @ApiProperty({type: 'file', nullable: true, required: false})
   logo: Media
 
   @OneToOne(() => Media)
   @JoinColumn()
+  @ValidateIf(obj => !!obj.isTemplate)
   @ApiProperty({type: 'file', nullable: true, required: false})
   screenshot: Media
 
