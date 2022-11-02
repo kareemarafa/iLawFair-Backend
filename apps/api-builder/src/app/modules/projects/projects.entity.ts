@@ -3,10 +3,8 @@ import {Column, Entity, ManyToOne, OneToMany, JoinColumn, OneToOne, ManyToMany, 
 import {CoreEntity} from '@ionhour/backend-core'
 import {
   IsArray,
-  IsBoolean,
   IsEnum, IsHexColor,
   IsNotEmpty,
-  IsNotEmptyObject, IsNumber, IsObject,
   IsOptional,
   IsString,
   MaxLength, ValidateIf
