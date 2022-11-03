@@ -7,10 +7,7 @@ pipeline {
     stages {
         stage("Dev-UserAPI") {
              when {
-                allOf {
-                  branch 'develop'
-                  changeset 'apps/api-builder/*'
-                }
+                branch 'develop'
             }
             steps {
                 echo 'Building the application...'
