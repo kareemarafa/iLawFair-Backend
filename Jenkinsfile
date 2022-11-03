@@ -6,11 +6,10 @@ pipeline {
 
     stages {
         stage("Dev-UserAPI") {
-            when {
+             when {
                 allOf {
                   branch 'develop'
                   changeset 'apps/api-builder/*'
-                  changeset 'libs/*'
                 }
             }
             steps {
