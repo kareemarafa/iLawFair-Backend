@@ -58,12 +58,12 @@ export class TemplatesController implements CrudController<Project> {
   async createOne(
     @ParsedRequest() req: CrudRequest,
     @ParsedBody() dto: Project,
-    @UploadedFile() uploadedFile: any,
+    @UploadedFile() uploadedFile: Express.Multer.File,
   ) {
     if (uploadedFile) {
       const screenshot = new Media();
       screenshot.filename = uploadedFile.filename;
-      screenshot.path = uploadedFile.path;
+      screenshot.path = (uploadedFile.path).split('uploads')[1];
       screenshot.destination = uploadedFile.destination;
       screenshot.mimetype = uploadedFile.mimetype;
       await this.mediaService.saveUploadedFile(screenshot);

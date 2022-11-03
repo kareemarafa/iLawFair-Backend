@@ -1,15 +1,11 @@
-import { Crud, CrudController } from '@nestjsx/crud'
-import { Media } from './media.entity'
-import { Controller, Headers, Post, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common'
-import {ApiBearerAuth, ApiTags} from '@nestjs/swagger'
-import { MediaService } from './media.service'
-import { FileInterceptor } from '@nestjs/platform-express'
-import { diskStorage } from 'multer'
-import { editFileName, imageFileFilter } from '@ionhour/backend-core'
-import { AuthGuard } from '@nestjs/passport'
-import { AuthService } from '../auth/auth.service'
-import { UsersService } from '../users/users.service'
-import { join } from 'path'
+import {Crud, CrudAuth, CrudController, CrudRequest, Override, ParsedRequest} from '@nestjsx/crud'
+import {Media} from './media.entity'
+import {Controller, UploadedFile, UseGuards} from '@nestjs/common'
+import {ApiBearerAuth, ApiConsumes, ApiTags} from '@nestjs/swagger'
+import {MediaService} from './media.service'
+import {FileUploadingUtils} from '@ionhour/backend-core'
+import {AuthGuard} from '@nestjs/passport'
+import {User} from "../users/users.entity";
 
 @Crud({
   model: {
@@ -20,33 +16,49 @@ import { join } from 'path'
       user: {
         eager: true,
         select: false
-      }
+      },
     }
-  }
+  },
+  routes: {
+    createOneBase: {
+      interceptors: [FileUploadingUtils.singleFileUploader('file')],
+    },
+  },
+})
+@CrudAuth({
+  property: 'user',
+  filter: (user: User) => ({
+    'user.id': user['userId'],
+  }),
+  persist: (user: User) => ({
+    'user.id': user['userId'],
+  }),
 })
 @Controller('media')
 @ApiTags('Media')
 @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
 export class MediaController implements CrudController<Media> {
-  constructor(public service: MediaService, private authService: AuthService, private userService: UsersService) {}
+  constructor(public service: MediaService) {
+  }
 
-  @Post('upload')
-  @UseInterceptors(
-    FileInterceptor('image', {
-      storage: diskStorage({ destination: join(__dirname, '../../..', 'public/uploads'), filename: editFileName }),
-      fileFilter: imageFileFilter
-    })
-  )
+  get base(): CrudController<Media> {
+    return this
+  }
+
+  @Override()
   @UseGuards(AuthGuard('jwt'))
-  async upload(@Headers('Authorization') authToken: string, @UploadedFile() image?: Express.Multer.File) {
-    console.log({ image })
-    const token = authToken.split(' ')[1]
-    const user = await this.authService.checkAuth(token)
-    const profile = await this.userService.findOneByEmail(user.email)
-    const media: any = new Media()
-    media.fileName = `uploads/${image?.filename}`
-    media.user = { id: profile.id }
-    return this.service.repo.save(media)
+  @ApiConsumes('multipart/form-data')
+  async createOne(
+    @ParsedRequest() req: CrudRequest,
+    @UploadedFile() uploadedFile: Express.Multer.File
+  ) {
+    const media = new Media();
+    media.filename = uploadedFile.filename;
+    media.path = (uploadedFile.path).split(__dirname)[1];
+    media.destination = (uploadedFile.destination).split(__dirname)[1];
+    media.mimetype = uploadedFile.mimetype;
+    media.user = {id: req.parsed.authPersist['user.id']} as User;
+    return this.base.createOneBase(req, media);
   }
 }

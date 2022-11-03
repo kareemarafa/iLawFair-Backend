@@ -68,13 +68,13 @@ export class ProjectsController implements CrudController<Project> {
   async createOne(
     @ParsedRequest() req: CrudRequest,
     @ParsedBody() dto: Project,
-    @UploadedFile() uploadedFile: any,
+    @UploadedFile() uploadedFile: Express.Multer.File,
   ) {
     if(uploadedFile) {
       const logo = new Media();
       logo.filename = uploadedFile.filename;
-      logo.path = uploadedFile.path;
-      logo.destination = uploadedFile.destination;
+      logo.path = (uploadedFile.path).split(__dirname)[1];
+      logo.destination = (uploadedFile.destination).split(__dirname)[1];
       logo.mimetype = uploadedFile.mimetype;
       logo.user = {id: req.parsed.authPersist['user.id']} as User;
       await this.mediaService.saveUploadedFile(logo);
