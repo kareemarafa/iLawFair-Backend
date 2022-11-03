@@ -10,6 +10,7 @@ pipeline {
                 allOf {
                   branch 'develop'
                   changeset 'apps/api-builder/*'
+                  changeset 'libs/*'
                 }
             }
             steps {
