@@ -5,16 +5,21 @@ pipeline {
     }
 
     stages {
-        stage("Deploy web-builder to Development") {
+        stage("Dev-UserAPI") {
             when {
-                branch 'develop'
+                allOf {
+                  branch 'develop'
+                  changeset 'apps/api-builder/*'
+                }
             }
             steps {
                 echo 'Building the application...'
-                sh 'rm -rf ./node_modules ./package-lock.json ./dist' // Remove if exists
-                sh 'scp -o stricthostkeychecking=no -r ./* deploy@website-me.com:/var/www/dev.api.user.website-me.com/' // upload new content
+                sh 'rm -rf ./node_modules ./package-lock.json ./dist && yarn' // Remove if exists
+                sh 'nx build api-builder' // Remove if exists
+                sh 'scp -o stricthostkeychecking=no -r ./dist/* deploy@website-me.com:/var/www/dev.api.user.website-me.com/' // upload new content
+                sh 'scp -o stricthostkeychecking=no -r ./dev.env deploy@website-me.com:/var/www/dev.api.user.website-me.com/' // upload .env file
                 sh 'ssh -o stricthostkeychecking=no deploy@website-me.com "cd /var/www/dev.api.user.website-me.com/ && rm -rf node_modules package-lock.json && yarn"' // install dependencies
-                sh 'ssh -o stricthostkeychecking=no deploy@website-me.com "cd /var/www/dev.api.user.website-me.com/ && nx build api-builder && cp dev.env dist/apps/api-builder && pm2 restart dev_API_builder"' // build
+                sh 'ssh -o stricthostkeychecking=no deploy@website-me.com "pm2 restart dev_API_builder"' // restart API service
             }
         }
     }

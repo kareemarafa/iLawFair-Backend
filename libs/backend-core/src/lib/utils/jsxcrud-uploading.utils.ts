@@ -4,7 +4,7 @@ import { diskStorage } from 'multer';
 import { extname } from 'path';
 
 export class FileUploadingUtils {
-  static singleFileUploader(name: string,dest:string='./uploads/images',) {
+  static singleFileUploader(name: string,dest:string='./public/uploads/images',) {
     return FileInterceptor(name, {
       storage: diskStorage({
         destination: dest,
@@ -19,7 +19,7 @@ export class FileUploadingUtils {
     });
   }
 
-  static multipleFileUploader(name: string,dest:string='./uploads/images', maxFileNumber: number = 20) {
+  static multipleFileUploader(name: string,dest:string='./public/uploads/images', maxFileNumber: number = 20) {
     return FilesInterceptor(name, maxFileNumber, {
       storage: diskStorage({
         destination: dest,
