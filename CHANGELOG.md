@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.17](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.16...v0.0.17) (2022-11-04)
+
+
+### Features
+
+* **projects:** add categories relations to list ([f815876](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/f815876247948e23c1d3a8a6b04b3de29e827ea8))
+
+
+### Bug Fixes
+
+* enhance uploaded logo, screenshot path ([e61a9ad](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/e61a9addd8d1fb7ffade7e9b53bc9e36b2464004))
+* **projects:** add validations to logo and screenshot ([879fecf](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/879fecfc05deb819054f205d49aecd7ae1a5ff0b))
+
 ### [0.0.16](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.15...v0.0.16) (2022-10-30)
 
 
