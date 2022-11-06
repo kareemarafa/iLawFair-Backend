@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.18](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.17...v0.0.18) (2022-11-06)
+
+
+### Bug Fixes
+
+* enhance pages path ([a9d1fa9](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/a9d1fa98f0cff89d705d7b45d7ecc5403a2f6819))
+
 ### [0.0.17](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.16...v0.0.17) (2022-11-04)
 
 
