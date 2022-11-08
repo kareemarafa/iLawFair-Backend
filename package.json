@@ -11,6 +11,7 @@
     "test": "nx test",
     "serve:all:local": "NODE_ENV=local nx run-many --parallel --target=serve --projects=api-builder,api-admin",
     "serve:api:local": "NODE_ENV=local nx serve api-builder",
+    "serve:admin:local": "NODE_ENV=local nx serve api-admin",
     "serve:builder": "nx serve web-builder --configuration development",
     "serve:builder:local": "nx serve web-builder --configuration local",
     "release": "standard-version",
