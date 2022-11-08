@@ -18,7 +18,11 @@ export const databaseConfig = () => ({
     name: 'webme_admin',
     autoLoadEntities: false,
     synchronize: true,
-    entities: [AdminUser, Survey, AdminCustomer, Packages, Addons],
+    entities: [AdminUser, Survey, AdminCustomer, Packages, Addons, AdminUser],
     seeds: []
   }
+})
+export const authConfig = () => ({
+  jwtSecret: 'secret',
+  jwtExpiresIn: '30d'
 })
