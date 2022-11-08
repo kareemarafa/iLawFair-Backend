@@ -7,5 +7,6 @@ import {AdminAuthModule} from "./admin_auth/admin-auth.module";
 import {MetaModule} from "./meta/meta.module";
 import {TemplateModule} from "./templates/template.module";
 import {AdminMediaModule} from "./admin_media/admin-media.module";
+import {CategoriesModule} from "./categories/categories.module";
 
-export const features = [AdminUsersModule, AdminSurveyModule, AdminCustomerModule, AdminPackagesModule, AddonsModule, AdminAuthModule, MetaModule, TemplateModule, AdminMediaModule]
+export const features = [AdminUsersModule, AdminSurveyModule, AdminCustomerModule, AdminPackagesModule, AddonsModule, AdminAuthModule, MetaModule, TemplateModule, AdminMediaModule, CategoriesModule]
