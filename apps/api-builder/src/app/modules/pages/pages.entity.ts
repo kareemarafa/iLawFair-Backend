@@ -4,7 +4,7 @@ import {ApiProperty} from '@nestjs/swagger'
 import {CrudValidationGroups} from '@nestjsx/crud'
 import {CoreEntity} from '@ionhour/backend-core'
 import {Project} from '../projects/projects.entity'
-import {Media} from "../media/media.entity";
+import {MediaEntity} from "../media/media.entity";
 
 const {CREATE, UPDATE} = CrudValidationGroups
 
@@ -23,10 +23,10 @@ export class Page extends CoreEntity {
   @IsNotEmpty()
   components: string
 
-  @OneToOne(() => Media)
+  @OneToOne(() => MediaEntity)
   @JoinColumn()
   @ApiProperty({type: 'file', nullable: true, required: false})
-  screenshot: Media
+  screenshot: MediaEntity
 
   @ManyToOne(() => Project, (project) => project.pages)
   @IsNotEmpty()

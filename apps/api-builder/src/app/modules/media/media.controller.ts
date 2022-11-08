@@ -1,15 +1,15 @@
 import {Crud, CrudAuth, CrudController, CrudRequest, Override, ParsedRequest} from '@nestjsx/crud'
-import {Media} from './media.entity'
 import {Controller, UploadedFile, UseGuards} from '@nestjs/common'
 import {ApiBearerAuth, ApiConsumes, ApiTags} from '@nestjs/swagger'
-import {MediaService} from './media.service'
 import {FileUploadingUtils} from '@ionhour/backend-core'
 import {AuthGuard} from '@nestjs/passport'
 import {User} from "../users/users.entity";
+import {MediaEntity} from "./media.entity";
+import {MediaService} from "./media.service";
 
 @Crud({
   model: {
-    type: Media
+    type: MediaEntity
   },
   query: {
     join: {
@@ -38,11 +38,11 @@ import {User} from "../users/users.entity";
 @ApiTags('Media')
 @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
-export class MediaController implements CrudController<Media> {
+export class MediaController implements CrudController<MediaEntity> {
   constructor(public service: MediaService) {
   }
 
-  get base(): CrudController<Media> {
+  get base(): CrudController<MediaEntity> {
     return this
   }
 
@@ -53,7 +53,7 @@ export class MediaController implements CrudController<Media> {
     @ParsedRequest() req: CrudRequest,
     @UploadedFile() uploadedFile: Express.Multer.File
   ) {
-    const media = new Media();
+    const media = new MediaEntity();
     media.filename = uploadedFile.filename;
     media.path = (uploadedFile.path).split(__dirname)[1];
     media.destination = (uploadedFile.destination).split(__dirname)[1];
