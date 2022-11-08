@@ -3,6 +3,7 @@ import { Survey } from '../app/modules/admin_survey/admin-survey.entity'
 import { AdminCustomer } from '../app/modules/admin_customers/admin-customers.entity'
 import { Packages } from '../app/modules/admin_packages/admin-packages.entity'
 import {Addons} from "../app/modules/admin_addons/addons.entity";
+import {Meta} from "../app/modules/meta/meta.entity";
 
 export const environment = {
   production: false
@@ -18,7 +19,7 @@ export const databaseConfig = () => ({
     name: 'webme_admin',
     autoLoadEntities: false,
     synchronize: true,
-    entities: [AdminUser, Survey, AdminCustomer, Packages, Addons, AdminUser],
+    entities: [AdminUser, Survey, AdminCustomer, Packages, Addons, AdminUser, Meta],
     seeds: []
   }
 })
