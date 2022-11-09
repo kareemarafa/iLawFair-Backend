@@ -5,7 +5,7 @@ import { AuthGuard } from '@nestjs/passport'
 import {RegisterAdminUserDto} from "./dto";
 import {AdminUser} from "../admin_users/admin-users.entity";
 
-@ApiTags('Admin Auth')
+@ApiTags('Auth')
 @Controller('auth')
 export class AdminAuthController {
   constructor(private authService: AdminAuthService) {}
