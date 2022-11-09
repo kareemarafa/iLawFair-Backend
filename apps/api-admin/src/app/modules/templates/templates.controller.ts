@@ -1,24 +1,24 @@
-import {Crud, CrudAuth, CrudController, CrudRequest, Override, ParsedBody, ParsedRequest} from '@nestjsx/crud'
-import {Controller, UploadedFile, UseGuards} from '@nestjs/common'
-import {ApiBearerAuth, ApiConsumes, ApiTags} from '@nestjs/swagger'
-import {Project} from './projects.entity'
-import {ProjectsService} from './projects.service'
-import {AuthGuard} from '@nestjs/passport'
-import {Media} from "../media/media.entity";
-import {MediaService} from "../media/media.service";
-import {FileUploadingUtils} from "@ionhour/backend-core";
+import {Crud, CrudController, CrudRequest, Override, ParsedBody, ParsedRequest} from "@nestjsx/crud";
+import {CoreMedia, FileUploadingUtils} from "@ionhour/backend-core";
+import {Controller, UploadedFile, UseGuards} from "@nestjs/common";
+import {ApiBearerAuth, ApiConsumes, ApiTags} from "@nestjs/swagger";
+import {AuthGuard} from "@nestjs/passport";
+import {Template} from "./template.entity";
+import {TemplateService} from "./template.service";
+import {AdminMediaService} from "../admin_media/admin-media.service";
+
 
 @Crud({
   model: {
-    type: Project
+    type: Template
   },
   query: {
     filter: {
-      isTemplate: {
-        $eq: true
-      }
+      // isTemplate: {
+      //   $eq: true
+      // }
     },
-    exclude: ['isTemplate'],
+    // exclude: ['isTemplate'],
     join: {
       pages: {
         eager: true
@@ -45,11 +45,11 @@ import {FileUploadingUtils} from "@ionhour/backend-core";
 @ApiTags('Templates')
 @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
-export class TemplatesController implements CrudController<Project> {
-  constructor(public service: ProjectsService, private mediaService: MediaService) {
+export class TemplatesController implements CrudController<Template> {
+  constructor(public service: TemplateService, private mediaService: AdminMediaService) {
   }
 
-  get base(): CrudController<Project> {
+  get base(): CrudController<Template> {
     return this
   }
 
@@ -57,11 +57,11 @@ export class TemplatesController implements CrudController<Project> {
   @ApiConsumes('multipart/form-data')
   async createOne(
     @ParsedRequest() req: CrudRequest,
-    @ParsedBody() dto: Project,
+    @ParsedBody() dto: Template,
     @UploadedFile() uploadedFile: Express.Multer.File,
   ) {
     if (uploadedFile) {
-      const screenshot = new Media();
+      const screenshot = new CoreMedia();
       screenshot.filename = uploadedFile.filename;
       screenshot.path = (uploadedFile.path).split(__dirname)[1];
       screenshot.destination = (uploadedFile.destination).split(__dirname)[1];
@@ -69,7 +69,7 @@ export class TemplatesController implements CrudController<Project> {
       await this.mediaService.saveUploadedFile(screenshot);
       dto.screenshot = screenshot;
     }
-    dto.isTemplate = true;
+    // dto.isTemplate = true;
     Object.assign(dto, {categories: dto.categories.map(cat => ({id: cat}))})
     return this.base.createOneBase(req, dto);
   }

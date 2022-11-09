@@ -4,7 +4,7 @@ import { IsEmail, IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-vali
 import { ApiProperty } from '@nestjs/swagger'
 import { CrudValidationGroups } from '@nestjsx/crud'
 import { Project } from '../projects/projects.entity'
-import { Media } from '../media/media.entity'
+import {MediaEntity} from "../media/media.entity";
 
 const { CREATE, UPDATE } = CrudValidationGroups
 
@@ -45,6 +45,6 @@ export class User extends CoreEntity {
   @OneToMany(() => Project, (project) => project.user)
   projects?: Project[]
 
-  @OneToMany(() => Media, (media) => media.user)
-  media?: Media[]
+  @OneToMany(() => MediaEntity, (media) => media.user)
+  media?: MediaEntity[]
 }

@@ -3,7 +3,5 @@ import {PagesModule} from './pages/pages.module'
 import {AuthModule} from './auth/auth.module'
 import {ProjectsModule} from './projects/projects.module'
 import {MediaModule} from './media/media.module'
-import {MetaModule} from "./meta/meta.module";
-import {CategoriesModule} from "./categories/categories.module";
 
-export const features = [AuthModule, UsersModule, PagesModule, ProjectsModule, MediaModule, MetaModule, CategoriesModule]
+export const features = [AuthModule, UsersModule, PagesModule, ProjectsModule, MediaModule]

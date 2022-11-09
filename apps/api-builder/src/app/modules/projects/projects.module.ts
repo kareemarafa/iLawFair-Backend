@@ -3,7 +3,6 @@ import {TypeOrmModule} from '@nestjs/typeorm'
 import {ProjectsController} from './projects.controller'
 import {ProjectsService} from './projects.service'
 import {Project} from './projects.entity'
-import {TemplatesController} from "./templates.controller";
 import {MediaModule} from "../media/media.module";
 
 @Module({
@@ -11,7 +10,7 @@ import {MediaModule} from "../media/media.module";
     TypeOrmModule.forFeature([Project]),
     forwardRef(() => MediaModule)
   ],
-  controllers: [ProjectsController, TemplatesController],
+  controllers: [ProjectsController],
   providers: [ProjectsService],
   exports: [ProjectsService]
 })

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.19](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.18...v0.0.19) (2022-11-09)
+
+
+### Bug Fixes
+
+* **admin-api:** fix the route of swager api ([2bb799a](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/2bb799a32771832e2a997279462a87d287f3faa0))
+
 ### [0.0.18](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.17...v0.0.18) (2022-11-06)
 
 

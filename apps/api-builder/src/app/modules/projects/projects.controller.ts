@@ -6,7 +6,7 @@ import {ProjectsService} from './projects.service'
 import {AuthGuard} from '@nestjs/passport'
 import {User} from "../users/users.entity";
 import {FileUploadingUtils} from "@ionhour/backend-core";
-import {Media} from "../media/media.entity";
+import {MediaEntity} from "../media/media.entity";
 import {MediaService} from "../media/media.service";
 
 @Crud({
@@ -15,11 +15,11 @@ import {MediaService} from "../media/media.service";
   },
   query: {
     filter: {
-      isTemplate: {
-        $eq: false
-      }
+      // isTemplate: {
+      //   $eq: false
+      // }
     },
-    exclude: ['isTemplate'],
+    // exclude: ['isTemplate'],
     join: {
       pages: {
         eager: true
@@ -71,7 +71,7 @@ export class ProjectsController implements CrudController<Project> {
     @UploadedFile() uploadedFile: Express.Multer.File,
   ) {
     if(uploadedFile) {
-      const logo = new Media();
+      const logo = new MediaEntity();
       logo.filename = uploadedFile.filename;
       logo.path = (uploadedFile.path).split(__dirname)[1];
       logo.destination = (uploadedFile.destination).split(__dirname)[1];
@@ -81,7 +81,7 @@ export class ProjectsController implements CrudController<Project> {
       dto.logo = logo;
     }
     dto.user = {id: req.parsed.authPersist['user.id']} as User;
-    Object.assign(dto, {categories: dto.categories.map(cat => ({id: cat}))})
+    // Object.assign(dto, {categories: dto.categories.map(cat => ({id: cat}))})
     return this.base.createOneBase(req, dto);
   }
 }

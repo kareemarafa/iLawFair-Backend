@@ -1,16 +1,11 @@
-import { Injectable } from '@nestjs/common'
-import { TypeOrmCrudService } from '@nestjsx/crud-typeorm'
-import { InjectRepository } from '@nestjs/typeorm'
-import { Media } from './media.entity'
-import { Repository } from 'typeorm'
+import {Injectable} from "@nestjs/common";
+import {InjectRepository} from "@nestjs/typeorm";
+import {CoreMediaService} from "@ionhour/backend-core";
+import {MediaEntity} from "./media.entity";
 
 @Injectable()
-export class MediaService extends TypeOrmCrudService<Media> {
-  constructor(@InjectRepository(Media) public repo: Repository<Media>) {
+export class MediaService extends CoreMediaService<MediaEntity> {
+  constructor(@InjectRepository(MediaEntity) repo) {
     super(repo)
-  }
-
-  async saveUploadedFile(dto) {
-    return this.repo.save(dto);
   }
 }
