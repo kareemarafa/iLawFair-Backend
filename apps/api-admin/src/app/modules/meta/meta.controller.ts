@@ -13,7 +13,7 @@ import {AuthGuard} from "@nestjs/passport";
 @ApiBearerAuth()
 @Controller('meta')
 @ApiTags('Meta')
-@UseGuards(AuthGuard('jwt'))
+// @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
 export class MetaController implements CrudController<Meta> {
   constructor(public service: MetaService) {
