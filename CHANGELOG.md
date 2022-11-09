@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.20](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.18...v0.0.20) (2022-11-09)
+
+
+### Features
+
+* **admin-microservice:** implement admin microservice application ([0201072](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/0201072e2bd53241af563f29e0cda07181ebbc1b))
+* create internal controllers for meta, categories, templates ([518834b](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/518834ba9def4baf0823b449e3c5ecc5d1226f3d))
+
+
+### Bug Fixes
+
+* **admin-api:** fix the route of swager api ([2bb799a](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/2bb799a32771832e2a997279462a87d287f3faa0))
+
 ### [0.0.19](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.18...v0.0.19) (2022-11-09)
 
 
