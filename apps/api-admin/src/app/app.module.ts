@@ -8,11 +8,11 @@ import { features } from './modules'
 
 @Module({
   imports: [
-    DatabaseConnectModule,
     ConfigModule.forRoot({
       load: [databaseConfig, authConfig],
       isGlobal: true
     }),
+    DatabaseConnectModule,
     ...features
   ],
   controllers: [AppController],
@@ -20,7 +20,9 @@ import { features } from './modules'
 })
 export class AppModule {
   static port: number
+  static adminMSPort: number
   constructor(private readonly configService: ConfigService) {
     AppModule.port = configService.get<number>('port')
+    AppModule.adminMSPort = configService.get<number>('adminMSPort')
   }
 }

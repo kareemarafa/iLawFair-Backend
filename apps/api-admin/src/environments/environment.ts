@@ -14,6 +14,7 @@ export const environment = {
 
 export const databaseConfig = () => ({
   port: 7101,
+  adminMSPort: 7102,
   database: {
     host: 'localhost',
     port: 8886,

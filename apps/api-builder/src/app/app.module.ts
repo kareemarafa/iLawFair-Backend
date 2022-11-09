@@ -6,7 +6,8 @@ import {ConfigModule, ConfigService} from '@nestjs/config'
 import {authConfig, databaseConfig} from '../environments/environment'
 import {features} from './modules'
 import {validate} from './config';
-import {CategoriesController, MetaController, TemplatesController} from "./controllers";
+import {CategoriesController, TemplatesController} from "./controllers";
+
 
 @Module({
   imports: [
@@ -24,8 +25,9 @@ import {CategoriesController, MetaController, TemplatesController} from "./contr
     DatabaseConnectModule,
     ...features
   ],
-  controllers: [AppController, TemplatesController, MetaController, CategoriesController],
-  providers: [AppService]
+  controllers: [AppController, TemplatesController, CategoriesController],
+  providers: [AppService],
+  exports: []
 })
 export class AppModule {
   static port: number

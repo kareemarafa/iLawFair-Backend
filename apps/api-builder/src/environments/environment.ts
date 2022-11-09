@@ -9,6 +9,7 @@ export const environment = {
 
 export const databaseConfig = () => ({
   port: process.env.PORT,
+  adminMSPort: 7102,
   database: {
     host: process.env.DATABASE_HOST,
     port: process.env.DATABASE_PORT,
