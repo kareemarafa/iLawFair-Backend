@@ -372,34 +372,6 @@
         }
       },
       "tags": []
-    },
-    "web-builder-e2e": {
-      "root": "apps/web-builder-e2e",
-      "sourceRoot": "apps/web-builder-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/web-builder-e2e/cypress.json",
-            "devServerTarget": "web-builder:serve:development"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "web-builder:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/web-builder-e2e/**/*.{js,ts}"]
-          }
-        }
-      },
-      "tags": [],
-      "implicitDependencies": ["web-builder"]
     }
   }
 }
