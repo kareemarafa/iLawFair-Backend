@@ -3,12 +3,12 @@ import {Column, Entity, ManyToMany} from 'typeorm'
 import {CoreEntity} from '@ionhour/backend-core'
 import {IsNotEmpty, IsOptional, IsString} from 'class-validator'
 import {ApiProperty} from '@nestjs/swagger'
-import {Template} from "../templates/template.entity";
+import {AdminTemplate} from "../templates/template.entity";
 
 const {CREATE, UPDATE} = CrudValidationGroups
 
 @Entity('categories')
-export class Category extends CoreEntity {
+export class AdminCategory extends CoreEntity {
   @IsNotEmpty({groups: [CREATE]})
   @IsString({always: true})
   @IsOptional({groups: [UPDATE]})
@@ -16,6 +16,6 @@ export class Category extends CoreEntity {
   @ApiProperty({required: true, type: 'string', nullable: false})
   name: string
 
-  @ManyToMany(() => Template, (category) => category.categories)
-  templates: Template[]
+  @ManyToMany(() => AdminTemplate, (category) => category.categories)
+  templates: AdminTemplate[]
 }

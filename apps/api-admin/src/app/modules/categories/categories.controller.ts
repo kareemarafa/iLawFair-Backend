@@ -1,19 +1,29 @@
-import { Crud, CrudController } from '@nestjsx/crud'
+import {Crud, CrudController, CrudRequest, GetManyDefaultResponse} from '@nestjsx/crud'
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger'
 import {Controller, UseGuards} from '@nestjs/common'
-import {Category} from "./categories.entity";
+import {AdminCategory} from "./categories.entity";
 import {CategoriesService} from "./categories.service";
-import {AuthGuard} from "@nestjs/passport";
+// import {AuthGuard} from "@nestjs/passport";
+import {MessagePattern} from "@nestjs/microservices";
 
 @Crud({
   model: {
-    type: Category
+    type: AdminCategory
   }
 })
 @Controller('categories')
 @ApiTags('Categories')
-@UseGuards(AuthGuard('jwt'))
+// @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
-export class CategoriesController implements CrudController<Category> {
+export class CategoriesController implements CrudController<AdminCategory> {
   constructor(public service: CategoriesService) {}
+
+  get base(): CrudController<AdminCategory> {
+    return this
+  }
+
+  @MessagePattern({cmd: 'GET_ALL_CATEGORIES'})
+  getAllCategories({req}: { req: CrudRequest }): Promise<GetManyDefaultResponse<AdminCategory> | AdminCategory[]> {
+    return this.base.getManyBase(req);
+  }
 }

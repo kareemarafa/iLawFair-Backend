@@ -1,13 +1,13 @@
 import {forwardRef, Module} from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { Template} from "./template.entity";
+import { AdminTemplate} from "./template.entity";
 import {TemplateService} from "./template.service";
 import {TemplatesController} from "./templates.controller";
 import {AdminMediaModule} from "../admin_media/admin-media.module";
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Template]),
+    TypeOrmModule.forFeature([AdminTemplate]),
     forwardRef(()=> AdminMediaModule)
 
   ],

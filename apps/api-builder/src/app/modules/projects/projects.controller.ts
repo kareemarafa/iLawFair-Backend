@@ -14,12 +14,6 @@ import {MediaService} from "../media/media.service";
     type: Project
   },
   query: {
-    filter: {
-      // isTemplate: {
-      //   $eq: false
-      // }
-    },
-    // exclude: ['isTemplate'],
     join: {
       pages: {
         eager: true

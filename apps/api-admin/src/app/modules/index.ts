@@ -1,5 +1,4 @@
 import { AdminUsersModule } from './admin_users/admin-users.module'
-import { AdminCustomerModule } from './admin_customers/admin-customers.module'
 import {MetaModule} from "./meta/meta.module";
 import {CategoriesModule} from "./categories/categories.module";
 import {TemplateModule} from "./templates/template.module";

@@ -3,14 +3,14 @@ import {CoreMedia, FileUploadingUtils} from "@ionhour/backend-core";
 import {Controller, UploadedFile, UseGuards} from "@nestjs/common";
 import {ApiBearerAuth, ApiConsumes, ApiTags} from "@nestjs/swagger";
 import {AuthGuard} from "@nestjs/passport";
-import {Template} from "./template.entity";
+import {AdminTemplate} from "./template.entity";
 import {TemplateService} from "./template.service";
 import {AdminMediaService} from "../admin_media/admin-media.service";
 
 
 @Crud({
   model: {
-    type: Template
+    type: AdminTemplate
   },
   query: {
     filter: {
@@ -45,11 +45,11 @@ import {AdminMediaService} from "../admin_media/admin-media.service";
 @ApiTags('Templates')
 @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
-export class TemplatesController implements CrudController<Template> {
+export class TemplatesController implements CrudController<AdminTemplate> {
   constructor(public service: TemplateService, private mediaService: AdminMediaService) {
   }
 
-  get base(): CrudController<Template> {
+  get base(): CrudController<AdminTemplate> {
     return this
   }
 
@@ -57,7 +57,7 @@ export class TemplatesController implements CrudController<Template> {
   @ApiConsumes('multipart/form-data')
   async createOne(
     @ParsedRequest() req: CrudRequest,
-    @ParsedBody() dto: Template,
+    @ParsedBody() dto: AdminTemplate,
     @UploadedFile() uploadedFile: Express.Multer.File,
   ) {
     if (uploadedFile) {

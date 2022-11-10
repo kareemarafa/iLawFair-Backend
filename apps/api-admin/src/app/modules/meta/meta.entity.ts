@@ -7,7 +7,7 @@ import {ApiProperty} from '@nestjs/swagger'
 const {CREATE, UPDATE} = CrudValidationGroups
 
 @Entity('meta')
-export class Meta extends CoreEntity {
+export class AdminMeta extends CoreEntity {
   @IsNotEmpty({groups: [CREATE]})
   @IsString({always: true})
   @IsOptional({groups: [UPDATE]})

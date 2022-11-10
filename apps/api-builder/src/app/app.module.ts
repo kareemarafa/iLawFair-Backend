@@ -6,7 +6,11 @@ import {ConfigModule, ConfigService} from '@nestjs/config'
 import {authConfig, databaseConfig} from '../environments/environment'
 import {features} from './modules'
 import {validate} from './config';
-import {CategoriesController, TemplatesController} from "./controllers";
+import {CategoriesController, MetaController, TemplatesController} from "./controllers";
+import {ClientsModule, Transport} from "@nestjs/microservices";
+import {MockCategoriesService} from "./controllers/mock-categories.service";
+import {TypeOrmModule} from "@nestjs/typeorm";
+import {MockCategory} from "./controllers/mock-category.entity";
 
 
 @Module({
@@ -23,10 +27,25 @@ import {CategoriesController, TemplatesController} from "./controllers";
       validate
     }),
     DatabaseConnectModule,
-    ...features
+    ClientsModule.registerAsync([
+        {
+          name: "ADMIN_SERVICE",
+          imports: [ConfigModule],
+          useFactory: async (configService: ConfigService) => ({
+            transport: Transport.TCP,
+            options: {
+              port: configService.get<number>('adminMSPort'),
+            },
+          }),
+          inject: [ConfigService],
+        },
+      ]
+    ),
+    ...features,
+    TypeOrmModule.forFeature([MockCategory]),
   ],
-  controllers: [AppController, TemplatesController, CategoriesController],
-  providers: [AppService],
+  controllers: [AppController, TemplatesController, CategoriesController, MetaController],
+  providers: [AppService, MockCategoriesService],
   exports: []
 })
 export class AppModule {
