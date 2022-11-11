@@ -71,7 +71,7 @@ export class ProjectsController implements CrudController<Project> {
       logo.destination = (uploadedFile.destination).split(__dirname)[1];
       logo.mimetype = uploadedFile.mimetype;
       logo.user = {id: req.parsed.authPersist['user.id']} as User;
-      await this.mediaService.saveUploadedFile(logo);
+      // await this.mediaService.saveUploadedFile(logo);
       dto.logo = logo;
     }
     dto.user = {id: req.parsed.authPersist['user.id']} as User;

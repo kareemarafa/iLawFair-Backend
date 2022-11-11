@@ -2,7 +2,7 @@ import { AdminUser } from '../app/modules/admin_users/admin-users.entity'
 import {AdminMeta} from "../app/modules/meta/meta.entity";
 import {AdminCategory} from "../app/modules/categories/categories.entity";
 import {AdminTemplate} from "../app/modules/templates/template.entity";
-import {AdminMedia} from "../app/modules/admin_media/admin.media";
+import {AdminMedia} from "../app/modules/admin_media/adminMedia";
 
 export const environment = {
   production: false

@@ -53,7 +53,7 @@ export class PagesController implements CrudController<Page> {
       screenshot.path = uploadedFile.path;
       screenshot.destination = uploadedFile.destination;
       screenshot.mimetype = uploadedFile.mimetype;
-      await this.mediaService.saveUploadedFile(screenshot);
+      // await this.mediaService.saveUploadedFile(screenshot);
       dto.screenshot = screenshot;
     }
     return this.base.createOneBase(req, dto);

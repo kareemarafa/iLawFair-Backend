@@ -1,7 +1,6 @@
-import { Controller, Post, Request, HttpCode, HttpStatus, Body, UseGuards } from '@nestjs/common'
+import { Controller, Post, Request, HttpCode, HttpStatus, Body } from '@nestjs/common'
 import { AdminAuthService } from './admin-auth.service'
 import { ApiTags } from '@nestjs/swagger'
-import { AuthGuard } from '@nestjs/passport'
 import {RegisterAdminUserDto} from "./dto";
 import {AdminUser} from "../admin_users/admin-users.entity";
 

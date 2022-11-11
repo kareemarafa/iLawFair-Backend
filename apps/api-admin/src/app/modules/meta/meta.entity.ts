@@ -1,23 +1,21 @@
-import {CrudValidationGroups} from '@nestjsx/crud'
 import {Column, Entity} from 'typeorm'
 import {CoreEntity} from '@ionhour/backend-core'
 import {IsNotEmpty, IsOptional, IsString} from 'class-validator'
 import {ApiProperty} from '@nestjs/swagger'
 
-const {CREATE, UPDATE} = CrudValidationGroups
 
 @Entity('meta')
 export class AdminMeta extends CoreEntity {
-  @IsNotEmpty({groups: [CREATE]})
+  @IsNotEmpty()
   @IsString({always: true})
-  @IsOptional({groups: [UPDATE]})
+  @IsOptional()
   @Column({unique: true, type: 'varchar', nullable: false})
   @ApiProperty({required: true, type: 'string', nullable: false})
   key: string
 
-  @IsNotEmpty({groups: [CREATE]})
+  @IsNotEmpty()
   @IsString({always: true})
-  @IsOptional({groups: [UPDATE]})
+  @IsOptional()
   @Column({type: 'varchar', nullable: false})
   @ApiProperty({required: true, type: 'string', nullable: false})
   value: string

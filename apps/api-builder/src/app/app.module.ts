@@ -8,9 +8,6 @@ import {features} from './modules'
 import {validate} from './config';
 import {CategoriesController, MetaController, TemplatesController} from "./controllers";
 import {ClientsModule, Transport} from "@nestjs/microservices";
-import {MockCategoriesService} from "./controllers/mock-categories.service";
-import {TypeOrmModule} from "@nestjs/typeorm";
-import {MockCategory} from "./controllers/mock-category.entity";
 
 
 @Module({
@@ -42,10 +39,9 @@ import {MockCategory} from "./controllers/mock-category.entity";
       ]
     ),
     ...features,
-    TypeOrmModule.forFeature([MockCategory]),
   ],
   controllers: [AppController, TemplatesController, CategoriesController, MetaController],
-  providers: [AppService, MockCategoriesService],
+  providers: [AppService],
   exports: []
 })
 export class AppModule {

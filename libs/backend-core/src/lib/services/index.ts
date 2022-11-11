@@ -1,1 +1,3 @@
-export * from "./core-media.service"
+export * from './kam.service';
+export * from "./kam-media.service";
+

@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common'
-import { TypeOrmCrudService } from '@nestjsx/crud-typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 import {AdminCategory} from "./categories.entity";
+import {KamService} from "@ionhour/backend-core";
 
 @Injectable()
-export class CategoriesService extends TypeOrmCrudService<AdminCategory> {
+export class CategoriesService extends KamService<AdminCategory> {
   constructor(@InjectRepository(AdminCategory) repo) {
     super(repo)
   }

@@ -1,9 +1,9 @@
 import {Entity, JoinColumn, JoinTable, ManyToMany, OneToOne} from "typeorm";
 import {AdminCategory} from "../categories/categories.entity";
 import {IsArray, IsOptional, ValidateIf} from "class-validator";
-import {ApiProperty} from "@nestjsx/crud/lib/crud";
 import {CoreProjectEntity} from "@ionhour/backend-core";
-import {AdminMedia} from "../admin_media/admin.media";
+import {ApiProperty} from "@nestjs/swagger";
+import {AdminMedia} from "../admin_media/adminMedia";
 
 
 @Entity('template')
