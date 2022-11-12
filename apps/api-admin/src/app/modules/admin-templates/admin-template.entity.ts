@@ -10,7 +10,7 @@ import {AdminMedia} from "../admin-media/admin-media.entity";
 export class AdminTemplate extends CoreProjectEntity {
 
   @ManyToMany(() => AdminCategory, (category) => category.templates)
-  @JoinTable({name: 'admin-templates-admin-categories'})
+  @JoinTable({name: 'template-categories'})
   @IsOptional()
   @IsArray()
   @ApiProperty({type: [Number], required: false, nullable: true})
@@ -22,7 +22,6 @@ export class AdminTemplate extends CoreProjectEntity {
   logo: AdminMedia
 
   @OneToOne(() => AdminMedia)
-  @JoinColumn()
   @ApiProperty({type: 'file', nullable: true, required: false})
   screenshot: AdminMedia
 }
