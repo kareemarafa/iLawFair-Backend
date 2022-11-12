@@ -1,12 +1,14 @@
-import { CoreProjectEntity} from "@ionhour/backend-core";
-import {Entity, JoinColumn, ManyToOne, OneToMany} from "typeorm";
+import {CoreProjectEntity} from "@ionhour/backend-core";
+import {Entity, JoinColumn, ManyToOne, OneToMany, OneToOne} from "typeorm";
 import {Type} from "class-transformer";
 import {TenantPage} from "../tenant-pages/tenant-pages.entity";
-import { TenantUser } from "../tenant-users/tenant-users.entity";
+import {TenantUser} from "../tenant-users/tenant-users.entity";
+import {ApiProperty} from "@nestjs/swagger";
+import {TenantMedia} from "../tenant-media/tenant-media.entity";
 
 
 @Entity('projects')
-export class TenantProject extends CoreProjectEntity{
+export class TenantProject extends CoreProjectEntity {
 
 
   @OneToMany(() => TenantPage, (page) => page.project)
@@ -16,5 +18,15 @@ export class TenantProject extends CoreProjectEntity{
   @Type((t) => TenantUser)
   @JoinColumn()
   user: TenantUser
+
+  @OneToOne(() => TenantMedia)
+  @JoinColumn()
+  @ApiProperty({type: 'file', nullable: true, required: false})
+  logo: TenantMedia
+
+  @OneToOne(() => TenantMedia)
+  @JoinColumn()
+  @ApiProperty({type: 'file', nullable: true, required: false})
+  screenshot: TenantMedia
 }
 

@@ -5,7 +5,7 @@ import {AuthGuard} from "@nestjs/passport";
 import {AdminTemplate} from "./admin-template.entity";
 import {AdminTemplateService} from "./admin-template.service";
 import {AdminMediaService} from "../admin-media/admin-media.service";
-import {AdminMediaEntity} from "../admin-media/admin-media.entity";
+import {AdminMedia} from "../admin-media/admin-media.entity";
 
 @Controller('templates')
 @ApiTags('Templates')
@@ -20,7 +20,7 @@ export class AdminTemplatesController extends KamController<AdminTemplate> {
   @ApiConsumes('multipart/form-data')
   async createOne(@Body() dto: AdminTemplate, @UploadedFile() uploadedFile: Express.Multer.File) {
     if (uploadedFile) {
-      const screenshot = new AdminMediaEntity();
+      const screenshot = new AdminMedia();
       screenshot.filename = uploadedFile.filename;
       screenshot.path = (uploadedFile.path).split(__dirname)[1];
       screenshot.destination = (uploadedFile.destination).split(__dirname)[1];

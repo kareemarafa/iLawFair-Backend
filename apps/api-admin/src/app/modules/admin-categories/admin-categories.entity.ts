@@ -3,7 +3,7 @@ import {Column, Entity, ManyToMany} from 'typeorm'
 import {CoreEntity} from '@ionhour/backend-core'
 import {IsNotEmpty, IsOptional, IsString} from 'class-validator'
 import {ApiProperty} from '@nestjs/swagger'
-import {AdminTemplate} from "../admin-templates/template.entity";
+import {AdminTemplate} from "../admin-templates/admin-template.entity";
 
 const {CREATE, UPDATE} = CrudValidationGroups
 
