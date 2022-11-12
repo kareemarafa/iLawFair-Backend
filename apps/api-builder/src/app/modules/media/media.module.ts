@@ -4,10 +4,10 @@ import { MediaController } from './media.controller'
 import { UsersModule } from '../users/users.module'
 import { AuthModule } from '../auth/auth.module'
 import {MediaService} from "./media.service";
-import {MediaEntity} from "./media.entity";
+import {UserMedia} from "./user.media";
 
 @Module({
-  imports: [TypeOrmModule.forFeature([MediaEntity]), forwardRef(() => AuthModule), forwardRef(() => UsersModule)],
+  imports: [TypeOrmModule.forFeature([UserMedia]), forwardRef(() => AuthModule), forwardRef(() => UsersModule)],
   controllers: [MediaController],
   providers: [MediaService],
   exports: [MediaService]

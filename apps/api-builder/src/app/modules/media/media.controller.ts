@@ -3,14 +3,14 @@ import {ApiBearerAuth, ApiConsumes, ApiTags} from '@nestjs/swagger'
 import {FileUploadingUtils, KamController} from '@ionhour/backend-core'
 import {AuthGuard} from '@nestjs/passport'
 import {User} from "../users/users.entity";
-import {MediaEntity} from "./media.entity";
+import {UserMedia} from "./user.media";
 import {MediaService} from "./media.service";
 
 @Controller('media')
 @ApiTags('Media')
 @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
-export class MediaController  extends KamController<MediaEntity> {
+export class MediaController  extends KamController<UserMedia> {
   constructor(public service: MediaService) {
     super(service);
   }
@@ -20,7 +20,7 @@ export class MediaController  extends KamController<MediaEntity> {
   // async createOne(
   //   @UploadedFile() uploadedFile: Express.Multer.File
   // ) {
-  //   const media = new MediaEntity();
+  //   const media = new UserMediaEntity();
   //   media.filename = uploadedFile.filename;
   //   media.path = (uploadedFile.path).split(__dirname)[1];
   //   media.destination = (uploadedFile.destination).split(__dirname)[1];

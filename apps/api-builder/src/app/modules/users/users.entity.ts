@@ -3,7 +3,7 @@ import { CoreEntity } from '@ionhour/backend-core'
 import { IsEmail, IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger'
 import { Project } from '../projects/projects.entity'
-import {MediaEntity} from "../media/media.entity";
+import {UserMedia} from "../media/user.media";
 
 
 @Entity('users')
@@ -43,6 +43,6 @@ export class User extends CoreEntity {
   @OneToMany(() => Project, (project) => project.user)
   projects?: Project[]
 
-  @OneToMany(() => MediaEntity, (media) => media.user)
-  media?: MediaEntity[]
+  @OneToMany(() => UserMedia, (media) => media.user)
+  media?: UserMedia[]
 }

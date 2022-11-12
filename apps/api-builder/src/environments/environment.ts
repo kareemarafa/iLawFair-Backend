@@ -1,7 +1,7 @@
 import {User} from "../app/modules/users/users.entity";
 import {Project} from "../app/modules/projects/projects.entity";
 import {Page} from "../app/modules/pages/pages.entity";
-import {MediaEntity} from "../app/modules/media/media.entity";
+import {UserMedia} from "../app/modules/media/user.media";
 
 export const environment = {
   production: false
@@ -18,7 +18,7 @@ export const databaseConfig = () => ({
     name: process.env.DATABASE_NAME,
     autoLoadEntities: false,
     synchronize: true,
-    entities: [User, Project, Page, MediaEntity],
+    entities: [User, Project, Page, UserMedia],
     seeds: [process.env.ENTITIES],
     factories: [process.env.FACTORIES],
     migrations: [process.env.MIGRATIONS],

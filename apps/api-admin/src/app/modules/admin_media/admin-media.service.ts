@@ -1,7 +1,7 @@
 import {Injectable} from "@nestjs/common";
 import {InjectRepository} from "@nestjs/typeorm";
 import {KamMediaService} from "@ionhour/backend-core";
-import {AdminMedia} from "./adminMedia";
+import {AdminMedia} from "./admin.media";
 
 @Injectable()
 export class AdminMediaService extends KamMediaService<AdminMedia> {

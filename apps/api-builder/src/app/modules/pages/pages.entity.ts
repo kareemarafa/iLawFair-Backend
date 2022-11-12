@@ -3,7 +3,7 @@ import {IsNotEmpty, IsOptional, IsString, MaxLength} from 'class-validator'
 import {ApiProperty} from '@nestjs/swagger'
 import {CoreEntity} from '@ionhour/backend-core'
 import {Project} from '../projects/projects.entity'
-import {MediaEntity} from "../media/media.entity";
+import {UserMedia} from "../media/user.media";
 
 
 @Entity('pages')
@@ -21,10 +21,10 @@ export class Page extends CoreEntity {
   @IsNotEmpty()
   components: string
 
-  @OneToOne(() => MediaEntity)
+  @OneToOne(() => UserMedia)
   @JoinColumn()
   @ApiProperty({type: 'file', nullable: true, required: false})
-  screenshot: MediaEntity
+  screenshot: UserMedia
 
   @ManyToOne(() => Project, (project) => project.pages)
   @IsNotEmpty()
