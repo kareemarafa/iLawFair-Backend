@@ -1,12 +1,12 @@
 import {Logger, ValidationPipe} from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
-import { AppModule } from './app/app.module'
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger'
 import { join } from 'path'
 import { NestExpressApplication } from '@nestjs/platform-express'
+import {TenantAppModule} from "./app/tenant-app.module";
 
 async function bootstrap() {
-  const app: NestExpressApplication = await NestFactory.create(AppModule)
+  const app: NestExpressApplication = await NestFactory.create(TenantAppModule)
   app.useGlobalPipes(new ValidationPipe({skipMissingProperties: true}));
   app.useGlobalPipes(new ValidationPipe({forbidNonWhitelisted :true, whitelist:true, transform:true}));
 
@@ -29,7 +29,7 @@ async function bootstrap() {
 
   SwaggerModule.setup('swagger', app, document)
 
-  const port = AppModule.port || 3333
+  const port = TenantAppModule.port || 3333
   const assetsPath = join(__dirname, '../../..', 'public')
 
   app.useStaticAssets(assetsPath)

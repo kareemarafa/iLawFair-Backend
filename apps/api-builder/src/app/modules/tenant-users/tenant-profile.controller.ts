@@ -2,10 +2,10 @@ import {Body, Controller, Get, Post, UseGuards, Headers} from '@nestjs/common'
 import {AuthService} from '../tenant-auth/tenant-auth.service'
 import {AuthGuard} from '@nestjs/passport'
 import {TenantUsersService} from './tenant-users.service'
-import {UpdateProfileDto} from './dto/update-profile.dto'
 import {ApiBearerAuth, ApiTags} from "@nestjs/swagger";
 import {KamController} from "@ionhour/backend-core";
 import {TenantUser} from "./tenant-users.entity";
+import {UpdateProfileDto} from "./dto/tenant-update-profile.dto";
 
 @Controller('profile')
 @ApiTags('Profile')

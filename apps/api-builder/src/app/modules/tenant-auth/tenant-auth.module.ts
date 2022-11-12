@@ -2,7 +2,7 @@ import {forwardRef, Module} from '@nestjs/common'
 import {AuthService} from './tenant-auth.service'
 import {TenantUsersModule} from '../tenant-users/tenant-users.module'
 import {PassportModule} from '@nestjs/passport'
-import {LocalStrategy, JwtStrategy} from './strategies'
+import {TenantLocalStrategy, TenantJwtStrategy} from './strategies'
 import {JwtModule} from '@nestjs/jwt'
 import {AuthController} from './tenant-auth.controller'
 import {ConfigModule, ConfigService} from '@nestjs/config'
@@ -24,7 +24,7 @@ import {EncryptionModule} from '@ionhour/encryption'
       inject: [ConfigService]
     })
   ],
-  providers: [AuthService, LocalStrategy, JwtStrategy],
+  providers: [AuthService, TenantLocalStrategy, TenantJwtStrategy],
   controllers: [AuthController],
   exports: [AuthService]
 })

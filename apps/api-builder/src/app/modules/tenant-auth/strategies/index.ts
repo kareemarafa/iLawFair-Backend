@@ -1,2 +1,2 @@
-export * from './local.strategy'
-export * from './jwt.strategy'
+export * from './tenant-local.strategy'
+export * from './tenant-jwt.strategy'
