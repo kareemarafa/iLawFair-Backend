@@ -1,4 +1,4 @@
-import {Body, Controller, UploadedFile, UseGuards, UseInterceptors} from '@nestjs/common'
+import {Body, Controller, Post, UploadedFile, UseGuards, UseInterceptors} from '@nestjs/common'
 import {ApiBearerAuth, ApiConsumes, ApiTags} from '@nestjs/swagger'
 import {TenantProject} from './tenant-projects.entity'
 import {TenantProjectsService} from './tenant-projects.service'
@@ -16,20 +16,22 @@ export class TenantProjectsController extends KamController<TenantProject> {
     super(service)
   }
 
-  @UseInterceptors(FileUploadingUtils.singleFileUploader('file'))
+  @Post()
+  @UseInterceptors(FileUploadingUtils.singleFileUploader('logo'))
   @ApiConsumes('multipart/form-data')
   async createOne(@Body()  dto: TenantProject, @UploadedFile() uploadedFile: Express.Multer.File) {
+    console.log(uploadedFile)
     if(uploadedFile) {
       const logo = new TenantMedia();
-      const screenshot = new TenantMedia();
-      screenshot.filename = uploadedFile.filename;
-      screenshot.path = (uploadedFile.path).split(__dirname)[1];
-      screenshot.destination = (uploadedFile.destination).split(__dirname)[1];
-      screenshot.mimetype = uploadedFile.mimetype;
+      logo.filename = uploadedFile.filename;
+      logo.path = (uploadedFile.path).split(__dirname)[1];
+      logo.destination = (uploadedFile.destination).split(__dirname)[1];
+      logo.mimetype = uploadedFile.mimetype;
       await this.mediaService.saveUploadedFile(logo);
       dto.logo = logo;
     }
     // Object.assign(dto, {admin-categories: dto.admin-categories.map(cat => ({id: cat}))})
+    Object.assign(dto, {pages: dto.pages.map(page => ({id: page}))})
     return this.createOneBase(dto);
   }
 }

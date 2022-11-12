@@ -19,10 +19,10 @@ export class PagesController extends  KamController<TenantPage> {
 
   @Post()
   @ApiConsumes('multipart/form-data')
-  @UseInterceptors(FileUploadingUtils.singleFileUploader('file'))
+  @UseInterceptors(FileUploadingUtils.singleFileUploader('screenshot'))
   async createOne(
     @Body() dto: TenantPage,
-    @UploadedFile() uploadedFile: any,
+    @UploadedFile() uploadedFile: Express.Multer.File,
   ) {
     if (uploadedFile) {
       const screenshot = new TenantMedia();
@@ -33,6 +33,7 @@ export class PagesController extends  KamController<TenantPage> {
       await this.mediaService.saveUploadedFile(screenshot);
       dto.screenshot = screenshot;
     }
+    Object.assign(dto, {project: dto.project})
     return super.createOneBase(dto);
   }
 }

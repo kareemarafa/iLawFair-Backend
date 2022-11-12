@@ -16,7 +16,7 @@ export class AdminTemplatesController extends KamController<AdminTemplate> {
     super(service)
   }
 
-  @UseInterceptors(FileUploadingUtils.singleFileUploader('file'))
+  @UseInterceptors(FileUploadingUtils.singleFileUploader('screenshot'))
   @ApiConsumes('multipart/form-data')
   async createOne(@Body() dto: AdminTemplate, @UploadedFile() uploadedFile: Express.Multer.File) {
     if (uploadedFile) {

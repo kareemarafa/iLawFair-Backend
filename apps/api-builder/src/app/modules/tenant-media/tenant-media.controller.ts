@@ -1,4 +1,4 @@
-import {Controller, UploadedFile, UseGuards, UseInterceptors} from '@nestjs/common'
+import {Controller, Post, UploadedFile, UseGuards, UseInterceptors} from '@nestjs/common'
 import {ApiBearerAuth, ApiConsumes, ApiTags} from '@nestjs/swagger'
 import {FileUploadingUtils, KamController} from '@ionhour/backend-core'
 import {AuthGuard} from '@nestjs/passport'
@@ -14,12 +14,14 @@ export class MediaController  extends KamController<TenantMedia> {
     super(service);
   }
 
+  @Post()
   @UseGuards(AuthGuard('jwt'))
   @ApiConsumes('multipart/form-data')
   @UseInterceptors(FileUploadingUtils.singleFileUploader('file'))
   async createOne(
     @UploadedFile() uploadedFile: Express.Multer.File
-  ) {
+  )
+  {
     const media = new TenantMedia();
     media.filename = uploadedFile.filename;
     media.path = (uploadedFile.path).split(__dirname)[1];
