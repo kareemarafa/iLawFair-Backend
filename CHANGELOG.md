@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.21](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.20...v0.0.21) (2022-11-12)
+
+
+### Features
+
+* **kam core:** add a services and controller coer ([5e1ade4](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/5e1ade41778da3e6db409017495184829aef2cdc))
+* remove e2e application ([f309318](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/f30931801e71910d488a2ff0b0be42c34cd43bbd))
+* **user-categories:** let microservice return categories list from admin database ([22a41f7](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/22a41f730b2654f1bd5208c0d20d1ef04df1a6e4))
+
+
+### Bug Fixes
+
+* add missing dependancies ([9aab888](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/9aab88857fb371cb2df1fdcec5abc4e78c4636dd))
+* enhance file/folder structure ([336e305](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/336e305d38a0073546efd6c15cb0127d8b0d2a1d))
+* **entity wip:** handel the TypeORM ([fafe3fd](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/fafe3fd39afd29a98004efd9f20cf68a6753e1ca))
+* export media and auth modules from indexed file to app module registry import ([807997d](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/807997d8cf002ad82956adbe465238895d1b8c37))
+* folder exports ([047b3ea](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/047b3ea1b9cc4d3f732dd5ddfb3130023789a3b0))
+* **tables-names:** enhance tables name per project ([a411cc1](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/a411cc19ae3028d07ca2f5e41eb4199663878df7))
+
 ### [0.0.20](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.18...v0.0.20) (2022-11-09)
 
 
