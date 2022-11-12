@@ -143,7 +143,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
         const profile = await lastValueFrom(this.authService.getProfile())
         localStorage.setItem('user', JSON.stringify(profile))
         if (profile) {
-          this.router.navigate(['auth/survey'])
+          this.router.navigate(['tenant-auth/survey'])
         }
       })
   }

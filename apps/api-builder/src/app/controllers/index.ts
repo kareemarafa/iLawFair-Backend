@@ -1,3 +1,3 @@
-export * from './categories.controller'
-export * from './templates.controller'
-export * from './meta.controller'
+export * from './tenant-categories.controller'
+export * from './tenant-templates.controller'
+export * from './tenant-meta.controller'

@@ -7,7 +7,7 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core'
 import {AuthService} from "../../auth/auth.service";
 
 @Component({
-  selector: 'ionhour-media',
+  selector: 'ionhour-tenant-media',
   templateUrl: './media.component.html',
   styleUrls: ['./media.component.scss']
 })

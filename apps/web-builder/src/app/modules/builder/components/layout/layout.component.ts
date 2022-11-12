@@ -124,7 +124,7 @@ export class LayoutComponent implements OnInit {
   }
 
   showError() {
-    this._snackBar.open("You don't have any pages, create one before start", '', {
+    this._snackBar.open("You don't have any tenant-pages, create one before start", '', {
       horizontalPosition: 'center',
       verticalPosition: 'top',
       duration: 2000
@@ -163,12 +163,12 @@ export class LayoutComponent implements OnInit {
     const isChanged = this.checkIfContentChanged()
     if (isChanged) {
       if (confirm('You have unsaved content, are you sure?')) {
-        this.router.navigate(['dashboard/projects'])
+        this.router.navigate(['dashboard/tenant-projects'])
       } else {
         return
       }
     }
-    return this.router.navigate(['dashboard/projects'])
+    return this.router.navigate(['dashboard/tenant-projects'])
   }
 
   checkIfContentChanged() {

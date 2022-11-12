@@ -45,7 +45,7 @@ const routes: Route[] = [
       component: MediaComponent
     },
     {
-      path: 'projects',
+      path: 'tenant-projects',
       loadChildren: () => import('../projects/projects.module').then((m) => m.ProjectsModule)
     },
     {

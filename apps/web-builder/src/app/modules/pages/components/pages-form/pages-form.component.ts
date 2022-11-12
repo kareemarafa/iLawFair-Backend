@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router'
 import { PagesService } from '../../pages.service'
 
 @Component({
-  selector: 'ionhour-pages-form',
+  selector: 'ionhour-tenant-pages-form',
   templateUrl: './pages-form.component.html',
   styleUrls: ['./pages-form.component.scss']
 })

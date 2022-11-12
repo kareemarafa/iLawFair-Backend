@@ -11,7 +11,7 @@ export class ProjectsService {
   private _activeProject: Subject<any> = new Subject<any>()
 
   constructor(private http: HttpClient) {
-    this.cid = 'projects'
+    this.cid = 'tenant-projects'
   }
 
   get routerPrefix(): string {

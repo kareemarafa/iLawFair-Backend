@@ -129,7 +129,7 @@ export const aboutFields: FormlyFieldConfig[] = [
         key: 'isVideo',
         type: 'toggle',
         templateOptions: {
-      label: 'form.Check if media type is video'
+      label: 'form.Check if tenant-media type is video'
         }
       },
       {

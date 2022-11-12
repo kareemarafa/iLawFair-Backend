@@ -6,7 +6,7 @@ import { CrudValidationGroups } from '@nestjsx/crud'
 
 const { CREATE, UPDATE } = CrudValidationGroups
 
-@Entity('admin-users')
+@Entity('admin-tenant-users')
 export class AdminUser extends CoreEntity {
   @IsNotEmpty({ groups: [CREATE] })
   @IsOptional({ groups: [UPDATE] })

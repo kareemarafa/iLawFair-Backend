@@ -121,7 +121,7 @@ export const footerFields = [
   },
   {
     wrappers: ['panel'],
-    templateOptions: { label: 'Social media' },
+    templateOptions: { label: 'Social tenant-media' },
     fieldGroupClassName: 'row',
     fieldGroup: [
       {

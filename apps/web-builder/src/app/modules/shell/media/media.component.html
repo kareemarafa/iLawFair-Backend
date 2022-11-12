@@ -3,8 +3,8 @@
     <div class="row">
       <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
       <div class="col-4 d-flex flex-row gap-2">
-        <button type="submit" class="btn btn-outline-primary" [disabled]="!model?.image">{{'media.upload' | translate}}</button>
-        <button type="reset" class="btn btn-outline-danger" [disabled]="!model?.image">{{'media.reset' | translate}}</button>
+        <button type="submit" class="btn btn-outline-primary" [disabled]="!model?.image">{{'tenant-media.upload' | translate}}</button>
+        <button type="reset" class="btn btn-outline-danger" [disabled]="!model?.image">{{'tenant-media.reset' | translate}}</button>
       </div>
     </div>
   </form>

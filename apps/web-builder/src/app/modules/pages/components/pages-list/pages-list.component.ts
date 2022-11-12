@@ -21,7 +21,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ]
 
 @Component({
-  selector: 'ionhour-pages-list',
+  selector: 'ionhour-tenant-pages-list',
   templateUrl: './pages-list.component.html',
   styleUrls: ['./pages-list.component.scss']
 })

@@ -42,7 +42,7 @@ export class UserGalleryComponent implements OnInit {
   loadList() {
     const user = localStorage.getItem('user')
     const { id } = user && JSON.parse(user)
-    const token = localStorage.getItem('auth')
+    const token = localStorage.getItem('tenant-auth')
     const headers = {
       Authorization: `Bearer ${token}`
     }
@@ -61,7 +61,7 @@ export class UserGalleryComponent implements OnInit {
   }
 
   uploadImage() {
-    const token = localStorage.getItem('auth')
+    const token = localStorage.getItem('tenant-auth')
     const headers = {
       responseType: 'blob' as 'json',
       Authorization: `Bearer ${token}`

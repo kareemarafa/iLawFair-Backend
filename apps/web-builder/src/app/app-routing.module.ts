@@ -5,10 +5,10 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'auth'
+    redirectTo: 'tenant-auth'
   },
   {
-    path: 'auth',
+    path: 'tenant-auth',
     loadChildren: () => import('./modules/auth/auth.module').then((m) => m.AuthModule)
   },
   {

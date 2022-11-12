@@ -5,7 +5,7 @@ import { PaginationObjectInterface, Project } from '@ionhour/interfaces'
 import { Router } from '@angular/router'
 
 @Component({
-  selector: 'ionhour-projects-list',
+  selector: 'ionhour-tenant-projects-list',
   templateUrl: './projects-list.component.html',
   styleUrls: ['./projects-list.component.scss']
 })

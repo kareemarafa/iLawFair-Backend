@@ -13,7 +13,7 @@
     <mat-icon>settings</mat-icon>
   </button>
   <ng-container *ngIf="(item$ | async)?.builderType === 'multi'">
-    <button mat-raised-button class="example-icon favorite-icon" [matMenuTriggerFor]="menu" [matTooltip]="'Project pages'" aria-label="Example icon-button with heart icon">
+    <button mat-raised-button class="example-icon favorite-icon" [matMenuTriggerFor]="menu" [matTooltip]="'Project tenant-pages'" aria-label="Example icon-button with heart icon">
       <mat-icon>article</mat-icon>
       {{ currentPage?.pageName ?? ('builder.managePages' | translate) }}
     </button>

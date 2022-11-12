@@ -19,7 +19,7 @@ export const priceComponentData = {
       title: 'Free',
       price: '$0',
       per: 'month',
-      features: [{ title: '10 admin-users included' }, { title: '2 GB of storage' }, { title: 'Email support' }, { title: 'Help center access' }],
+      features: [{ title: '10 admin-tenant-users included' }, { title: '2 GB of storage' }, { title: 'Email support' }, { title: 'Help center access' }],
       callToAction: {
         value: 'Sign up for free',
         url: '#',
@@ -30,7 +30,7 @@ export const priceComponentData = {
       title: 'Pro',
       price: '$15',
       per: 'month',
-      features: [{ title: '10 admin-users included' }, { title: '2 GB of storage' }, { title: 'Email support' }, { title: 'Help center access' }],
+      features: [{ title: '10 admin-tenant-users included' }, { title: '2 GB of storage' }, { title: 'Email support' }, { title: 'Help center access' }],
       callToAction: {
         value: 'Sign up for free',
         url: '#',
@@ -41,7 +41,7 @@ export const priceComponentData = {
       title: 'Enterprise',
       price: '$29',
       per: 'month',
-      features: [{ title: '10 admin-users included' }, { title: '2 GB of storage' }, { title: 'Email support' }, { title: 'Help center access' }],
+      features: [{ title: '10 admin-tenant-users included' }, { title: '2 GB of storage' }, { title: 'Email support' }, { title: 'Help center access' }],
       callToAction: {
         value: 'Sign up for free',
         url: '#',

@@ -8,7 +8,7 @@ import { ToasterService } from '@ionhour/core'
 import { FormlyFieldConfig } from '@ngx-formly/core'
 
 @Component({
-  selector: 'ionhour-projects-form',
+  selector: 'ionhour-tenant-projects-form',
   templateUrl: './projects-form.component.html',
   styleUrls: ['./projects-form.component.scss']
 })
