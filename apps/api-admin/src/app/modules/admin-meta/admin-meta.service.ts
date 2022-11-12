@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
-import {AdminMeta} from "./meta.entity";
+import {AdminMeta} from "./admin-meta.entity";
 import {KamService} from "@ionhour/backend-core";
 
 @Injectable()
-export class MetaService extends KamService<AdminMeta> {
+export class AdminMetaService extends KamService<AdminMeta> {
   constructor(@InjectRepository(AdminMeta) repo) {
     super(repo)
   }

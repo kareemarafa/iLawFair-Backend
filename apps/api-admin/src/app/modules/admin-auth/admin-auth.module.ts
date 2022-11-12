@@ -6,7 +6,7 @@ import {JwtModule} from '@nestjs/jwt'
 import {AdminAuthController} from './admin-auth.controller'
 import {ConfigModule, ConfigService} from '@nestjs/config'
 import {EncryptionModule} from '@ionhour/encryption'
-import {AdminUsersModule} from "../admin_users/admin-users.module";
+import {AdminUsersModule} from "../admin-users/admin-users.module";
 
 @Module({
   imports: [

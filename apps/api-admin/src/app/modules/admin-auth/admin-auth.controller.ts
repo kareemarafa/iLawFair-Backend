@@ -2,7 +2,7 @@ import { Controller, Post, Request, HttpCode, HttpStatus, Body } from '@nestjs/c
 import { AdminAuthService } from './admin-auth.service'
 import { ApiTags } from '@nestjs/swagger'
 import {RegisterAdminUserDto} from "./dto";
-import {AdminUser} from "../admin_users/admin-users.entity";
+import {AdminUser} from "../admin-users/admin-users.entity";
 
 @ApiTags('Auth')
 @Controller('auth')

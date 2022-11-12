@@ -2,8 +2,8 @@ import { BadRequestException, forwardRef, HttpStatus, Inject, Injectable, NotFou
 import { TokenPayloadInterface } from './interfaces'
 import { JwtService } from '@nestjs/jwt'
 import { EncryptionService } from '@ionhour/encryption'
-import {AdminUsersService} from "../admin_users/admin-users.service";
-import {AdminUser} from "../admin_users/admin-users.entity";
+import {AdminUsersService} from "../admin-users/admin-users.service";
+import {AdminUser} from "../admin-users/admin-users.entity";
 
 @Injectable()
 export class AdminAuthService {

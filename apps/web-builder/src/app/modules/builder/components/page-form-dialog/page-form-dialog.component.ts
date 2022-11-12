@@ -44,7 +44,7 @@ export class PageFormDialogComponent implements OnInit, OnDestroy {
       templateOptions: {
         type: 'text',
         label: 'Meta tags',
-        placeholder: 'Enter meta tags',
+        placeholder: 'Enter admin-meta tags',
         required: false
       }
     },

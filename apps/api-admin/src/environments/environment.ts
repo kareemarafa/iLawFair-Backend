@@ -1,8 +1,8 @@
-import { AdminUser } from '../app/modules/admin_users/admin-users.entity'
-import {AdminMeta} from "../app/modules/meta/meta.entity";
-import {AdminCategory} from "../app/modules/categories/categories.entity";
-import {AdminTemplate} from "../app/modules/templates/template.entity";
-import {AdminMedia} from "../app/modules/admin_media/admin.media";
+import { AdminUser } from '../app/modules/admin-users/admin-users.entity'
+import {AdminMeta} from "../app/modules/admin-meta/meta.entity";
+import {AdminCategory} from "../app/modules/admin-categories/categories.entity";
+import {AdminTemplate} from "../app/modules/admin-templates/template.entity";
+import {AdminMediaEntity} from "../app/modules/admin-media/admin-media.entity";
 
 export const environment = {
   production: false
@@ -19,7 +19,7 @@ export const databaseConfig = () => ({
     name: 'webme_admin',
     autoLoadEntities: false,
     synchronize: true,
-    entities: [AdminUser, AdminMeta, AdminTemplate, AdminCategory, AdminMedia],
+    entities: [AdminUser, AdminMeta, AdminTemplate, AdminCategory, AdminMediaEntity],
     seeds: []
   }
 })

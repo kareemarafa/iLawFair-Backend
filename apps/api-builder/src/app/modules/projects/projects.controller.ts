@@ -29,7 +29,7 @@ export class ProjectsController extends KamController<Project> {
       await this.mediaService.saveUploadedFile(logo);
       dto.logo = logo;
     }
-    // Object.assign(dto, {categories: dto.categories.map(cat => ({id: cat}))})
+    // Object.assign(dto, {admin-categories: dto.admin-categories.map(cat => ({id: cat}))})
     return this.createOneBase(dto);
   }
 }

@@ -1,7 +1,7 @@
 import {ApiBearerAuth, ApiTags} from '@nestjs/swagger'
 import {Controller} from '@nestjs/common'
-import {AdminMeta} from "./meta.entity";
-import {MetaService} from "./meta.service";
+import {AdminMeta} from "./admin-meta.entity";
+import {AdminMetaService} from "./admin-meta.service";
 // import {AuthGuard} from "@nestjs/passport";
 import {MessagePattern} from '@nestjs/microservices';
 import {KamController} from "@ionhour/backend-core";
@@ -11,8 +11,8 @@ import {KamController} from "@ionhour/backend-core";
 @ApiTags('Meta')
 // @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
-export class MetaController extends KamController<AdminMeta> {
-  constructor(public service: MetaService) {
+export class AdminMetaController extends KamController<AdminMeta> {
+  constructor(public service: AdminMetaService) {
     super(service)
   }
 

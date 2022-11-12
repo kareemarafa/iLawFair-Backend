@@ -1,7 +1,7 @@
 import {ApiBearerAuth, ApiTags} from '@nestjs/swagger'
 import {Controller, Get, Param} from '@nestjs/common'
-import {AdminCategory} from "./categories.entity";
-import {CategoriesService} from "./categories.service";
+import {AdminCategory} from "./admin-categories.entity";
+import {AdminCategoriesService} from "./admin-categories.service";
 // import {AuthGuard} from "@nestjs/passport";
 import {MessagePattern} from "@nestjs/microservices";
 import {KamController} from "@ionhour/backend-core";
@@ -10,8 +10,8 @@ import {KamController} from "@ionhour/backend-core";
 @ApiTags('Categories')
 // @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
-export class CategoriesController extends KamController<AdminCategory> {
-  constructor(public service: CategoriesService) {
+export class AdminCategoriesController extends KamController<AdminCategory> {
+  constructor(public service: AdminCategoriesService) {
     super(service);
   }
 
