@@ -1,10 +1,10 @@
 import {Injectable} from "@nestjs/common";
 import {InjectRepository} from "@nestjs/typeorm";
 import {MediaEntity} from "./media.entity";
-import {TypeOrmCrudService} from "@nestjsx/crud-typeorm";
+import {KamService} from "@ionhour/backend-core";
 
 @Injectable()
-export class MediaService extends TypeOrmCrudService<MediaEntity> {
+export class MediaService extends KamService<MediaEntity> {
   constructor(@InjectRepository(MediaEntity) repo) {
     super(repo)
   }

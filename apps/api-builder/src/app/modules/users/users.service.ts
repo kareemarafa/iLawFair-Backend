@@ -1,11 +1,11 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
-import { TypeOrmCrudService } from '@nestjsx/crud-typeorm'
 import { InjectRepository } from '@nestjs/typeorm'
 import { User } from './users.entity'
 import { Repository } from 'typeorm'
+import {KamService} from "@ionhour/backend-core";
 
 @Injectable()
-export class UsersService extends TypeOrmCrudService<User> {
+export class UsersService extends KamService<User> {
   constructor(@InjectRepository(User) public repo: Repository<User>) {
     super(repo)
   }

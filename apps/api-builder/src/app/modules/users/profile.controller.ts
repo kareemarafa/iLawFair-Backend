@@ -4,13 +4,16 @@ import {AuthGuard} from '@nestjs/passport'
 import {UsersService} from './users.service'
 import {UpdateProfileDto} from './dto/update-profile.dto'
 import {ApiBearerAuth, ApiTags} from "@nestjs/swagger";
+import {KamController} from "@ionhour/backend-core";
+import {User} from "./users.entity";
 
 @Controller('profile')
 @ApiTags('Profile')
 @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
-export class ProfileController {
+export class ProfileController  extends KamController<User>{
   constructor(private authService: AuthService, private userService: UsersService) {
+    super(userService)
   }
 
   @Get()

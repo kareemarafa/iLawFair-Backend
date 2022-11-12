@@ -1,17 +1,15 @@
 import {Column, Entity, JoinColumn, ManyToOne, OneToOne} from 'typeorm'
 import {IsNotEmpty, IsOptional, IsString, MaxLength} from 'class-validator'
 import {ApiProperty} from '@nestjs/swagger'
-import {CrudValidationGroups} from '@nestjsx/crud'
 import {CoreEntity} from '@ionhour/backend-core'
 import {Project} from '../projects/projects.entity'
 import {MediaEntity} from "../media/media.entity";
 
-const {CREATE, UPDATE} = CrudValidationGroups
 
 @Entity('pages')
 export class Page extends CoreEntity {
-  @IsNotEmpty({groups: [CREATE]})
-  @IsOptional({groups: [UPDATE]})
+  @IsNotEmpty()
+  @IsOptional()
   @IsString({always: true})
   @MaxLength(100, {always: true})
   @Column({type: 'varchar', length: 100, nullable: false})
