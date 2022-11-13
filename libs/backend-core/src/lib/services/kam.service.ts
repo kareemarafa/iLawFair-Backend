@@ -1,4 +1,4 @@
-import {DeepPartial, Repository, UpdateResult} from "typeorm";
+import {DeepPartial, Repository} from "typeorm";
 import {DeleteResult} from "typeorm/query-builder/result/DeleteResult";
 
 export class KamService<T> {

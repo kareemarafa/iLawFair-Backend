@@ -3,7 +3,6 @@ import {Column, PrimaryGeneratedColumn} from "typeorm";
 import {ApiProperty} from "@nestjs/swagger";
 import {BuilderType} from "@ionhour/interfaces";
 import {CoreEntity} from "./core.entity";
-import {CoreMedia} from "./core-media.entity";
 
 
 export class CoreProjectEntity extends CoreEntity {
