@@ -2,6 +2,7 @@ import {Body, Delete, Get, HttpStatus, Param, Patch, Post} from "@nestjs/common"
 import {KamService} from "../services";
 import {DeepPartial, DeleteResult} from "typeorm";
 import {ApiOperation, ApiResponse} from "@nestjs/swagger";
+import {QueryDeepPartialEntity} from "typeorm/query-builder/QueryPartialEntity";
 
 export abstract class KamController<T> {
   protected constructor(public service: KamService<T>) {
@@ -9,7 +10,7 @@ export abstract class KamController<T> {
 
   @Get()
   @ApiOperation({
-    summary: "Get many",
+    summary: `Get many`,
   })
   getManyBase(options): Promise<T[]> {
     return this.service.getMany(options);
@@ -48,7 +49,7 @@ export abstract class KamController<T> {
     status: HttpStatus.CREATED,
     description: "Updated",
   })
-  updateOneBase(@Param('id') id: string, @Body() dto: T): Promise<T> {
+  updateOneBase(@Param('id') id: string, @Body() dto: QueryDeepPartialEntity<T>): Promise<T> {
     return this.service.updateOne(id, dto);
   }
 

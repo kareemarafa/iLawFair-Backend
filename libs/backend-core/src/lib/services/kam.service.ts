@@ -1,5 +1,6 @@
 import {DeepPartial, Repository} from "typeorm";
 import {DeleteResult} from "typeorm/query-builder/result/DeleteResult";
+import {QueryDeepPartialEntity} from "typeorm/query-builder/QueryPartialEntity";
 
 export class KamService<T> {
 
@@ -18,13 +19,13 @@ export class KamService<T> {
     return this.repo.save(dto);
   }
 
-  async updateOne(id, dto: T): Promise<T> {
+  async updateOne(id, dto: QueryDeepPartialEntity<T>): Promise<T> {
     await this.repo.update(id, dto);
     return this.getOne({id});
   }
 
 
-  deleteOne(options):  Promise<DeleteResult> {
+  deleteOne(options): Promise<DeleteResult> {
     return this.repo.delete(options)
   }
 
