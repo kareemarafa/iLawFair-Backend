@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.22](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.21...v0.0.22) (2022-11-14)
+
+
+### Features
+
+* **admin-templates:** implement admin templates CRUD APIs ([fd4d521](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/fd4d521b4aa98b4b91013548ccaf8ee49af63c8a))
+* **customers:** implement customers module ([87073a1](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/87073a1f4adcf7af2dc50dca93823628e5c16f3e))
+* **swagger api:** add a ApiOperation tags for apis ([628851f](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/628851f6fc209c1a7d9d8a0ae8196469f4364942))
+
+
+### Bug Fixes
+
+* remove a unuesd import ([3300004](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/330000494775fa36412ca37085737f364f3c8030))
+* **tenant-project:** prevent pages array to be injected if there's no pages provided by user] ([a962284](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/a962284af3f4f366618603777dc2ce3c79769c40))
+* **tenant-templates:** fetch templates from admin-database to tenant's template API ([d61e211](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/d61e2113b06e07e63d9b5752be5d421315d745fc))
+* updeta apis ([9a6d5a2](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/9a6d5a295be75bfa7fe67584dcd019e13efa1f11))
+
 ### [0.0.21](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.20...v0.0.21) (2022-11-12)
 
 
