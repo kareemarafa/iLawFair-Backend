@@ -33,5 +33,4 @@ export class CoreMedia extends CoreEntity {
   @Column({ type: 'varchar', nullable: false })
   @ApiProperty({ required: true, type: 'string', nullable: false })
   mimetype: string
-
 }

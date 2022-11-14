@@ -7,5 +7,6 @@ import {KamService} from "@ionhour/backend-core";
 export class TenantPagesService extends KamService<TenantPage> {
   constructor(@InjectRepository(TenantPage) repo) {
     super(repo)
+    this.relations = ['project', 'screenshot']
   }
 }

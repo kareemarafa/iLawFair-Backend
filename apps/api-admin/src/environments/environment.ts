@@ -3,6 +3,7 @@ import {AdminMedia} from "../app/modules/admin-media/admin-media.entity";
 import {AdminCategory} from "../app/modules/admin-categories/admin-categories.entity";
 import {AdminTemplate} from "../app/modules/admin-templates/admin-template.entity";
 import {AdminMeta} from "../app/modules/admin-meta/admin-meta.entity";
+import {AdminPage} from "../app/modules/admin-pages/admin-pages.entity";
 
 export const environment = {
   production: false
@@ -19,7 +20,7 @@ export const databaseConfig = () => ({
     name: 'webme_admin',
     autoLoadEntities: false,
     synchronize: true,
-    entities: [AdminUser, AdminMeta, AdminTemplate, AdminCategory, AdminMedia],
+    entities: [AdminUser, AdminMeta, AdminTemplate, AdminCategory, AdminMedia, AdminPage],
     seeds: []
   }
 })

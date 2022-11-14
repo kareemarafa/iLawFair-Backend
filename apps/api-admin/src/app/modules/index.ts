@@ -4,5 +4,6 @@ import {AdminCategoriesModule} from "./admin-categories/admin-categories.module"
 import {AdminTemplateModule} from "./admin-templates/admin-template.module";
 import {AdminAuthModule} from "./admin-auth/admin-auth.module";
 import {AdminMediaModule} from "./admin-media/admin-media.module";
+import {AdminPagesModule} from "./admin-pages/admin-pages.module";
 
-export const features = [AdminAuthModule, AdminMediaModule, AdminUsersModule,  AdminMetaModule, AdminCategoriesModule, AdminTemplateModule]
+export const features = [AdminAuthModule, AdminMediaModule, AdminUsersModule,  AdminMetaModule, AdminCategoriesModule, AdminTemplateModule, AdminPagesModule]

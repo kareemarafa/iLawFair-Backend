@@ -29,7 +29,6 @@ export class TenantProjectsController extends KamController<TenantProject> {
       await this.mediaService.saveUploadedFile(logo);
       dto.logo = logo;
     }
-    // Object.assign(dto, {admin-categories: dto.admin-categories.map(cat => ({id: cat}))})
     if (dto?.pages?.length) {
       Object.assign(dto, {pages: dto.pages?.map(page => ({id: page}))})
     }

@@ -1,18 +1,18 @@
 import {Body, Controller, Post, UploadedFile, UseGuards, UseInterceptors} from '@nestjs/common'
 import {ApiBearerAuth, ApiConsumes, ApiTags} from '@nestjs/swagger'
-import {TenantPage} from './tenant-pages.entity'
-import {TenantPagesService} from './tenant-pages.service'
 import {AuthGuard} from "@nestjs/passport";
 import {FileUploadingUtils, KamController} from "@ionhour/backend-core";
-import {MediaService} from "../tenant-media/tenant-media.service";
-import {TenantMedia} from "../tenant-media/tenant-media.entity";
+import {AdminPage} from "./admin-pages.entity";
+import {AdminPagesService} from "./admin-pages.service";
+import {AdminMediaService} from "../admin-media/admin-media.service";
+import {AdminMedia} from "../admin-media/admin-media.entity";
 
 @Controller('pages')
 @ApiTags('Pages')
-@UseGuards(AuthGuard('jwt'))
-@ApiBearerAuth()
-export class PagesController extends  KamController<TenantPage> {
-  constructor(public service: TenantPagesService, private mediaService: MediaService) {
+// @UseGuards(AuthGuard('jwt'))
+// @ApiBearerAuth()
+export class AdminPagesController extends  KamController<AdminPage> {
+  constructor(public service: AdminPagesService, private mediaService: AdminMediaService) {
     super(service)
   }
 
@@ -21,11 +21,11 @@ export class PagesController extends  KamController<TenantPage> {
   @ApiConsumes('multipart/form-data')
   @UseInterceptors(FileUploadingUtils.singleFileUploader('screenshot'))
   async createOne(
-    @Body() dto: TenantPage,
+    @Body() dto: AdminPage,
     @UploadedFile() uploadedFile: Express.Multer.File,
   ) {
     if (uploadedFile) {
-      const screenshot = new TenantMedia();
+      const screenshot = new AdminMedia();
       screenshot.filename = uploadedFile.filename;
       screenshot.path = uploadedFile.path;
       screenshot.destination = uploadedFile.destination;

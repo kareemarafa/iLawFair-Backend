@@ -16,8 +16,8 @@ export class AdminTemplatesController extends KamController<AdminTemplate> {
     super(service)
   }
 
-  @UseGuards(AuthGuard('jwt'))
-  @ApiBearerAuth()
+  // @UseGuards(AuthGuard('jwt'))
+  // @ApiBearerAuth()
   @UseInterceptors(FileUploadingUtils.singleFileUploader('screenshot'))
   @ApiConsumes('multipart/form-data')
   async createOne(@Body() dto: AdminTemplate, @UploadedFile() uploadedFile: Express.Multer.File) {

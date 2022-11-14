@@ -4,14 +4,18 @@ import {QueryDeepPartialEntity} from "typeorm/query-builder/QueryPartialEntity";
 
 export class KamService<T> {
 
+  relations: string[];
+
   constructor(public repo: Repository<T>) {
   }
 
-  getMany(options): Promise<T[]> {
+  getMany(options = {}): Promise<T[]> {
+    options['relations'] = this.relations;
     return this.repo.find(options)
   }
 
-  getOne(options): Promise<T> {
+  getOne(options = {}): Promise<T> {
+    options['relations'] = this.relations;
     return this.repo.findOne(options)
   }
 
