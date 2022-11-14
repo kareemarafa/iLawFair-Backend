@@ -19,9 +19,8 @@ export class TenantProjectsController extends KamController<TenantProject> {
   @Post()
   @UseInterceptors(FileUploadingUtils.singleFileUploader('logo'))
   @ApiConsumes('multipart/form-data')
-  async createOne(@Body()  dto: TenantProject, @UploadedFile() uploadedFile: Express.Multer.File) {
-    console.log(uploadedFile)
-    if(uploadedFile) {
+  async createOne(@Body() dto: TenantProject, @UploadedFile() uploadedFile: Express.Multer.File) {
+    if (uploadedFile) {
       const logo = new TenantMedia();
       logo.filename = uploadedFile.filename;
       logo.path = (uploadedFile.path).split(__dirname)[1];
@@ -31,7 +30,9 @@ export class TenantProjectsController extends KamController<TenantProject> {
       dto.logo = logo;
     }
     // Object.assign(dto, {admin-categories: dto.admin-categories.map(cat => ({id: cat}))})
-    Object.assign(dto, {pages: dto.pages.map(page => ({id: page}))})
+    if (dto?.pages?.length) {
+      Object.assign(dto, {pages: dto.pages?.map(page => ({id: page}))})
+    }
     return this.createOneBase(dto);
   }
 }
