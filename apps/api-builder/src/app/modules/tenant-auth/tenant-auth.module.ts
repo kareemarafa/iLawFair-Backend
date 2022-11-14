@@ -7,6 +7,7 @@ import {JwtModule} from '@nestjs/jwt'
 import {AuthController} from './tenant-auth.controller'
 import {ConfigModule, ConfigService} from '@nestjs/config'
 import {EncryptionModule} from '@ionhour/encryption'
+import {ClientsModule, Transport} from "@nestjs/microservices";
 
 @Module({
   imports: [
@@ -22,7 +23,21 @@ import {EncryptionModule} from '@ionhour/encryption'
         }
       }),
       inject: [ConfigService]
-    })
+    }),
+    ClientsModule.registerAsync([
+        {
+          name: "ADMIN_SERVICE",
+          imports: [ConfigModule],
+          useFactory: async (configService: ConfigService) => ({
+            transport: Transport.TCP,
+            options: {
+              port: configService.get<number>('adminMSPort'),
+            },
+          }),
+          inject: [ConfigService],
+        },
+      ]
+    ),
   ],
   providers: [AuthService, TenantLocalStrategy, TenantJwtStrategy],
   controllers: [AuthController],

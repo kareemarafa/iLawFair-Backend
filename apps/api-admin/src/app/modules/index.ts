@@ -5,5 +5,15 @@ import {AdminTemplateModule} from "./admin-templates/admin-template.module";
 import {AdminAuthModule} from "./admin-auth/admin-auth.module";
 import {AdminMediaModule} from "./admin-media/admin-media.module";
 import {AdminPagesModule} from "./admin-pages/admin-pages.module";
+import {AdminCustomersModule} from "./admin-customers/admin-customers.module";
 
-export const features = [AdminAuthModule, AdminMediaModule, AdminUsersModule,  AdminMetaModule, AdminCategoriesModule, AdminTemplateModule, AdminPagesModule]
+export const features = [
+  AdminAuthModule,
+  AdminMediaModule,
+  AdminUsersModule,
+  AdminMetaModule,
+  AdminCategoriesModule,
+  AdminTemplateModule,
+  AdminPagesModule,
+  AdminCustomersModule
+]

@@ -1,14 +1,17 @@
-import { Controller, Post, Request, HttpCode, HttpStatus, Body, UseGuards } from '@nestjs/common'
-import { AuthService } from './tenant-auth.service'
-import { TenantUser } from '../tenant-users/tenant-users.entity'
-import { ApiTags } from '@nestjs/swagger'
-import { AuthGuard } from '@nestjs/passport'
+import {Controller, Post, Request, HttpCode, HttpStatus, Body, UseGuards, Inject} from '@nestjs/common'
+import {AuthService} from './tenant-auth.service'
+import {TenantUser} from '../tenant-users/tenant-users.entity'
+import {ApiTags} from '@nestjs/swagger'
+import {AuthGuard} from '@nestjs/passport'
 import {RegisterUserDto} from "./dto";
+import {ClientProxy} from "@nestjs/microservices";
+import {lastValueFrom} from "rxjs";
 
 @ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(@Inject("ADMIN_SERVICE") private readonly adminService: ClientProxy, private authService: AuthService) {
+  }
 
   /**
    * the login
@@ -28,6 +31,6 @@ export class AuthController {
   @Post('register')
   @HttpCode(HttpStatus.CREATED)
   public async register(@Body() userData: RegisterUserDto): Promise<TenantUser> {
-    return this.authService.register(userData)
+    return lastValueFrom(this.adminService.send({cmd: 'CUSTOMER_REGISTER'}, userData))
   }
 }
