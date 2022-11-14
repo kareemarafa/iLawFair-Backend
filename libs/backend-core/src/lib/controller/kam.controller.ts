@@ -2,7 +2,6 @@ import {Body, Delete, Get, HttpStatus, Param, Patch, Post} from "@nestjs/common"
 import {KamService} from "../services";
 import {DeepPartial, DeleteResult} from "typeorm";
 import {ApiOperation, ApiResponse} from "@nestjs/swagger";
-import {AdminUser} from "../../../../../apps/api-admin/src/app/modules/admin-users/admin-users.entity";
 
 export abstract class KamController<T> {
   protected constructor(public service: KamService<T>) {
