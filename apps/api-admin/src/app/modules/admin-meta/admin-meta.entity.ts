@@ -7,14 +7,14 @@ import {ApiProperty} from '@nestjs/swagger'
 @Entity('meta')
 export class AdminMeta extends CoreEntity {
   @IsNotEmpty()
-  @IsString({always: true})
+  @IsString()
   @IsOptional()
   @Column({unique: true, type: 'varchar', nullable: false})
   @ApiProperty({required: true, type: 'string', nullable: false})
   key: string
 
   @IsNotEmpty()
-  @IsString({always: true})
+  @IsString()
   @IsOptional()
   @Column({type: 'varchar', nullable: false})
   @ApiProperty({required: true, type: 'string', nullable: false})

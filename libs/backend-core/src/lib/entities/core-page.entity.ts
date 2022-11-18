@@ -6,8 +6,8 @@ import { ApiProperty } from '@nestjs/swagger'
 export class CorePage extends CoreEntity {
   @IsNotEmpty()
   @IsOptional()
-  @IsString({always: true})
-  @MaxLength(100, {always: true})
+  @IsString()
+  @MaxLength(100, )
   @Column({type: 'varchar', length: 100, nullable: false})
   @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
   pageName: string

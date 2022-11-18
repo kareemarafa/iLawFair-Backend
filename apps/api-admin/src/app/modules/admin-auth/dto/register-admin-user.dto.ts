@@ -11,14 +11,14 @@ export class RegisterAdminUserDto extends PartialType(AdminUser) {
   @IsNotEmpty()
   @IsString()
   @ValidateIf(() => true)
-  @MaxLength(100, {always: true})
+  @MaxLength(100, )
   @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
   firstName: string
 
   @IsNotEmpty()
   @IsString()
   @ValidateIf(() => true)
-  @MaxLength(100, {always: true})
+  @MaxLength(100, )
   @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
   lastName: string
 
@@ -26,7 +26,7 @@ export class RegisterAdminUserDto extends PartialType(AdminUser) {
   @IsNotEmpty()
   @IsString()
   @ValidateIf(() => true)
-  @MaxLength(100, {always: true})
+  @MaxLength(100, )
   @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
   username: string
 
@@ -34,21 +34,21 @@ export class RegisterAdminUserDto extends PartialType(AdminUser) {
   @IsNotEmpty()
   @IsEmail()
   @ValidateIf(() => true)
-  @MaxLength(100, {always: true})
+  @MaxLength(100, )
   @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
   email: string
 
   @IsNotEmpty()
   @IsString()
   @ValidateIf(() => true)
-  @MaxLength(100, {always: true})
+  @MaxLength(100, )
   @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
   password: string
 
   @IsNotEmpty()
   @IsPhoneNumber()
   @ValidateIf(() => true)
-  @MaxLength(100, {always: true})
+  @MaxLength(100, )
   @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
   phone: string
 }
