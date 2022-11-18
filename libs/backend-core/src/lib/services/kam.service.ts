@@ -3,7 +3,6 @@ import {DeleteResult} from "typeorm/query-builder/result/DeleteResult";
 import {QueryDeepPartialEntity} from "typeorm/query-builder/QueryPartialEntity";
 
 export class KamService<T> {
-
   relations: string[] = [];
 
   constructor(public repo: Repository<T>) {

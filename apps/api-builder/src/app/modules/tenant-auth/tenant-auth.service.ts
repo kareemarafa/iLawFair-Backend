@@ -54,8 +54,8 @@ export class AuthService {
       this.handleBadRequest('Email or Phone number is already exists')
     }
     user.password = await this.encryptionService.hash(user.password)
-    const createdUser = await this.usersService.createUser(user)
-    return createdUser && this.login(user)
+    return this.usersService.createUser(user)
+    // return createdUser && this.login(user)
   }
 
   handleBadRequest(message: string): void {

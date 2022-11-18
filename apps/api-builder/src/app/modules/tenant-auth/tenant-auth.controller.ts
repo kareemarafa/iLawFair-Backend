@@ -6,6 +6,7 @@ import {AuthGuard} from '@nestjs/passport'
 import {RegisterUserDto} from "./dto";
 import {ClientProxy} from "@nestjs/microservices";
 import {lastValueFrom} from "rxjs";
+import {LocalAuthGuard} from "./guards";
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -18,7 +19,7 @@ export class AuthController {
    * @param req
    */
   @Post('login')
-  @UseGuards(AuthGuard('local'))
+  @UseGuards(LocalAuthGuard)
   @HttpCode(HttpStatus.OK)
   public async login(@Request() req): Promise<TenantUser> {
     return this.authService.login(req.user)
