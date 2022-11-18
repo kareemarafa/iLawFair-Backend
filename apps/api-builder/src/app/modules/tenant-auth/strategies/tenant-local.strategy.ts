@@ -15,6 +15,7 @@ export class TenantLocalStrategy extends PassportStrategy(Strategy) {
     if (!user) {
       return new UnauthorizedException()
     }
-    return user
+    delete user.password;
+    return user;
   }
 }

@@ -3,6 +3,7 @@ import { IsEmail, IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-vali
 import { ApiProperty } from '@nestjs/swagger'
 import { Column, Entity } from 'typeorm'
 import { CrudValidationGroups } from '@nestjsx/crud'
+import {Exclude} from "class-transformer";
 
 const { CREATE, UPDATE } = CrudValidationGroups
 
@@ -45,6 +46,7 @@ export class AdminUser extends CoreEntity {
   @IsString({ always: true })
   @MaxLength(100, { always: true })
   @Column({ type: 'varchar', length: 100, nullable: false })
+  @Exclude()
   @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
   password: string
 

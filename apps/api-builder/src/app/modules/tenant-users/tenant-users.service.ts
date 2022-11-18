@@ -14,7 +14,8 @@ export class TenantUsersService extends KamService<TenantUser> {
     if (!user) {
       throw new BadRequestException()
     }
-    return user
+    delete user.password;
+    return user;
   }
 
   async findOneByPhone(phone: string): Promise<TenantUser> {
