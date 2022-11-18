@@ -19,4 +19,9 @@ export class AdminCustomersController extends KamController<AdminCustomer> {
   loginCustomer(data: Record<string, any>) {
     return this.service.getOne(data);
   }
+
+  @MessagePattern({cmd: 'CUSTOMER_FIND_ONE'})
+  findCustomer(data: Record<string, any>) {
+    return this.service.getOne(data);
+  }
 }

@@ -13,7 +13,7 @@ import {JwtService} from '@nestjs/jwt'
 import {TenantUser} from '../tenant-users/tenant-users.entity'
 import {EncryptionService} from '@ionhour/encryption'
 import {ClientProxy} from "@nestjs/microservices";
-import {lastValueFrom} from "rxjs";
+import {lastValueFrom, Observable, of} from "rxjs";
 
 @Injectable()
 export class AuthService {
@@ -60,14 +60,16 @@ export class AuthService {
   }
 
   async register(user: TenantUser): Promise<TenantUser> {
-    const _user: TenantUser = await this.usersService.findOneByEmail(user?.email)
-    const _phoneNumber: TenantUser = await this.usersService.findOneByPhone(user?.phone)
-    if (_user || _phoneNumber) {
+    const _userExistsObservable: Observable<TenantUser> = this.adminService.send({cmd: 'CUSTOMER_FIND_ONE'}, {where: [{email: user.email}, {phone: user.phone}]});
+    const _user = await lastValueFrom(_userExistsObservable, {defaultValue: {id: null}})
+
+    if (_user?.id) {
       this.handleBadRequest('Email or Phone number is already exists')
     }
+
     user.password = await this.encryptionService.hash(user.password)
-    return this.usersService.createUser(user)
-    // return createdUser && this.login(user)
+    return lastValueFrom<TenantUser>(this.adminService.send({cmd: 'CUSTOMER_REGISTER'}, user))
+
   }
 
   handleBadRequest(message: string): void {

@@ -35,7 +35,6 @@ export class AuthController {
   @Post('register')
   @HttpCode(HttpStatus.CREATED)
   public async register(@Body() userData: RegisterUserDto): Promise<TenantUser> {
-    userData.password = await this.encryptionService.hash(userData.password);
-    return lastValueFrom(this.adminService.send({cmd: 'CUSTOMER_REGISTER'}, userData))
+    return this.authService.register(userData);
   }
 }
