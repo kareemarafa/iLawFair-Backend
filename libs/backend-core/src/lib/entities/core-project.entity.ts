@@ -11,7 +11,7 @@ export class CoreProjectEntity extends CoreEntity {
 
   @IsNotEmpty()
   @IsOptional()
-  @IsString({always: true})
+  @IsString()
   @Column({type: 'varchar', nullable: false})
   @ApiProperty({required: true, type: 'string', nullable: false})
   projectName: string
@@ -19,22 +19,22 @@ export class CoreProjectEntity extends CoreEntity {
 
   @IsNotEmpty()
   @IsOptional()
-  @IsHexColor({always: true})
-  @MaxLength(100, {always: true})
+  @IsHexColor()
+  @MaxLength(100, )
   @Column({type: 'varchar', length: 100, nullable: false})
   @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
   color: string
 
   @IsNotEmpty()
   @IsOptional()
-  @IsString({always: true})
+  @IsString()
   @Column({type: 'varchar', nullable: false})
   @ApiProperty({required: true, type: 'string', nullable: false})
   description: string
 
   @IsNotEmpty()
   @IsOptional()
-  @IsEnum(BuilderType, {always: true})
+  @IsEnum(BuilderType, )
   @ApiProperty({required: false, type: 'enum', enum: BuilderType, default: BuilderType.MULTIPLE_PAGES})
   @Column('enum', {enum: BuilderType, default: BuilderType.MULTIPLE_PAGES})
   builderType!: BuilderType;
