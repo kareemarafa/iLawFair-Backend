@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.23](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.22...v0.0.23) (2022-11-18)
+
+
+### Features
+
+* **register-tenant:** throw an error if tenant details already exists ([36554cc](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/36554ccacc54b8efbf7be52acbb756dec506d1a7))
+* **tenant-login:** get customer object from admin service ([0413186](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/041318662552ab8294de301218dcc79f360afaff))
+* **upgrade:** code base upgrade ([d65b11f](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/d65b11fb24e1a849e95c0df491e54d6c52a8ad7b))
+
+
+### Bug Fixes
+
+* **auth:** fix the auth system for admin and the user apps ([f2c9c6b](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/f2c9c6b4c4942539b040e8d50903409251eec061))
+
 ### [0.0.22](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.21...v0.0.22) (2022-11-14)
 
 
