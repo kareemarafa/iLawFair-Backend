@@ -1,24 +1,36 @@
-import { BadRequestException, forwardRef, HttpStatus, Inject, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common'
-import { TenantUsersService } from '../tenant-users/tenant-users.service'
-import { TokenPayloadInterface } from './interfaces'
-import { JwtService } from '@nestjs/jwt'
-import { TenantUser } from '../tenant-users/tenant-users.entity'
-import { EncryptionService } from '@ionhour/encryption'
+import {
+  BadRequestException,
+  forwardRef,
+  HttpStatus,
+  Inject,
+  Injectable,
+  NotFoundException,
+  UnauthorizedException
+} from '@nestjs/common'
+import {TenantUsersService} from '../tenant-users/tenant-users.service'
+import {TokenPayloadInterface} from './interfaces'
+import {JwtService} from '@nestjs/jwt'
+import {TenantUser} from '../tenant-users/tenant-users.entity'
+import {EncryptionService} from '@ionhour/encryption'
+import {ClientProxy} from "@nestjs/microservices";
+import {lastValueFrom} from "rxjs";
 
 @Injectable()
 export class AuthService {
   constructor(
+    @Inject("ADMIN_SERVICE") private readonly adminService: ClientProxy,
     @Inject(forwardRef(() => TenantUsersService))
     private usersService: TenantUsersService,
     private jwtService: JwtService,
-    private encryptionService: EncryptionService
-  ) {}
+    private encryptionService: EncryptionService,
+  ) {
+  }
 
   async validateUser(email: string, _password: string): Promise<any> {
     let user: TenantUser
     let isPasswordCorrect: boolean
     try {
-      user = await this.usersService.findOneOrFailByEmail(email)
+      user = await lastValueFrom(this.adminService.send({cmd: 'CUSTOMER_LOGIN'}, {email}))
     } catch (e) {
       throw new NotFoundException('User not Found')
     }
@@ -28,7 +40,7 @@ export class AuthService {
       throw new BadRequestException('Incorrect Password')
     }
     if (user && isPasswordCorrect) {
-      const { password, ...result } = user
+      const {password, ...result} = user
       return result
     } else {
       throw new UnauthorizedException()
@@ -38,7 +50,7 @@ export class AuthService {
   async login(user: TenantUser): Promise<any> {
     let payload: TokenPayloadInterface
     try {
-      payload = { email: user.email, sub: user.id }
+      payload = {email: user.email, sub: user.id}
     } catch (e) {
       throw new BadRequestException(e)
     }

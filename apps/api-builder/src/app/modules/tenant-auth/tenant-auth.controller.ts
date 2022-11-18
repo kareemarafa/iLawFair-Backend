@@ -2,16 +2,19 @@ import {Controller, Post, Request, HttpCode, HttpStatus, Body, UseGuards, Inject
 import {AuthService} from './tenant-auth.service'
 import {TenantUser} from '../tenant-users/tenant-users.entity'
 import {ApiTags} from '@nestjs/swagger'
-import {AuthGuard} from '@nestjs/passport'
 import {RegisterUserDto} from "./dto";
 import {ClientProxy} from "@nestjs/microservices";
 import {lastValueFrom} from "rxjs";
 import {LocalAuthGuard} from "./guards";
+import {EncryptionService} from "@ionhour/encryption";
 
 @ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
-  constructor(@Inject("ADMIN_SERVICE") private readonly adminService: ClientProxy, private authService: AuthService) {
+  constructor(@Inject("ADMIN_SERVICE") private readonly adminService: ClientProxy,
+              private authService: AuthService,
+              private encryptionService: EncryptionService
+  ) {
   }
 
   /**
@@ -32,6 +35,7 @@ export class AuthController {
   @Post('register')
   @HttpCode(HttpStatus.CREATED)
   public async register(@Body() userData: RegisterUserDto): Promise<TenantUser> {
+    userData.password = await this.encryptionService.hash(userData.password);
     return lastValueFrom(this.adminService.send({cmd: 'CUSTOMER_REGISTER'}, userData))
   }
 }
