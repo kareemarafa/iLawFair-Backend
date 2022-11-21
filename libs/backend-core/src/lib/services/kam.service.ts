@@ -12,7 +12,6 @@ export class KamService<T> {
   getMany(options = {}): Promise<T[]> {
     options['relations'] = this.relations;
     options['select'] = this.selection;
-    console.log(options)
     return this.repo.find(options)
   }
 

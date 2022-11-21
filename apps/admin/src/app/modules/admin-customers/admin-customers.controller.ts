@@ -17,11 +17,11 @@ export class AdminCustomersController extends KamController<AdminCustomer> {
 
   @MessagePattern({cmd: 'CUSTOMER_LOGIN'})
   loginCustomer(data: Record<string, any>) {
-    return this.service.getOne(data);
+    return this.service.getOne({where: data});
   }
 
   @MessagePattern({cmd: 'CUSTOMER_FIND_ONE'})
   findCustomer(data: Record<string, any>) {
-    return this.service.getOne(data);
+    return this.service.getOne({where: data});
   }
 }
