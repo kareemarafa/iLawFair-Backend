@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.24](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.23...v0.0.24) (2022-11-21)
+
+
+### Features
+
+* **customers:** add 'where' to login query in customer controller ([16e2dbb](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/16e2dbb8d3036410303490da6e1a46cbbea07af6))
+
 ### [0.0.23](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.22...v0.0.23) (2022-11-18)
 
 
