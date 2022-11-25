@@ -8,10 +8,12 @@ import {features} from './modules'
 import {validate} from './config';
 import {TenantCategoriesController, TenantMetaController, TenantTemplatesController} from "./controllers";
 import {ClientsModule, Transport} from "@nestjs/microservices";
+import {BackendCoreModule} from "@ionhour/backend-core";
 
 
 @Module({
   imports: [
+    BackendCoreModule,
     ConfigModule.forRoot({
       envFilePath: [
         'local.env',

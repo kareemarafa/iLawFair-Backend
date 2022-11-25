@@ -5,9 +5,11 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
 import { DatabaseConnectModule } from '@ionhour/database-connect'
 import {authConfig, databaseConfig} from '../environments/environment'
 import { features } from './modules'
+import {BackendCoreModule} from "@ionhour/backend-core";
 
 @Module({
   imports: [
+    BackendCoreModule,
     ConfigModule.forRoot({
       load: [databaseConfig, authConfig],
       isGlobal: true
