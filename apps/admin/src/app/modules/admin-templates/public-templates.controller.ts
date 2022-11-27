@@ -12,6 +12,10 @@ export class PublicTemplatesController extends KamController<AdminTemplate> {
     super(service)
   }
 
+  /**
+   * TODO To be refactoring
+   * @param data
+   */
   @MessagePattern({cmd: 'GET_ALL_TEMPLATES'})
   getMany(data: Record<string, any>) {
     const options = {};
