@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.25](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.24...v0.0.25) (2022-11-27)
+
+
+### Features
+
+* **core-service:** check for unique values in creation ([9f53512](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/9f53512a619ffddca9e59557ae4937845fd45006))
+* **core:** add errors interceptor ([fef7cf4](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/fef7cf40db3de4fad1a30faec84a28fd2ae1025c))
+* **templates:** get templates depends on last project the been added by tenant ([ccd181c](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/ccd181c8f2a80dbe7d6a37037ee00f92b28bbdd6))
+
 ### [0.0.24](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.23...v0.0.24) (2022-11-21)
 
 
