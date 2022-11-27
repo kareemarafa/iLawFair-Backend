@@ -1,4 +1,4 @@
-import {Column, Entity} from 'typeorm'
+import {Column, Entity, Unique} from 'typeorm'
 import {CoreEntity} from '@ionhour/backend-core'
 import {IsNotEmpty, IsOptional, IsString} from 'class-validator'
 import {ApiProperty} from '@nestjs/swagger'

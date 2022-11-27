@@ -1,22 +1,21 @@
 import {FileUploadingUtils, KamController} from "@ionhour/backend-core";
-import {Body, Controller, UploadedFile, UseInterceptors} from "@nestjs/common";
-import {ApiBearerAuth, ApiConsumes, ApiTags} from "@nestjs/swagger";
+import {Body, Controller, UploadedFile, UseGuards, UseInterceptors} from "@nestjs/common";
+import {ApiConsumes, ApiTags} from "@nestjs/swagger";
 import {AdminTemplate} from "./admin-template.entity";
 import {AdminTemplateService} from "./admin-template.service";
 import {AdminMediaService} from "../admin-media/admin-media.service";
 import {AdminMedia} from "../admin-media/admin-media.entity";
 import {MessagePattern} from "@nestjs/microservices";
+import {AuthGuard} from "@nestjs/passport";
 
 @Controller('templates')
 @ApiTags('Templates')
-
 export class AdminTemplatesController extends KamController<AdminTemplate> {
   constructor(public service: AdminTemplateService, private mediaService: AdminMediaService) {
     super(service)
   }
 
-  // @UseGuards(AuthGuard('jwt'))
-  // @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
   @UseInterceptors(FileUploadingUtils.singleFileUploader('screenshot'))
   @ApiConsumes('multipart/form-data')
   async createOne(@Body() dto: AdminTemplate, @UploadedFile() uploadedFile: Express.Multer.File) {

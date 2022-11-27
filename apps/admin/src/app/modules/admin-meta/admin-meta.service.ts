@@ -7,6 +7,7 @@ import {KamService} from "@ionhour/backend-core";
 export class AdminMetaService extends KamService<AdminMeta> {
   constructor(@InjectRepository(AdminMeta) repo) {
     super(repo)
+    this.uniques = ['key'];
   }
 
   findOneByKey(options): Promise<AdminMeta> {

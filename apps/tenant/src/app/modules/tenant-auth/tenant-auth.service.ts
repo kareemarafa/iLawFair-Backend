@@ -27,17 +27,20 @@ export class AuthService {
   }
 
   async validateUser(email: string, _password: string): Promise<any> {
-    let user: TenantUser
-    let isPasswordCorrect: boolean
+    let user: TenantUser;
+    let isPasswordCorrect: boolean;
+    const findOneOptions = {
+      where: [{email}]
+    };
     try {
-      user = await lastValueFrom(this.adminService.send({cmd: 'CUSTOMER_LOGIN'}, {email}))
+      user = await lastValueFrom(this.adminService.send({cmd: 'CUSTOMER_LOGIN'}, findOneOptions))
     } catch (e) {
-      throw new NotFoundException('User not Found')
+      throw new UnauthorizedException()
     }
     try {
       isPasswordCorrect = await this.encryptionService.compare(_password, user?.password)
     } catch (e) {
-      throw new BadRequestException('Incorrect Password')
+      throw new UnauthorizedException('Password is incorrect')
     }
     if (user && isPasswordCorrect) {
       const {password, ...result} = user
@@ -59,20 +62,21 @@ export class AuthService {
     }
   }
 
-  async register(user: TenantUser): Promise<TenantUser> {
-    const _userExistsObservable: Observable<TenantUser> = this.adminService.send({cmd: 'CUSTOMER_FIND_ONE'}, {where: [{email: user.email}, {phone: user.phone}]});
-    const _user = await lastValueFrom(_userExistsObservable, {defaultValue: {id: null}})
-
-    if (_user?.id) {
-      this.handleBadRequest('Email or Phone number is already exists')
+  async register(user: TenantUser): Promise<TenantUser | Error> {
+    const findOneOptions = {
+      where: [{email: user.email}, {phone: user.phone}]
+    };
+    let existUser: TenantUser;
+    const _userExistsObservable: Observable<TenantUser> = this.adminService.send({cmd: 'CUSTOMER_FIND_ONE'}, findOneOptions);
+    existUser = await lastValueFrom<TenantUser>(_userExistsObservable);
+    if (existUser?.id) {
+      return this.handleBadRequest("User already exists");
     }
-
     user.password = await this.encryptionService.hash(user.password)
-    return lastValueFrom<TenantUser>(this.adminService.send({cmd: 'CUSTOMER_REGISTER'}, user))
-
+    return lastValueFrom<TenantUser>(this.adminService.send({cmd: 'CUSTOMER_REGISTER'}, user));
   }
 
-  handleBadRequest(message: string): void {
+  handleBadRequest(message: string): Error {
     throw new BadRequestException({
       message,
       statusCode: HttpStatus.BAD_REQUEST
