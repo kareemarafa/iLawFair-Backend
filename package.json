@@ -43,6 +43,7 @@
     "commitizen": "^4.2.5",
     "cz": "^1.8.2",
     "dotenv": "^16.0.3",
+    "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "mysql": "^2.18.1",
     "passport": "^0.6.0",

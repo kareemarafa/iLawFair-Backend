@@ -4,6 +4,7 @@ import {AdminTemplate} from "./admin-template.entity";
 import {AdminTemplateService} from "./admin-template.service";
 import {AdminTemplatesController} from "./admin-templates.controller";
 import {AdminMediaModule} from "../admin-media/admin-media.module";
+import {PublicTemplatesController} from "./public-templates.controller";
 
 @Module({
   imports: [
@@ -11,7 +12,7 @@ import {AdminMediaModule} from "../admin-media/admin-media.module";
     forwardRef(() => AdminMediaModule)
 
   ],
-  controllers: [AdminTemplatesController],
+  controllers: [AdminTemplatesController, PublicTemplatesController],
   providers: [AdminTemplateService],
   exports: [AdminTemplateService]
 })

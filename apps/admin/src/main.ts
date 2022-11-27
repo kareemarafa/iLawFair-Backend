@@ -3,9 +3,12 @@ import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app/app.module'
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger'
 import {Transport} from "@nestjs/microservices";
+import * as morgan from 'morgan';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
+  app.use(morgan('dev'));
+
   app.enableCors()
   const globalPrefix = 'api'
   app.setGlobalPrefix(globalPrefix)

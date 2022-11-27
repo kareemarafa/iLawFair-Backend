@@ -5,20 +5,23 @@ import {AdminTemplate} from "./admin-template.entity";
 import {AdminTemplateService} from "./admin-template.service";
 import {AdminMediaService} from "../admin-media/admin-media.service";
 import {AdminMedia} from "../admin-media/admin-media.entity";
-import {MessagePattern} from "@nestjs/microservices";
 import {AuthGuard} from "@nestjs/passport";
+import {DeepPartial} from "typeorm";
 
 @Controller('templates')
 @ApiTags('Templates')
+@UseGuards(AuthGuard('jwt'))
 export class AdminTemplatesController extends KamController<AdminTemplate> {
-  constructor(public service: AdminTemplateService, private mediaService: AdminMediaService) {
+  constructor(
+    public service: AdminTemplateService,
+    private mediaService: AdminMediaService
+  ) {
     super(service)
   }
 
-  @UseGuards(AuthGuard('jwt'))
-  @UseInterceptors(FileUploadingUtils.singleFileUploader('screenshot'))
   @ApiConsumes('multipart/form-data')
-  async createOne(@Body() dto: AdminTemplate, @UploadedFile() uploadedFile: Express.Multer.File) {
+  @UseInterceptors(FileUploadingUtils.singleFileUploader('screenshot'))
+  async createOne(@Body() dto: DeepPartial<AdminTemplate>, @UploadedFile() uploadedFile: Express.Multer.File) {
     if (uploadedFile) {
       const screenshot = new AdminMedia();
       screenshot.filename = uploadedFile.filename;
@@ -30,10 +33,5 @@ export class AdminTemplatesController extends KamController<AdminTemplate> {
     }
     Object.assign(dto, {categories: dto.categories.map(cat => ({id: cat}))})
     return this.createOneBase(dto);
-  }
-
-  @MessagePattern({cmd: 'GET_ALL_TEMPLATES'})
-  getMany() {
-    return this.service.getMany({});
   }
 }

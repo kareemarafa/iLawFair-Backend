@@ -23,7 +23,6 @@ export class KamService<T> {
     return this.repo.findOne(options)
   }
 
-
   getOneOrFail(options = {}): Promise<T> {
     options['relations'] = this.relations;
     options['select'] = this.selection;
@@ -31,8 +30,13 @@ export class KamService<T> {
   }
 
   async createOne(dto: DeepPartial<T>): Promise<T> {
-    await this.checkUniques(dto);
+    this.uniques.length && await this.checkUniques(dto);
+    dto = await this.refactorItemBeforeCreate(dto);
     return this.repo.save(dto);
+  }
+
+  async refactorItemBeforeCreate(item): Promise<T> {
+    return item;
   }
 
   async checkUniques(dto: DeepPartial<T>) {
@@ -47,7 +51,7 @@ export class KamService<T> {
       })
     );
     if (Object.keys(_EXISTS).length) {
-      throw new BadRequestException({errors: _EXISTS})
+      throw new BadRequestException( {errors: _EXISTS}, "validation_error")
     } else {
       return;
     }
@@ -57,7 +61,6 @@ export class KamService<T> {
     await this.repo.update(id, dto);
     return this.getOne({id});
   }
-
 
   deleteOne(options): Promise<DeleteResult> {
     return this.repo.delete(options)

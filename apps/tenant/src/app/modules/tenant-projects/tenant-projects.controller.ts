@@ -6,6 +6,7 @@ import {AuthGuard} from '@nestjs/passport'
 import {FileUploadingUtils, KamController} from "@ionhour/backend-core";
 import {MediaService} from "../tenant-media/tenant-media.service";
 import {TenantMedia} from "../tenant-media/tenant-media.entity";
+import {DeepPartial} from "typeorm";
 
 @Controller('projects')
 @ApiTags('Projects')
@@ -19,7 +20,7 @@ export class TenantProjectsController extends KamController<TenantProject> {
   @Post()
   @UseInterceptors(FileUploadingUtils.singleFileUploader('logo'))
   @ApiConsumes('multipart/form-data')
-  async createOne(@Body() dto: TenantProject, @UploadedFile() uploadedFile: Express.Multer.File) {
+  async createOne(@Body() dto: DeepPartial<TenantProject>, @UploadedFile() uploadedFile: Express.Multer.File) {
     if (uploadedFile) {
       const logo = new TenantMedia();
       logo.filename = uploadedFile.filename;

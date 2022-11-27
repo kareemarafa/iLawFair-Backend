@@ -9,4 +9,11 @@ export class AdminTemplateService extends KamService<AdminTemplate> {
     super(repo)
     this.relations = ['pages', 'categories', 'logo', 'screenshot']
   }
+
+  async refactorItemBeforeCreate(item): Promise<AdminTemplate> {
+    if (item?.categories?.length) {
+      item.categories = item.categories.map(category => ({id: category}))
+    }
+    return item;
+  }
 }
