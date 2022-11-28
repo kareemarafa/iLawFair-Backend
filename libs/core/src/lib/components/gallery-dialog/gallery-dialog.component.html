@@ -1,9 +1,0 @@
-<div class="mb-2 d-flex flex-row align-items-center justify-content-between">
-  <label>{{ field?.templateOptions?.label }}</label>
-  <button *ngIf="!image" mat-stroked-button color="primary" [matTooltip]="'Gallery'" (click)="openUserGallery()">
-    <mat-icon>photo</mat-icon>
-  </button>
-  <span *ngIf="image" class="mx-2" (click)="openUserGallery()">
-      <img [src]="image" class="image-preview img-thumbnail" alt=""/>
-    </span>
-</div>

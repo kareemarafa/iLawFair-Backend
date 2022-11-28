@@ -2,6 +2,92 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.25](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.24...v0.0.25) (2022-11-27)
+
+
+### Features
+
+* **core-service:** check for unique values in creation ([9f53512](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/9f53512a619ffddca9e59557ae4937845fd45006))
+* **core:** add errors interceptor ([fef7cf4](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/fef7cf40db3de4fad1a30faec84a28fd2ae1025c))
+* **templates:** get templates depends on last project the been added by tenant ([ccd181c](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/ccd181c8f2a80dbe7d6a37037ee00f92b28bbdd6))
+
+### [0.0.24](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.23...v0.0.24) (2022-11-21)
+
+
+### Features
+
+* **customers:** add 'where' to login query in customer controller ([16e2dbb](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/16e2dbb8d3036410303490da6e1a46cbbea07af6))
+
+### [0.0.23](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.22...v0.0.23) (2022-11-18)
+
+
+### Features
+
+* **register-tenant:** throw an error if tenant details already exists ([36554cc](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/36554ccacc54b8efbf7be52acbb756dec506d1a7))
+* **tenant-login:** get customer object from admin service ([0413186](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/041318662552ab8294de301218dcc79f360afaff))
+* **upgrade:** code base upgrade ([d65b11f](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/d65b11fb24e1a849e95c0df491e54d6c52a8ad7b))
+
+
+### Bug Fixes
+
+* **auth:** fix the auth system for admin and the user apps ([f2c9c6b](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/f2c9c6b4c4942539b040e8d50903409251eec061))
+
+### [0.0.22](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.21...v0.0.22) (2022-11-14)
+
+
+### Features
+
+* **admin-templates:** implement admin templates CRUD APIs ([fd4d521](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/fd4d521b4aa98b4b91013548ccaf8ee49af63c8a))
+* **customers:** implement customers module ([87073a1](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/87073a1f4adcf7af2dc50dca93823628e5c16f3e))
+* **swagger api:** add a ApiOperation tags for apis ([628851f](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/628851f6fc209c1a7d9d8a0ae8196469f4364942))
+
+
+### Bug Fixes
+
+* remove a unuesd import ([3300004](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/330000494775fa36412ca37085737f364f3c8030))
+* **tenant-project:** prevent pages array to be injected if there's no pages provided by user] ([a962284](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/a962284af3f4f366618603777dc2ce3c79769c40))
+* **tenant-templates:** fetch templates from admin-database to tenant's template API ([d61e211](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/d61e2113b06e07e63d9b5752be5d421315d745fc))
+* updeta apis ([9a6d5a2](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/9a6d5a295be75bfa7fe67584dcd019e13efa1f11))
+
+### [0.0.21](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.20...v0.0.21) (2022-11-12)
+
+
+### Features
+
+* **kam core:** add a services and controller coer ([5e1ade4](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/5e1ade41778da3e6db409017495184829aef2cdc))
+* remove e2e application ([f309318](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/f30931801e71910d488a2ff0b0be42c34cd43bbd))
+* **user-categories:** let microservice return categories list from admin database ([22a41f7](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/22a41f730b2654f1bd5208c0d20d1ef04df1a6e4))
+
+
+### Bug Fixes
+
+* add missing dependancies ([9aab888](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/9aab88857fb371cb2df1fdcec5abc4e78c4636dd))
+* enhance file/folder structure ([336e305](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/336e305d38a0073546efd6c15cb0127d8b0d2a1d))
+* **entity wip:** handel the TypeORM ([fafe3fd](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/fafe3fd39afd29a98004efd9f20cf68a6753e1ca))
+* export media and auth modules from indexed file to app module registry import ([807997d](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/807997d8cf002ad82956adbe465238895d1b8c37))
+* folder exports ([047b3ea](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/047b3ea1b9cc4d3f732dd5ddfb3130023789a3b0))
+* **tables-names:** enhance tables name per project ([a411cc1](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/a411cc19ae3028d07ca2f5e41eb4199663878df7))
+
+### [0.0.20](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.18...v0.0.20) (2022-11-09)
+
+
+### Features
+
+* **admin-microservice:** implement admin microservice application ([0201072](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/0201072e2bd53241af563f29e0cda07181ebbc1b))
+* create internal controllers for meta, categories, templates ([518834b](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/518834ba9def4baf0823b449e3c5ecc5d1226f3d))
+
+
+### Bug Fixes
+
+* **admin-api:** fix the route of swager api ([2bb799a](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/2bb799a32771832e2a997279462a87d287f3faa0))
+
+### [0.0.19](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.18...v0.0.19) (2022-11-09)
+
+
+### Bug Fixes
+
+* **admin-api:** fix the route of swager api ([2bb799a](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/2bb799a32771832e2a997279462a87d287f3faa0))
+
 ### [0.0.18](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.17...v0.0.18) (2022-11-06)
 
 
