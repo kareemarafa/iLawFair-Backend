@@ -12,10 +12,10 @@ pipeline {
             steps {
                 echo 'Building the application...'
                 sh 'rm -rf ./node_modules ./package-lock.json ./dist && yarn' // Remove if exists
-                sh 'nx build api-builder' // Remove if exists
+                sh 'yarn build admin && yarn build tenant' // Remove if exists
                 sh 'scp -o stricthostkeychecking=no -r ./dist/* deploy@website-me.com:/var/www/dev.api.user.website-me.com/' // upload new content
-                sh 'scp -o stricthostkeychecking=no -r ./dev.env ./package.json ./decorate-angular-cli.js deploy@website-me.com:/var/www/dev.api.user.website-me.com/apps/api-builder/' // upload .env file
-                sh 'ssh -o stricthostkeychecking=no deploy@website-me.com "cd /var/www/dev.api.user.website-me.com/apps/api-builder && rm -rf node_modules yarn.lock && yarn && pm2 restart dev_API_builder"' // install dependencies
+                sh 'scp -o stricthostkeychecking=no -r ./dev.env ./package.json deploy@website-me.com:/var/www/dev.api.user.website-me.com/apps/' // upload .env file
+                sh 'ssh -o stricthostkeychecking=no deploy@website-me.com "cd /var/www/dev.api.user.website-me.com/apps && rm -rf node_modules yarn.lock && yarn && pm2 restart dev_API_builder"' // install dependencies
             }
         }
     }
