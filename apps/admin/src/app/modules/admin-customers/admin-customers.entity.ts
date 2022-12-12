@@ -8,37 +8,37 @@ import {AdminTenantContract, SubscriptionStatusEnum} from "../entity";
 export class AdminCustomer extends CoreEntity {
   @IsNotEmpty()
   @IsOptional()
-  @IsString({ always: true })
-  @MaxLength(100, { always: true })
-  @Column({ type: 'varchar', length: 100, nullable: false })
-  @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
+  @IsString({always: true})
+  @MaxLength(100, {always: true})
+  @Column({type: 'varchar', length: 100, nullable: false})
+  @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
   fullName: string
 
   @IsNotEmpty()
   @IsOptional()
-  @IsEmail({ always: true })
-  @MaxLength(100, { always: true })
-  @Column({ type: 'varchar', length: 100, nullable: false, unique: true })
-  @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
+  @IsEmail({always: true})
+  @MaxLength(100, {always: true})
+  @Column({type: 'varchar', length: 100, nullable: false, unique: true})
+  @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
   email: string
 
   @IsNotEmpty()
   @IsOptional()
-  @IsString({ always: true })
-  @MaxLength(100, { always: true })
-  @Column({ type: 'varchar', length: 100, nullable: false })
-  @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
+  @IsString({always: true})
+  @MaxLength(100, {always: true})
+  @Column({type: 'varchar', length: 100, nullable: false})
+  @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
   password: string
 
   @IsNotEmpty()
   @IsOptional()
-  @IsString({ always: true })
-  @MaxLength(100, { always: true })
-  @Column({ type: 'varchar', length: 100, nullable: false, unique: true })
-  @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
+  @IsString({always: true})
+  @MaxLength(100, {always: true})
+  @Column({type: 'varchar', length: 100, nullable: false, unique: true})
+  @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
   phone: string
 
-  @Column('enum', { enum: SubscriptionStatusEnum, nullable: false })
+  @Column('enum', {enum: SubscriptionStatusEnum, nullable: false})
   status: string;
 
   @OneToMany(() => AdminTenantContract, (photo) => adminTenantContract.adminCustomer)
