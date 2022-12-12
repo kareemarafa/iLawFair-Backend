@@ -5,6 +5,7 @@ import {AdminTemplate} from "../app/modules/admin-templates/admin-template.entit
 import {AdminMeta} from "../app/modules/admin-meta/admin-meta.entity";
 import {AdminPage} from "../app/modules/admin-pages/admin-pages.entity";
 import {AdminCustomer} from "../app/modules/admin-customers/admin-customers.entity";
+import {AdminTenantContract} from "../app/modules/entity";
 
 export const environment = {
   production: false
@@ -28,7 +29,8 @@ export const databaseConfig = () => ({
       AdminCategory,
       AdminMedia,
       AdminPage,
-      AdminCustomer
+      AdminCustomer,
+      AdminTenantContract
     ],
     seeds: []
   }

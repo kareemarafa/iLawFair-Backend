@@ -1,7 +1,8 @@
 import {CoreEntity} from "@ionhour/backend-core";
-import {Column, Entity} from "typeorm";
+import {Column, Entity, JoinColumn, JoinTable, OneToMany, OneToOne} from "typeorm";
 import {IsEmail, IsNotEmpty, IsOptional, IsString, MaxLength} from "class-validator";
 import {ApiProperty} from "@nestjs/swagger";
+import {AdminTenantContract, SubscriptionStatusEnum} from "../entity";
 
 @Entity('customers')
 export class AdminCustomer extends CoreEntity {
@@ -36,4 +37,10 @@ export class AdminCustomer extends CoreEntity {
   @Column({ type: 'varchar', length: 100, nullable: false, unique: true })
   @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
   phone: string
+
+  @Column('enum', { enum: SubscriptionStatusEnum, nullable: false })
+  status: string;
+
+  @OneToMany(() => AdminTenantContract, (photo) => adminTenantContract.adminCustomer)
+  adminTenantContracts: AdminTenantContract[]
 }
