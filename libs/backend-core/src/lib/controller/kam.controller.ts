@@ -33,11 +33,7 @@ export abstract class KamController<T> {
     status: HttpStatus.CREATED,
     description: "created",
   })
-  @ApiResponse({
-    status: HttpStatus.BAD_REQUEST,
-    description: "is already exists",
-  })
-  createOneBase(@Body() dto: DeepPartial<T>): Promise<T> {
+  createOneBase(@Body() dto: DeepPartial<T>, ...args): Promise<T> {
     return this.service.createOne(dto);
   }
 

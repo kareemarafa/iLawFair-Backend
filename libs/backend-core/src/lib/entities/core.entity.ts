@@ -2,19 +2,19 @@ import {CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateCo
 import {ApiProperty} from "@nestjs/swagger";
 
 export class CoreEntity {
-  @ApiProperty()
+  @ApiProperty({type: 'number', nullable: true, required: false})
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ApiProperty()
+  @ApiProperty({type: 'date', nullable: true, required: false})
   @CreateDateColumn()
   createdDate: Date;
 
-  @ApiProperty()
+  @ApiProperty({type: 'date', nullable: true, required: false})
   @UpdateDateColumn()
   updatedDate: Date;
 
-  @ApiProperty()
+  @ApiProperty({type: 'date', nullable: true, required: false})
   @DeleteDateColumn()
   deletedDate: Date;
 }

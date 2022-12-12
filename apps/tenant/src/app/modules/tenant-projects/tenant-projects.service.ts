@@ -1,31 +1,26 @@
-import {BadRequestException, Injectable} from '@nestjs/common'
+import {Injectable} from '@nestjs/common'
 import {InjectRepository} from '@nestjs/typeorm'
 import {TenantProject} from './tenant-projects.entity'
-import {DeepPartial} from "typeorm";
-import {BuilderType} from "@ionhour/interfaces";
-import {KamService} from "@ionhour/backend-core";
+import {Repository} from "typeorm";
+import {ContractTypes, KamService} from "@ionhour/backend-core";
+import {Contract} from "../shared";
 
 @Injectable()
 export class TenantProjectsService extends KamService<TenantProject> {
-  constructor(@InjectRepository(TenantProject) repo) {
+  constructor(@InjectRepository(TenantProject) repo,
+              @InjectRepository(Contract) private contractRepo: Repository<Contract>) {
     super(repo)
+    this.relations = ['contract'];
   }
 
-  createOne(dto: DeepPartial<TenantProject>): Promise<TenantProject> {
-    const {builderType, pages} = dto;
-    if (builderType === BuilderType.SINGLE_PAGE && pages?.length > 1) { // Check if tenant-pages length > 1 ---- INVALID
-      throw new BadRequestException("Page limit exceeded")
-    }
-    return super.createOne(dto);
+  async refactorItemBeforeCreate(item: TenantProject) {
+    const contract: Contract = new Contract();
+    contract.contractType = ContractTypes.TRIAL;
+    contract.activeFrom = new Date();
+    contract.activeTo = new Date((new Date()).getTime() + (14 * 86400000));
+    await this.contractRepo.save(contract);
+    item.contract = contract;
+    return super.refactorItemBeforeCreate(item);
   }
 
-  async updateOne(projectId: number, dto: TenantProject): Promise<TenantProject> {
-    const project = await this.repo.findOne({where: {id: projectId}})
-    const {builderType} = project; // Old data is here
-    const {pages} = dto; // Updates is here
-    if (builderType === BuilderType.SINGLE_PAGE && pages?.length > 1) { // Check if tenant-pages length > 1 ---- INVALID
-      throw new BadRequestException("Page limit exceeded")
-    }
-    return super.updateOne(projectId, dto);
-  }
 }
