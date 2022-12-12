@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.26](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.25...v0.0.26) (2022-12-12)
+
+
+### Features
+
+* **contracts:** implement contract details entity and docs ([08b0b34](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/08b0b345e7de13a94f54db7b151098f2380a1c5f))
+* **subscription:** i had add the Subscription types eum and add a entity for the customer Contract ([e0bf467](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/e0bf46734e02c001e136c7298634f0bbe1fab165))
+
+
+### Bug Fixes
+
+* **templates:** get templates depends on keywords queries only ([ca231b1](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/ca231b11238f6ff746161244b572a46de507d21d))
+
 ### [0.0.25](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.24...v0.0.25) (2022-11-27)
 
 
