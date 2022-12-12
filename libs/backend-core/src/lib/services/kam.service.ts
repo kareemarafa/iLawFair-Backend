@@ -32,11 +32,17 @@ export class KamService<T> {
   async createOne(dto: DeepPartial<T>): Promise<T> {
     this.uniques.length && await this.checkUniques(dto);
     dto = await this.refactorItemBeforeCreate(dto);
-    return this.repo.save(dto);
+    const createdItem = await this.repo.save(dto);
+    await this.afterCreateEvent(createdItem);
+    return createdItem;
   }
 
   async refactorItemBeforeCreate(item): Promise<T> {
     return item;
+  }
+
+  async afterCreateEvent(item): Promise<void> {
+    console.log(JSON.stringify(item));
   }
 
   async checkUniques(dto: DeepPartial<T>) {

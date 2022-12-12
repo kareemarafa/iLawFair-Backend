@@ -1,13 +1,11 @@
 import {IsEnum, IsHexColor, IsNotEmpty, IsOptional, IsString, MaxLength} from "class-validator";
-import {Column, PrimaryGeneratedColumn} from "typeorm";
+import {Column} from "typeorm";
 import {ApiProperty} from "@nestjs/swagger";
-import {BuilderType} from "@ionhour/interfaces";
 import {CoreEntity} from "./core.entity";
+import {BuilderType} from "../../../../interfaces/src";
 
 
 export class CoreProjectEntity extends CoreEntity {
-  @PrimaryGeneratedColumn()
-  id: number;
 
   @IsNotEmpty()
   @IsOptional()
@@ -15,7 +13,6 @@ export class CoreProjectEntity extends CoreEntity {
   @Column({type: 'varchar', nullable: false})
   @ApiProperty({required: true, type: 'string', nullable: false})
   projectName: string
-
 
   @IsNotEmpty()
   @IsOptional()
@@ -34,8 +31,8 @@ export class CoreProjectEntity extends CoreEntity {
 
   @IsNotEmpty()
   @IsOptional()
-  @IsEnum(BuilderType, )
-  @ApiProperty({required: false, type: 'enum', enum: BuilderType, default: BuilderType.MULTIPLE_PAGES})
-  @Column('enum', {enum: BuilderType, default: BuilderType.MULTIPLE_PAGES})
+  @IsEnum(BuilderType)
+  @ApiProperty({required: false, type: 'enum', enum: BuilderType, default: BuilderType.SINGLE_PAGE})
+  @Column('enum', {enum: BuilderType, default: BuilderType.SINGLE_PAGE})
   builderType!: BuilderType;
 }

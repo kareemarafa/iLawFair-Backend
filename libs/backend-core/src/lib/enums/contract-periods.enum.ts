@@ -1,4 +1,4 @@
-export enum SubscriptionTypesEnum {
+export enum ContractPeriods {
   MONTHLY = 'MONTHLY',
   YEARLY = 'YEARLY',
 }

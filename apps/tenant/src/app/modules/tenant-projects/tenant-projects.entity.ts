@@ -5,6 +5,7 @@ import {TenantPage} from "../tenant-pages/tenant-pages.entity";
 import {TenantUser} from "../tenant-users/tenant-users.entity";
 import {ApiProperty} from "@nestjs/swagger";
 import {TenantMedia} from "../tenant-media/tenant-media.entity";
+import {Contract} from "../shared";
 
 
 @Entity('projects')
@@ -31,5 +32,9 @@ export class TenantProject extends CoreProjectEntity {
   @Column()
   @ApiProperty({type: 'string', nullable: true, required: false, example: 'Resume,Portfolio'})
   keywords: string;
+
+  @OneToOne(() => Contract)
+  @JoinColumn()
+  contract: Contract;
 }
 

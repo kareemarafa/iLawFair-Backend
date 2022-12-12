@@ -1,4 +1,4 @@
-export enum SubscriptionStatusEnum {
+export enum AdminCustomerStatus {
   ACTIVE = 'ACTIVE',
   INACTIVE = 'INACTIVE',
 }

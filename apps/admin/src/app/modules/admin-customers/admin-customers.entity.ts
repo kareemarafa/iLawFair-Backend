@@ -1,8 +1,8 @@
 import {CoreEntity} from "@ionhour/backend-core";
-import {Column, Entity, JoinColumn, JoinTable, OneToMany, OneToOne} from "typeorm";
+import {Column, Entity} from "typeorm";
 import {IsEmail, IsNotEmpty, IsOptional, IsString, MaxLength} from "class-validator";
 import {ApiProperty} from "@nestjs/swagger";
-import {AdminTenantContract, SubscriptionStatusEnum} from "../entity";
+import {AdminCustomerStatus} from "./admin-customer-status.enum";
 
 @Entity('customers')
 export class AdminCustomer extends CoreEntity {
@@ -38,9 +38,7 @@ export class AdminCustomer extends CoreEntity {
   @ApiProperty({required: true, type: 'string', nullable: false, maxLength: 100})
   phone: string
 
-  @Column('enum', {enum: SubscriptionStatusEnum, nullable: false})
+  @Column('enum', {enum: AdminCustomerStatus, default: AdminCustomerStatus.ACTIVE, nullable: false})
   status: string;
 
-  @OneToMany(() => AdminTenantContract, (photo) => adminTenantContract.adminCustomer)
-  adminTenantContracts: AdminTenantContract[]
 }
