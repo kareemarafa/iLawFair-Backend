@@ -73,6 +73,7 @@ export class AuthService {
       return this.handleBadRequest("User already exists");
     }
     user.password = await this.encryptionService.hash(user.password)
+    await this.usersService.createUser(user)
     return lastValueFrom<TenantUser>(this.adminService.send({cmd: 'CUSTOMER_REGISTER'}, user));
   }
 

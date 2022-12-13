@@ -1,4 +1,4 @@
-import {BadRequestException, Injectable} from '@nestjs/common'
+import {Injectable} from '@nestjs/common'
 import {InjectRepository} from '@nestjs/typeorm'
 import {TenantUser} from './tenant-users.entity'
 import {Repository} from 'typeorm'
@@ -11,12 +11,7 @@ export class TenantUsersService extends KamService<TenantUser> {
   }
 
   async createUser(userData: TenantUser): Promise<TenantUser> {
-    const user = await this.repo.save(userData)
-    if (!user) {
-      throw new BadRequestException()
-    }
-    delete user.password;
-    return user;
+    return this.repo.save(userData);
   }
 
   async findOneByEmail(email: string): Promise<TenantUser> {
