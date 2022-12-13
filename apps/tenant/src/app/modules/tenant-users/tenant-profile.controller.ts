@@ -21,7 +21,7 @@ export class ProfileController  extends KamController<TenantUser>{
     const token = headers['authorization'].split(' ')[1]
     const user = await this.authService.checkAuth(token)
     const profile = await this.userService.findOneByEmail(user.email)
-    const {password, ..._profile} = profile
+    const {..._profile} = profile
     return _profile
   }
 
