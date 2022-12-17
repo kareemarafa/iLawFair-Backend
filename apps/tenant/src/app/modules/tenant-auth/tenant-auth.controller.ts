@@ -1,12 +1,14 @@
 import {Controller, Post, Request, HttpCode, HttpStatus, Body, UseGuards, Inject} from '@nestjs/common'
 import {AuthService} from './tenant-auth.service'
 import {TenantUser} from '../tenant-users/tenant-users.entity'
-import {ApiTags} from '@nestjs/swagger'
+import {ApiOperation, ApiResponse, ApiTags} from '@nestjs/swagger'
 import {RegisterUserDto} from "./dto";
 import {ClientProxy} from "@nestjs/microservices";
 import {lastValueFrom} from "rxjs";
 import {LocalAuthGuard} from "./guards";
 import {EncryptionService} from "@ionhour/encryption";
+import {ResetPasswordTenantUserDto} from "./dto/reset-password-tenantUser.dto";
+import {UpdateResult} from "typeorm";
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -37,4 +39,24 @@ export class AuthController {
   public async register(@Body() userData: RegisterUserDto): Promise<TenantUser | Error> {
     return this.authService.register(userData);
   }
+
+  /**
+   * Reset the user password
+   * @param {object} resetPasswordData
+
+   */
+  @Post('reset-password')
+  @ApiOperation({
+    summary: 'Log in',
+    description: 'User login; returns a JWT token on success',
+  })
+  @ApiResponse({
+    status: HttpStatus.OK,
+    type: TenantUser,
+    description: 'Success!',
+  })
+  async resetPassword(@Body() resetPasswordData: ResetPasswordTenantUserDto): Promise<UpdateResult> {
+    return await this.authService.resetPassword( resetPasswordData);
+  }
 }
+

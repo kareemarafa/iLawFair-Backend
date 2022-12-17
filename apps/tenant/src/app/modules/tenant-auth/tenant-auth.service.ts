@@ -14,9 +14,13 @@ import {TenantUser} from '../tenant-users/tenant-users.entity'
 import {EncryptionService} from '@ionhour/encryption'
 import {ClientProxy} from "@nestjs/microservices";
 import {lastValueFrom, Observable, of} from "rxjs";
+import {ResetPasswordTenantUserDto} from "./dto/reset-password-tenantUser.dto";
+import {RegisterUserDto} from "./dto";
 
 @Injectable()
 export class AuthService {
+  private token: string;
+  private password: any;
   constructor(
     @Inject("ADMIN_SERVICE") private readonly adminService: ClientProxy,
     @Inject(forwardRef(() => TenantUsersService))
@@ -93,4 +97,20 @@ export class AuthService {
     }
     return verifyObject
   }
+
+
+  /**
+   * Reset Password using token and new password
+   * @param  user : TenantUser
+   */
+  async resetPassword(user: ResetPasswordTenantUserDto) {
+    const _user = await lastValueFrom(this.adminService.send({cmd: 'CUSTOMER_FIND_ONE'}, {where:[{email: user.email},{password: user.password}]}))
+    const verifyObj = await this.checkAuth(this.token);
+    if (_user && verifyObj) {
+      return this.usersService.update(user.id, { ...user, user:[user.password]});
+    } else {
+      throw new NotFoundException('user not found!');
+    }
+  }
+
 }
