@@ -14,6 +14,13 @@ export class AdminCategory extends CoreEntity {
   @ApiProperty({required: true, type: 'string', nullable: false})
   name: string
 
+  @IsNotEmpty()
+  @IsString()
+  @IsOptional()
+  @Column({unique: true, type: 'varchar', nullable: false})
+  @ApiProperty({required: false, type: 'string', nullable: false})
+  icon: string
+
   @ManyToMany(() => AdminTemplate, (category) => category.categories)
   templates: AdminTemplate[]
 }
