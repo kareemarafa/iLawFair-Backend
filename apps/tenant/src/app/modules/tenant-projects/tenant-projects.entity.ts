@@ -24,6 +24,11 @@ export class TenantProject extends CoreProjectEntity {
   @ApiProperty({type: 'file', nullable: true, required: false})
   logo: TenantMedia
 
+  @Column()
+  @ApiProperty({type: 'string', nullable: false, required: true})
+  subdomain:string
+
+
   @OneToOne(() => TenantMedia)
   @JoinColumn()
   @ApiProperty({type: 'file', nullable: true, required: false})
