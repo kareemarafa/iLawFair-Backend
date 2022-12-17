@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Post, UseGuards, Headers} from '@nestjs/common'
+import {Body, Controller, Get, Post, UseGuards, Headers, BadRequestException, HttpStatus} from '@nestjs/common'
 import {AuthService} from '../tenant-auth/tenant-auth.service'
 import {AuthGuard} from '@nestjs/passport'
 import {TenantUsersService} from './tenant-users.service'
@@ -31,6 +31,8 @@ export class ProfileController  extends KamController<TenantUser>{
     const user = await this.authService.checkAuth(token)
     const profile = await this.userService.findOneByEmail(user.email)
     const {password, ..._profile} = profile
-    return this.userService.repo.update(profile.id, {..._profile, ...body})
+    await this.userService.repo.update(profile.id, {..._profile, ...body})
+    return   HttpStatus.OK
+
   }
 }
