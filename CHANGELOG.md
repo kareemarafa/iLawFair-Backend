@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.28](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.27...v0.0.28) (2022-12-19)
+
+
+### Bug Fixes
+
+* **category-icon:** add category icon as media file, enhance media via  media mapper ([2524bd0](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/2524bd01fc45a6ccb7fc634c3617a424baa96353))
+
 ### [0.0.27](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.26...v0.0.27) (2022-12-19)
 
 
