@@ -3,7 +3,7 @@ import {ApiBearerAuth, ApiConsumes, ApiTags} from '@nestjs/swagger'
 import {TenantPage} from './tenant-pages.entity'
 import {TenantPagesService} from './tenant-pages.service'
 import {AuthGuard} from "@nestjs/passport";
-import {FileUploadingUtils, KamController} from "@ionhour/backend-core";
+import {FileUploadingUtils, KamController, MediaEntityMapperUtils} from "@ionhour/backend-core";
 import {MediaService} from "../tenant-media/tenant-media.service";
 import {TenantMedia} from "../tenant-media/tenant-media.entity";
 
@@ -25,11 +25,8 @@ export class PagesController extends  KamController<TenantPage> {
     @UploadedFile() uploadedFile: Express.Multer.File,
   ) {
     if (uploadedFile) {
-      const screenshot = new TenantMedia();
-      screenshot.filename = uploadedFile.filename;
-      screenshot.path = (uploadedFile.path).split(__dirname)[1];
-      screenshot.destination = (uploadedFile.destination).split(__dirname)[1];
-      screenshot.mimetype = uploadedFile.mimetype;
+      let screenshot = new TenantMedia();
+      screenshot = MediaEntityMapperUtils(screenshot, uploadedFile);
       await this.mediaService.saveUploadedFile(screenshot);
       dto.screenshot = screenshot;
     }

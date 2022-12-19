@@ -7,6 +7,7 @@ import {KamService} from "@ionhour/backend-core";
 export class AdminCategoriesService extends KamService<AdminCategory> {
   constructor(@InjectRepository(AdminCategory) repo) {
     super(repo)
+    this.relations = ['icon']
     this.uniques = ['name']
   }
 }

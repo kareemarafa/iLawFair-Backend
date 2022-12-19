@@ -1,7 +1,7 @@
 import {Body, Controller, Post, UploadedFile, UseGuards, UseInterceptors} from '@nestjs/common'
 import {ApiBearerAuth, ApiConsumes, ApiTags} from '@nestjs/swagger'
 import {AuthGuard} from "@nestjs/passport";
-import {FileUploadingUtils, KamController} from "@ionhour/backend-core";
+import {FileUploadingUtils, KamController, MediaEntityMapperUtils} from "@ionhour/backend-core";
 import {AdminPage} from "./admin-pages.entity";
 import {AdminPagesService} from "./admin-pages.service";
 import {AdminMediaService} from "../admin-media/admin-media.service";
@@ -9,8 +9,8 @@ import {AdminMedia} from "../admin-media/admin-media.entity";
 
 @Controller('pages')
 @ApiTags('Pages')
-// @UseGuards(AuthGuard('jwt'))
-// @ApiBearerAuth()
+@UseGuards(AuthGuard('jwt'))
+@ApiBearerAuth()
 export class AdminPagesController extends  KamController<AdminPage> {
   constructor(public service: AdminPagesService, private mediaService: AdminMediaService) {
     super(service)
@@ -25,11 +25,8 @@ export class AdminPagesController extends  KamController<AdminPage> {
     @UploadedFile() uploadedFile: Express.Multer.File,
   ) {
     if (uploadedFile) {
-      const screenshot = new AdminMedia();
-      screenshot.filename = uploadedFile.filename;
-      screenshot.path = uploadedFile.path;
-      screenshot.destination = uploadedFile.destination;
-      screenshot.mimetype = uploadedFile.mimetype;
+      let screenshot = new AdminMedia();
+      screenshot = MediaEntityMapperUtils(screenshot, uploadedFile);
       await this.mediaService.saveUploadedFile(screenshot);
       dto.screenshot = screenshot;
     }

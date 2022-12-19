@@ -1,5 +1,5 @@
-import {FileUploadingUtils, KamController} from "@ionhour/backend-core";
-import {Body, Controller, UploadedFile, UseGuards, UseInterceptors} from "@nestjs/common";
+import {FileUploadingUtils, KamController, MediaEntityMapperUtils} from "@ionhour/backend-core";
+import {Body, Controller, Post, UploadedFile, UseGuards, UseInterceptors} from "@nestjs/common";
 import {ApiConsumes, ApiTags} from "@nestjs/swagger";
 import {AdminTemplate} from "./admin-template.entity";
 import {AdminTemplateService} from "./admin-template.service";
@@ -19,19 +19,16 @@ export class AdminTemplatesController extends KamController<AdminTemplate> {
     super(service)
   }
 
+  @Post()
   @ApiConsumes('multipart/form-data')
   @UseInterceptors(FileUploadingUtils.singleFileUploader('screenshot'))
   async createOne(@Body() dto: DeepPartial<AdminTemplate>, @UploadedFile() uploadedFile: Express.Multer.File) {
     if (uploadedFile) {
-      const screenshot = new AdminMedia();
-      screenshot.filename = uploadedFile.filename;
-      screenshot.path = (uploadedFile.path).split(__dirname)[1];
-      screenshot.destination = (uploadedFile.destination).split(__dirname)[1];
-      screenshot.mimetype = uploadedFile.mimetype;
+      let screenshot = new AdminMedia();
+      screenshot = MediaEntityMapperUtils(screenshot, uploadedFile);
       await this.mediaService.saveUploadedFile(screenshot);
       dto.screenshot = screenshot;
     }
-    Object.assign(dto, {categories: dto.categories.map(cat => ({id: cat}))})
     return this.createOneBase(dto);
   }
 }
