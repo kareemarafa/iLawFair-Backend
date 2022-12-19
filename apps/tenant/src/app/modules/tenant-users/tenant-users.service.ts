@@ -17,4 +17,5 @@ export class TenantUsersService extends KamService<TenantUser> {
   async findOneByEmail(email: string): Promise<TenantUser> {
     return this.repo.findOne({where: {email}})
   }
+
 }

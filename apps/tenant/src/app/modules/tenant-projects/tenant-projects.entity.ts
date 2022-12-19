@@ -6,6 +6,7 @@ import {TenantUser} from "../tenant-users/tenant-users.entity";
 import {ApiProperty} from "@nestjs/swagger";
 import {TenantMedia} from "../tenant-media/tenant-media.entity";
 import {Contract} from "../shared";
+import {IsNotEmpty} from "class-validator";
 
 
 @Entity('projects')
@@ -23,6 +24,12 @@ export class TenantProject extends CoreProjectEntity {
   @JoinColumn()
   @ApiProperty({type: 'file', nullable: true, required: false})
   logo: TenantMedia
+
+  @Column()
+  @IsNotEmpty()
+  @ApiProperty({type: 'string', nullable: false, required: true})
+  subdomain:string
+
 
   @OneToOne(() => TenantMedia)
   @JoinColumn()

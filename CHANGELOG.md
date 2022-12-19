@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.27](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.26...v0.0.27) (2022-12-19)
+
+
+### Features
+
+* **reset-password& update profile:** the user can update his details ([8725f59](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/8725f595ceb62f29335d33208f4dedfc40cd5eb0))
+* **tenant-auth:** tenant auth validation due to status, profile update API refactor ([080d750](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/080d75063fc66ac4d83531473bba0d4aa4bcf34e))
+
+
+### Bug Fixes
+
+* **fix the  get profile  & updata profile:** it was return an a empty objc ([9517255](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/9517255c8311d64ad60fc9982b14c25a8164bd73))
+* **get profile:** fix a bug thats got internal server error when req the user profile ([a130f3c](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/a130f3cb3031dd5611a51e0d70de8699788ea430))
+
 ### [0.0.26](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.25...v0.0.26) (2022-12-12)
 
 

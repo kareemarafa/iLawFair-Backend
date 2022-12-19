@@ -18,8 +18,8 @@ class ContractTypeDto {
 
 export class CreateProjectSuccessDto {
   @ApiProperty({type: 'string', nullable: false, required: true}) projectName: string;
-  @ApiProperty({type: 'string', nullable: false, required: true}) color: string;
-  @ApiProperty({type: 'string', nullable: false, required: true}) description: string;
+  @ApiProperty({type: 'string', nullable: true, required: false}) color: string;
+  @ApiProperty({type: 'string', nullable: true, required: false}) description: string;
   @ApiProperty({
     type: 'enum',
     nullable: true,

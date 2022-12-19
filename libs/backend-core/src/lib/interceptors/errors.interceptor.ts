@@ -18,10 +18,7 @@ export class ErrorsInterceptor implements NestInterceptor {
       .pipe(
         catchError((err) => {
           console.log({errorFromInterceptor: err});
-          switch (err?.status) {
-            default:
-              throw err;
-          }
+          throw err;
         }),
       );
   }
