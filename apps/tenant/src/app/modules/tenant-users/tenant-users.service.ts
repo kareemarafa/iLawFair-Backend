@@ -4,6 +4,8 @@ import {TenantUser} from './tenant-users.entity'
 import {Repository, UpdateResult} from 'typeorm'
 import {KamService} from "@ionhour/backend-core";
 import {AuthService} from "../tenant-auth/tenant-auth.service";
+import e from "express";
+import {ResetPasswordTenantUserDto} from "../tenant-auth/dto/reset-password-tenantUser.dto";
 
 @Injectable()
 export class TenantUsersService extends KamService<TenantUser> {
@@ -27,16 +29,13 @@ export class TenantUsersService extends KamService<TenantUser> {
     userData: any,
   ): Promise<UpdateResult> {
     const existUser: TenantUser = await this.findOneByEmail(userData.email);
-    if (
-      existUser &&
-      id !== existUser.id &&
-      userData.email === existUser.email
-    ) {
-      throw new BadRequestException({
-        statusCode: HttpStatus.BAD_REQUEST
-      })
+    if (existUser && id !== existUser.id && userData.email === existUser.email) {
+      return this.repo.update(userData, userData.password);
     } else {
-      return this.repo.update(id, userData);
+      throw new BadRequestException({
+        statusCode: HttpStatus.BAD_REQUEST,
+        message : 'some thing wrong here'
+      })
     }
   }
 

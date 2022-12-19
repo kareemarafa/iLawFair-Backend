@@ -11,6 +11,7 @@ import { AuthService } from './auth.service';
 import { LocalAuthGuard } from "./guards";
 import { ForgetPasswordDto } from "./dto";
 import {AdminUser} from "../admin-users/admin-users.entity";
+import {MessagePattern} from "@nestjs/microservices";
 
 @Controller('auth')
 export class AuthController {
@@ -36,5 +37,4 @@ export class AuthController {
   async forgotPassword(@Body() forgotPasswordDto: ForgetPasswordDto) {
     return this.authService.forgotPassword(forgotPasswordDto.email);
   }
-
 }

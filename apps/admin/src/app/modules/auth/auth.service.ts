@@ -5,6 +5,7 @@ import {AdminUsersService} from "../admin-users/admin-users.service";
 import {EncryptionService} from "@ionhour/encryption";
 import {AdminUser} from "../admin-users/admin-users.entity";
 import {RegisterAdminUserDto} from "./dto";
+import {MessagePattern} from "@nestjs/microservices";
 
 @Injectable()
 export class AuthService {

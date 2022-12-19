@@ -55,7 +55,7 @@ export class AuthController {
     type: TenantUser,
     description: 'Success!',
   })
-  async resetPassword(@Body() resetPasswordData: ResetPasswordTenantUserDto): Promise<UpdateResult> {
+  async resetPassword(@Body() resetPasswordData: ResetPasswordTenantUserDto): Promise<Omit<ResetPasswordTenantUserDto, "password"> | UpdateResult> {
     return await this.authService.resetPassword( resetPasswordData);
   }
 }
