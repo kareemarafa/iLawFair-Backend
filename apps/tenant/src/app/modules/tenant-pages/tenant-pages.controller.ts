@@ -27,8 +27,8 @@ export class PagesController extends  KamController<TenantPage> {
     if (uploadedFile) {
       const screenshot = new TenantMedia();
       screenshot.filename = uploadedFile.filename;
-      screenshot.path = uploadedFile.path;
-      screenshot.destination = uploadedFile.destination;
+      screenshot.path = (uploadedFile.path).split(__dirname)[1];
+      screenshot.destination = (uploadedFile.destination).split(__dirname)[1];
       screenshot.mimetype = uploadedFile.mimetype;
       await this.mediaService.saveUploadedFile(screenshot);
       dto.screenshot = screenshot;

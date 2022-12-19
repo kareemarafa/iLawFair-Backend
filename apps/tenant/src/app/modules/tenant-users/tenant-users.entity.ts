@@ -4,6 +4,7 @@ import { IsEmail, IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-vali
 import { ApiProperty } from '@nestjs/swagger'
 import { TenantProject } from '../tenant-projects/tenant-projects.entity'
 import {TenantMedia} from "../tenant-media/tenant-media.entity";
+import {Exclude} from "class-transformer";
 
 
 @Entity('users')
@@ -30,6 +31,7 @@ export class TenantUser extends CoreEntity {
   @MaxLength(100, { always: true })
   @Column({ type: 'varchar', length: 100, nullable: false })
   @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
+  @Exclude()
   password: string
 
   @IsNotEmpty()

@@ -1,11 +1,10 @@
-import { BadRequestException, forwardRef, HttpStatus, Inject, Injectable, UnauthorizedException } from "@nestjs/common";
-import { JwtService } from "@nestjs/jwt";
-import { TokenPayloadInterface } from "./interfaces";
+import {BadRequestException, forwardRef, Inject, Injectable, UnauthorizedException} from "@nestjs/common";
+import {JwtService} from "@nestjs/jwt";
+import {TokenPayloadInterface} from "./interfaces";
 import {AdminUsersService} from "../admin-users/admin-users.service";
 import {EncryptionService} from "@ionhour/encryption";
 import {AdminUser} from "../admin-users/admin-users.entity";
 import {RegisterAdminUserDto} from "./dto";
-import {MessagePattern} from "@nestjs/microservices";
 
 @Injectable()
 export class AuthService {
@@ -44,8 +43,8 @@ export class AuthService {
    *   forget password function
    */
   async forgotPassword(email: string): Promise<AdminUser> {
-    const user: AdminUser = await this.adminUsersService.getOne({where: {email}});
-    return user;
+    // TODO should send an email with JWT token
+    return this.adminUsersService.getOne({where: {email}});
   }
 
   async checkAuth(token: string): Promise<TokenPayloadInterface> {

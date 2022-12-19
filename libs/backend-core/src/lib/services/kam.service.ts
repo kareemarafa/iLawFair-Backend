@@ -65,7 +65,7 @@ export class KamService<T> {
 
   async updateOne(id, dto: QueryDeepPartialEntity<T>): Promise<T> {
     await this.repo.update(id, dto);
-    return this.getOne({id});
+    return this.getOne({where: {id}});
   }
 
   deleteOne(options): Promise<DeleteResult> {

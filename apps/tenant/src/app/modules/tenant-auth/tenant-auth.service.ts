@@ -3,8 +3,7 @@ import {
   forwardRef,
   HttpStatus,
   Inject,
-  Injectable,
-  NotFoundException,
+  Injectable, NotFoundException,
   UnauthorizedException
 } from '@nestjs/common'
 import {TenantUsersService} from '../tenant-users/tenant-users.service'
@@ -13,8 +12,9 @@ import {JwtService} from '@nestjs/jwt'
 import {TenantUser} from '../tenant-users/tenant-users.entity'
 import {EncryptionService} from '@ionhour/encryption'
 import {ClientProxy} from "@nestjs/microservices";
-import { lastValueFrom, Observable, of} from "rxjs";
-import {ResetPasswordTenantUserDto} from "./dto/reset-password-tenantUser.dto";
+import {lastValueFrom, Observable} from "rxjs";
+import {TenantResetPasswordDto} from "./dto";
+import {TokenPayload} from "@ionhour/interfaces";
 
 
 @Injectable()
@@ -31,27 +31,23 @@ export class AuthService {
   }
 
   async validateUser(email: string, _password: string): Promise<any> {
-    let user: TenantUser;
-    let isPasswordCorrect: boolean;
-    const findOneOptions = {
-      where: [{email}]
-    };
-    try {
-      user = await lastValueFrom(this.adminService.send({cmd: 'CUSTOMER_LOGIN'}, findOneOptions))
-    } catch (e) {
-      throw new UnauthorizedException()
+    const user = await this.usersService.findOneByEmail(email);
+    if (!user?.id) {
+      throw new NotFoundException('User is not found')
     }
-    try {
-      isPasswordCorrect = await this.encryptionService.compare(_password, user?.password)
-    } catch (e) {
+
+    const isCorrectPassword = await this.encryptionService.compare(_password, user?.password);
+    if (!isCorrectPassword) {
       throw new UnauthorizedException('Password is incorrect')
     }
-    if (user && isPasswordCorrect) {
-      const {password, ...result} = user
-      return result
-    } else {
-      throw new UnauthorizedException()
+
+    const isActiveTenant = await lastValueFrom(this.adminService.send({cmd: 'CUSTOMER_ACTIVENESS'}, {email}))
+    if (!isActiveTenant) {
+      throw new UnauthorizedException('Customer is not active')
     }
+
+    const {password, ...result} = user
+    return result
   }
 
   async login(user: TenantUser): Promise<any> {
@@ -88,40 +84,29 @@ export class AuthService {
     })
   }
 
-  async checkAuth(token: string): Promise<TokenPayloadInterface> {
-    let verifyObject: TokenPayloadInterface
-    try {
-      verifyObject = await this.jwtService.verify(token)
-    } catch (e) {
-      throw new UnauthorizedException()
-    }
-    return verifyObject
+  async getEmailFromToken(token: string): Promise<string> {
+    const tokenPayload: TokenPayload = await this.retrieveTokenPayload(token);
+    return tokenPayload.email;
   }
-
 
   /**
    * Reset Password using token and new password
-   * @param  user : TenantUser
+   * @param token
+   * @param  resetPasswordDto
    */
-  async resetPassword(user: ResetPasswordTenantUserDto) {
-    let isPasswordCorrect: boolean;
-    const _user = await lastValueFrom(this.adminService.send({cmd: 'CUSTOMER_FIND_ONE'}, {where: [{email: user.email}, {password: user.password}]}))
-    let _password = _user.password
-    try {
-      isPasswordCorrect = await this.encryptionService.compare(_password, user?.password)
-    } catch (e) {
+  async resetPassword(token: string, resetPasswordDto: TenantResetPasswordDto): Promise<TenantUser> {
+    const tokenPayload: TokenPayload = await this.retrieveTokenPayload(token);
+    const currentUser = await this.usersService.findOneByEmail(tokenPayload.email);
+    const isPasswordCorrect = await this.encryptionService.compare(resetPasswordDto?.currentPassword, currentUser.password)
+    if (isPasswordCorrect) {
+      const hashedPassword = await this.encryptionService.hash(resetPasswordDto.newPassword);
+      return this.usersService.updateOne(currentUser.id, {...currentUser, password: hashedPassword});
+    } else {
       throw new UnauthorizedException('Password is incorrect')
     }
-    const {password, ...result} = user
-    if (user && isPasswordCorrect) {
-      return result
-    }
-    if  (user && result) {
-      return this.usersService.update(user.id, {...user, password});
-    } else {
-      throw new NotFoundException('user not found!');
-    }
+  }
 
-
+  async retrieveTokenPayload(token): Promise<TokenPayload> {
+    return this.jwtService.verify(token);
   }
 }

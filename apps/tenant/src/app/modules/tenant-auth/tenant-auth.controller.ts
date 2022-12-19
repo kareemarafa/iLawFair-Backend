@@ -1,17 +1,27 @@
-import {Controller, Post, Request, HttpCode, HttpStatus, Body, UseGuards, Inject} from '@nestjs/common'
+import {
+  Controller,
+  Post,
+  Request,
+  HttpCode,
+  HttpStatus,
+  Body,
+  UseGuards,
+  Inject,
+  Headers,
+  UseInterceptors, ClassSerializerInterceptor
+} from '@nestjs/common'
 import {AuthService} from './tenant-auth.service'
 import {TenantUser} from '../tenant-users/tenant-users.entity'
 import {ApiOperation, ApiResponse, ApiTags} from '@nestjs/swagger'
-import {RegisterUserDto} from "./dto";
+import {TenantResetPasswordDto, RegisterUserDto} from "./dto";
 import {ClientProxy} from "@nestjs/microservices";
-import {lastValueFrom} from "rxjs";
 import {LocalAuthGuard} from "./guards";
 import {EncryptionService} from "@ionhour/encryption";
-import {ResetPasswordTenantUserDto} from "./dto/reset-password-tenantUser.dto";
-import {UpdateResult} from "typeorm";
+import {ExtractTokenUtils} from "@ionhour/backend-core";
 
 @ApiTags('Auth')
 @Controller('auth')
+@UseInterceptors(ClassSerializerInterceptor)
 export class AuthController {
   constructor(@Inject("ADMIN_SERVICE") private readonly adminService: ClientProxy,
               private authService: AuthService,
@@ -42,6 +52,7 @@ export class AuthController {
 
   /**
    * Reset the user password
+   * @param authorization
    * @param {object} resetPasswordData
 
    */
@@ -55,8 +66,11 @@ export class AuthController {
     type: TenantUser,
     description: 'Success!',
   })
-  async resetPassword(@Body() resetPasswordData: ResetPasswordTenantUserDto): Promise<Omit<ResetPasswordTenantUserDto, "password"> | UpdateResult> {
-    return await this.authService.resetPassword( resetPasswordData);
+  async resetPassword(
+    @Headers('Authorization') authorization: string,
+    @Body() resetPasswordData: TenantResetPasswordDto): Promise<TenantUser> {
+    const token = ExtractTokenUtils(authorization);
+    return await this.authService.resetPassword(token, resetPasswordData);
   }
 }
 
