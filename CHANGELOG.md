@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.29](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.28...v0.0.29) (2022-12-23)
+
+
+### Bug Fixes
+
+* **fix  code:** add some proprty ([ebc90ae](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/ebc90ae5427d68f91a0274b1a6edae2e80c7ab07))
+* **validation:** enhance validations in project enitity ([e8d3b55](https://github.com/Ahmedtaheromar/Web-Me-backend/commit/e8d3b558f3e6ecf99e2d3012de18607bc300be6c))
+
 ### [0.0.28](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.27...v0.0.28) (2022-12-19)
 
 
