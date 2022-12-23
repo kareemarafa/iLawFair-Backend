@@ -8,7 +8,6 @@ import {BuilderType} from "../../../../interfaces/src";
 export class CoreProjectEntity extends CoreEntity {
 
   @IsNotEmpty()
-  @IsOptional()
   @IsString()
   @Column({type: 'varchar', nullable: false})
   @ApiProperty({required: true, type: 'string', nullable: false})

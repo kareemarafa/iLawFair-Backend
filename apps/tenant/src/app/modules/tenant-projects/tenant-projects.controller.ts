@@ -6,7 +6,6 @@ import {AuthGuard} from '@nestjs/passport'
 import {FileUploadingUtils, KamController, MediaEntityMapperUtils} from "@ionhour/backend-core";
 import {MediaService} from "../tenant-media/tenant-media.service";
 import {TenantMedia} from "../tenant-media/tenant-media.entity";
-import {DeepPartial} from "typeorm";
 import {CreateProjectSuccessDto} from "./dto";
 
 @Controller('projects')
@@ -23,7 +22,7 @@ export class TenantProjectsController extends KamController<TenantProject> {
   @ApiConsumes('multipart/form-data')
   @ApiAcceptedResponse({type: CreateProjectSuccessDto, description: "Project success creation"})
   @ApiBody({ type: TenantProject })
-  async createOneBase(@Body() dto: DeepPartial<TenantProject>, @UploadedFile() uploadedFile: Express.Multer.File) {
+  async createOneBase(@Body() dto: TenantProject, @UploadedFile() uploadedFile: Express.Multer.File) {
     if (uploadedFile) {
       let logo = new TenantMedia();
       logo = MediaEntityMapperUtils(logo, uploadedFile);
