@@ -18,14 +18,14 @@ export class CoreProjectEntity extends CoreEntity {
   @IsOptional()
   @IsHexColor()
   @MaxLength(100, )
-  @Column({type: 'varchar', length: 100, nullable: false})
+  @Column({type: 'varchar', length: 100, nullable: true})
   @ApiProperty({required: false, type: 'string', nullable: true, maxLength: 100})
   color: string
 
   @IsNotEmpty()
   @IsOptional()
   @IsString()
-  @Column({type: 'varchar', nullable: false})
+  @Column({type: 'varchar', nullable: true})
   @ApiProperty({required: false, type: 'string', nullable: true})
   description: string
 

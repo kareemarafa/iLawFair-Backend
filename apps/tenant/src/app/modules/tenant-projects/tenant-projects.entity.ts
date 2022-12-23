@@ -25,7 +25,7 @@ export class TenantProject extends CoreProjectEntity {
   @ApiProperty({type: 'file', nullable: true, required: false})
   logo: TenantMedia
 
-  @Column()
+  @Column({type: 'varchar', nullable: false})
   @IsNotEmpty()
   @ApiProperty({type: 'string', nullable: false, required: true})
   subdomain:string
