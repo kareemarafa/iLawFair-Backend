@@ -39,7 +39,7 @@ export class TenantProject extends CoreProjectEntity {
   @Column()
   @IsNotEmpty()
   @IsArray()
-  @ApiProperty({type: 'string', nullable: true, required: false, example: 'Resume,Portfolio'})
+  @ApiProperty({type: 'string', nullable: false, required: true, example: 'Resume,Portfolio'})
   keywords: string;
 
   @OneToOne(() => Contract)

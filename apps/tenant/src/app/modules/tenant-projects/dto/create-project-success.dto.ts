@@ -6,14 +6,9 @@ class ContractTypeDto {
   @ApiProperty({type: 'enum', nullable: false, required: true, enum: ContractTypes, default: ContractTypes.TRIAL})
   contractType: ContractTypes;
   @ApiProperty({"type": "string", "format": "date-time", nullable: true, required: false}) activeFrom: Date;
-  @ApiProperty({"type": "string", "format": "date-time", nullable: true, required: false}) activeTo: Date
-  @ApiProperty({"type": "string", "format": "date-time", nullable: true, required: false}) deletedDate: Date;
+  @ApiProperty({"type": "string", "format": "date-time", nullable: true, required: false}) activeTo: Date;
   @ApiProperty({type: 'enum', nullable: true, required: false, enum: ContractPeriods})
   contractPeriod: ContractPeriods;
-  @ApiProperty({type: 'number', nullable: true, required: false})
-  id: number;
-  @ApiProperty({"type": "string", "format": "date-time", nullable: true, required: false}) createdDate: Date;
-  @ApiProperty({"type": "string", "format": "date-time", nullable: true, required: false}) updatedDate: Date;
 }
 
 export class CreateProjectSuccessDto {
@@ -27,15 +22,7 @@ export class CreateProjectSuccessDto {
     enum: BuilderType,
     default: BuilderType.SINGLE_PAGE
   }) builderType: BuilderType;
-  @ApiProperty({type: 'string', nullable: false, required: true}) keywords: string;
+  @ApiProperty({type: 'string', isArray: true, nullable: false, required: true}) keywords: string;
   @ApiProperty({type: ContractTypeDto, nullable: true, required: false})
   contract: ContractTypeDto;
-  @ApiProperty({"type": "string", "format": "date-time", nullable: true, required: false})
-  deletedDate: Date;
-  @ApiProperty({type: 'number', nullable: true, required: false})
-  id: number;
-  @ApiProperty({"type": "string", "format": "date-time", nullable: true, required: false})
-  createdDate: Date;
-  @ApiProperty({"type": "string", "format": "date-time", nullable: true, required: false})
-  updatedDate: Date;
 }
