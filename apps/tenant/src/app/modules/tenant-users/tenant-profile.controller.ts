@@ -12,8 +12,7 @@ import {AuthService} from '../tenant-auth/tenant-auth.service'
 import {AuthGuard} from '@nestjs/passport'
 import {TenantUsersService} from './tenant-users.service'
 import {ApiBearerAuth, ApiTags} from "@nestjs/swagger";
-import {ExtractTokenUtils, KamController} from "@ionhour/backend-core";
-import {TenantUser} from "./tenant-users.entity";
+import {ExtractTokenUtils} from "@ionhour/backend-core";
 import {UpdateProfileDto} from "./dto/tenant-update-profile.dto";
 
 @Controller('profile')
@@ -21,9 +20,8 @@ import {UpdateProfileDto} from "./dto/tenant-update-profile.dto";
 @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
 @UseInterceptors(ClassSerializerInterceptor)
-export class ProfileController  extends KamController<TenantUser>{
+export class ProfileController<TenantUser>{
   constructor(private authService: AuthService, private userService: TenantUsersService) {
-    super(userService)
   }
 
   @Get()
