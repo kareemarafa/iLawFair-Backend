@@ -2,11 +2,10 @@ import {
   Body,
   Controller,
   Get,
-  Post,
   UseGuards,
   Headers,
   ClassSerializerInterceptor,
-  UseInterceptors
+  UseInterceptors, Put
 } from '@nestjs/common'
 import {AuthService} from '../tenant-auth/tenant-auth.service'
 import {AuthGuard} from '@nestjs/passport'
@@ -33,7 +32,7 @@ export class ProfileController<TenantUser>{
     return _profile
   }
 
-  @Post()
+  @Put()
   async updateProfile(@Headers('Authorization') authorization: string, @Body() updateUserProfileDto: UpdateProfileDto) {
     const token = ExtractTokenUtils(authorization);
     const userEmail = await this.authService.getEmailFromToken(token);
