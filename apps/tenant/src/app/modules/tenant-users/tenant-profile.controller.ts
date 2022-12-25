@@ -5,7 +5,7 @@ import {
   UseGuards,
   Headers,
   ClassSerializerInterceptor,
-  UseInterceptors, Put
+  UseInterceptors, Put, NotFoundException
 } from '@nestjs/common'
 import {AuthService} from '../tenant-auth/tenant-auth.service'
 import {AuthGuard} from '@nestjs/passport'
@@ -19,7 +19,7 @@ import {UpdateProfileDto} from "./dto/tenant-update-profile.dto";
 @UseGuards(AuthGuard('jwt'))
 @ApiBearerAuth()
 @UseInterceptors(ClassSerializerInterceptor)
-export class ProfileController<TenantUser>{
+export class ProfileController<TenantUser> {
   constructor(private authService: AuthService, private userService: TenantUsersService) {
   }
 
@@ -28,8 +28,12 @@ export class ProfileController<TenantUser>{
     const token = ExtractTokenUtils(authorization);
     const userEmail = await this.authService.getEmailFromToken(token);
     const user = await this.userService.findOneByEmail(userEmail);
-    const {password,..._profile} = user;
-    return _profile
+    if (user?.id) {
+      delete user.password;
+    } else {
+      throw new NotFoundException('User not found')
+    }
+    return user;
   }
 
   @Put()
@@ -37,7 +41,11 @@ export class ProfileController<TenantUser>{
     const token = ExtractTokenUtils(authorization);
     const userEmail = await this.authService.getEmailFromToken(token);
     const user = await this.userService.findOneByEmail(userEmail);
-    const {password,..._user} = user;
-    return this.userService.updateOne(user.id, {..._user, ...updateUserProfileDto})
+    if (user?.id) {
+      delete user.password;
+    } else {
+      throw new NotFoundException('User not found')
+    }
+    return this.userService.updateOne(user.id, {...user, ...updateUserProfileDto})
   }
 }

@@ -13,7 +13,7 @@ import {TenantUser} from '../tenant-users/tenant-users.entity'
 import {EncryptionService} from '@ionhour/encryption'
 import {ClientProxy} from "@nestjs/microservices";
 import {lastValueFrom, Observable} from "rxjs";
-import {TenantResetPasswordDto} from "./dto";
+import {RegisterUserDto, TenantResetPasswordDto} from "./dto";
 import {TokenPayload} from "@ionhour/interfaces";
 
 
@@ -40,11 +40,11 @@ export class AuthService {
     if (!isCorrectPassword) {
       throw new UnauthorizedException('Password is incorrect')
     }
-
-    const isActiveTenant = await lastValueFrom(this.adminService.send({cmd: 'CUSTOMER_ACTIVENESS'}, {email}))
-    if (!isActiveTenant) {
-      throw new UnauthorizedException('Customer is not active')
-    }
+    // TODO user email should be updated in admin database
+    // const isActiveTenant = await lastValueFrom(this.adminService.send({cmd: 'CUSTOMER_ACTIVENESS'}, {email}))
+    // if (!isActiveTenant) {
+    //   throw new UnauthorizedException('Customer is not active')
+    // }
 
     const {password, ...result} = user
     return result
@@ -62,7 +62,8 @@ export class AuthService {
     }
   }
 
-  async register(user: TenantUser): Promise<TenantUser | Error> {
+  async register(user: RegisterUserDto): Promise<TenantUser | Error> {
+    console.log({user});
     const findOneOptions = {
       where: [{email: user.email}, {phone: user.phone}]
     };

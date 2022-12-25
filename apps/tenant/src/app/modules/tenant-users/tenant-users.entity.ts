@@ -31,7 +31,7 @@ export class TenantUser extends CoreEntity {
   @MaxLength(100, { always: true })
   @Column({ type: 'varchar', length: 100, nullable: false })
   @ApiProperty({ required: true, type: 'string', nullable: false, maxLength: 100 })
-  @Exclude()
+  // @Exclude()
   password: string
 
   @IsNotEmpty()
