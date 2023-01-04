@@ -3,10 +3,10 @@ import {InjectRepository} from "@nestjs/typeorm";
 import {KamMediaService} from "@ionhour/backend-core";
 import {TenantMedia} from "./tenant-media.entity";
 import {TenantUsersService} from "../tenant-users/tenant-users.service";
-import {TenantUser} from "../tenant-users/tenant-users.entity";
 
 @Injectable()
 export class MediaService extends KamMediaService<TenantMedia> {
+
   constructor(
     @InjectRepository(TenantMedia) repo,
     @Inject(forwardRef(() => TenantUsersService)) private readonly userService: TenantUsersService
@@ -15,7 +15,7 @@ export class MediaService extends KamMediaService<TenantMedia> {
   }
 
   async getUserMedia(token: string): Promise<TenantMedia[]> {
-    const user = await this.getUserFromToken(token);
+    const user = await this.userService.getUserFromToken(token);
     return super.getMany({
       relations: ['user'],
       where: {
@@ -24,7 +24,4 @@ export class MediaService extends KamMediaService<TenantMedia> {
     });
   }
 
-  async getUserFromToken(token: string): Promise<TenantUser> {
-    return this.userService.getUserFromToken(token);
-  }
 }
