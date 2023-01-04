@@ -19,7 +19,6 @@ import {TokenPayload} from "@ionhour/interfaces";
 
 @Injectable()
 export class AuthService {
-  private token: string;
 
   constructor(
     @Inject("ADMIN_SERVICE") private readonly adminService: ClientProxy,
