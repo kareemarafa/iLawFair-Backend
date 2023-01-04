@@ -6,7 +6,7 @@ import {BadRequestException} from "@nestjs/common";
 export class KamService<T> {
   relations: string[] = [];
   uniques: string[] = [];
-  selection: Record<string, boolean> = {};
+  selection: Record<string, any> = {};
 
   constructor(public repo: Repository<T>) {
   }

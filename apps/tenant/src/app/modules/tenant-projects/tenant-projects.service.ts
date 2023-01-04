@@ -13,13 +13,12 @@ export class TenantProjectsService extends KamService<TenantProject> {
               @Inject(forwardRef(() => TenantUsersService)) private readonly userService: TenantUsersService
   ) {
     super(repo)
-    this.relations = ['contract'];
+    this.relations = ['contract', 'user'];
   }
 
   async getUserProjects(token: string): Promise<TenantProject[]> {
     const user = await this.userService.getUserFromToken(token);
     return super.getMany({
-      relations: ['user'],
       where: {
         user: {id: user.id},
       }
