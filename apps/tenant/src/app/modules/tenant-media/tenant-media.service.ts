@@ -3,6 +3,7 @@ import {InjectRepository} from "@nestjs/typeorm";
 import {KamMediaService} from "@ionhour/backend-core";
 import {TenantMedia} from "./tenant-media.entity";
 import {TenantUsersService} from "../tenant-users/tenant-users.service";
+import {PaginationObjectInterface} from "@ionhour/interfaces";
 
 @Injectable()
 export class MediaService extends KamMediaService<TenantMedia> {
@@ -14,7 +15,7 @@ export class MediaService extends KamMediaService<TenantMedia> {
     super(repo)
   }
 
-  async getUserMedia(token: string): Promise<TenantMedia[]> {
+  async getUserMedia(token: string): Promise<PaginationObjectInterface<TenantMedia>> {
     const user = await this.userService.getUserFromToken(token);
     return super.getMany({
       relations: ['user'],

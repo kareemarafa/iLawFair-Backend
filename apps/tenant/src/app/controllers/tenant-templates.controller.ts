@@ -3,7 +3,6 @@ import {ApiBearerAuth, ApiTags} from "@nestjs/swagger";
 import {AuthGuard} from "@nestjs/passport";
 import {ClientProxy} from "@nestjs/microservices";
 import {lastValueFrom} from "rxjs";
-import {TenantProjectsService} from "../modules/tenant-projects/tenant-projects.service";
 
 @Controller('templates')
 @ApiTags('Templates')
@@ -13,13 +12,16 @@ export class TenantTemplatesController {
 
   constructor(
     @Inject("ADMIN_SERVICE") private readonly adminService: ClientProxy,
-    private readonly projectService: TenantProjectsService
   ) {
   }
 
   @Get()
-  async findAll(@Query('keywords') keywords: Record<string, string>) {
-    return lastValueFrom(this.adminService.send({cmd: 'GET_ALL_TEMPLATES'}, {keywords: keywords}))
+  async findAll(
+    @Query('keywords') keywords: Record<string, string>,
+    @Query('page') page: number,
+    @Query('take') take: number,
+  ) {
+    return lastValueFrom(this.adminService.send({cmd: 'GET_ALL_TEMPLATES'}, {keywords: keywords, page, take}))
   }
 
 }

@@ -4,6 +4,7 @@ import {ApiTags} from "@nestjs/swagger";
 import {AdminTemplate} from "./admin-template.entity";
 import {AdminTemplateService} from "./admin-template.service";
 import {MessagePattern} from "@nestjs/microservices";
+import {PaginationObjectInterface} from "@ionhour/interfaces";
 
 @Controller('public/templates')
 @ApiTags('Public Templates')
@@ -17,8 +18,8 @@ export class PublicTemplatesController extends KamController<AdminTemplate> {
    * @param data
    */
   @MessagePattern({cmd: 'GET_ALL_TEMPLATES'})
-  getMany(data: Record<string, any>) {
-    const options = {};
+  getMany(data: Record<string, any>): Promise<PaginationObjectInterface<AdminTemplate>> {
+    const options = data;
     if (Object.keys(data?.keywords || {}).length) {
       const {keywords} = data;
       const categories = keywords.split(',');

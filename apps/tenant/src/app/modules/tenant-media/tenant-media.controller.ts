@@ -15,6 +15,7 @@ import {AuthGuard} from '@nestjs/passport'
 import {MediaService} from "./tenant-media.service";
 import {TenantMedia} from "./tenant-media.entity";
 import {TenantUsersService} from "../tenant-users/tenant-users.service";
+import {PaginationObjectInterface} from "@ionhour/interfaces";
 
 @Controller('media')
 @ApiTags('Media')
@@ -30,7 +31,7 @@ export class MediaController extends KamController<TenantMedia> {
 
   @Get()
   @UseGuards(AuthGuard('jwt'))
-  async getMany(@Headers('Authorization') authorization: string) {
+  async getMany(@Headers('Authorization') authorization: string): Promise<PaginationObjectInterface<TenantMedia>> {
     const token = ExtractTokenUtils(authorization);
     return this.service.getUserMedia(token);
   }

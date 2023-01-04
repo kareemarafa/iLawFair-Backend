@@ -5,6 +5,7 @@ import {Repository} from "typeorm";
 import {ContractTypes, KamService} from "@ionhour/backend-core";
 import {Contract} from "../shared";
 import {TenantUsersService} from "../tenant-users/tenant-users.service";
+import {PaginationObjectInterface} from "@ionhour/interfaces";
 
 @Injectable()
 export class TenantProjectsService extends KamService<TenantProject> {
@@ -16,9 +17,10 @@ export class TenantProjectsService extends KamService<TenantProject> {
     this.relations = ['contract', 'user'];
   }
 
-  async getUserProjects(token: string): Promise<TenantProject[]> {
+  async getUserProjects(token: string, options: Record<string, any>): Promise<PaginationObjectInterface<TenantProject>> {
     const user = await this.userService.getUserFromToken(token);
     return super.getMany({
+      ...options,
       where: {
         user: {id: user.id},
       }
