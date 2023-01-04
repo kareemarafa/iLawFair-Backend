@@ -1,7 +1,8 @@
-import {DeepPartial, Repository} from "typeorm";
+import {DeepPartial, Like, Repository} from "typeorm";
 import {DeleteResult} from "typeorm/query-builder/result/DeleteResult";
 import {QueryDeepPartialEntity} from "typeorm/query-builder/QueryPartialEntity";
-import {BadRequestException} from "@nestjs/common";
+import {BadRequestException, HttpStatus} from "@nestjs/common";
+import {PaginationObjectInterface} from "../../../../interfaces/src";
 
 export class KamService<T> {
   relations: string[] = [];
@@ -11,10 +12,33 @@ export class KamService<T> {
   constructor(public repo: Repository<T>) {
   }
 
-  getMany(options = {}): Promise<T[]> {
+  async getMany(options: Record<string, any>): Promise<PaginationObjectInterface<T>> {
+    const take = options.take || 10
+    const page = options.page || 1;
+    const skip = (page - 1) * take;
+
     options['relations'] = this.relations;
     options['select'] = this.selection;
-    return this.repo.find(options)
+    options['take'] = take;
+    options['skip'] = skip;
+    const data = await this.repo.findAndCount(options);
+    return this.paginateResponse(data, page, take);
+  }
+
+  paginateResponse(data, page, limit): PaginationObjectInterface<T> {
+    const [result, total] = data;
+    const lastPage = Math.ceil(total / limit);
+    const nextPage = page + 1 > lastPage ? null : page + 1;
+    const prevPage = page - 1 < 1 ? null : page - 1;
+    return {
+      data: [...result],
+      statusCode: HttpStatus.OK,
+      count: total,
+      currentPage: page,
+      nextPage: nextPage,
+      prevPage: prevPage,
+      lastPage: lastPage,
+    }
   }
 
   getOne(options = {}): Promise<T> {
@@ -57,7 +81,7 @@ export class KamService<T> {
       })
     );
     if (Object.keys(_EXISTS).length) {
-      throw new BadRequestException( {errors: _EXISTS}, "validation_error")
+      throw new BadRequestException({errors: _EXISTS}, "validation_error")
     } else {
       return;
     }

@@ -1,7 +1,9 @@
 export interface PaginationObjectInterface<T> {
-  data: T[]
-  count: number
-  total: number
-  page: number
-  pageCount: number
+  statusCode: number;
+  data: T[];
+  count: number;
+  currentPage: number;
+  nextPage: number;
+  prevPage: number;
+  lastPage: number;
 }

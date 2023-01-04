@@ -4,7 +4,7 @@ import {
   forwardRef, Get,
   Headers,
   Inject,
-  Post,
+  Post, Query,
   UploadedFile,
   UseGuards,
   UseInterceptors
@@ -18,6 +18,7 @@ import {MediaService} from "../tenant-media/tenant-media.service";
 import {TenantMedia} from "../tenant-media/tenant-media.entity";
 import {CreateProjectSuccessDto} from "./dto";
 import {TenantUsersService} from "../tenant-users/tenant-users.service";
+import {PaginationObjectInterface} from "@ionhour/interfaces";
 
 @Controller('projects')
 @ApiTags('Projects')
@@ -33,9 +34,13 @@ export class TenantProjectsController extends KamController<TenantProject> {
   }
 
   @Get()
-  async getMany(@Headers('Authorization') authorization: string): Promise<TenantProject[]> {
+  async getMany(
+    @Headers('Authorization') authorization: string,
+    @Query('page') page: number,
+    @Query('take') take: number,
+  ): Promise<PaginationObjectInterface<TenantProject>> {
     const token = ExtractTokenUtils(authorization);
-    return this.service.getUserProjects(token);
+    return this.service.getUserProjects(token, {page, take});
   }
 
   @Post()
