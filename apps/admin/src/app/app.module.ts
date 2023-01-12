@@ -11,6 +11,12 @@ import {BackendCoreModule} from "@ionhour/backend-core";
   imports: [
     BackendCoreModule,
     ConfigModule.forRoot({
+      envFilePath: [
+        'local.env',
+        'dev.env',
+        'test.env',
+        'production.env',
+      ],
       load: [databaseConfig, authConfig],
       isGlobal: true
     }),

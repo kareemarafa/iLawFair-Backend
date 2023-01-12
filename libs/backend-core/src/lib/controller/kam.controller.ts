@@ -3,6 +3,7 @@ import {KamService} from "../services";
 import {DeepPartial, DeleteResult} from "typeorm";
 import {ApiOperation, ApiResponse} from "@nestjs/swagger";
 import {QueryDeepPartialEntity} from "typeorm/query-builder/QueryPartialEntity";
+import {PaginationObjectInterface} from "../../../../interfaces/src";
 
 export abstract class KamController<T> {
   protected constructor(public service: KamService<T>) {
@@ -12,7 +13,7 @@ export abstract class KamController<T> {
   @ApiOperation({
     summary: `Get many`,
   })
-  getManyBase(options): Promise<T[]> {
+  getManyBase(options): Promise<PaginationObjectInterface<T>> {
     return this.service.getMany(options);
   }
 

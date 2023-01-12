@@ -1,9 +1,6 @@
 import { AdminUser } from '../app/modules/admin-users/admin-users.entity'
 import {AdminMedia} from "../app/modules/admin-media/admin-media.entity";
-import {AdminCategory} from "../app/modules/admin-categories/admin-categories.entity";
-import {AdminTemplate} from "../app/modules/admin-templates/admin-template.entity";
 import {AdminMeta} from "../app/modules/admin-meta/admin-meta.entity";
-import {AdminPage} from "../app/modules/admin-pages/admin-pages.entity";
 import {AdminCustomer} from "../app/modules/admin-customers/admin-customers.entity";
 
 export const environment = {
@@ -14,20 +11,17 @@ export const databaseConfig = () => ({
   port: 7101,
   adminMSPort: 7102,
   database: {
-    host: 'localhost',
-    port: 8886,
-    username: 'root',
-    password: 'password',
-    name: 'webme_admin',
+    host: process.env.DATABASE_HOST,
+    port: process.env.DATABASE_PORT,
+    username: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    name: process.env.ADMIN_DATABASE_NAME,
     autoLoadEntities: false,
     synchronize: true,
     entities: [
       AdminUser,
       AdminMeta,
-      AdminTemplate,
-      AdminCategory,
       AdminMedia,
-      AdminPage,
       AdminCustomer
     ],
     seeds: []

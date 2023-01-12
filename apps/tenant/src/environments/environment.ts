@@ -1,6 +1,4 @@
 import {TenantUser} from "../app/modules/tenant-users/tenant-users.entity";
-import {TenantProject} from "../app/modules/tenant-projects/tenant-projects.entity";
-import {TenantPage} from "../app/modules/tenant-pages/tenant-pages.entity";
 import {TenantMedia} from "../app/modules/tenant-media/tenant-media.entity";
 import {Contract} from "../app/modules/shared";
 
@@ -19,7 +17,7 @@ export const databaseConfig = () => ({
     name: process.env.DATABASE_NAME,
     autoLoadEntities: false,
     synchronize: true,
-    entities: [TenantUser, TenantProject, TenantPage, TenantMedia, Contract],
+    entities: [TenantUser, TenantMedia, Contract],
     seeds: [process.env.ENTITIES],
     factories: [process.env.FACTORIES],
     migrations: [process.env.MIGRATIONS],

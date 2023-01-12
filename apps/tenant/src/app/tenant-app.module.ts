@@ -6,7 +6,7 @@ import {ConfigModule, ConfigService} from '@nestjs/config'
 import {authConfig, databaseConfig} from '../environments/environment'
 import {features} from './modules'
 import {validate} from './config';
-import {TenantCategoriesController, TenantMetaController, TenantTemplatesController} from "./controllers";
+import {TenantMetaController} from "./controllers";
 import {ClientsModule, Transport} from "@nestjs/microservices";
 import {BackendCoreModule} from "@ionhour/backend-core";
 
@@ -42,7 +42,7 @@ import {BackendCoreModule} from "@ionhour/backend-core";
     ),
     ...features,
   ],
-  controllers: [AppController, TenantTemplatesController, TenantCategoriesController, TenantMetaController],
+  controllers: [AppController, TenantMetaController],
   providers: [TenantAppService],
   exports: []
 })
