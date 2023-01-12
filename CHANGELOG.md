@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.30](https://github.com/kareemarafa/iLawFair-Backend/compare/v0.0.29...v0.0.30) (2023-01-12)
+
+
+### Features
+
+* **pagination:** list request supports page and take query parameters ([c8d069f](https://github.com/kareemarafa/iLawFair-Backend/commit/c8d069f6c956cc7b50f569438e27e2b4c114cd69))
+* remove relation from getMany options in projects GET api ([db9acf6](https://github.com/kareemarafa/iLawFair-Backend/commit/db9acf6063c7964293081e16cbcbbc334ee44c37))
+* **tenant-media-library:** enhance create media adding relation with logged-in user ([27e81f3](https://github.com/kareemarafa/iLawFair-Backend/commit/27e81f3a038e0a569984e6071f55394ff8060b6a))
+* **tenant-projects:** get user projects ([c8b993f](https://github.com/kareemarafa/iLawFair-Backend/commit/c8b993fa2b44f239bf14154f58958387934a6f27))
+* **update profile:** change the update method from POST to PUT ([d5b2995](https://github.com/kareemarafa/iLawFair-Backend/commit/d5b2995f480d4c0135a75658532801653a540cc7))
+
+
+### Bug Fixes
+
+* **porjects:** change keywords type from string to json ([c72ed40](https://github.com/kareemarafa/iLawFair-Backend/commit/c72ed40f83de9f128ac4ad77830d792ccfd36e0e))
+* remove password exclude, stop customer activeness check in login ([e61c274](https://github.com/kareemarafa/iLawFair-Backend/commit/e61c27496b24dab904f6dbdcec03fa9a87257373))
+* **tenant profile:** remove some CRUD apis that profile controller it shouldn’t extend KamController ([4c5969a](https://github.com/kareemarafa/iLawFair-Backend/commit/4c5969a901d55a7597bbd223a88b1889d79d842e))
+
 ### [0.0.29](https://github.com/Ahmedtaheromar/Web-Me-backend/compare/v0.0.28...v0.0.29) (2022-12-23)
 
 
