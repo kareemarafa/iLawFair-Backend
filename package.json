@@ -9,7 +9,7 @@
     "build": "nest build",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
     "start:admin:local": "NODE_ENV=local nest start admin --watch",
-    "start:tenant:local": "NODE_ENV=local nest start tenant --watch",
+    "start:storefront:local": "NODE_ENV=local nest start storefront --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",

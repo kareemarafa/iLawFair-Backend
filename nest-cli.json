@@ -18,13 +18,13 @@
         "tsConfigPath": "apps/admin/tsconfig.app.json"
       }
     },
-    "tenant": {
+    "storefront": {
       "type": "application",
-      "root": "apps/tenant",
+      "root": "apps/storefront",
       "entryFile": "main",
-      "sourceRoot": "apps/tenant/src",
+      "sourceRoot": "apps/storefront/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/tenant/tsconfig.app.json"
+        "tsConfigPath": "apps/storefront/tsconfig.app.json"
       }
     },
     "backend-core": {
